@@ -1,0 +1,132 @@
+{% extends 'base_admin.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .details-wrapper {
+        max-width: 800px;
+        margin: 50px auto;
+    }
+
+    .asset-profile-card {
+        background: white;
+        border-radius: 25px;
+        box-shadow: 0 15px 40px rgba(27, 94, 32, 0.1);
+        border: none;
+        overflow: hidden;
+        border-top: 8px solid var(--brand-primary);
+    }
+
+    .card-header-premium {
+        background: var(--brand-light);
+        padding: 30px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .asset-title {
+        font-family: 'Playfair Display', serif;
+        font-weight: 900;
+        color: var(--brand-primary);
+        margin: 0;
+        font-size: 1.8rem;
+    }
+
+    .asset-id-badge {
+        background: var(--brand-accent);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 50px;
+        font-weight: 800;
+        font-size: 0.85rem;
+        box-shadow: 0 4px 10px rgba(255, 160, 0, 0.2);
+    }
+
+    .card-body-premium {
+        padding: 40px;
+    }
+
+    .info-label {
+        font-weight: 700;
+        color: #888;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .audio-preview-box {
+        background: #fdfdfd;
+        border: 2px dashed #e0e0e0;
+        border-radius: 15px;
+        padding: 25px;
+        text-align: center;
+    }
+
+    .btn-return-list {
+        background: white;
+        color: var(--brand-primary) !important;
+        border: 2px solid var(--brand-primary);
+        border-radius: 50px;
+        padding: 10px 25px;
+        font-weight: 700;
+        transition: 0.3s;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-return-list:hover {
+        background: var(--brand-primary);
+        color: white !important;
+        box-shadow: 0 5px 15px rgba(27, 94, 32, 0.2);
+    }
+</style>
+
+<div class="details-wrapper wow fadeInUp">
+    <div class="asset-profile-card">
+        <div class="card-header-premium">
+            <h2 class="asset-title">Asset Inspection</h2>
+            <span class="asset-id-badge">ID: #{{ word.id }}</span>
+        </div>
+
+        <div class="card-body-premium">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <span class="info-label">Curriculum Term</span>
+                    <h3 class="fw-bold text-dark">{{ word.text }}</h3>
+                </div>
+                
+                <div class="col-12 mt-3">
+                    <span class="info-label">Audio Verification Preview</span>
+                    <div class="audio-preview-box mt-2">
+                        {% if word.audio %}
+                            <audio controls class="w-100">
+                                <source src="{{ word.audio.url }}" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                            <p class="small text-muted mt-3 mb-0">
+                                <i class="fas fa-file-audio me-1"></i> File verified and active on CDN.
+                            </p>
+                        {% else %}
+                            <div class="py-3">
+                                <i class="fas fa-exclamation-triangle text-warning fa-2x mb-2"></i>
+                                <p class="text-muted fw-bold mb-0">No audio asset has been uploaded for this term.</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-5">
+        <a href="{% url 'admin_listen_spell_list' %}" class="btn-return-list shadow-sm">
+            <i class="fas fa-arrow-left me-2"></i> Back to Word Database
+        </a>
+    </div>
+</div>
+
+{% endblock content %}

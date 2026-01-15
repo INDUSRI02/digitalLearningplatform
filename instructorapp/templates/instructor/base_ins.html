@@ -1,0 +1,266 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>NabhaLearn | Faculty Portal</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link href="{% static 'instructor/img/favicon.png' %}" rel="icon">
+    <link href="{% static 'instructor/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+
+    <link href="{% static 'instructor/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'instructor/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'instructor/vendor/quill/quill.snow.css' %}" rel="stylesheet">
+    <link href="{% static 'instructor/vendor/quill/quill.bubble.css' %}" rel="stylesheet">
+    <link href="{% static 'instructor/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+    <link href="{% static 'instructor/vendor/simple-datatables/style.css' %}" rel="stylesheet">
+
+    <link href="{% static 'instructor/css/style.css' %}" rel="stylesheet">
+
+    <style>
+        :root {
+            --brand-primary: #1B5E20; /* Deep Forest Green */
+            --brand-accent: #FFA000;  /* Premium Amber */
+            --brand-light: #E8F5E9;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f8faf9;
+        }
+
+        /* Header Styling */
+        .header {
+            background: #ffffff;
+            box-shadow: 0px 2px 20px rgba(27, 94, 32, 0.1);
+            border-bottom: 2px solid var(--brand-primary);
+        }
+
+        .header .logo span {
+            font-family: 'Playfair Display', serif;
+            color: var(--brand-primary);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header .toggle-sidebar-btn {
+            color: var(--brand-primary);
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            background: #ffffff;
+            box-shadow: 0px 0px 20px rgba(27, 94, 32, 0.05);
+            border-right: 1px solid #eee;
+        }
+
+        .sidebar-nav .nav-link {
+            color: #444;
+            background: #ffffff;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .sidebar-nav .nav-link i, 
+        .sidebar-nav .nav-link .material-icons {
+            color: var(--brand-primary);
+        }
+
+        .sidebar-nav .nav-link:hover, .sidebar-nav .nav-link.active {
+            color: var(--brand-primary);
+            background: var(--brand-light);
+        }
+
+        .sidebar-nav .nav-link:not(.collapsed) {
+            background-color: var(--brand-light);
+            color: var(--brand-primary);
+        }
+
+        .sidebar-nav .nav-content a {
+            font-size: 14px;
+            font-weight: 500;
+            padding-left: 45px;
+        }
+
+        .sidebar-nav .nav-content a.active {
+            color: var(--brand-accent);
+            font-weight: 700;
+        }
+
+        .nav-profile img {
+            border: 2px solid var(--brand-primary);
+            padding: 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header" class="header fixed-top d-flex align-items-center">
+
+        <div class="d-flex align-items-center justify-content-between">
+            <a href="{% url 'ins_dashboard' %}" class="logo d-flex align-items-center">
+                <img src="{% static 'instructor/img/logo.png' %}" alt="NabhaLearn">
+                <span class="d-none d-lg-block">Faculty Hub</span>
+            </a>
+            <i class="bi bi-list toggle-sidebar-btn"></i>
+        </div>
+
+        <nav class="header-nav ms-auto">
+            <ul class="d-flex align-items-center">
+                <li class="nav-item dropdown pe-3">
+                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                        <img src="{% static 'instructor/img/logo.png' %}" alt="Profile" class="rounded-circle">
+                        <span class="d-none d-md-block dropdown-toggle ps-2 fw-bold text-dark">Instructor</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile shadow-lg border-0">
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center py-2" href="{% url 'ins_logout' %}">
+                                <i class="bi bi-box-arrow-right text-danger"></i>
+                                <span class="fw-bold">Secure Sign Out</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <aside id="sidebar" class="sidebar">
+        <ul class="sidebar-nav" id="sidebar-nav">
+
+            <li class="nav-item">
+                <a class="nav-link {% if request.resolver_match.url_name == 'ins_dashboard' %} active {% else %} collapsed {% endif %}"
+                    href="{% url 'ins_dashboard' %}">
+                    <i class="bi bi-grid-fill"></i>
+                    <span>Control Panel</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed {% if request.resolver_match.url_name == 'add_courses' or request.resolver_match.url_name == 'view_courses' %} active {% endif %}"
+                    data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                    <i class="material-icons">library_books</i><span>Curriculum Design</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="components-nav"
+                    class="nav-content collapse {% if request.resolver_match.url_name == 'add_courses' or request.resolver_match.url_name == 'view_courses' %} show {% endif %}"
+                    data-bs-parent="#sidebar-nav">
+                    <li><a href="{% url 'add_courses' %}" class="{% if request.resolver_match.url_name == 'add_courses' %} active {% endif %}"><i class="bi bi-circle"></i><span>New Subject Entry</span></a></li>
+                    <li><a href="{% url 'view_courses' %}" class="{% if request.resolver_match.url_name == 'view_courses' %} active {% endif %}"><i class="bi bi-circle"></i><span>Topic Repository</span></a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed {% if request.resolver_match.url_name == 'add_question' or request.resolver_match.url_name == 'all_questions' %} active {% endif %}"
+                    data-bs-target="#forms-nav2" data-bs-toggle="collapse" href="#">
+                    <i class="material-icons">quiz</i><span>Assessment Bank</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="forms-nav2"
+                    class="nav-content collapse {% if request.resolver_match.url_name == 'add_question' or request.resolver_match.url_name == 'all_questions' %} show {% endif %}"
+                    data-bs-parent="#sidebar-nav">
+                    <li><a href="{% url 'add_question' %}" class="{% if request.resolver_match.url_name == 'add_question' %} active {% endif %}"><i class="bi bi-circle"></i><span>Add Questions</span></a></li>
+                    <li><a href="{% url 'all_questions' %}" class="{% if request.resolver_match.url_name == 'all_questions' %} active {% endif %}"><i class="bi bi-circle"></i><span>Manage Items</span></a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed {% if request.resolver_match.url_name == 'ins_test_result' %} active {% endif %}"
+                    data-bs-target="#forms-nav10" data-bs-toggle="collapse" href="#">
+                    <i class="material-icons">analytics</i><span>Analytics & Results</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="forms-nav10"
+                    class="nav-content collapse {% if request.resolver_match.url_name == 'ins_test_result' %} show {% endif %}"
+                    data-bs-parent="#sidebar-nav">
+                    <li><a href="{% url 'ins_test_result' %}" class="{% if request.resolver_match.url_name == 'ins_test_result' %} active {% endif %}"><i class="bi bi-circle"></i><span>Scholar Performance</span></a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed {% if request.resolver_match.url_name == 'view_students' %} active {% endif %}"
+                    data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+                    <i class="material-icons">groups</i><span>Enrollment Lab</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="forms-nav"
+                    class="nav-content collapse {% if request.resolver_match.url_name == 'view_students' %} show {% endif %}"
+                    data-bs-parent="#sidebar-nav">
+                    <li><a href="{% url 'view_students' %}" class="{% if request.resolver_match.url_name == 'view_students' %} active {% endif %}"><i class="bi bi-circle"></i><span>Scholar Directory</span></a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed {% if 'time_task' in request.resolver_match.url_name or 'time_view' in request.resolver_match.url_name %} active {% endif %}" 
+                    data-bs-target="#time-management-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-clock-history"></i><span>Time Management</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="time-management-nav" class="nav-content collapse {% if 'time_task' in request.resolver_match.url_name or 'time_view' in request.resolver_match.url_name %} show {% endif %}" data-bs-parent="#sidebar-nav">
+                    <li><a href="{% url 'time_task_add' %}" class="{% if request.resolver_match.url_name == 'time_task_add' %} active {% endif %}"><i class="bi bi-circle"></i><span>Create Task</span></a></li>
+                    <li><a href="{% url 'time_task_list' %}" class="{% if request.resolver_match.url_name == 'time_task_list' %} active {% endif %}"><i class="bi bi-circle"></i><span>Task Manager</span></a></li>
+                    <li><a href="{% url 'time_view_students' %}" class="{% if request.resolver_match.url_name == 'time_view_students' %} active {% endif %}"><i class="bi bi-circle"></i><span>Completion Logs</span></a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </aside>
+
+    <main id="main" class="main">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer id="footer" class="footer mt-auto py-3 text-center border-top bg-white">
+        <div class="copyright text-muted">
+            &copy; 2026 <strong><span>NabhaLearn</span></strong>. Faculty Administration Portal
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'instructor/vendor/apexcharts/apexcharts.min.js' %}"></script>
+    <script src="{% static 'instructor/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'instructor/vendor/chart.js/chart.umd.js' %}"></script>
+    <script src="{% static 'instructor/vendor/echarts/echarts.min.js' %}"></script>
+    <script src="{% static 'instructor/vendor/quill/quill.min.js' %}"></script>
+    <script src="{% static 'instructor/vendor/simple-datatables/simple-datatables.js' %}"></script>
+    <script src="{% static 'instructor/vendor/tinymce/tinymce.min.js' %}"></script>
+    <script src="{% static 'instructor/js/main.js' %}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    {% if messages %}
+    {% for message in messages %}
+    <script>
+        swal({
+            title: "{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Error!{% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}Success!{% else %}Notification{% endif %}",
+            text: "{{ message|safe }}",
+            icon: "{% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}warning{% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}info{% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}error{% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}success{% endif %}",
+            button: "Acknowledge",
+        });
+    </script>
+    {% endfor %}
+    {% endif %}
+
+    <script>
+        $(document).ready(function () {
+            if ($('#availableDays').length) {
+                $('#availableDays').select2();
+            }
+        });
+    </script>
+
+</body>
+</html>

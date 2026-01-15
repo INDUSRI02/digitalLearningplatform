@@ -1,0 +1,251 @@
+{% extends 'base_dashboard.html' %}
+{% load static %}
+
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+    .results-container {
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        padding: 40px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        border-top: 6px solid var(--brand-primary);
+    }
+
+    .result-card-info {
+        background: #fdfdfd;
+        border-radius: 15px;
+        border: 1px solid #eee;
+        transition: 0.3s;
+    }
+
+    .result-card-info:hover {
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .table-premium {
+        border-collapse: separate;
+        border-spacing: 0 10px;
+        margin-top: 30px;
+    }
+
+    .table-premium thead th {
+        background-color: var(--brand-primary);
+        color: white;
+        border: none;
+        padding: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+    }
+
+    .table-premium thead th:first-child { border-radius: 12px 0 0 12px; }
+    .table-premium thead th:last-child { border-radius: 0 12px 12px 0; }
+
+    .table-premium tbody tr {
+        background-color: #ffffff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        transition: 0.3s;
+    }
+
+    .table-premium tbody tr:hover {
+        background-color: #f8faf9;
+        transform: scale(1.005);
+    }
+
+    .table-premium td {
+        padding: 20px 15px;
+        border: none;
+        vertical-align: middle;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .mark-badge {
+        width: 35px;
+        height: 35px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-weight: 800;
+    }
+
+    .status-timeout {
+        background-color: var(--brand-primary);
+        color: white;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        font-weight: 700;
+    }
+
+    .insight-alert {
+        border-radius: 15px;
+        border: none;
+        border-left: 5px solid var(--brand-accent);
+        background: #fff9f0;
+        color: #856404;
+        font-family: 'Playfair Display', serif;
+    }
+
+    .total-marks-row {
+        background: var(--brand-light) !important;
+        font-family: 'Playfair Display', serif;
+    }
+</style>
+
+<div class="container py-5">
+    <div class="results-container wow fadeInUp" data-wow-delay="0.1s">
+        <div class="text-center mb-5">
+            <div class="brand-icon-box mx-auto mb-3" style="width: 60px; height: 60px;">
+                <i class="fas fa-poll-h text-white fa-2x"></i>
+            </div>
+            <h2 style="font-family: 'Playfair Display', serif; font-weight: 900; color: var(--brand-primary);">Detailed Test Results</h2>
+            <p class="text-muted">A comprehensive breakdown of your academic performance.</p>
+        </div>
+
+        <div class="row g-4 mb-5">
+            <div class="col-md-7">
+                <div class="p-4 result-card-info h-100">
+                    <h4 class="mb-4 fw-bold" style="color: var(--brand-primary); border-bottom: 2px solid var(--brand-accent); display: inline-block; padding-bottom: 5px;">Performance Summary</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent px-0">
+                            <span class="fw-bold"><i class="fas fa-check-circle text-success me-2"></i> Correct Answers</span>
+                            <span class="badge bg-success rounded-pill px-3">{{correct_Answers}}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent px-0">
+                            <span class="fw-bold"><i class="fas fa-times-circle text-danger me-2"></i> Incorrect / Skipped</span>
+                            <span class="badge bg-danger rounded-pill px-3">{{wrong_Answers}}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent px-0">
+                            <span class="fw-bold"><i class="fas fa-star text-warning me-2"></i> Total Score Potential</span>
+                            <span class="badge bg-dark rounded-pill px-3">10</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent px-0">
+                            <span class="fw-bold"><i class="fas fa-percentage text-primary me-2"></i> Success Rate</span>
+                            <span class="badge bg-warning text-dark rounded-pill px-3">{{percantage}}%</span>
+                        </li>
+                    </ul>
+                    <div class="mt-4">
+                        <a href="#" class="btn btn-primary w-100 rounded-pill fw-bold py-2 shadow-sm">
+                            <i class="fas fa-file-download me-2"></i> Download Full Transcript
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="p-4 result-card-info h-100 text-center">
+                    <canvas id="pieChart" style="max-height: 250px;"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-premium">
+                <thead>
+                    <tr>
+                        <th scope="col" width="40%">Question</th>
+                        <th scope="col" width="20%">Your Response</th>
+                        <th scope="col" width="20%">Correct Answer</th>
+                        <th scope="col" width="10%" class="text-center">Marks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for result in results_details %}
+                    <tr>
+                        <td class="fw-bold text-dark">{{ result.question }}</td>
+                        <td>
+                            {% if result.user_answer %}
+                                <span class="text-muted">{{ result.user_answer }}</span>
+                            {% else %}
+                                <span class="status-timeout"><i class="fas fa-hourglass-end me-1"></i> Timed out!</span>
+                            {% endif %}
+                        </td>
+                        <td class="text-success fw-bold">{{ result.correct_answer }}</td>
+                        <td class="text-center">
+                            <span class="mark-badge {% if result.marks == 1 %}bg-success text-white shadow-sm{% else %}bg-light text-muted{% endif %}">
+                                {{ result.marks }}
+                            </span>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    
+                    <tr class="total-marks-row">
+                        <td colspan="3" class="text-end fw-bold fs-5">Final Marks Obtained:</td>
+                        <td class="text-center">
+                            <div class="mark-badge bg-warning text-dark shadow-sm fs-5 w-auto px-3" style="border-radius: 10px;">
+                                {{ total_marks_final }} / 10
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="alert insight-alert mx-auto mt-5 p-4 shadow-sm wow pulse" data-wow-iteration="infinite" data-wow-duration="3s">
+            <div class="d-flex align-items-center justify-content-center">
+                <i class="fas fa-lightbulb fa-2x me-3 text-warning"></i>
+                <div class="text-start">
+                    <h5 class="fw-bold m-0 mb-1">Scholar Insight:</h5>
+                    {% if total_marks_final >= 0 and total_marks_final <= 3 %}
+                        <p class="m-0">Your performance is below average. Keep practicing with our bilingual modules to improve.</p>
+                    {% elif total_marks_final >= 4 and total_marks_final <= 6 %}
+                        <p class="m-0">Your performance is average. Aim for higher scores in your next challenge.</p>
+                    {% elif total_marks_final >= 7 and total_marks_final <= 8 %}
+                        <p class="m-0">Your performance is good. You are demonstrating strong bilingual skills!</p>
+                    {% elif total_marks_final > 8 %}
+                        <p class="m-0">Congratulations! You've performed exceptionally well. You're a top scholar!</p>
+                    {% else %}
+                        <p class="m-0">Detailed analysis is being prepared for your profile.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-5">
+            <a href="{% url 'user_dashboard' %}" class="btn btn-outline-success rounded-pill px-5">
+                <i class="fas fa-arrow-left me-2"></i> Return to Learning Arena
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Logic preserved exactly from your snippet
+    const data = {
+        labels: ['Correct', 'Incorrect/Skipped'],
+        datasets: [{
+            data: [{{correct_Answers}}, {{wrong_Answers}}], 
+            backgroundColor: [ '#1B5E20', '#FFA000' ],
+            borderColor: [ '#ffffff', '#ffffff' ],
+            borderWidth: 2
+        }]
+    };
+    
+    const config = {
+        type: 'pie',
+        data: data,
+        options: {
+            maintainAspectRatio: false,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Answer Distribution',
+                    font: { size: 18, family: 'Playfair Display' },
+                    color: '#1B5E20'
+                },
+                legend: { position: 'bottom' }
+            }
+        }
+    };
+    
+    const ctx = document.getElementById('pieChart').getContext('2d');
+    const myPieChart = new Chart(ctx, config);
+</script>
+
+{% endblock content %}

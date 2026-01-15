@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    
+    <title>NabhaLearn | Admin Management</title>
+
+    <link rel="icon" type="image/x-icon" href="{% static 'new-small-logo.png' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css">
+    <link rel="stylesheet" href="{% static 'adminfiles/assets/vendor/css/core.css' %}" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="{% static 'adminfiles/assets/vendor/css/theme-default.css' %}" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="{% static 'adminfiles/assets/vendor/fonts/boxicons.css' %}" />
+    <link rel="stylesheet" href="{% static 'adminfiles/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css' %}" />
+    <link rel="stylesheet" href="{% static 'adminfiles/assets/vendor/libs/apex-charts/apex-charts.css' %}" />
+
+    <style>
+        :root {
+            --brand-primary: #1B5E20; /* Deep Forest Green */
+            --brand-accent: #FFA000;  /* Premium Amber */
+            --brand-light: #E8F5E9;
+        }
+
+        body { font-family: 'Outfit', sans-serif; background-color: #f8faf9; }
+        
+        /* Sidebar Styling */
+        .bg-menu-theme { background-color: #ffffff !important; box-shadow: 5px 0 20px rgba(0,0,0,0.02) !important; }
+        .menu-vertical .menu-item.active > .menu-link:not(.menu-toggle) {
+            background-color: var(--brand-primary) !important;
+            color: #fff !important;
+        }
+        .menu-vertical .menu-item.open > .menu-link { color: var(--brand-primary); font-weight: 700; }
+        .menu-link:hover { color: var(--brand-accent) !important; }
+        
+        /* Navbar Styling */
+        .layout-navbar { 
+            background: rgba(255, 255, 255, 0.9) !important; 
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #eee;
+        }
+
+        .app-brand-premium {
+            padding: 1.5rem;
+            border-bottom: 1px solid #f0f0f0;
+            margin-bottom: 1rem;
+        }
+
+        .menu-icon img { filter: sepia(1) saturate(0) brightness(0.5); }
+        .active .menu-icon img { filter: brightness(0) invert(1); }
+
+        .btn-logout { 
+            color: #d32f2f !important; 
+            font-weight: 700; 
+        }
+    </style>
+
+    <script src="{% static 'adminfiles/assets/vendor/js/helpers.js' %}"></script>
+    <script src="{% static 'adminfiles/assets/js/config.js' %}"></script>
+</head>
+
+<body>
+
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+                <div class="app-brand-premium text-center">
+                    <a href="{% url 'admin_dashboard' %}" class="app-brand-link">
+                        <img src="{% static 'adminfiles/img/cb2.jpeg' %}" alt="Nabha"
+                             style="width: 60px; height: 60px; border: 3px solid var(--brand-primary); padding: 2px; border-radius: 50%;">
+                        <span class="ms-3 fw-bolder text-dark fs-4" style="font-family: 'Playfair Display';">NabhaAdmin</span>
+                    </a>
+                </div>
+
+                <ul class="menu-inner py-1">
+                    <li class="menu-item {% if request.resolver_match.url_name == 'admin_dashboard' %} active {% endif %}">
+                        <a href="{% url 'admin_dashboard' %}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                            <div>Analytics Overview</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Curriculum Control</span></li>
+
+                    <li class="menu-item {% if 'listen_spell' in request.resolver_match.url_name %} open {% endif %}">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-volume-full"></i>
+                            <div>Listen & Spell</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item {% if request.resolver_match.url_name == 'admin_listen_spell_add' %} active {% endif %}">
+                                <a href="{% url 'admin_listen_spell_add' %}" class="menu-link">Add New Word</a>
+                            </li>
+                            <li class="menu-item {% if request.resolver_match.url_name == 'admin_listen_spell_list' %} active {% endif %}">
+                                <a href="{% url 'admin_listen_spell_list' %}" class="menu-link">Manage Database</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item {% if 'self_reflection' in request.resolver_match.url_name %} open {% endif %}">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-brain"></i>
+                            <div>Self Reflection</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item {% if request.resolver_match.url_name == 'admin_self_reflection_add' %} active {% endif %}">
+                                <a href="{% url 'admin_self_reflection_add' %}" class="menu-link">Add Questions</a>
+                            </li>
+                            <li class="menu-item {% if request.resolver_match.url_name == 'admin_self_reflection_list' %} active {% endif %}">
+                                <a href="{% url 'admin_self_reflection_list' %}" class="menu-link">Manage Prompts</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item {% if request.resolver_match.url_name == 'admin_user_progress' %} active {% endif %}">
+                        <a href="{% url 'admin_user_progress' %}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-trending-up"></i>
+                            <div>Scholar Progress</div>
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+
+            <div class="layout-page">
+                <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center" id="layout-navbar">
+                    <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+                        <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+                            <i class="bx bx-menu bx-sm"></i>
+                        </a>
+                    </div>
+
+                    <div class="navbar-nav-right d-flex align-items-center w-100" id="navbar-collapse">
+                        <div class="d-flex align-items-center">
+                            <img src="{% static 'adminfiles/img/cb.png' %}" alt="Logo" style="width: 180px;">
+                        </div>
+
+                        <ul class="navbar-nav flex-row align-items-center ms-auto">
+                            <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                                    <div class="avatar avatar-online">
+                                        <img src="{% static 'adminfiles/img/admin.png' %}" alt="Admin" class="w-px-40 h-auto rounded-circle border border-2 border-success" />
+                                    </div>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
+                                    <li>
+                                        <a class="dropdown-item btn-logout" href="{% url 'admin_logout' %}">
+                                            <i class="bx bx-power-off me-2"></i>
+                                            <span class="align-middle">Secure Logout</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <div class="content-wrapper">
+                    <div class="container-xxl flex-grow-1 container-p-y">
+                        {% block content %}
+                        {% endblock %}
+                    </div>
+                </div>
+
+                <div class="content-backdrop fade"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'adminfiles/assets/vendor/libs/jquery/jquery.js' %}"></script>
+    <script src="{% static 'adminfiles/assets/vendor/libs/popper/popper.js' %}"></script>
+    <script src="{% static 'adminfiles/assets/vendor/js/bootstrap.js' %}"></script>
+    <script src="{% static 'adminfiles/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js' %}"></script>
+    <script src="{% static 'adminfiles/assets/vendor/js/menu.js' %}"></script>
+    <script src="{% static 'adminfiles/assets/js/main.js' %}"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    {% if messages %}
+    {% for message in messages %}
+    <script>
+        swal({
+            title: "{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Error!{% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}Success!{% else %}Notification{% endif %}",
+            text: "{{ message|safe }}",
+            icon: "{% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}warning{% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}info{% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}error{% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}success{% endif %}",
+            button: "Acknowledge",
+        });
+    </script>
+    {% endfor %}
+    {% endif %}
+
+</body>
+</html>

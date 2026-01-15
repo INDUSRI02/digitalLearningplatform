@@ -1,0 +1,142 @@
+{% extends 'base_dashboard.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .game-entry-section {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #f8faf9 0%, #e8f5e9 100%);
+        padding: 50px 0;
+    }
+
+    .game-card {
+        background: white;
+        border-radius: 25px;
+        box-shadow: 0 15px 40px rgba(27, 94, 32, 0.1);
+        border-top: 6px solid var(--brand-primary);
+        padding: 45px;
+        width: 100%;
+        max-width: 500px;
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+    .game-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .icon-badge {
+        width: 80px;
+        height: 80px;
+        background: var(--brand-primary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 25px;
+        font-size: 32px;
+        box-shadow: 0 8px 20px rgba(27, 94, 32, 0.2);
+    }
+
+    .game-card h2 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 900;
+        color: var(--brand-primary);
+        margin-bottom: 15px;
+    }
+
+    .form-label {
+        font-weight: 700;
+        color: var(--brand-primary);
+        margin-bottom: 12px;
+        display: block;
+    }
+
+    .custom-select-premium {
+        border: 2px solid #eee;
+        border-radius: 12px;
+        padding: 12px;
+        font-weight: 600;
+        color: var(--text-main);
+        background-color: #fdfdfd;
+        transition: 0.3s;
+        cursor: pointer;
+    }
+
+    .custom-select-premium:focus {
+        border-color: var(--brand-accent);
+        background-color: white;
+        box-shadow: 0 0 10px rgba(255, 160, 0, 0.1);
+        outline: none;
+    }
+
+    .btn-start-game {
+        background-color: var(--brand-primary);
+        border: none;
+        border-radius: 50px;
+        padding: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: 0.4s;
+        color: white;
+    }
+
+    .btn-start-game:hover {
+        background-color: var(--brand-accent);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(255, 160, 0, 0.2);
+        color: white;
+    }
+
+    .game-tip {
+        background: rgba(255, 160, 0, 0.05);
+        border-left: 4px solid var(--brand-accent);
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 30px;
+        font-size: 0.85rem;
+        color: #666;
+    }
+</style>
+
+<div class="container-fluid game-entry-section">
+    <div class="game-card wow zoomIn" data-wow-delay="0.1s">
+        <div class="icon-badge">
+            <i class="fas fa-hourglass-start"></i>
+        </div>
+
+        <h2>Time Management</h2>
+        <p class="text-muted small mb-4">Learn how to balance your school tasks and fun activities through this interactive challenge!</p>
+
+        <form method="POST" action="">
+            {% csrf_token %}
+            
+            <div class="mb-4 text-start">
+                <label for="grade_level" class="form-label text-center w-100">Which grade are you in?</label>
+                <select id="grade_level" name="grade_level" class="form-select custom-select-premium" required>
+                    <option value="" disabled selected>Choose your Grade...</option>
+                    <option value="A">Grade A (Primary)</option>
+                    <option value="B">Grade B (Middle)</option>
+                    <option value="C">Grade C (Secondary)</option>
+                    <option value="D">Grade D (Higher Secondary)</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-start-game w-100 shadow">
+                Start Playing <i class="fas fa-play-circle ms-2"></i>
+            </button>
+        </form>
+
+        <div class="game-tip text-start">
+            <strong><i class="fas fa-lightbulb text-warning me-2"></i>Quick Tip:</strong> 
+            Managing your time well helps you finish homework faster so you have more time to play with friends!
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,156 @@
+{% extends "base_dashboard.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+    .profile-container {
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        overflow: hidden;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        border-top: 6px solid var(--brand-primary);
+    }
+
+    .profile-header {
+        background: linear-gradient(to right, #f8faf9, #ffffff);
+        padding: 40px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .profile-img {
+        border-radius: 50%;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        border: 4px solid white;
+        object-fit: cover;
+    }
+
+    .form-label {
+        font-weight: 700;
+        font-size: 0.85rem;
+        color: var(--brand-primary);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 8px;
+        display: block;
+    }
+
+    .form-control-profile {
+        border-radius: 12px;
+        padding: 12px 15px;
+        border: 2px solid #f0f0f0;
+        background-color: #fdfdfd;
+        transition: 0.3s;
+        width: 100%;
+        color: var(--text-main);
+    }
+
+    .form-control-profile:focus {
+        border-color: var(--brand-accent);
+        background-color: white;
+        outline: none;
+        box-shadow: 0 0 10px rgba(255, 160, 0, 0.1);
+    }
+
+    .form-control-profile[readonly] {
+        background-color: #f1f3f2;
+        cursor: not-allowed;
+        border-color: #e0e0e0;
+    }
+
+    .btn-update {
+        background: var(--brand-primary);
+        color: white;
+        border: none;
+        padding: 15px 40px;
+        border-radius: 50px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: 0.4s;
+    }
+
+    .btn-update:hover {
+        background: var(--brand-accent);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(255, 160, 0, 0.2);
+        color: white;
+    }
+
+    .notice-text {
+        background: rgba(211, 47, 47, 0.05);
+        color: #d32f2f;
+        padding: 10px;
+        border-radius: 8px;
+        font-weight: 600;
+        display: inline-block;
+    }
+</style>
+
+<div class="container py-5">
+    <div class="profile-container wow fadeInUp" data-wow-delay="0.1s">
+        <div class="profile-header">
+            <div class="row align-items-center">
+                <div class="col-md-auto text-center text-md-start mb-3 mb-md-0">
+                    <img src="{{user.photo.url}}" class="profile-img" width="130" height="130" alt="Profile">
+                </div>
+                <div class="col-md ms-md-4 text-center text-md-start">
+                    <h2 class="mb-1 fw-bold" style="font-family: 'Playfair Display', serif; color: var(--brand-primary);">{{user.full_name}}</h2>
+                    <p class="text-muted mb-0"><i class="fas fa-envelope me-2"></i>{{user.email}}</p>
+                    <span class="badge bg-success mt-2 px-3 rounded-pill">Student Account</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-4 p-md-5">
+            <div class="d-flex align-items-center mb-5">
+                <i class="fas fa-cog fa-2x text-warning me-3"></i>
+                <h3 class="m-0 fw-bold" style="font-family: 'Playfair Display', serif;">Profile Settings</h3>
+            </div>
+
+            <form action="{% url 'user_profile' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <label class="form-label">Full Name (Locked)</label>
+                        <input type="text" class="form-control-profile" readonly name="name" value="{{user.full_name}}">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Email Address (Locked)</label>
+                        <input type="text" class="form-control-profile" readonly name="email" value="{{user.email}}">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Mobile Number</label>
+                        <input type="number" class="form-control-profile" placeholder="Enter phone number" name="phone" value="{{user.phone_number}}">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Account Password</label>
+                        <input type="password" class="form-control-profile" name="password" value="{{user.password}}">
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label">Home Address</label>
+                        <input type="text" class="form-control-profile" placeholder="Village, Street, Nabha" name="location" value="{{user.address}}">
+                    </div>
+
+                    <div class="col-12 text-center mt-5">
+                        <button class="btn btn-update px-5" type="submit">
+                            Save Changes <i class="fas fa-save ms-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="text-center mt-4 pt-3 border-top">
+                <p class="notice-text small mb-0">
+                    <i class="fas fa-info-circle me-2"></i>Security Notice: Full Name and Email are permanent and cannot be modified.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

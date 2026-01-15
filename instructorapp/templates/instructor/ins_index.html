@@ -1,0 +1,186 @@
+{% extends 'instructor/base_ins.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .instructor-dashboard-wrapper {
+        padding: 20px;
+    }
+
+    .pagetitle h1 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 900;
+        color: var(--brand-primary);
+        font-size: 2.2rem;
+    }
+
+    /* Metric Card Styling */
+    .metric-card-premium {
+        background: white;
+        border-radius: 20px;
+        border: none;
+        box-shadow: 0 10px 30px rgba(27, 94, 32, 0.05);
+        transition: all 0.3s ease;
+        margin-bottom: 30px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .metric-card-premium:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(27, 94, 32, 0.1);
+    }
+
+    .card-body-content {
+        padding: 30px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .metric-title {
+        font-size: 0.8rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #888;
+        margin-bottom: 15px;
+        display: block;
+    }
+
+    .metric-value-box {
+        display: flex;
+        align-items: center;
+    }
+
+    .metric-icon-box {
+        width: 60px;
+        height: 60px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin-right: 20px;
+    }
+
+    /* NabhaLearn Brand Variants */
+    .icon-students { background: var(--brand-light); color: var(--brand-primary); }
+    .icon-courses { background: #fff8e1; color: var(--brand-accent); }
+    .icon-questions { background: #e3f2fd; color: #1976d2; }
+
+    .metric-number {
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: #333;
+        line-height: 1;
+        display: block;
+    }
+
+    .metric-label {
+        font-size: 0.9rem;
+        color: #777;
+        font-weight: 600;
+    }
+
+    .welcome-banner {
+        background: linear-gradient(135deg, var(--brand-primary) 0%, #2e7d32 100%);
+        border-radius: 20px;
+        padding: 40px;
+        color: white;
+        margin-bottom: 40px;
+        box-shadow: 0 10px 30px rgba(27, 94, 32, 0.2);
+    }
+</style>
+
+
+    <div class="pagetitle wow fadeInDown">
+        <h1>Faculty Command Center</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="">Platform</a></li>
+                <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+        </nav>
+    </div><section class="section dashboard instructor-dashboard-wrapper">
+        
+        <div class="welcome-banner wow fadeInUp" data-wow-delay="0.1s">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h2 class="fw-bold mb-2" style="font-family: 'Playfair Display';">Welcome to NabhaLearn Portal</h2>
+                    <p class="mb-0 opacity-75">Manage your curriculum, track scholar progress, and expand your assessment bank from this central hub.</p>
+                </div>
+                <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                    <a href="{% url 'add_courses' %}" class="btn btn-light rounded-pill px-4 fw-bold text-success">
+                        <i class="fas fa-plus me-2"></i>New Topic
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row g-4">
+
+                    <div class="col-md-4">
+                        <div class="card metric-card-premium wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="card-body-content">
+                                <span class="metric-title">Scholar Base</span>
+                                <div class="metric-value-box">
+                                    <div class="metric-icon-box icon-students shadow-sm">
+                                        <i class="fa-solid fa-user-graduate"></i>
+                                    </div>
+                                    <div>
+                                        <span class="metric-number">{{ total_students }}</span>
+                                        <span class="metric-label">Enrolled Students</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card metric-card-premium wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="card-body-content">
+                                <span class="metric-title">Curriculum</span>
+                                <div class="metric-value-box">
+                                    <div class="metric-icon-box icon-courses shadow-sm">
+                                        <i class="fas fa-book-open"></i>
+                                    </div>
+                                    <div>
+                                        <span class="metric-number">{{ total_courses }}</span>
+                                        <span class="metric-label">Active Topics</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card metric-card-premium wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="card-body-content">
+                                <span class="metric-title">Assessments</span>
+                                <div class="metric-value-box">
+                                    <div class="metric-icon-box icon-questions shadow-sm">
+                                        <i class="fas fa-question-circle"></i>
+                                    </div>
+                                    <div>
+                                        <span class="metric-number">{{ total_questions }}</span>
+                                        <span class="metric-label">Items in Bank</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><div class="row mt-2">
+                    <div class="col-12">
+                        <div class="card border-0 rounded-4 shadow-sm p-4 text-center bg-white">
+                            <h5 class="fw-bold text-muted mb-0">Navigate via the sidebar to manage your academic profile and student feedback.</h5>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+{% endblock content %}

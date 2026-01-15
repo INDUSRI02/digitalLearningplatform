@@ -1,0 +1,168 @@
+{% extends 'instructor/base_ins.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .analytics-wrapper {
+        padding: 20px;
+    }
+
+    /* Premium Analytics Card */
+    .analytics-card-premium {
+        background: white;
+        border-radius: 25px;
+        box-shadow: 0 15px 40px rgba(27, 94, 32, 0.08);
+        border: none;
+        padding: 40px;
+        margin-top: 20px;
+        border-top: 8px solid var(--brand-primary);
+    }
+
+    .chart-container {
+        position: relative;
+        height: 65vh;
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .pagetitle h1 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 900;
+        color: var(--brand-primary);
+    }
+
+    .insight-header {
+        background: var(--brand-light);
+        padding: 15px 25px;
+        border-radius: 15px;
+        display: inline-block;
+        margin-bottom: 20px;
+    }
+
+    .insight-text {
+        font-weight: 700;
+        color: var(--brand-primary);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.85rem;
+    }
+</style>
+
+
+    <div class="pagetitle wow fadeInDown">
+        <h1>Sentiment Analytics</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="">Faculty Hub</a></li>
+                <li class="breadcrumb-item active">Feedback Insights</li>
+            </ol>
+        </nav>
+    </div><section class="section analytics-wrapper">
+        <div class="analytics-card-premium wow fadeInUp">
+            <div class="text-center">
+                <div class="insight-header shadow-sm">
+                    <span class="insight-text">
+                        <i class="fas fa-chart-pie me-2 text-warning"></i> 
+                        Scholar Satisfaction Distribution
+                    </span>
+                </div>
+                <p class="text-muted small mx-auto" style="max-width: 600px;">
+                    This visualization represents the aggregate sentiment of scholars enrolled in your topics. 
+                    Use these insights to refine your curriculum and delivery methods.
+                </p>
+            </div>
+
+            
+            <div class="chart-container">
+                <canvas id="sentimentsChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    // Data mapping from Django preserved
+    const rating1Count = {{ rating_counts.rating1 }};
+    const rating2Count = {{ rating_counts.rating2 }};
+    const rating3Count = {{ rating_counts.rating3 }};
+    const rating4Count = {{ rating_counts.rating4 }};
+    const rating5Count = {{ rating_counts.rating5 }};
+
+    const sentimentsData = {
+        labels: ['😢 Very Dissatisfied', '😐 Neutral', '😊 Satisfied', '😄 Very Happy', '🌟 Exceptional'],
+        datasets: [{
+            label: 'Total Feedback Count',
+            data: [rating1Count, rating2Count, rating3Count, rating4Count, rating5Count],
+            // NabhaLearn Brand Palette
+            backgroundColor: [
+                'rgba(211, 47, 47, 0.7)',  // Red
+                'rgba(158, 158, 158, 0.7)', // Gray
+                'rgba(46, 125, 50, 0.6)',   // Light Forest
+                'rgba(27, 94, 32, 0.8)',    // Deep Forest
+                'rgba(255, 160, 0, 0.9)'    // Brand Amber
+            ],
+            borderColor: [
+                '#d32f2f',
+                '#9e9e9e',
+                '#2e7d32',
+                '#1B5E20',
+                '#FFA000'
+            ],
+            borderWidth: 2,
+            borderRadius: 15,
+            barThickness: 80,
+            maxBarThickness: 100
+        }]
+    };
+
+    const ctx = document.getElementById('sentimentsChart').getContext('2d');
+    const sentimentsChart = new Chart(ctx, {
+        type: 'bar',
+        data: sentimentsData,
+        options: {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    backgroundColor: '#1B5E20',
+                    padding: 15,
+                    titleFont: { size: 14, weight: 'bold' },
+                    bodyFont: { size: 13 },
+                    displayColors: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        color: '#f0f0f0',
+                        drawBorder: false
+                    },
+                    ticks: {
+                        font: { weight: '600' },
+                        color: '#888'
+                    }
+                },
+                x: {
+                    grid: {
+                        display: false
+                    },
+                    ticks: {
+                        font: { size: 13, weight: '700' },
+                        color: '#333'
+                    }
+                }
+            },
+            animation: {
+                duration: 2000,
+                easing: 'easeOutElastic'
+            }
+        }
+    });
+</script>
+
+{% endblock content %}

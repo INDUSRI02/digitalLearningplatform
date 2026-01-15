@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <title>NabhaLearn | Student Dashboard</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <style>
+        :root {
+            --brand-primary: #1B5E20; 
+            --brand-accent: #FFA000;  
+            --brand-light: #F8FAF9;
+            --text-main: #2D3436;
+            --footer-dark: #0F172A;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--brand-light);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        /* --- LOADER --- */
+        #spinner {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+            z-index: 999999;
+        }
+        #spinner.fade-out {
+            opacity: 0 !important;
+            visibility: hidden !important;
+        }
+
+        /* --- DASHBOARD NAVBAR --- */
+        .navbar {
+            background: rgba(255, 255, 255, 0.98) !important;
+            padding: 0.8rem 2rem !important;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            border-bottom: 3px solid var(--brand-primary);
+        }
+
+        .navbar-light .navbar-nav .nav-link {
+            font-weight: 600;
+            color: var(--text-main) !important;
+            position: relative;
+            padding: 10px 15px !important;
+            margin: 0 5px;
+            transition: 0.3s ease;
+        }
+
+        .navbar-light .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--brand-accent);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .navbar-light .navbar-nav .nav-link:hover::after,
+        .navbar-light .navbar-nav .nav-link.active::after {
+            width: 25px;
+        }
+
+        .navbar-light .navbar-nav .nav-link.active {
+            color: var(--brand-primary) !important;
+        }
+
+        /* Branding Box */
+        .brand-icon-box {
+            background: linear-gradient(135deg, var(--brand-primary), #388E3C);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            margin-right: 12px;
+        }
+
+        .brand-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 1.6rem;
+            color: var(--brand-primary) !important;
+        }
+        .brand-text span { color: var(--brand-accent); }
+
+        /* Logout Button */
+        .btn-logout {
+            background: #d32f2f;
+            color: white !important;
+            font-weight: 600;
+            padding: 8px 20px !important;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+        .btn-logout:hover {
+            background: #b71c1c;
+            transform: scale(1.05);
+        }
+
+        /* --- DASHBOARD FOOTER --- */
+        .footer-dashboard {
+            background: var(--footer-dark);
+            color: #CBD5E1;
+            padding: 60px 0 20px 0;
+            margin-top: 50px;
+        }
+
+        .footer-title {
+            font-family: 'Playfair Display', serif;
+            color: white;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-link {
+            color: #94A3B8;
+            text-decoration: none;
+            transition: 0.3s;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .footer-link:hover {
+            color: var(--brand-accent);
+            padding-left: 5px;
+        }
+
+        .back-to-top {
+            background: var(--brand-accent);
+            color: white;
+            border-radius: 10px;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.4s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="spinner" class="bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-success" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+    <div class="container-fluid sticky-top p-0">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a href="{% url 'user_dashboard' %}" class="navbar-brand d-flex align-items-center">
+                <div class="brand-icon-box">
+                    <i class="fas fa-graduation-cap text-white"></i>
+                </div>
+                <span class="brand-text">Nabha<span>Learn</span></span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars text-primary"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="{% url 'user_dashboard' %}"
+                        class="nav-item nav-link {% if request.resolver_match.url_name == 'user_dashboard' %}active{% endif %}">Dashboard</a>
+                  
+                    <a href="{% url 'feedback' %}"
+                        class="nav-item nav-link {% if request.resolver_match.url_name == 'feedback' %} active {% endif %}">Feedback</a>
+                        
+                    <a href="{% url 'user_profile' %}"
+                        class="nav-item nav-link {% if request.resolver_match.url_name == 'user_profile' %} active {% endif %}">My Profile</a>
+                </div>
+                <a href="{% url 'user_logout' %}" class="btn-logout ms-lg-3">
+                    <i class="fas fa-power-off me-2"></i>Logout
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <main>
+        {% block content %}{% endblock content %}
+    </main>
+
+    <footer class="footer-dashboard">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h4 class="brand-text text-white mb-4">Nabha<span>Learn</span></h4>
+                    <p class="small">Your personal digital gateway to curriculum-aligned learning in Nabha. Track your progress and master new skills daily.</p>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="footer-title">Learning Center</h5>
+                    <a href="#" class="footer-link small"><i class="fas fa-chevron-right me-2"></i> PDF Summaries</a>
+                    <a href="#" class="footer-link small"><i class="fas fa-chevron-right me-2"></i> Text Extraction</a>
+                    <a href="#" class="footer-link small"><i class="fas fa-chevron-right me-2"></i> Practice Quizzes</a>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="footer-title">Contact Helpdesk</h5>
+                    <p class="small mb-2"><i class="fa fa-envelope me-2 text-warning"></i> support@nabhalearn.in</p>
+                    <p class="small mb-0"><i class="fa fa-map-marker-alt me-2 text-warning"></i> Nabha Regional Office</p>
+                </div>
+            </div>
+            <hr class="mt-5 opacity-25">
+            <div class="row py-3">
+                <div class="col-md-6 text-center text-md-start small">
+                    © 2026 NabhaLearn Student Portal.
+                </div>
+                <div class="col-md-6 text-center text-md-end small">
+                    Designed for Rural Schools by <a href="https://VVITU.in" target="_blank" class="text-warning text-decoration-none">VVITU</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top position-fixed bottom-0 end-0 m-4 shadow text-decoration-none">
+        <i class="fa fa-arrow-up"></i>
+    </a>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'main/js/main.js' %}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Fail-safe hide after 3.5s
+            setTimeout(function() { $('#spinner').addClass('fade-out'); }, 3500); 
+            $(window).on('load', function() { $('#spinner').addClass('fade-out'); });
+        });
+    </script>
+
+    {% if messages %}
+    {% for message in messages %}
+    <script>
+        swal({
+            title: "{% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}Success!{% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Error!{% else %}Update{% endif %}",
+            text: "{{message|safe}}",
+            icon: "{{message.tags}}",
+            button: "Got it",
+        });
+    </script>
+    {% endfor %}
+    {% endif %}
+
+</body>
+</html>

@@ -1,0 +1,214 @@
+{% extends 'instructor/base_ins.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .admin-content-wrapper {
+        padding: 30px;
+        background: #f8faf9;
+        min-height: 100vh;
+    }
+
+    .page-header-premium {
+        margin-bottom: 30px;
+        border-left: 5px solid var(--brand-accent);
+        padding-left: 20px;
+    }
+
+    .page-header-premium h1 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 900;
+        color: var(--brand-primary);
+        font-size: 2.2rem;
+        margin-bottom: 5px;
+    }
+
+    .breadcrumb-item a {
+        color: var(--brand-primary);
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .results-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(27, 94, 32, 0.05);
+        border: none;
+        padding: 30px;
+    }
+
+    .table-premium {
+        border-collapse: separate;
+        border-spacing: 0 12px;
+    }
+
+    .table-premium thead th {
+        background-color: var(--brand-primary);
+        color: white;
+        border: none;
+        padding: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+
+    .table-premium thead th:first-child { border-radius: 12px 0 0 12px; }
+    .table-premium thead th:last-child { border-radius: 0 12px 12px 0; }
+
+    .table-premium tbody tr {
+        background-color: #ffffff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        transition: 0.3s;
+    }
+
+    .table-premium tbody tr:hover {
+        background-color: #f8faf9;
+        transform: scale(1.005);
+    }
+
+    .table-premium td {
+        padding: 15px;
+        border: none;
+        vertical-align: middle;
+        font-size: 0.95rem;
+        color: #444;
+    }
+
+    .marks-badge {
+        background: var(--brand-light);
+        color: var(--brand-primary);
+        padding: 5px 15px;
+        border-radius: 50px;
+        font-weight: 800;
+        border: 1px solid var(--brand-primary);
+    }
+
+    .btn-details-premium {
+        background: var(--brand-accent);
+        color: white !important;
+        border: none;
+        border-radius: 50px;
+        padding: 8px 20px;
+        font-weight: 700;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        transition: 0.4s;
+    }
+
+    .btn-details-premium:hover {
+        background: var(--brand-primary);
+        box-shadow: 0 5px 15px rgba(27, 94, 32, 0.2);
+    }
+
+    /* Pagination Styling */
+    .pagination .page-link {
+        color: var(--brand-primary);
+        border: none;
+        margin: 0 3px;
+        border-radius: 8px;
+        font-weight: 700;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .pagination .page-item.disabled .page-link {
+        background: transparent;
+        color: #888;
+    }
+
+    .pagination .page-item:not(.disabled) .page-link:hover {
+        background-color: var(--brand-accent);
+        color: white;
+    }
+</style>
+
+
+    <div class="page-header-premium wow fadeInDown">
+        <h1>Examination Registry</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="">Faculty Hub</a></li>
+                <li class="breadcrumb-item active">Test Logs</li>
+            </ol>
+        </nav>
+    </div>
+
+    <section class="section">
+        <div class="results-card shadow-sm">
+            <div class="d-flex align-items-center mb-4">
+                <div class="bg-success text-white rounded-circle p-2 me-3 shadow-sm" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-file-invoice"></i>
+                </div>
+                <h5 class="m-0 fw-bold" style="color: var(--brand-primary);">Scholar Performance Records</h5>
+            </div>
+
+            {% if page_obj %}
+            <div class="table-responsive">
+                <table class="table table-premium">
+                    <thead>
+                        <tr class="text-center">
+                            <th scope="col" width="30%">Assessment Name</th>
+                            <th scope="col" width="25%">Submission Date</th>
+                            <th scope="col" width="20%">Final Score</th>
+                            <th scope="col" width="25%">Full Analysis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for test in page_obj %}
+                        <tr class="text-center">
+                            <td class="fw-bold text-dark">{{ test.test_name }}</td>
+                            <td class="text-muted small">{{ test.test_date }}</td>
+                            <td>
+                                <span class="marks-badge shadow-sm">{{ test.test_marks }}</span>
+                            </td>
+                            <td>
+                                <a href="{% url 'ins_full_test_deatils' test_id=test.pk %}" class="btn-details-premium shadow-sm">
+                                    <i class="fas fa-chart-line me-1"></i> View Details
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <nav aria-label="Page navigation" class="mt-5">
+                <ul class="pagination justify-content-center align-items-center">
+                    {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page=1"><i class="fas fa-angle-double-left"></i></a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}"><i class="fas fa-chevron-left"></i></a>
+                    </li>
+                    {% endif %}
+
+                    <li class="page-item disabled">
+                        <span class="page-link small fw-bold">
+                            Scholarly Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                        </span>
+                    </li>
+
+                    {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}"><i class="fas fa-chevron-right"></i></a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}"><i class="fas fa-angle-double-right"></i></a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+            {% else %}
+            <div class="text-center py-5">
+                <div class="alert alert-info border-0 shadow-sm rounded-4 p-5 d-inline-block col-md-8">
+                    <i class="fas fa-user-edit fa-3x mb-3 text-info"></i>
+                    <h5 class="fw-bold">Registry Empty</h5>
+                    <p class="mb-0 text-muted">Scholars have not yet attempted your published assessments. New submissions will appear here automatically.</p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
+{% endblock content %}

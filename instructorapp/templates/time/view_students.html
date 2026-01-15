@@ -1,0 +1,176 @@
+{% extends 'instructor/base_ins.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .log-wrapper {
+        padding: 30px;
+        background: #f8faf9;
+        min-height: 100vh;
+    }
+
+    .page-header-premium {
+        margin-bottom: 30px;
+        border-left: 5px solid var(--brand-accent);
+        padding-left: 20px;
+    }
+
+    .page-header-premium h1 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 900;
+        color: var(--brand-primary);
+        font-size: 2.2rem;
+        margin-bottom: 5px;
+    }
+
+    .audit-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(27, 94, 32, 0.05);
+        border: none;
+        padding: 35px;
+    }
+
+    .table-premium {
+        border-collapse: separate;
+        border-spacing: 0 12px;
+    }
+
+    .table-premium thead th {
+        background-color: var(--brand-primary);
+        color: white;
+        border: none;
+        padding: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+    }
+
+    .table-premium thead th:first-child { border-radius: 15px 0 0 15px; }
+    .table-premium thead th:last-child { border-radius: 0 15px 15px 0; }
+
+    .table-premium tbody tr {
+        background-color: #ffffff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        transition: 0.3s;
+    }
+
+    .table-premium tbody tr:hover {
+        background-color: #f8faf9;
+        transform: scale(1.005);
+    }
+
+    .table-premium td {
+        padding: 18px;
+        border: none;
+        vertical-align: middle;
+        font-size: 1rem;
+        color: #444;
+    }
+
+    .index-badge {
+        width: 30px;
+        height: 30px;
+        background: var(--brand-light);
+        color: var(--brand-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 0.8rem;
+    }
+
+    .scholar-name-cell {
+        font-weight: 700;
+        color: var(--brand-primary);
+    }
+
+    .completion-timestamp {
+        font-family: 'Outfit', sans-serif;
+        font-weight: 600;
+        color: #2e7d32;
+        background: #e8f5e9;
+        padding: 4px 12px;
+        border-radius: 50px;
+        font-size: 0.85rem;
+    }
+</style>
+
+
+    <div class="page-header-premium wow fadeInDown">
+        <h1>Completion Analytics</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="">Faculty Hub</a></li>
+                <li class="breadcrumb-item"><a href="">Time Management</a></li>
+                <li class="breadcrumb-item active">Task Logs</li>
+            </ol>
+        </nav>
+    </div>
+
+    <section class="section">
+        <div class="audit-card shadow-sm">
+            <div class="d-flex align-items-center mb-4">
+                <div class="bg-success text-white rounded-circle p-2 me-3 shadow-sm" style="width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; background-color: var(--brand-primary) !important;">
+                    <i class="fas fa-clipboard-check"></i>
+                </div>
+                <div>
+                    <h5 class="m-0 fw-bold" style="color: var(--brand-primary);">Scholar Milestone Logs</h5>
+                    <p class="text-muted small mb-0">Detailed chronological record of task completions across your courses.</p>
+                </div>
+            </div>
+
+            {% if task_completions %}
+            <div class="table-responsive">
+                <table class="table table-premium">
+                    <thead>
+                        <tr class="text-center">
+                            <th scope="col" width="10%">#</th>
+                            <th scope="col" width="30%" class="text-start ps-4">Enrolled Scholar</th>
+                            <th scope="col" width="35%" class="text-start">Task Title</th>
+                            <th scope="col" width="25%">Logged Completion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for completion in task_completions %}
+                        <tr class="text-center">
+                            <td>
+                                <div class="index-badge mx-auto">{{ forloop.counter }}</div>
+                            </td>
+                            <td class="text-start ps-4 scholar-name-cell">
+                                <i class="fas fa-user-graduate me-2 opacity-50"></i>
+                                {{ completion.user.full_name }}
+                            </td>
+                            <td class="text-start fw-bold text-dark">
+                                {{ completion.task.title }}
+                            </td>
+                            <td>
+                                <span class="completion-timestamp shadow-sm">
+                                    <i class="far fa-clock me-1"></i> {{ completion.completion_date }}
+                                </span>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="text-center py-5">
+                <div class="opacity-50 mb-3">
+                    <i class="fas fa-history fa-4x"></i>
+                </div>
+                <h5 class="fw-bold text-muted">No Completion Records</h5>
+                <p class="text-muted small px-5">When scholars mark their assigned time management tasks as complete, their progress data will populate this registry.</p>
+                <div class="mt-4">
+                    <a href="{% url 'time_task_add' %}" class="btn btn-outline-success rounded-pill px-4">
+                        <i class="fas fa-plus me-1"></i> Deploy New Task
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
+{% endblock %}

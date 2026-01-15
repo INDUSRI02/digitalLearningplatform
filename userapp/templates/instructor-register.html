@@ -1,0 +1,221 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .instructor-reg-wrapper {
+        background: linear-gradient(135deg, #f8faf9 0%, #e8f5e9 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 60px 0;
+    }
+
+    .reg-container {
+        background: #ffffff;
+        border-radius: 30px;
+        box-shadow: 0 20px 50px rgba(27, 94, 32, 0.1);
+        overflow: hidden;
+        border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    /* Left Side: Welcome Info */
+    .reg-info-panel {
+        background: linear-gradient(135deg, var(--brand-primary) 0%, #2e7d32 100%);
+        padding: 50px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+    }
+
+    .reg-info-panel h3 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 900;
+        font-size: 2.2rem;
+        margin-bottom: 25px;
+    }
+
+    .reg-info-panel p {
+        font-size: 1rem;
+        line-height: 1.8;
+        opacity: 0.9;
+        font-weight: 300;
+    }
+
+    /* Right Side: Form */
+    .reg-form-panel {
+        padding: 50px;
+        background: white;
+    }
+
+    .form-tab-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 40px;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 15px;
+    }
+
+    .tab-label {
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--brand-primary);
+        font-size: 0.8rem;
+    }
+
+    .reg-heading {
+        font-family: 'Playfair Display', serif;
+        font-weight: 800;
+        color: var(--brand-primary);
+        margin-bottom: 30px;
+    }
+
+    .form-control {
+        border-radius: 12px;
+        padding: 12px 18px;
+        border: 2px solid #f0f0f0;
+        background: #fbfbfb;
+        transition: 0.3s;
+    }
+
+    .form-control:focus {
+        border-color: var(--brand-accent);
+        background: white;
+        box-shadow: 0 0 10px rgba(255, 160, 0, 0.1);
+        outline: none;
+    }
+
+    .gender-selection {
+        background: #f8f9fa;
+        padding: 10px 15px;
+        border-radius: 12px;
+        display: flex;
+        gap: 20px;
+        border: 2px solid #f0f0f0;
+    }
+
+    .btn-instructor-reg {
+        background: var(--brand-primary);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        padding: 15px 40px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: 0.4s;
+        width: 100%;
+    }
+
+    .btn-instructor-reg:hover {
+        background: var(--brand-accent);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(255, 160, 0, 0.2);
+        color: white;
+    }
+
+    .animated-icon {
+        animation: floatIcon 3s infinite ease-in-out;
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: var(--brand-accent);
+    }
+
+    @keyframes floatIcon {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-15px); }
+    }
+</style>
+
+<div class="instructor-reg-wrapper">
+    <div class="container">
+        <div class="row reg-container g-0 wow fadeInUp" data-wow-delay="0.1s">
+            
+            <div class="col-lg-4 reg-info-panel d-none d-lg-flex">
+                <div class="animated-icon text-center">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3>Welcome, Educators</h3>
+                <p>Join Nabha's premier digital learning mission. As an instructor, you empower rural scholars by crafting bilingual content and monitoring student growth through our advanced analytics dashboard.</p>
+                
+                <div class="mt-5 border-top pt-4 border-white border-opacity-25">
+                    <small class="d-block mb-2"><i class="fas fa-check-circle me-2 text-warning"></i> Curriculum Management</small>
+                    <small class="d-block mb-2"><i class="fas fa-check-circle me-2 text-warning"></i> Student Progress Tracking</small>
+                    <small class="d-block"><i class="fas fa-check-circle me-2 text-warning"></i> Bilingual Support Tools</small>
+                </div>
+            </div>
+
+            <div class="col-lg-8 reg-form-panel">
+                <div class="form-tab-header">
+                    <span class="tab-label"><i class="fas fa-id-card me-2"></i> Teacher Portal</span>
+                    <span class="badge bg-light text-success rounded-pill px-3 py-2 border">Registration</span>
+                </div>
+
+                <h2 class="reg-heading text-center text-lg-start">Create Your Instructor Profile</h2>
+                
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="small fw-bold text-muted mb-2">Full Name</label>
+                                <input type="text" class="form-control" placeholder="Enter full name" name="name" required />
+                            </div>
+                            <div class="mb-3">
+                                <label class="small fw-bold text-muted mb-2">Office Address</label>
+                                <input type="text" class="form-control" placeholder="School or Home address" name="address" required />
+                            </div>
+                            <div class="mb-3">
+                                <label class="small fw-bold text-muted mb-2">Account Password</label>
+                                <input type="password" class="form-control" placeholder="Create password" name="password" required />
+                            </div>
+                            <div class="mb-3">
+                                <label class="small fw-bold text-muted mb-2">Gender</label>
+                                <div class="gender-selection">
+                                    <div class="form-check m-0">
+                                        <input class="form-check-input" type="radio" name="gender" value="male" checked>
+                                        <span class="small">Male</span>
+                                    </div>
+                                    <div class="form-check m-0">
+                                        <input class="form-check-input" type="radio" name="gender" value="female">
+                                        <span class="small">Female</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="small fw-bold text-muted mb-2">Email Address</label>
+                                <input type="email" class="form-control" placeholder="email@school.edu" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="small fw-bold text-muted mb-2">Phone Number</label>
+                                <input type="text" minlength="10" maxlength="10" name="phone" class="form-control" placeholder="10-digit mobile" required />
+                            </div>
+                            <div class="mb-3">
+                                <label class="small fw-bold text-muted mb-2">Profile Credentials (Photo)</label>
+                                <input type="file" class="form-control" name="profile" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12 mt-4">
+                            <button class="btn btn-instructor-reg shadow" type="submit">
+                                Register as Instructor <i class="fas fa-arrow-right ms-2"></i>
+                            </button>
+                            <p class="text-center mt-4 small text-muted">
+                                Already registered? <a href="{% url 'instructor_login' %}" class="fw-bold text-decoration-none" style="color: var(--brand-primary);">Login here</a>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

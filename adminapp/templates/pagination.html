@@ -1,0 +1,110 @@
+<style>
+  /* Premium Pagination Styling */
+  .pagination-wrapper .pagination {
+      margin: 20px 0;
+      gap: 5px;
+  }
+
+  .pagination-wrapper .page-item .page-link {
+      border: none;
+      background: #ffffff;
+      color: var(--brand-primary);
+      font-weight: 700;
+      padding: 10px 18px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      font-size: 0.9rem;
+  }
+
+  .pagination-wrapper .page-item.active .page-link {
+      background-color: var(--brand-primary) !important;
+      color: white !important;
+      box-shadow: 0 4px 12px rgba(27, 94, 32, 0.2);
+  }
+
+  .pagination-wrapper .page-item .page-link:hover:not(.active) {
+      background-color: var(--brand-accent);
+      color: white;
+      transform: translateY(-2px);
+  }
+
+  .pagination-wrapper .page-item.disabled .page-link {
+      background-color: #f8faf9;
+      color: #ccd6ce;
+      box-shadow: none;
+      cursor: not-allowed;
+  }
+
+  .pagination-info {
+      font-size: 0.8rem;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+  }
+</style>
+
+<div class="pagination-wrapper">
+  <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center align-items-center">
+          
+          {% if page_obj.has_previous %}
+          <li class="page-item">
+              <a class="page-link" href="?page=1" aria-label="First">
+                  <i class="fas fa-angle-double-left"></i>
+              </a>
+          </li>
+          <li class="page-item">
+              <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                  <i class="fas fa-chevron-left"></i>
+              </a>
+          </li>
+          {% else %}
+          <li class="page-item disabled">
+              <span class="page-link"><i class="fas fa-angle-double-left"></i></span>
+          </li>
+          <li class="page-item disabled">
+              <span class="page-link"><i class="fas fa-chevron-left"></i></span>
+          </li>
+          {% endif %}
+
+          {% for num in page_obj.paginator.page_range %}
+              {% if page_obj.number == num %}
+              <li class="page-item active">
+                  <span class="page-link shadow-sm">{{ num }}</span>
+              </li>
+              {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+              <li class="page-item">
+                  <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+              </li>
+              {% endif %}
+          {% endfor %}
+
+          {% if page_obj.has_next %}
+          <li class="page-item">
+              <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                  <i class="fas fa-chevron-right"></i>
+              </a>
+          </li>
+          <li class="page-item">
+              <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last">
+                  <i class="fas fa-angle-double-right"></i>
+              </a>
+          </li>
+          {% else %}
+          <li class="page-item disabled">
+              <span class="page-link"><i class="fas fa-chevron-right"></i></span>
+          </li>
+          <li class="page-item disabled">
+              <span class="page-link"><i class="fas fa-angle-double-right"></i></span>
+          </li>
+          {% endif %}
+
+      </ul>
+      
+      <div class="text-center mt-2">
+          <span class="pagination-info">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+      </div>
+  </nav>
+</div>

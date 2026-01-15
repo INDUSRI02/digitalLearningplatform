@@ -1,0 +1,217 @@
+{% extends 'base_admin.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .admin-content-wrapper {
+        padding: 30px;
+        background: #f8faf9;
+        min-height: 100vh;
+    }
+
+    .page-header-premium {
+        margin-bottom: 30px;
+        border-left: 5px solid var(--brand-accent);
+        padding-left: 20px;
+    }
+
+    .page-header-premium h1 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 900;
+        color: var(--brand-primary);
+        font-size: 2rem;
+        margin-bottom: 5px;
+    }
+
+    .breadcrumb-item a {
+        color: var(--brand-primary);
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .instructor-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(27, 94, 32, 0.05);
+        border: none;
+        padding: 30px;
+    }
+
+    .table-premium {
+        border-collapse: separate;
+        border-spacing: 0 12px;
+    }
+
+    .table-premium thead th {
+        background-color: var(--brand-primary);
+        color: white;
+        border: none;
+        padding: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+
+    .table-premium thead th:first-child { border-radius: 12px 0 0 12px; }
+    .table-premium thead th:last-child { border-radius: 0 12px 12px 0; }
+
+    .table-premium tbody tr {
+        background-color: #ffffff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        transition: 0.3s;
+    }
+
+    .table-premium tbody tr:hover {
+        background-color: #f8faf9;
+        transform: scale(1.005);
+    }
+
+    .table-premium td {
+        padding: 15px;
+        border: none;
+        vertical-align: middle;
+        font-size: 0.9rem;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .status-pill {
+        background: rgba(255, 160, 0, 0.1);
+        color: #b37100;
+        padding: 5px 15px;
+        border-radius: 50px;
+        font-weight: 800;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+    }
+
+    .btn-accept-instructor {
+        background: var(--brand-primary);
+        color: white !important;
+        border: none;
+        border-radius: 50px;
+        padding: 8px 20px;
+        font-weight: 700;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        transition: 0.4s;
+        text-decoration: none;
+    }
+
+    .btn-accept-instructor:hover {
+        background: var(--brand-accent);
+        box-shadow: 0 5px 15px rgba(255, 160, 0, 0.3);
+    }
+
+    /* Pagination Styling */
+    .pagination .page-link {
+        color: var(--brand-primary);
+        border: none;
+        margin: 0 3px;
+        border-radius: 8px;
+        font-weight: 700;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .pagination .page-item.active .page-link {
+        background-color: var(--brand-primary);
+        color: white;
+    }
+</style>
+
+<div class="admin-content-wrapper">
+    <div class="page-header-premium wow fadeInDown">
+        <h1>Instructor Verification</h1>
+        <nav>
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="">Management</a></li>
+                <li class="breadcrumb-item active">Pending Approvals</li>
+            </ol>
+        </nav>
+    </div>
+
+    <section class="section">
+        <div class="instructor-card shadow-sm">
+            <div class="d-flex align-items-center mb-4">
+                <div class="bg-warning text-white rounded-circle p-2 me-3 shadow-sm">
+                    <i class="fas fa-user-clock"></i>
+                </div>
+                <h5 class="m-0 fw-bold" style="color: var(--brand-primary);">Pending Applications</h5>
+            </div>
+
+            {% if page_obj %}
+            <div class="table-responsive">
+                <table class="table table-premium">
+                    <thead>
+                        <tr class="text-center">
+                            <th scope="col">Instructor Name</th>
+                            <th scope="col">Contact Details</th>
+                            <th scope="col">Location/Address</th>
+                            <th scope="col">Current Status</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for instructor in page_obj %}
+                        <tr class="text-center">
+                            <td class="fw-bold text-dark">{{ instructor.full_name }}</td>
+                            <td>
+                                <div class="small fw-bold">{{ instructor.email }}</div>
+                                <div class="text-muted small">{{ instructor.phone_number }}</div>
+                            </td>
+                            <td class="text-muted small">{{ instructor.address }}</td>
+                            <td>
+                                <span class="status-pill">{{ instructor.status }}</span>
+                            </td>
+                            <td>
+                                <a href="{% url 'accept_instructor' instructor.instructor_id %}" class="btn-accept-instructor">
+                                    <i class="fas fa-user-check me-1"></i> Approve
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <nav aria-label="Page navigation" class="mt-5">
+                <ul class="pagination justify-content-center">
+                    {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page=1">First</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}"><i class="fas fa-chevron-left"></i></a>
+                    </li>
+                    {% endif %}
+                    
+                    {% for num in page_obj.paginator.page_range %}
+                    <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+                        <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                    </li>
+                    {% endfor %}
+                    
+                    {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}"><i class="fas fa-chevron-right"></i></a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+            {% else %}
+            <div class="text-center py-5">
+                <div class="alert alert-info border-0 shadow-sm rounded-4 p-5 d-inline-block col-md-8">
+                    <i class="fas fa-check-double fa-3x mb-3 text-info"></i>
+                    <h5 class="fw-bold">All caught up!</h5>
+                    <p class="mb-0 text-muted">There are no pending instructor applications to review at this time.</p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+</div>
+
+{% endblock content %}

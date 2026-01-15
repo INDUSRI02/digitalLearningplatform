@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .contact-header {
+        background: linear-gradient(rgba(27, 94, 32, 0.9), rgba(27, 94, 32, 0.9)), url('{% static "img/carousel-1.jpg" %}');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+
+    .form-control::placeholder {
+        color: rgba(255, 255, 255, 0.7) !important;
+    }
+
+    .contact-icon-box {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        transition: 0.3s;
+    }
+
+    .contact-icon-box:hover {
+        transform: scale(1.1);
+        background: var(--brand-accent);
+    }
+
+    .contact-icon-box i {
+        color: var(--brand-primary);
+        transition: 0.3s;
+    }
+
+    .contact-icon-box:hover i {
+        color: white;
+    }
+</style>
+
+<div class="container-fluid contact-header py-5">
+    <div class="container py-5">
+        <div class="section-title mb-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="sub-style mb-4">
+                <h4 class="sub-title text-white px-3 mb-0">Contact NabhaLearn</h4>
+            </div>
+            <p class="mb-0 text-white-50">Have questions about our digital curriculum or need help with the platform? Our team is here to support students, teachers, and parents in Nabha. Reach out to us anytime!</p>
+        </div>
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-5 col-xl-5 contact-form wow fadeInLeft" data-wow-delay="0.1s">
+                <h2 class="display-5 text-white mb-3" style="font-family: 'Playfair Display', serif;">Get in Touch</h2>
+                <p class="mb-4 text-white-50">Please fill out the form below and our regional coordinator will get back to you within 24 hours.</p>
+                <form>
+                    <div class="row g-3">
+                        <div class="col-lg-12 col-xl-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control bg-transparent border border-white text-white" id="name" placeholder="Your Name">
+                                <label class="text-white-50" for="name">Your Name</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-xl-6">
+                            <div class="form-floating">
+                                <input type="email" class="form-control bg-transparent border border-white text-white" id="email" placeholder="Your Email">
+                                <label class="text-white-50" for="email">Your Email</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-xl-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control bg-transparent border border-white text-white" id="phone" placeholder="Phone">
+                                <label class="text-white-50" for="phone">Your Phone</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-xl-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control bg-transparent border border-white text-white" id="school" placeholder="School Name">
+                                <label class="text-white-50" for="school">Your School</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control bg-transparent border border-white text-white" id="subject" placeholder="Subject">
+                                <label class="text-white-50" for="subject">Subject</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <textarea class="form-control bg-transparent border border-white text-white" placeholder="Leave a message here" id="message" style="height: 160px"></textarea>
+                                <label class="text-white-50" for="message">Message</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-warning w-100 py-3 fw-bold text-uppercase" style="border-radius: 50px; color: #1B5E20;">Send Message</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-lg-2 col-xl-2 wow fadeInUp text-center" data-wow-delay="0.5s">
+                <div class="d-flex flex-column align-items-center mb-4">
+                    <div class="contact-icon-box mb-3">
+                        <i class="fa fa-map-marker-alt fa-2x"></i>
+                    </div>
+                    <h5 class="text-white">Location</h5>
+                    <p class="mb-0 text-white-50 small">Nabha, Dist. Patiala, Punjab</p>
+                </div>
+                <div class="d-flex flex-column align-items-center mb-4">
+                    <div class="contact-icon-box mb-3">
+                        <i class="fa fa-phone-alt fa-2x"></i>
+                    </div>
+                    <h5 class="text-white">Call Us</h5>
+                    <p class="mb-0 text-white-50 small">+91 999 888 7777</p>
+                </div>
+                <div class="d-flex flex-column align-items-center">
+                    <div class="contact-icon-box mb-3">
+                        <i class="fa fa-envelope-open fa-2x"></i>
+                    </div>
+                    <h5 class="text-white">Email</h5>
+                    <p class="mb-0 text-white-50 small">support@nabhalearn.in</p>
+                </div>
+            </div>
+
+            <div class="col-lg-5 col-xl-5 wow fadeInRight" data-wow-delay="0.3s">
+                <div class="d-flex justify-content-center mb-4">
+                    <a class="btn btn-lg-square btn-light rounded-circle mx-2 text-success shadow" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-lg-square btn-light rounded-circle mx-2 text-success shadow" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-lg-square btn-light rounded-circle mx-2 text-success shadow" href="#"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-lg-square btn-light rounded-circle mx-2 text-success shadow" href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div class="rounded-4 overflow-hidden shadow-lg border border-white border-4">
+                    <iframe class="w-100" style="height: 400px; filter: grayscale(100%) invert(90%) contrast(90%);"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13753.465134654!2d76.1332!3d30.3752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3910240400000001%3A0x6d8b309a47480a0!2sNabha%2C%20Punjab!5e0!3m2!1sen!2sin!4v1625000000000" 
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

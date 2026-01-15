@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+<style>
+    .reg-section {
+        background: linear-gradient(135deg, #f8faf9 0%, #e8f5e9 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+
+    .form-box {
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0px 15px 40px rgba(27, 94, 32, 0.1);
+        border-top: 6px solid var(--brand-primary);
+        transition: transform 0.3s ease;
+    }
+    
+    .form-box:hover {
+        transform: translateY(-5px);
+    }
+    
+    .form-label {
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: var(--brand-primary);
+        margin-bottom: 8px;
+    }
+
+    .form-control {
+        border-radius: 12px;
+        padding: 12px 15px;
+        border: 2px solid #eee;
+        transition: all 0.3s ease;
+        background-color: #fdfdfd;
+        color: var(--text-main);
+    }
+    
+    .form-control:focus {
+        border-color: var(--brand-accent);
+        background-color: #fff;
+        box-shadow: 0px 0px 10px rgba(255, 160, 0, 0.15);
+        outline: none;
+    }
+
+    .btn-pill {
+        border-radius: 50px;
+        padding: 15px;
+        background: var(--brand-primary);
+        border: none;
+        color: #fff;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.4s ease;
+    }
+    
+    .btn-pill:hover {
+        background: var(--brand-accent);
+        transform: scale(1.02);
+        box-shadow: 0 8px 20px rgba(255, 160, 0, 0.3);
+        color: white;
+    }
+    
+    .form-box a {
+        color: var(--brand-primary);
+        font-weight: 700;
+        text-decoration: none;
+    }
+    
+    .form-box a:hover {
+        color: var(--brand-accent);
+    }
+
+    .upload-label {
+        font-size: 0.8rem;
+        color: #666;
+    }
+</style>
+
+<div class="container-fluid reg-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="form-box wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="text-center mb-5">
+                        <div class="brand-icon-box mx-auto mb-3" style="width: 50px; height: 50px;">
+                            <i class="fas fa-user-plus text-white"></i>
+                        </div>
+                        <h2 style="font-family: 'Playfair Display', serif; font-weight: 900; color: var(--brand-primary);">Create Your Account</h2>
+                        <p class="text-muted">Join the NabhaLearn student community today.</p>
+                    </div>
+
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-control" name="full_name" placeholder="John Doe" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-control" name="email" placeholder="example@mail.com" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">Secure Password</label>
+                                <input type="password" class="form-control" name="password" placeholder="••••••••" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Phone Number</label>
+                                <input type="number" class="form-control" name="phone_number" placeholder="9876543210" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">Age</label>
+                                <input type="number" class="form-control" name="age" max="100" placeholder="e.g. 15">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Profile Photo <span class="upload-label">(Optional)</span></label>
+                                <input type="file" class="form-control" name="photo">
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label">Residential Address</label>
+                                <input type="text" class="form-control" name="address" placeholder="House no, Street, Village, Nabha">
+                            </div>
+
+                            <div class="col-12 text-center mt-5">
+                                <button class="btn btn-pill w-100 shadow-sm" type="submit">Create Account</button>
+                                <p class="mt-4 text-muted small">
+                                    Already have an account? <a href="{% url 'user_login' %}">Login Here</a>
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

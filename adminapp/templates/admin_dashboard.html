@@ -1,0 +1,188 @@
+{% extends 'base_admin.html' %} 
+{% load static %} 
+
+{% block content %}
+<style>
+    .admin-dashboard-hero {
+        padding: 40px 20px;
+    }
+
+    .hero-title {
+        font-family: 'Playfair Display', serif;
+        font-weight: 900;
+        color: var(--brand-primary);
+        font-size: 2.5rem;
+        margin-bottom: 8px;
+    }
+
+    /* Metric Cards */
+    .admin-stat-card {
+        background: white;
+        border-radius: 20px;
+        border: none;
+        box-shadow: 0 10px 30px rgba(27, 94, 32, 0.05);
+        transition: 0.3s ease;
+        overflow: hidden;
+        height: 100%;
+    }
+
+    .admin-stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(27, 94, 32, 0.1);
+    }
+
+    .card-accent-bar {
+        height: 5px;
+        width: 100%;
+        background: var(--brand-primary);
+    }
+
+    .stat-body {
+        padding: 30px;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        font-weight: 800;
+        color: #888;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .stat-value {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #333;
+        line-height: 1;
+    }
+
+    .stat-icon-circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        background: var(--brand-light);
+        color: var(--brand-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+    }
+
+    /* Command Center Actions */
+    .command-hub {
+        background: white;
+        border-radius: 25px;
+        padding: 40px;
+        margin-top: 40px;
+        box-shadow: 0 15px 50px rgba(0,0,0,0.03);
+    }
+
+    .action-btn-premium {
+        background: var(--brand-primary);
+        color: white !important;
+        border-radius: 50px;
+        padding: 12px 30px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: 0.4s;
+        display: inline-flex;
+        align-items: center;
+        border: none;
+    }
+
+    .action-btn-premium:hover {
+        background: var(--brand-accent);
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(255, 160, 0, 0.2);
+    }
+</style>
+
+<div class="admin-dashboard-hero">
+    <div class="wow fadeInDown">
+        <h1 class="hero-title">Administrative Command Center</h1>
+        <p class="text-muted lead">Monitor platform growth, faculty status, and academic integrity.</p>
+    </div>
+
+    <div class="row g-4 mt-4">
+        <div class="col-md-3">
+            <div class="admin-stat-card wow fadeInUp" data-wow-delay="0.1s">
+                <div class="card-accent-bar"></div>
+                <div class="stat-body">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <span class="stat-label">Total Scholars</span>
+                        <div class="stat-icon-circle"><i class="fas fa-user-graduate"></i></div>
+                    </div>
+                    <div class="stat-value">{{ total_students }}</div>
+                    <p class="text-muted small mt-2 mb-0">Registered Learners</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="admin-stat-card wow fadeInUp" data-wow-delay="0.2s">
+                <div class="card-accent-bar" style="background: var(--brand-accent);"></div>
+                <div class="stat-body">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <span class="stat-label">Faculty Members</span>
+                        <div class="stat-icon-circle" style="background: #fff8e1; color: var(--brand-accent);"><i class="fas fa-chalkboard-teacher"></i></div>
+                    </div>
+                    <div class="stat-value">{{ total_instructors }}</div>
+                    <p class="text-muted small mt-2 mb-0">Active Educators</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="admin-stat-card wow fadeInUp" data-wow-delay="0.3s">
+                <div class="card-accent-bar" style="background: #d32f2f;"></div>
+                <div class="stat-body">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <span class="stat-label">Waitlist</span>
+                        <div class="stat-icon-circle" style="background: #fff5f5; color: #d32f2f;"><i class="fas fa-user-clock"></i></div>
+                    </div>
+                    <div class="stat-value">{{ pending_instructors }}</div>
+                    <p class="text-muted small mt-2 mb-0">Pending Verification</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="admin-stat-card wow fadeInUp" data-wow-delay="0.4s">
+                <div class="card-accent-bar" style="background: #1976d2;"></div>
+                <div class="stat-body">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <span class="stat-label">Insights</span>
+                        <div class="stat-icon-circle" style="background: #e3f2fd; color: #1976d2;"><i class="fas fa-comments"></i></div>
+                    </div>
+                    <div class="stat-value">{{ total_feedbacks }}</div>
+                    <p class="text-muted small mt-2 mb-0">User Submissions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="command-hub wow fadeInUp" data-wow-delay="0.5s">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <h3 class="fw-bold mb-3" style="font-family: 'Playfair Display'; color: var(--brand-primary);">Platform Management</h3>
+                <p class="text-muted">Directly manage the core pillars of the NabhaLearn ecosystem. Review new instructor applications, manage curriculum challenges, or analyze platform sentiment through user feedback.</p>
+                <div class="mt-4 d-flex flex-wrap gap-3">
+                    <a href="{% url 'pending_ins' %}" class="action-btn-premium shadow">
+                        <i class="fas fa-user-check me-2"></i> Approve Faculty
+                    </a>
+                    <a href="{% url 'manage_challenges' %}" class="action-btn-premium shadow" style="background: var(--brand-accent);">
+                        <i class="fas fa-tasks me-2"></i> Manage Challenges
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-5 text-center d-none d-lg-block">
+                <img src="{% static 'adminfiles/img/cb.png' %}" alt="Admin Control" class="img-fluid opacity-75" style="max-height: 200px;">
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

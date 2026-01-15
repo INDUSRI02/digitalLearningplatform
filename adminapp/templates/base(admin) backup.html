@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../assets/"
+    data-template="vertical-menu-template-free">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Skill7</title>
+
+    <meta name="description" content="" />
+
+    <link rel="icon" type="image/x-icon" href="{% static 'new-small-logo.png' %}" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- MDB CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- MDB JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="{% static 'adminfiles/assets/vendor/fonts/boxicons.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'adminfiles/assets/vendor/css/core.css' %}"
+        class="template-customizer-core-css" />
+    <link rel="stylesheet" href="{% static 'adminfiles/assets/vendor/css/theme-default.css' %}"
+        class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="{% static 'adminfiles/assets/css/demo.css' %}" />
+
+    <link rel="stylesheet"
+        href="{% static 'adminfiles/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css' %}" />
+    <link rel="stylesheet" href="{% static 'adminfiles/assets/vendor/libs/apex-charts/apex-charts.css' %}" />
+
+    <script src="{% static 'adminfiles/assets/vendor/js/helpers.js' %}"></script>
+    <script src="{% static 'adminfiles/assets/js/config.js' %}"></script>
+</head>
+
+<body>
+
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+                <div class="app-brand demo">
+                    <a href="" class="app-brand-link mx-auto">
+                        <img src="{% static 'adminfiles/img/cb2.jpeg' %}" alt=""
+                            style="width: 52px; height: 52px; border: 2px solid rgb(0, 0, 252); padding: 3px; border-radius: 50%;">
+                    </a>
+
+                    <a href="javascript:void(0);"
+                        class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+                        <i class="bx bx-chevron-left bx-sm align-middle"></i>
+                    </a>
+                </div>
+
+                <div class="menu-inner-shadow"></div>
+
+                <ul class="menu-inner py-1">
+                    <li class="menu-item">
+                        <a href="{% url 'admin_dashboard' %}" class="menu-link">
+                            <i class="menu-icon tf-icons">
+                                <img src="{% static 'adminfiles/img/ic2.png' %}" alt="Project Management Icon"
+                                    style="width: 22px; height: 22px;">
+                            </i>
+                            <div data-i18n="Analytics">Dashboard</div>
+                        </a>
+                    </li>
+
+
+                    <li
+                        class="menu-item {% if request.resolver_match.url_name == 'admin_listen_spell_add' or request.resolver_match.url_name == 'admin_listen_spell_list'  %} open {% endif %}">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons">
+                                <img src="{% static 'adminfiles/img/11i.png' %}" alt="Project Management Icon"
+                                    style="width: 22px; height: 22px;">
+                            </i>
+                            <div data-i18n="Layouts">Listen & Spell Management</div>
+                        </a>
+
+                        <ul class="menu-sub">
+                            <li
+                                class="menu-item {% if request.resolver_match.url_name == 'admin_listen_spell_add' %} active {% endif %}">
+                                <a href="{% url 'admin_listen_spell_add' %}" class="menu-link">
+                                    <div data-i18n="Without menu">Add New Listen & Spell Word</div>
+                                </a>
+                            </li>
+
+                            <li
+                                class="menu-item {% if request.resolver_match.url_name == 'admin_listen_spell_list' %} active {% endif %}">
+                                <a href="{% url 'admin_listen_spell_list' %}" class="menu-link">
+                                    <div data-i18n="Container">Manage Listen & Spell Words</div>
+                                </a>
+                            </li>
+
+
+
+                        </ul>
+                    </li>
+
+
+                    <li
+                        class="menu-item {% if request.resolver_match.url_name == 'admin_self_reflection_add' or request.resolver_match.url_name == 'admin_self_reflection_list' %} open {% endif %}">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons">
+                                <img src="{% static 'adminfiles/img/self_reflection_icon.png' %}"
+                                    alt="Self Reflection Icon" style="width: 22px; height: 22px;">
+                            </i>
+                            <div data-i18n="Layouts">Self Reflection Game Management</div>
+                        </a>
+
+                        <ul class="menu-sub">
+                            <li
+                                class="menu-item {% if request.resolver_match.url_name == 'admin_self_reflection_add' %} active {% endif %}">
+                                <a href="{% url 'admin_self_reflection_add' %}" class="menu-link">
+                                    <div data-i18n="Add New Reflection">Add New Reflection Question</div>
+                                </a>
+                            </li>
+
+                            <li
+                                class="menu-item {% if request.resolver_match.url_name == 'admin_self_reflection_list' %} active {% endif %}">
+                                <a href="{% url 'admin_self_reflection_list' %}" class="menu-link">
+                                    <div data-i18n="Manage Reflection Questions">Manage Reflection Questions</div>
+                                </a>
+                            </li>
+
+                            <li
+                                class="menu-item {% if request.resolver_match.url_name == 'admin_user_progress' %} active {% endif %}">
+                                <a href="{% url 'admin_user_progress' %}" class="menu-link">
+                                    <div data-i18n="User Progress">User Progress Overview</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+                    <!-- <li class="menu-item {% if request.resolver_match.url_name == 'admin_pending_license_requests'  or request.resolver_match.url_name == 'admin_manage_licenses' or request.resolver_match.url_name == 'admin_project_code_insights'  or request.resolver_match.url_name == 'admin_view_clients_with_project_count' or request.resolver_match.url_name == 'admin_view_clients_for_project_code' or request.resolver_match.url_name == 'admin_view_organizations_for_project_code' %} open {% endif %}">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons">
+                                <img src="{% static 'adminfiles/st.png' %}" alt="Project Management Icon" style="width: 22px; height: 22px;">
+                            </i>
+                            <div data-i18n="Layouts"> License Management</div>
+                        </a>
+                        
+                        <ul class="menu-sub">
+                            <li class="menu-item {% if request.resolver_match.url_name == 'admin_pending_license_requests' %} active {% endif %}">
+                                <a href="" class="menu-link">
+                                    <div data-i18n="Without menu">Pending License Requests</div>
+                                </a>
+                            </li>
+                            
+                            <li class="menu-item  {% if request.resolver_match.url_name == 'admin_manage_licenses' %} active {% endif %}">
+                                <a href="" class="menu-link">
+                                    <div data-i18n="Container">Manage Licenses</div>
+                                </a>
+                            </li>
+
+
+                            <li class="menu-item  {% if request.resolver_match.url_name == 'admin_project_code_insights' %} active {% endif %}">
+                                <a href="" class="menu-link">
+                                    <div data-i18n="Container">Project Code Insights</div>
+                                </a>
+                            </li>
+
+
+                            <li class="menu-item  {% if request.resolver_match.url_name == 'admin_view_clients_with_project_count' %} active {% endif %}">
+                                <a href="" class="menu-link">
+                                    <div data-i18n="Container">Client Insights</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li> -->
+
+
+                    <!-- <li class="menu-item {% if request.resolver_match.url_name == 'admin_audit_logs'  %} open {% endif %}">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons">
+                                <img src="{% static 'adminfiles/img30.png' %}" alt="Project Management Icon" style="width: 22px; height: 22px;">
+                            </i>
+                            <div data-i18n="Layouts">Audit Logs </div>
+                        </a>
+                        
+                        <ul class="menu-sub">
+                            <li class="menu-item {% if request.resolver_match.url_name == 'admin_audit_logs' %} active {% endif %}">
+                                <a href="" class="menu-link">
+                                    <div data-i18n="Without menu"> View Audit Logs </div>
+                                </a>
+                            </li>
+                            {% comment %} <li class="menu-item {% if request.resolver_match.url_name == 'view_logs' %} active {% endif %}">
+                                <a href="{% url 'view_logs' %}" class="menu-link">
+                                    <div data-i18n="Without menu">View Logs</div>
+                                </a>
+                            </li> {% endcomment %}
+                            
+                           
+                        </ul>
+                    </li> -->
+
+                </ul>
+            </aside>
+
+            <div class="layout-page">
+
+                <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme "
+                    id="layout-navbar">
+                    <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+                        <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+                            <i class="bx bx-menu bx-sm"></i>
+                        </a>
+                    </div>
+
+                    <div class="navbar-nav-right  d-flex align-items-center" id="navbar-collapse">
+                        <div class="d-flex justify-content-center align-items-center w-100">
+                            <div class="d-flex align-items-center">
+                                <img src="{% static 'adminfiles/img/cb.png' %}" alt="" style="width: 222px; ">
+                            </div>
+                        </div>
+
+                        <ul class="navbar-nav flex-row align-items-center ms-auto">
+                            <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
+                                    data-bs-toggle="dropdown">
+                                    <div class="avatar avatar-online">
+                                        <img src="{% static 'adminfiles/img/admin.png' %}" alt
+                                            class="w-px-40 h-auto rounded-circle" />
+                                    </div>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li>
+                                        <a class="dropdown-item" href="{% url 'admin_logout' %}">
+                                            <i class="bx bx-power-off me-2"></i>
+                                            <span class="align-middle">Log Out</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                </nav>
+
+                {% block content %}
+
+                {% endblock %}
+
+                <footer class="content-footer footer bg-footer-theme">
+                  
+                </footer>
+
+                <div class="content-backdrop fade"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+
+    <script src="{% static 'adminfiles/assets/vendor/libs/jquery/jquery.js' %}"></script>
+    <script src="{% static 'adminfiles/assets/vendor/libs/popper/popper.js' %}"></script>
+    <script src="{% static 'adminfiles/assets/vendor/js/bootstrap.js' %}"></script>
+    <script src="{% static 'adminfiles/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js' %}"></script>
+
+    <script src="{% static 'adminfiles/assets/vendor/js/menu.js' %}"></script>
+
+    <script src="{% static 'adminfiles/assets/vendor/libs/apex-charts/apexcharts.js' %}"></script>
+
+    <script src="{% static 'adminfiles/assets/js/main.js' %}"></script>
+
+    <script src="{% static 'adminfiles/assets/js/dashboards-analytics.js' %}"></script>
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+{% if messages %}
+{% for message in messages %}
+{% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+<script>
+    swal({
+        title: "Warning!",
+        text: "{{ message|safe }}",
+        icon: "warning",
+        button: "OK",
+    });
+</script>
+{% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+<script>
+    swal({
+        title: "Info :)",
+        text: "{{ message|safe }}",
+        icon: "info",
+        button: "OK",
+    });
+</script>
+{% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+<script>
+    swal({
+        title: "Error!",
+        text: "{{ message|safe }}",
+        icon: "error",
+        button: "OK",
+    });
+</script>
+{% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+<script>
+    swal({
+        title: "Success!",
+        text: "{{ message|safe }}",
+        icon: "success",
+        button: "OK",
+    });
+</script>
+{% endif %}
+{% endfor %}
+{% endif %}
+</body>
+
+</html>
+
+</html>

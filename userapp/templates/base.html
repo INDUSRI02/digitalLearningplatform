@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <title>NabhaLearn | Empowering Rural Excellence</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <style>
+        :root {
+            --brand-primary: #1B5E20; 
+            --brand-accent: #FFA000;  
+            --brand-light: #F8FAF9;
+            --text-main: #2D3436;
+            --footer-dark: #0F172A;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--brand-light);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        /* --- LOADER FIX --- */
+        #spinner {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+            z-index: 999999;
+        }
+        #spinner.fade-out {
+            opacity: 0 !important;
+            visibility: hidden !important;
+        }
+
+        /* --- NAVBAR & HOVER LINE --- */
+        .navbar {
+            background: rgba(255, 255, 255, 0.98) !important;
+            padding: 0.8rem 2rem !important;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .navbar-light .navbar-nav .nav-link {
+            font-weight: 600;
+            color: var(--text-main) !important;
+            position: relative;
+            padding: 25px 15px !important;
+            margin: 0 5px;
+            transition: 0.3s ease;
+        }
+
+        .navbar-light .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 15px;
+            left: 50%;
+            background-color: var(--brand-accent);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .navbar-light .navbar-nav .nav-link:hover::after,
+        .navbar-light .navbar-nav .nav-link.active::after {
+            width: 30px;
+        }
+
+        .navbar-light .navbar-nav .nav-link.active {
+            color: var(--brand-primary) !important;
+        }
+        
+        .navbar-light .navbar-nav .nav-link.active::after {
+            background-color: var(--brand-primary);
+        }
+
+        .brand-icon-box {
+            background: linear-gradient(135deg, var(--brand-primary), #388E3C);
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            margin-right: 10px;
+        }
+
+        .brand-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 1.7rem;
+            color: var(--brand-primary) !important;
+        }
+        .brand-text span { color: var(--brand-accent); }
+
+        .btn-login-premium {
+            background: var(--brand-primary);
+            color: white !important;
+            font-weight: 600;
+            padding: 10px 25px !important;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-login-premium:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(27, 94, 32, 0.2);
+            filter: brightness(1.1);
+        }
+
+        /* --- PREMIUM FOOTER --- */
+        .footer-premium {
+            background: var(--footer-dark);
+            color: #CBD5E1;
+            padding-top: 80px;
+            border-top: 5px solid var(--brand-primary);
+        }
+
+        .footer-title {
+            font-family: 'Playfair Display', serif;
+            color: white;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 2px;
+            background: var(--brand-accent);
+            bottom: -8px;
+            left: 0;
+        }
+
+        .footer-link {
+            color: #94A3B8;
+            text-decoration: none;
+            transition: 0.3s;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .footer-link:hover {
+            color: var(--brand-accent);
+            padding-left: 8px;
+        }
+
+        .copyright-area {
+            background: #020617;
+            padding: 25px 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .back-to-top {
+            background: var(--brand-accent);
+            color: white;
+            border-radius: 12px;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.4s;
+        }
+
+        .back-to-top:hover {
+            background: var(--brand-primary);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="spinner" class="bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-success" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+    <div class="container-fluid sticky-top p-0">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a href="{% url 'index' %}" class="navbar-brand d-flex align-items-center">
+                <div class="brand-icon-box">
+                    <i class="fas fa-graduation-cap text-white"></i>
+                </div>
+                <span class="brand-text">Nabha<span>Learn</span></span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars text-primary"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto">
+                    <a href="{% url 'index' %}" class="nav-item nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}">Home</a>
+                    <a href="{% url 'user_register' %}" class="nav-item nav-link {% if request.resolver_match.url_name == 'user_register' %}active{% endif %}">Student Join</a>
+                    <a href="{% url 'instructor_login' %}" class="nav-item nav-link {% if 'instructor' in request.resolver_match.url_name %}active{% endif %}">Teacher Portal</a>
+                    <a href="{% url 'admin_login' %}" class="nav-item nav-link {% if request.resolver_match.url_name == 'admin_login' %}active{% endif %}">Management</a>
+                    <a href="{% url 'contact' %}" class="nav-item nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Help Desk</a>
+                </div>
+                
+                <div class="ms-lg-4">
+                    <a href="{% url 'user_login' %}" class="btn-login-premium">
+                        <i class="fas fa-user-check"></i>
+                        <span>Student Login</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <main>
+        {% block content %}{% endblock content %}
+    </main>
+
+    <footer class="footer-premium">
+        <div class="container pb-5">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <h2 class="brand-text text-white mb-4">Nabha<span>Learn</span></h2>
+                    <p class="lh-lg">Empowering rural education in Nabha with bilingual tools, offline access, and expert curriculum design.</p>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <a href="#" class="footer-link">About Project</a>
+                    <a href="#" class="footer-link">Our Vision</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Resources</h5>
+                    <a href="#" class="footer-link">Punjabi Learning</a>
+                    <a href="#" class="footer-link">English Modules</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-title">Support</h5>
+                    <p class="mb-2"><i class="fas fa-map-marker-alt me-2 text-warning"></i> Nabha, Punjab</p>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start">
+                        <small>© 2026 NabhaLearn Platform. All Rights Reserved.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top position-fixed bottom-0 end-0 m-4 shadow-lg text-decoration-none">
+        <i class="fa fa-arrow-up"></i>
+    </a>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+    
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'main/js/main.js' %}"></script>
+
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {
+                $('#spinner').addClass('fade-out');
+            }, 3500); 
+
+            $(window).on('load', function() {
+                $('#spinner').addClass('fade-out');
+            });
+        });
+    </script>
+
+    {% if messages %}
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        {% for message in messages %}
+            <script>
+                swal({
+                    title: "{% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}Success!{% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Error!{% else %}Notification{% endif %}",
+                    text: "{{ message|safe }}",
+                    icon: "{{ message.tags }}",
+                    button: "Proceed",
+                });
+            </script>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

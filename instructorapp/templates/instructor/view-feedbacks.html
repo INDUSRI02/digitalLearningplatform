@@ -1,0 +1,238 @@
+{% extends 'instructor/base_ins.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .admin-content-wrapper {
+        padding: 30px;
+        background: #f8faf9;
+        min-height: 100vh;
+    }
+
+    .page-header-premium {
+        margin-bottom: 30px;
+        border-left: 5px solid var(--brand-accent);
+        padding-left: 20px;
+    }
+
+    .page-header-premium h1 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 900;
+        color: var(--brand-primary);
+        font-size: 2.2rem;
+        margin-bottom: 5px;
+    }
+
+    .breadcrumb-item a {
+        color: var(--brand-primary);
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .feedback-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(27, 94, 32, 0.05);
+        border: none;
+        padding: 30px;
+    }
+
+    .table-premium {
+        border-collapse: separate;
+        border-spacing: 0 12px;
+    }
+
+    .table-premium thead th {
+        background-color: var(--brand-primary);
+        color: white;
+        border: none;
+        padding: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+
+    .table-premium thead th:first-child { border-radius: 12px 0 0 12px; }
+    .table-premium thead th:last-child { border-radius: 0 12px 12px 0; }
+
+    .table-premium tbody tr {
+        background-color: #ffffff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        transition: 0.3s;
+    }
+
+    .table-premium tbody tr:hover {
+        background-color: #f8faf9;
+        transform: scale(1.005);
+    }
+
+    .table-premium td {
+        padding: 15px;
+        border: none;
+        vertical-align: middle;
+        font-size: 0.9rem;
+        color: #444;
+    }
+
+    .sentiment-emoji {
+        font-size: 24px;
+        display: inline-block;
+        transition: transform 0.3s;
+    }
+
+    .sentiment-emoji:hover {
+        transform: scale(1.3);
+    }
+
+    .comment-text {
+        max-width: 300px;
+        font-style: italic;
+        color: #666;
+        word-wrap: break-word;
+    }
+
+    .btn-reply-premium {
+        background-color: var(--brand-accent);
+        color: white !important;
+        border-radius: 50px;
+        font-weight: 700;
+        padding: 6px 15px;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        margin-right: 5px;
+    }
+
+    .btn-remove-premium {
+        background-color: #fff5f5;
+        color: #d32f2f !important;
+        border: 1px solid #feb2b2;
+        border-radius: 50px;
+        padding: 6px 15px;
+        font-weight: 700;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+    }
+
+    /* Pagination */
+    .pagination .step-links a {
+        color: var(--brand-primary);
+        text-decoration: none;
+        font-weight: 700;
+        padding: 5px 10px;
+        border-radius: 8px;
+        background: var(--brand-light);
+        margin: 0 5px;
+    }
+
+    .pagination .current {
+        font-weight: 700;
+        color: #888;
+        margin: 0 15px;
+    }
+</style>
+
+
+    <div class="page-header-premium wow fadeInDown">
+        <h1>Community Insights</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="">Home</a></li>
+                <li class="breadcrumb-item active">View Feedbacks</li>
+            </ol>
+        </nav>
+    </div>
+
+    <section class="section">
+        <div class="feedback-card shadow-sm">
+            <div class="d-flex align-items-center mb-4">
+                <div class="bg-info text-white rounded-circle p-2 me-3 shadow-sm" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-comment-dots"></i>
+                </div>
+                <h5 class="m-0 fw-bold" style="color: var(--brand-primary);">Scholar Experiences</h5>
+            </div>
+
+            {% if page_obj %}
+            <div class="table-responsive">
+                <table class="table table-premium">
+                    <thead>
+                        <tr class="text-center">
+                            <th scope="col" width="5%">S.No</th>
+                            <th scope="col" width="20%">Scholar Name</th>
+                            <th scope="col" width="20%">Email Address</th>
+                            <th scope="col" width="10%">Sentiment</th>
+                            <th scope="col" width="30%">Comments</th>
+                            <th scope="col" width="15%">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for feedback in page_obj %}
+                        <tr class="text-center">
+                            <td class="fw-bold text-muted">{{ forloop.counter }}</td>
+                            <td class="fw-bold text-dark">{{ feedback.user_name }}</td>
+                            <td class="small">{{ feedback.user_email }}</td>
+                            <td>
+                                <span class="sentiment-emoji">
+                                    {% if feedback.rating == 1 %} 😢 
+                                    {% elif feedback.rating == 2 %} 😐
+                                    {% elif feedback.rating == 3 %} 😊 
+                                    {% elif feedback.rating == 4 %} 😄 
+                                    {% elif feedback.rating == 5 %} 🌟 
+                                    {% endif %}
+                                </span>
+                            </td>
+                            <td>
+                                <div class="comment-text small">
+                                    {{ feedback.additional_comments|default:"No written feedback provided." }}
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-flex justify-content-center">
+                                    <a href="{% url 'ins_rating_view' feedback.rating feedback.pk %}"
+                                        class="btn btn-reply-premium shadow-sm">
+                                        <i class="fas fa-reply me-1"></i> Reply
+                                    </a>
+                                    <a href="{% url 'remove_feedback_ins' feedback_id=feedback.pk %}"
+                                        class="btn btn-remove-premium shadow-sm"
+                                        onclick="return confirm('Archive this feedback permanently?');">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pagination justify-content-center mt-5">
+                <span class="step-links d-flex align-items-center">
+                    {% if page_obj.has_previous %}
+                    <a href="?page=1" class="shadow-sm">&laquo; First</a>
+                    <a href="?page={{ page_obj.previous_page_number }}" class="shadow-sm">Previous</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Scholar Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                    </span>
+
+                    {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}" class="shadow-sm">Next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}" class="shadow-sm">Last &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
+
+            {% else %}
+            <div class="text-center py-5">
+                <div class="alert alert-info border-0 shadow-sm rounded-4 p-5 d-inline-block col-md-8">
+                    <i class="fas fa-comment-slash fa-3x mb-3 text-info"></i>
+                    <h5 class="fw-bold">Silence in the Hallways</h5>
+                    <p class="mb-0 text-muted">No scholar feedback has been recorded for your curriculum yet.</p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
+{% endblock content %}

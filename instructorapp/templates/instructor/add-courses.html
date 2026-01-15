@@ -1,0 +1,185 @@
+{% extends 'instructor/base_ins.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .instructor-form-container {
+        padding: 20px;
+    }
+
+    .form-card-premium {
+        background: white;
+        border-radius: 25px;
+        box-shadow: 0 15px 40px rgba(27, 94, 32, 0.08);
+        border-top: 8px solid var(--brand-primary);
+        padding: 45px;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .form-title-scholarly {
+        font-family: 'Playfair Display', serif;
+        font-weight: 900;
+        color: var(--brand-primary);
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .form-label-premium {
+        font-weight: 700;
+        color: var(--brand-primary);
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+        display: block;
+    }
+
+    .input-premium {
+        border-radius: 12px;
+        border: 2px solid #f0f0f0;
+        padding: 12px 15px;
+        font-size: 1rem;
+        transition: 0.3s;
+        background: #fdfdfd;
+        width: 100%;
+    }
+
+    .input-premium:focus {
+        border-color: var(--brand-accent);
+        background: white;
+        box-shadow: 0 5px 15px rgba(255, 160, 0, 0.1);
+        outline: none;
+    }
+
+    .textarea-premium {
+        min-height: 100px;
+    }
+
+    .btn-publish-topic {
+        background: var(--brand-primary);
+        color: white !important;
+        border: none;
+        border-radius: 50px;
+        padding: 15px 40px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        transition: 0.4s;
+        box-shadow: 0 8px 20px rgba(27, 94, 32, 0.2);
+    }
+
+    .btn-publish-topic:hover {
+        background: var(--brand-accent);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(255, 160, 0, 0.3);
+    }
+
+    .instructor-helper-box {
+        background: var(--brand-light);
+        padding: 15px 20px;
+        border-radius: 12px;
+        margin-bottom: 35px;
+        border-left: 5px solid var(--brand-accent);
+        text-align: center;
+    }
+</style>
+
+
+    <div class="pagetitle wow fadeInDown">
+        <h1>Topic Creation</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="">Faculty Hub</a></li>
+                <li class="breadcrumb-item active">Add New Subject</li>
+            </ol>
+        </nav>
+    </div>
+
+    <section class="section">
+        <div class="form-card-premium wow fadeInUp">
+            <h2 class="form-title-scholarly">Curriculum Architect</h2>
+            
+            <div class="instructor-helper-box">
+                <p class="small mb-0 text-dark fw-bold">
+                    <i class="fas fa-feather-alt me-2 text-success"></i> 
+                    Define a new subject area. Once added, you can populate it with assessment questions.
+                </p>
+            </div>
+
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <label for="courseName" class="form-label-premium">Subject / Topic Name</label>
+                        <input type="text" class="input-premium shadow-sm" id="courseName" name="courseName" placeholder="e.g. Advanced Thermodynamics" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="courseImage" class="form-label-premium">Cover Illustration</label>
+                        <input type="file" class="input-premium shadow-sm" id="courseImage" name="courseImage" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="courseCategory" class="form-label-premium">Academic Category</label>
+                        <select class="form-select input-premium shadow-sm" id="courseCategory" name="courseCategory" required>
+                            <option value="" disabled selected>Select Discipline</option>
+                            <option value="Mathematics">Mathematics</option>
+                            <option value="Science">Science</option>
+                            <option value="English">English</option>
+                            <option value="Social Science">Social Science</option>
+                            <option value="History">History</option>
+                            <option value="Geography">Geography</option>
+                            <option value="Physics">Physics</option>
+                            <option value="Chemistry">Chemistry</option>
+                            <option value="Biology">Biology</option>
+                            <option value="Computer Science">Computer Science</option>
+                            <option value="Hindi">Hindi</option>
+                            <option value="Sanskrit">Sanskrit</option>
+                            <option value="Physical Education">Physical Education</option>
+                            <option value="Art">Art</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="courseLanguage" class="form-label-premium">Medium of Instruction</label>
+                        <select class="form-select input-premium shadow-sm" id="courseLanguage" name="courseLanguage" required>
+                            <option value="" disabled selected>Select Language</option>
+                            <option value="English">English</option>
+                            <option value="Hindi">Hindi</option>
+                            <option value="Telugu">Telugu</option>
+                            <option value="Tamil">Tamil</option>
+                            <option value="Malayalam">Malayalam</option>
+                            <option value="Kannada">Kannada</option>
+                            <option value="Gujarati">Gujarati</option>
+                            <option value="Urdu">Urdu</option>
+                            <option value="Marathi">Marathi</option>
+                            <option value="Bengali">Bengali</option>
+                            <option value="Odia">Odia</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-12">
+                        <label for="videourl" class="form-label-premium">Lecture Video Link (Optional)</label>
+                        <input type="url" class="input-premium shadow-sm" id="videourl" name="videourl" placeholder="https://youtube.com/...">
+                    </div>
+
+                    <div class="col-md-12">
+                        <label for="courseDescription" class="form-label-premium">Topic Abstract / Description</label>
+                        <textarea class="input-premium textarea-premium shadow-sm" id="courseDescription" name="courseDescription" rows="3" placeholder="Provide a brief overview of the learning outcomes..." required></textarea>
+                    </div>
+                </div>
+
+                <div class="text-center mt-5">
+                    <button type="submit" class="btn btn-publish-topic">
+                        Publish Subject <i class="fas fa-paper-plane ms-2"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+{% endblock content %}

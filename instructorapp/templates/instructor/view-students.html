@@ -1,0 +1,166 @@
+{% extends 'instructor/base_ins.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .admin-content-wrapper {
+        padding: 30px;
+        background: #f8faf9;
+        min-height: 100vh;
+    }
+
+    .page-header-premium {
+        margin-bottom: 30px;
+        border-left: 5px solid var(--brand-accent);
+        padding-left: 20px;
+    }
+
+    .page-header-premium h1 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 900;
+        color: var(--brand-primary);
+        font-size: 2.2rem;
+        margin-bottom: 5px;
+    }
+
+    .breadcrumb-item a {
+        color: var(--brand-primary);
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .directory-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(27, 94, 32, 0.05);
+        border: none;
+        padding: 30px;
+    }
+
+    .table-premium {
+        border-collapse: separate;
+        border-spacing: 0 12px;
+    }
+
+    .table-premium thead th {
+        background-color: var(--brand-primary);
+        color: white;
+        border: none;
+        padding: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+    }
+
+    .table-premium thead th:first-child { border-radius: 15px 0 0 15px; }
+    .table-premium thead th:last-child { border-radius: 0 15px 15px 0; }
+
+    .table-premium tbody tr {
+        background-color: #ffffff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        transition: 0.3s;
+    }
+
+    .table-premium tbody tr:hover {
+        background-color: #f8faf9;
+        transform: scale(1.005);
+    }
+
+    .table-premium td {
+        padding: 20px;
+        border: none;
+        vertical-align: middle;
+        font-size: 1rem;
+        color: #444;
+    }
+
+    .enrollment-count {
+        background: var(--brand-light);
+        color: var(--brand-primary);
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-weight: 800;
+        border: 1px solid var(--brand-primary);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .course-title-cell {
+        color: var(--brand-primary);
+        font-weight: 700;
+        font-size: 1.1rem;
+    }
+</style>
+
+
+    <div class="page-header-premium wow fadeInDown">
+        <h1>Enrollment Lab</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="">Faculty Hub</a></li>
+                <li class="breadcrumb-item active">Scholar Directory</li>
+            </ol>
+        </nav>
+    </div>
+
+    <section class="section">
+        <div class="directory-card shadow-sm">
+            <div class="d-flex align-items-center mb-4">
+                <div class="bg-primary text-white rounded-circle p-2 me-3 shadow-sm" style="width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; background-color: var(--brand-primary) !important;">
+                    <i class="fas fa-users-cog"></i>
+                </div>
+                <div>
+                    <h5 class="m-0 fw-bold" style="color: var(--brand-primary);">Scholar Distribution</h5>
+                    <p class="text-muted small mb-0">Overview of student counts per active curriculum topic.</p>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-premium">
+                    <thead>
+                        <tr class="text-center">
+                            <th scope="col" width="60%" class="text-start ps-5">Academic Course / Topic</th>
+                            <th scope="col" width="40%">Total Active Scholars</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for course_student in course_students %}
+                        <tr class="text-center">
+                            <td class="text-start ps-5 course-title-cell">
+                                <i class="fas fa-book-reader me-3 opacity-50"></i>
+                                {{ course_student.course__course_name }}
+                            </td>
+                            <td>
+                                <div class="enrollment-count shadow-sm">
+                                    <i class="fas fa-user-graduate"></i>
+                                    {{ course_student.num_students }} Scholars
+                                </div>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="2" class="text-center py-5">
+                                <div class="opacity-50 mb-3">
+                                    <i class="fas fa-folder-open fa-3x"></i>
+                                </div>
+                                <h5 class="fw-bold text-muted">No Enrolled Scholars Found</h5>
+                                <p class="text-muted small">Scholar counts will appear here once students join your courses.</p>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-4 p-3 bg-light rounded-4 border-start border-4 border-warning">
+                <p class="small mb-0 text-muted">
+                    <i class="fas fa-info-circle me-1 text-warning"></i> 
+                    <strong>Faculty Tip:</strong> Click on "Assessment Bank" in the sidebar to create new challenges for these scholars.
+                </p>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}

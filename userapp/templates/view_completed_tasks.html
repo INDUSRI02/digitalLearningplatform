@@ -1,0 +1,146 @@
+{% extends 'base_dashboard.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .task-container {
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        padding: 40px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        border-top: 5px solid var(--brand-primary);
+    }
+
+    .header-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--brand-primary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        font-size: 24px;
+        box-shadow: 0 5px 15px rgba(27, 94, 32, 0.3);
+    }
+
+    .table-premium {
+        border-collapse: separate;
+        border-spacing: 0 10px;
+    }
+
+    .table-premium thead th {
+        background-color: transparent;
+        border: none;
+        color: var(--brand-primary);
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+        padding: 15px;
+    }
+
+    .table-premium tbody tr {
+        background-color: #fcfcfc;
+        transition: 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    }
+
+    .table-premium tbody tr:hover {
+        background-color: #fff;
+        transform: scale(1.01);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .table-premium td {
+        padding: 20px 15px;
+        border: none;
+        vertical-align: middle;
+        font-size: 0.95rem;
+    }
+
+    .table-premium td:first-child { border-radius: 12px 0 0 12px; }
+    .table-premium td:last-child { border-radius: 0 12px 12px 0; }
+
+    .badge-date {
+        background: rgba(27, 94, 32, 0.1);
+        color: var(--brand-primary);
+        padding: 8px 12px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 0.85rem;
+    }
+
+    .empty-state {
+        padding: 60px 20px;
+        text-align: center;
+    }
+
+    .empty-state i {
+        font-size: 80px;
+        color: #eee;
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="container">
+    <div class="task-container wow fadeInUp" data-wow-delay="0.1s">
+        <div class="header-icon">
+            <i class="fas fa-award"></i>
+        </div>
+        
+        <h2 class="text-center mb-2" style="font-family: 'Playfair Display', serif; font-weight: 800; color: var(--brand-primary);">
+            Completed Tasks
+        </h2>
+        <p class="text-center text-muted mb-5">
+            Congratulations! Here is a record of all your successful learning achievements.
+        </p>
+
+        {% if completed_tasks %}
+            <div class="table-responsive">
+                <table class="table table-premium">
+                    <thead>
+                        <tr>
+                            <th width="5%">#</th>
+                            <th width="25%">Title</th>
+                            <th width="45%">Description</th>
+                            <th width="25%" class="text-end">Completion Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for completion in completed_tasks %}
+                            <tr>
+                                <td class="fw-bold text-muted">{{ forloop.counter }}</td>
+                                <td>
+                                    <span class="fw-bold text-dark">{{ completion.task.title }}</span>
+                                </td>
+                                <td>
+                                    <span class="text-muted small">{{ completion.task.description }}</span>
+                                </td>
+                                <td class="text-end">
+                                    <span class="badge-date">
+                                        <i class="far fa-calendar-alt me-1"></i> {{ completion.completion_date }}
+                                    </span>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="empty-state">
+                <i class="fas fa-clipboard-list"></i>
+                <h4 class="text-muted">No completed tasks yet</h4>
+                <p class="text-muted-50">Start exploring your learning modules to see your achievements here!</p>
+                <a href="{% url 'user_dashboard' %}" class="btn btn-primary rounded-pill px-4 mt-3">
+                    Go to Dashboard
+                </a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

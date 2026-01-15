@@ -1,0 +1,200 @@
+{% extends 'base_dashboard.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    .results-history-container {
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        padding: 40px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        border-top: 6px solid var(--brand-primary);
+    }
+
+    .results-title {
+        font-family: 'Playfair Display', serif;
+        font-weight: 900;
+        color: var(--brand-primary);
+    }
+
+    .table-premium {
+        border-collapse: separate;
+        border-spacing: 0 12px;
+    }
+
+    .table-premium thead th {
+        background-color: transparent;
+        border: none;
+        color: var(--brand-primary);
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+        padding: 15px;
+    }
+
+    .table-premium tbody tr {
+        background-color: #fcfcfc;
+        transition: 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    }
+
+    .table-premium tbody tr:hover {
+        background-color: #fff;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(27, 94, 32, 0.08);
+    }
+
+    .table-premium td {
+        padding: 20px 15px;
+        border: none;
+        vertical-align: middle;
+        font-size: 0.95rem;
+    }
+
+    .table-premium td:first-child { border-radius: 12px 0 0 12px; }
+    .table-premium td:last-child { border-radius: 0 12px 12px 0; }
+
+    .marks-badge {
+        background: var(--brand-accent);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 50px;
+        font-weight: 800;
+        box-shadow: 0 4px 10px rgba(255, 160, 0, 0.2);
+    }
+
+    .btn-view-details {
+        background: var(--brand-primary);
+        color: white !important;
+        border: none;
+        border-radius: 50px;
+        padding: 8px 20px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        transition: 0.3s;
+    }
+
+    .btn-view-details:hover {
+        background: var(--brand-accent);
+        transform: scale(1.05);
+    }
+
+    /* Modern Pagination */
+    .pagination .page-link {
+        color: var(--brand-primary);
+        border: none;
+        margin: 0 5px;
+        border-radius: 8px;
+        font-weight: 600;
+    }
+
+    .pagination .page-item.active .page-link {
+        background-color: var(--brand-primary);
+        color: white;
+    }
+
+    .pagination .page-item.disabled .page-link {
+        background-color: transparent;
+        color: #ccc;
+    }
+
+    .empty-state-card {
+        border-radius: 20px;
+        border: 2px dashed #e0e0e0;
+        background: #fafafa;
+    }
+</style>
+
+<div class="container py-5">
+    <div class="results-history-container wow fadeInUp" data-wow-delay="0.1s">
+        <div class="text-center mb-5">
+            <div class="brand-icon-box mx-auto mb-3" style="width: 60px; height: 60px;">
+                <i class="fas fa-history text-white fa-2x"></i>
+            </div>
+            <h2 class="results-title">Assessment History</h2>
+            <p class="text-muted">Review your past performances and track your bilingual growth.</p>
+        </div>
+
+        {% if page_obj %}
+        <div class="table-responsive">
+            <table class="table table-premium">
+                <thead>
+                    <tr>
+                        <th scope="col">Test Module</th>
+                        <th scope="col">Attempt Date</th>
+                        <th scope="col">Score</th>
+                        <th scope="col" class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for test in page_obj %}
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-file-alt text-success me-3"></i>
+                                <span class="fw-bold text-dark">{{ test.test_name }}</span>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="text-muted small"><i class="far fa-calendar-alt me-1"></i> {{ test.test_date }}</span>
+                        </td>
+                        <td>
+                            <span class="marks-badge">{{ test.test_marks }} / 10</span>
+                        </td>
+                        <td class="text-center">
+                            <a href="{% url 'view_details' test_id=test.pk %}" class="btn btn-view-details shadow-sm">
+                                <i class="fas fa-search-plus me-1"></i> Full Analysis
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <nav class="mt-5">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link shadow-sm" href="?page=1"><i class="fas fa-angle-double-left"></i> First</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link shadow-sm" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                </li>
+                {% endif %}
+                
+                <li class="page-item disabled">
+                    <span class="page-link text-dark fw-bold">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                    </span>
+                </li>
+                
+                {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link shadow-sm" href="?page={{ page_obj.next_page_number }}">Next</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link shadow-sm" href="?page={{ page_obj.paginator.num_pages }}">Last <i class="fas fa-angle-double-right"></i></a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+
+        {% else %}
+        <div class="empty-state-card text-center p-5 mx-auto col-md-8">
+            <i class="fas fa-pen-nib fa-4x text-light mb-3"></i>
+            <h4 class="text-muted fw-bold">No Records Found</h4>
+            <p class="text-muted-50 mb-4">You haven't attempted any tests yet. Head over to the arena to start your learning journey!</p>
+            <a href="{% url 'user_dashboard' %}" class="btn btn-success rounded-pill px-5 py-2 fw-bold">
+                Go to Learning Arena
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock content %}

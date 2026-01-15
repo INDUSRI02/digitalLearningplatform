@@ -1,0 +1,192 @@
+{% extends 'base_admin.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .admin-review-container {
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        padding: 40px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        border-top: 6px solid var(--brand-primary);
+    }
+
+    .admin-title {
+        font-family: 'Playfair Display', serif;
+        font-weight: 900;
+        color: var(--brand-primary);
+    }
+
+    .table-premium {
+        border-collapse: separate;
+        border-spacing: 0 10px;
+    }
+
+    .table-premium thead th {
+        background-color: var(--brand-primary);
+        color: white;
+        border: none;
+        padding: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+
+    .table-premium thead th:first-child { border-radius: 12px 0 0 12px; }
+    .table-premium thead th:last-child { border-radius: 0 12px 12px 0; }
+
+    .table-premium tbody tr {
+        background-color: #fcfcfc;
+        transition: 0.3s;
+    }
+
+    .table-premium tbody tr:hover {
+        background-color: #f8faf9;
+        transform: scale(1.005);
+    }
+
+    .table-premium td {
+        padding: 15px;
+        border: none;
+        vertical-align: middle;
+        font-size: 0.9rem;
+        border-bottom: 1px solid #eee;
+    }
+
+    .rating-badge-premium {
+        background: var(--brand-light);
+        color: var(--brand-primary);
+        padding: 5px 12px;
+        border-radius: 50px;
+        font-weight: 800;
+        border: 1px solid var(--brand-primary);
+    }
+
+    .rating-none {
+        background: #fff5f5;
+        color: #c53030;
+        padding: 5px 12px;
+        border-radius: 50px;
+        font-weight: 800;
+        border: 1px solid #feb2b2;
+    }
+
+    .btn-admin-action {
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        padding: 6px 15px;
+        margin: 2px;
+    }
+
+    /* Modal Styling */
+    .modal-content-premium {
+        border-radius: 20px;
+        border: none;
+        overflow: hidden;
+    }
+
+    .modal-header-premium {
+        background: var(--brand-primary);
+        color: white;
+        font-family: 'Playfair Display', serif;
+    }
+</style>
+
+<div class="container py-5">
+    <div class="admin-review-container wow fadeInUp" data-wow-delay="0.1s">
+        <div class="text-center mb-5">
+            <div class="brand-icon-box mx-auto mb-3" style="width: 60px; height: 60px;">
+                <i class="fas fa-user-check text-white fa-2x"></i>
+            </div>
+            <h2 class="admin-title">Student Response Management</h2>
+            <p class="text-muted">Review, evaluate, and provide feedback on student challenge submissions.</p>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-premium">
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Challenge Module</th>
+                        <th>Score/Rating</th>
+                        <th>Submission Date</th>
+                        <th class="text-center">Administration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for answer in answers %}
+                    <tr>
+                        <td class="fw-bold text-dark">{{ answer.student_name }}</td>
+                        <td class="text-muted">{{ answer.challenge.name }}</td>
+                        <td>
+                            {% if answer.rating %}
+                                <span class="rating-badge-premium">{{ answer.rating }} / 10</span>
+                            {% else %}
+                                <span class="rating-none">Pending Rating</span>
+                            {% endif %}
+                        </td>
+                        <td class="small">{{ answer.submission_date|date:"Y-m-d H:i" }}</td>
+                        <td class="text-center">
+                            <button class="btn btn-info btn-admin-action text-white" data-toggle="modal" data-target="#feedbackModal{{ answer.id }}">
+                                <i class="fas fa-comment-dots me-1"></i> Feedback
+                            </button>
+                            <button class="btn btn-warning btn-admin-action text-dark" data-toggle="modal" data-target="#answerModal{{ answer.id }}">
+                                <i class="fas fa-eye me-1"></i> Answer
+                            </button>
+                        </td>
+                    </tr>
+
+                    <div class="modal fade" id="feedbackModal{{ answer.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg">
+                            <div class="modal-content modal-content-premium shadow-lg">
+                                <div class="modal-header modal-header-premium">
+                                    <h5 class="modal-title">Submission Review: {{ answer.challenge.name }}</h5>
+                                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body p-4">
+                                    <h6 class="fw-bold text-muted mb-2 uppercase small">Student's Work:</h6>
+                                    <div class="p-3 bg-light rounded-3 mb-4 border italic">
+                                        "{{ answer.answer_text }}"
+                                    </div>
+                                    <hr>
+                                    <h6 class="fw-bold text-success mb-2 uppercase small">Assigned Feedback:</h6>
+                                    <p class="text-dark">{{ answer.feedback }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="answerModal{{ answer.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content modal-content-premium shadow-lg">
+                                <div class="modal-header bg-warning">
+                                    <h5 class="modal-title text-dark">Full Answer Preview</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body p-4">
+                                    <p class="lh-lg">{{ answer.answer_text }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+{% endblock %}

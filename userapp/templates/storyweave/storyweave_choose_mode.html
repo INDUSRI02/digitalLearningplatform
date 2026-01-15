@@ -1,0 +1,150 @@
+{% extends 'base_dashboard.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .mode-selection-section {
+        background: linear-gradient(135deg, #f8faf9 0%, #e8f5e9 100%);
+        min-height: 80vh;
+        padding: 100px 0;
+    }
+
+    .selection-title {
+        font-family: 'Playfair Display', serif;
+        font-weight: 900;
+        color: var(--brand-primary);
+        font-size: 3rem;
+        margin-bottom: 15px;
+    }
+
+    .mode-card {
+        background: white;
+        border: none;
+        border-radius: 25px;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border-bottom: 6px solid transparent;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .mode-card:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 20px 40px rgba(27, 94, 32, 0.15) !important;
+        border-bottom: 6px solid var(--brand-accent);
+    }
+
+    .video-circle {
+        background: var(--brand-light);
+        padding: 15px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-top: 30px;
+        border: 2px dashed var(--brand-primary);
+        transition: 0.4s;
+    }
+
+    .mode-card:hover .video-circle {
+        border-style: solid;
+        background: white;
+        transform: scale(1.1);
+    }
+
+    .mode-video {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+    }
+
+    .mode-name {
+        font-family: 'Playfair Display', serif;
+        font-weight: 800;
+        color: var(--brand-primary);
+        margin-top: 20px;
+    }
+
+    .btn-choose {
+        background: var(--brand-primary);
+        color: white !important;
+        border: none;
+        border-radius: 50px;
+        padding: 12px 30px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: 0.3s;
+        margin-bottom: 30px;
+    }
+
+    .btn-choose:hover {
+        background: var(--brand-accent);
+        box-shadow: 0 5px 15px rgba(255, 160, 0, 0.3);
+    }
+
+    .badge-premium {
+        background: var(--brand-accent);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+</style>
+
+<div class="container-fluid mode-selection-section">
+    <div class="container">
+        <div class="text-center mb-5 wow fadeInDown">
+            <h2 class="selection-title">Choose Your Story Weave</h2>
+            <p class="text-muted lead">Select your preferred creative path to begin your literary journey.</p>
+        </div>
+
+        <div class="row justify-content-center g-4">
+            <div class="col-md-5 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="card mode-card shadow-sm text-center p-3">
+                    <div class="video-circle mx-auto">
+                        <video loop autoplay muted class="mode-video">
+                            <source src="{% static 'img/v8.mp4' %}" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="card-body">
+                        <span class="badge-premium">Individual</span>
+                        <h4 class="mode-name">Solo Story Mode</h4>
+                        <p class="text-muted small mb-4">Write your own masterpiece without interruptions. Pure imagination, pure creativity!</p>
+                        <a href="{% url 'solo_story_mode' %}" class="btn btn-choose">
+                            Start Solo Story <i class="fas fa-feather-alt ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="card mode-card shadow-sm text-center p-3">
+                    <div class="video-circle mx-auto" style="border-color: var(--brand-accent);">
+                        <video loop autoplay muted class="mode-video">
+                            <source src="{% static 'img/v3.mp4' %}" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="card-body">
+                        <span class="badge-premium" style="background: var(--brand-primary);">Team Work</span>
+                        <h4 class="mode-name">Collaborative Mode</h4>
+                        <p class="text-muted small mb-4">Join forces with other scholars! Build on each other's ideas to create epic team tales.</p>
+                        <a href="{% url 'collaborative_story_mode' %}" class="btn btn-choose">
+                            Join Team Weave <i class="fas fa-users ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="{% url 'user_dashboard' %}" class="text-muted text-decoration-none small">
+                <i class="fas fa-chevron-left me-1"></i> Back to Dashboard
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

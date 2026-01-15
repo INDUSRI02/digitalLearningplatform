@@ -1,0 +1,201 @@
+{% extends 'base_dashboard.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .reflection-container {
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        padding: 40px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        border-top: 6px solid var(--brand-primary);
+    }
+
+    .reflection-title {
+        font-family: 'Playfair Display', serif;
+        font-weight: 900;
+        color: var(--brand-primary);
+        margin-bottom: 10px;
+    }
+
+    .table-premium {
+        border-collapse: separate;
+        border-spacing: 0 12px;
+    }
+
+    .table-premium thead th {
+        border: none;
+        color: var(--brand-primary);
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+        padding: 15px;
+    }
+
+    .table-premium tbody tr {
+        background-color: #fdfdfd;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        transition: 0.3s;
+    }
+
+    .table-premium tbody tr:hover {
+        transform: translateY(-3px);
+        background-color: white;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .table-premium td {
+        padding: 20px 15px;
+        border: none;
+        vertical-align: middle;
+        font-size: 0.95rem;
+    }
+
+    .table-premium td:first-child { border-radius: 12px 0 0 12px; }
+    .table-premium td:last-child { border-radius: 0 12px 12px 0; }
+
+    .category-badge {
+        background: rgba(27, 94, 32, 0.1);
+        color: var(--brand-primary);
+        padding: 5px 12px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 0.8rem;
+    }
+
+    .btn-view-data {
+        background: var(--brand-primary);
+        color: white !important;
+        border: none;
+        border-radius: 50px;
+        padding: 6px 18px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    .btn-view-data:hover {
+        background: var(--brand-accent);
+        transform: scale(1.05);
+    }
+
+    /* Modal Styling */
+    .modal-content {
+        border-radius: 20px;
+        border: none;
+        overflow: hidden;
+    }
+
+    .modal-header {
+        background: var(--brand-primary);
+        color: white;
+        font-family: 'Playfair Display', serif;
+    }
+
+    .modal-header .close {
+        color: white;
+        opacity: 1;
+    }
+
+    .modal-body p {
+        line-height: 1.8;
+        color: #444;
+        font-size: 1.1rem;
+    }
+</style>
+
+<div class="container py-5">
+    <div class="reflection-container wow fadeInUp" data-wow-delay="0.1s">
+        <div class="text-center mb-5">
+            <div class="brand-icon-box mx-auto mb-3" style="width: 60px; height: 60px;">
+                <i class="fas fa-history text-white"></i>
+            </div>
+            <h2 class="reflection-title">Reflection History</h2>
+            <p class="text-muted">Review your personal growth journey and teacher insights.</p>
+        </div>
+
+        {% if reflections %}
+            <div class="table-responsive">
+                <table class="table table-premium">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Question Preview</th>
+                            <th>Your Answer</th>
+                            <th>Insight</th>
+                            <th class="text-end">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for reflection in reflections %}
+                            <tr>
+                                <td><span class="category-badge">{{ reflection.category }}</span></td>
+                                <td class="text-dark fw-bold">{{ reflection.question|truncatechars:40 }}</td>
+                                <td>
+                                    <button type="button" class="btn btn-view-data shadow-sm" data-toggle="modal" data-target="#answerModal{{ reflection.id }}">
+                                        <i class="fas fa-eye me-1"></i> Read
+                                    </button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-view-data shadow-sm" style="background: var(--brand-accent);" data-toggle="modal" data-target="#feedbackModal{{ reflection.id }}">
+                                        <i class="fas fa-comment-alt me-1"></i> Feedback
+                                    </button>
+                                </td>
+                                <td class="text-end text-muted small">{{ reflection.timestamp|date:"M d, Y" }}</td>
+                            </tr>
+
+                            <div class="modal fade" id="answerModal{{ reflection.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-lg">
+                                    <div class="modal-content shadow-lg">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">My Reflection: {{ reflection.category }}</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body p-4">
+                                            <h6 class="text-muted mb-3">Question:</h6>
+                                            <p class="fw-bold text-dark mb-4">{{ reflection.question }}</p>
+                                            <h6 class="text-muted mb-2">My Answer:</h6>
+                                            <p>{{ reflection.answer }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal fade" id="feedbackModal{{ reflection.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-lg">
+                                    <div class="modal-content shadow-lg">
+                                        <div class="modal-header" style="background: var(--brand-accent);">
+                                            <h5 class="modal-title">Teacher Insight: {{ reflection.category }}</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body p-4">
+                                            <p class="italic text-dark">{{ reflection.feedback }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="text-center py-5">
+                <i class="fas fa-feather-alt fa-4x text-light mb-3"></i>
+                <p class="text-muted">No reflections found for your profile yet. Start a new session!</p>
+                <a href="{% url 'start_reflection' %}" class="btn btn-primary rounded-pill px-4 mt-3">Begin Reflection</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+{% endblock %}

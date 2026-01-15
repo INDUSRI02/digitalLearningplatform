@@ -1,0 +1,176 @@
+{% extends 'base_admin.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .admin-content-wrapper {
+        padding: 30px;
+        background: #f8faf9;
+        min-height: 100vh;
+    }
+
+    .page-header-premium {
+        margin-bottom: 30px;
+        border-left: 5px solid var(--brand-accent);
+        padding-left: 20px;
+    }
+
+    .page-header-premium h1 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 900;
+        color: var(--brand-primary);
+        font-size: 2rem;
+        margin-bottom: 5px;
+    }
+
+    .breadcrumb-item a {
+        color: var(--brand-primary);
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .analytics-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 15px 40px rgba(27, 94, 32, 0.08);
+        padding: 40px;
+        border: none;
+    }
+
+    .chart-container {
+        position: relative;
+        height: 60vh;
+        width: 100%;
+    }
+
+    .insight-badge {
+        background: rgba(255, 160, 0, 0.1);
+        color: var(--brand-primary);
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 0.85rem;
+        display: inline-block;
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="admin-content-wrapper">
+    <div class="page-header-premium wow fadeInDown">
+        <h1>Sentiment Analytics</h1>
+        <nav>
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="">Management</a></li>
+                <li class="breadcrumb-item active">Feedback Graph</li>
+            </ol>
+        </nav>
+    </div>
+
+    <section class="section">
+        <div class="analytics-card wow fadeInUp">
+            <div class="text-center mb-5">
+                <span class="insight-badge shadow-sm">
+                    <i class="fas fa-chart-bar me-2 text-warning"></i> User Sentiment Distribution
+                </span>
+                <p class="text-muted small">Real-time visualization of student and instructor feedback across the platform.</p>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="sentimentsChart"></canvas>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    // Data variables from Django preserved
+    const rating1Count = {{ rating_counts.rating1 }};
+    const rating2Count = {{ rating_counts.rating2 }};
+    const rating3Count = {{ rating_counts.rating3 }};
+    const rating4Count = {{ rating_counts.rating4 }};
+    const rating5Count = {{ rating_counts.rating5 }};
+
+    const sentimentsData = {
+        labels: ['😢 Very Sad', '😐 Neutral', '😊 Happy', '😄 Excited', '🌟 Exceptional'],
+        datasets: [{
+            label: 'Total Responses',
+            data: [rating1Count, rating2Count, rating3Count, rating4Count, rating5Count],
+            // Using brand colors: Forest Green variations and Amber
+            backgroundColor: [
+                'rgba(211, 47, 47, 0.7)',  // Red for sad
+                'rgba(117, 117, 117, 0.7)', // Grey for neutral
+                'rgba(46, 125, 50, 0.6)',   // Light Forest
+                'rgba(27, 94, 32, 0.8)',    // Deep Forest
+                'rgba(255, 160, 0, 0.9)'    // Brand Amber
+            ],
+            borderColor: [
+                '#d32f2f',
+                '#757575',
+                '#2e7d32',
+                '#1B5E20',
+                '#FFA000'
+            ],
+            borderWidth: 2,
+            borderRadius: 15, // Modern rounded bars
+            barThickness: 80,
+            maxBarThickness: 100
+        }]
+    };
+
+    const ctx = document.getElementById('sentimentsChart').getContext('2d');
+    const sentimentsChart = new Chart(ctx, {
+        type: 'bar',
+        data: sentimentsData,
+        options: {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    backgroundColor: '#1B5E20',
+                    titleFont: { size: 14, family: 'Outfit' },
+                    bodyFont: { size: 13, family: 'Outfit' },
+                    padding: 12,
+                    displayColors: false,
+                    callbacks: {
+                        label: function(context) {
+                            return ' Responses: ' + context.raw;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        display: true,
+                        color: '#f0f0f0'
+                    },
+                    ticks: {
+                        font: { family: 'Outfit', weight: '600' },
+                        color: '#666'
+                    }
+                },
+                x: {
+                    grid: {
+                        display: false
+                    },
+                    ticks: {
+                        font: { family: 'Outfit', size: 14, weight: '700' },
+                        color: '#1B5E20'
+                    }
+                }
+            },
+            animation: {
+                duration: 2000,
+                easing: 'easeOutQuart'
+            }
+        }
+    });
+</script>
+
+{% endblock content %}

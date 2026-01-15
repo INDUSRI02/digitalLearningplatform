@@ -1,0 +1,254 @@
+{% extends 'instructor/base_ins.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .curriculum-wrapper {
+        padding: 30px;
+        background: #f8faf9;
+        min-height: 100vh;
+    }
+
+    .page-header-premium {
+        margin-bottom: 30px;
+        border-left: 5px solid var(--brand-accent);
+        padding-left: 20px;
+    }
+
+    .page-header-premium h1 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 900;
+        color: var(--brand-primary);
+        font-size: 2rem;
+        margin-bottom: 5px;
+    }
+
+    .breadcrumb-item a {
+        color: var(--brand-primary);
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .catalog-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(27, 94, 32, 0.05);
+        border: none;
+        padding: 30px;
+    }
+
+    .table-premium {
+        border-collapse: separate;
+        border-spacing: 0 12px;
+    }
+
+    .table-premium thead th {
+        background-color: var(--brand-primary);
+        color: white;
+        border: none;
+        padding: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+
+    .table-premium thead th:first-child { border-radius: 12px 0 0 12px; }
+    .table-premium thead th:last-child { border-radius: 0 12px 12px 0; }
+
+    .table-premium tbody tr {
+        background-color: #ffffff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        transition: 0.3s;
+    }
+
+    .table-premium tbody tr:hover {
+        background-color: #f8faf9;
+        transform: scale(1.005);
+    }
+
+    .table-premium td {
+        padding: 15px;
+        border: none;
+        vertical-align: middle;
+        font-size: 0.95rem;
+        color: #444;
+    }
+
+    .course-thumb {
+        width: 80px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 2px solid var(--brand-light);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .enrollment-badge {
+        background: #fff8e1;
+        color: var(--brand-accent);
+        padding: 5px 15px;
+        border-radius: 50px;
+        font-weight: 800;
+        font-size: 0.85rem;
+        border: 1px solid var(--brand-accent);
+    }
+
+    .btn-edit-premium {
+        background-color: var(--brand-light);
+        color: var(--brand-primary) !important;
+        border: 1px solid var(--brand-primary);
+        border-radius: 50px;
+        padding: 6px 18px;
+        font-weight: 700;
+        font-size: 0.8rem;
+        transition: 0.3s;
+        text-decoration: none;
+    }
+
+    .btn-edit-premium:hover {
+        background-color: var(--brand-primary);
+        color: white !important;
+    }
+
+    .btn-remove-premium {
+        background-color: #fff5f5;
+        color: #d32f2f !important;
+        border: 1px solid #feb2b2;
+        border-radius: 50px;
+        padding: 6px 18px;
+        font-weight: 700;
+        font-size: 0.8rem;
+        transition: 0.3s;
+        text-decoration: none;
+        margin-left: 5px;
+    }
+
+    .btn-remove-premium:hover {
+        background-color: #d32f2f;
+        color: white !important;
+    }
+
+    /* Pagination Styling */
+    .pagination .page-link {
+        color: var(--brand-primary);
+        border: none;
+        margin: 0 3px;
+        border-radius: 8px;
+        font-weight: 700;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .pagination .page-item.active .page-link {
+        background-color: var(--brand-primary);
+        color: white;
+    }
+</style>
+
+
+    <div class="page-header-premium wow fadeInDown">
+        <h1>Topic Repository</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="">Faculty Hub</a></li>
+                <li class="breadcrumb-item active">View Subjects</li>
+            </ol>
+        </nav>
+    </div>
+
+    <section class="section">
+        <div class="catalog-card shadow-sm">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <div class="d-flex align-items-center">
+                    <div class="bg-success text-white rounded-circle p-2 me-3 shadow-sm" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h5 class="m-0 fw-bold" style="color: var(--brand-primary);">Published Curriculum Topics</h5>
+                </div>
+                <a href="{% url 'add_courses' %}" class="btn btn-primary rounded-pill px-4 shadow-sm">
+                    <i class="fas fa-plus me-2"></i>New Topic
+                </a>
+            </div>
+
+            {% if page_obj %}
+            <div class="table-responsive">
+                <table class="table table-premium">
+                    <thead>
+                        <tr class="text-center">
+                            <th scope="col" width="15%">Preview</th>
+                            <th scope="col" width="35%">Topic Designation</th>
+                            <th scope="col" width="20%">Enrolled Scholars</th>
+                            <th scope="col" width="30%">Management</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for course in page_obj %}
+                        <tr class="text-center">
+                            <td>
+                                <img src="{{ course.course_image.url }}" alt="{{ course.course_name }}" class="course-thumb">
+                            </td>
+                            <td class="fw-bold text-dark text-start ps-4">
+                                {{ course.course_name }}
+                            </td>
+                            <td>
+                                <span class="enrollment-badge">
+                                    <i class="fas fa-users me-1"></i> {{ course.students.count }}
+                                </span>
+                            </td>
+                            <td>
+                                <a href="{% url 'edit_course' course_id=course.pk %}" class="btn-edit-premium shadow-sm">
+                                    <i class="fas fa-edit me-1"></i> Edit
+                                </a>
+                                <a href="{% url 'remove_course' course_id=course.pk %}" 
+                                   class="btn-remove-premium shadow-sm"
+                                   onclick="return confirm('Attention: Deleting this topic will remove all associated student progress. Proceed?');">
+                                    <i class="fas fa-trash-alt me-1"></i> Remove
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <nav aria-label="Page navigation" class="mt-5">
+                <ul class="pagination justify-content-center">
+                    {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link shadow-sm" href="?page=1">First</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link shadow-sm" href="?page={{ page_obj.previous_page_number }}"><i class="fas fa-chevron-left"></i></a>
+                    </li>
+                    {% endif %}
+                    
+                    {% for num in page_obj.paginator.page_range %}
+                    <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+                        <a class="page-link shadow-sm" href="?page={{ num }}">{{ num }}</a>
+                    </li>
+                    {% endfor %}
+                    
+                    {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link shadow-sm" href="?page={{ page_obj.next_page_number }}"><i class="fas fa-chevron-right"></i></a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link shadow-sm" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+
+            {% else %}
+            <div class="text-center py-5">
+                <div class="alert alert-info border-0 shadow-sm rounded-4 p-5 d-inline-block col-md-8">
+                    <i class="fas fa-book-open fa-3x mb-3 text-info"></i>
+                    <h5 class="fw-bold">No Topics Published</h5>
+                    <p class="mb-0 text-muted">You haven't added any curriculum subjects yet. Start by clicking the 'New Topic' button.</p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
+{% endblock content %}

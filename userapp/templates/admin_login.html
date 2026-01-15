@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+    .login-container {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--brand-light) 0%, #e8f5e9 100%);
+    }
+
+    .login-card {
+        border: none;
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        background: white;
+    }
+
+    .login-header {
+        background: var(--brand-primary);
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .login-header h1 {
+        font-family: 'Playfair Display', serif;
+        color: white;
+        font-weight: 900;
+        margin: 0;
+    }
+
+    .login-header h1 span {
+        color: var(--brand-accent);
+    }
+
+    .form-control-lg {
+        border-radius: 12px;
+        border: 2px solid #eee;
+        font-size: 1rem;
+        padding: 12px 20px;
+        transition: 0.3s;
+    }
+
+    .form-control-lg:focus {
+        border-color: var(--brand-primary);
+        box-shadow: 0 0 0 0.25rem rgba(27, 94, 32, 0.1);
+    }
+
+    .btn-login {
+        background: var(--brand-primary);
+        border: none;
+        border-radius: 12px;
+        padding: 14px;
+        font-weight: 600;
+        transition: 0.4s;
+    }
+
+    .btn-login:hover {
+        background: var(--brand-accent);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 160, 0, 0.3);
+    }
+
+    .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+        background-color: var(--brand-primary);
+    }
+</style>
+
+<div class="container-fluid login-container py-5">
+    <div class="col-lg-5 col-md-8 mx-auto">
+        <div class="card login-card wow fadeInUp" data-wow-delay="0.1s">
+            <div class="login-header">
+                <div class="brand-icon-box mx-auto mb-3" style="transform: rotate(0deg); width: 60px; height: 60px;">
+                    <i class="fas fa-user-shield text-white fa-2x"></i>
+                </div>
+                <h1>Nabha<span>Learn</span></h1>
+                <p class="text-white-50 small mt-2 mb-0">Management Portal Access</p>
+            </div>
+
+            <div class="card-body p-4 p-md-5">
+                <h2 class="text-center mb-4 fw-bold" style="font-family: 'Playfair Display', serif; color: var(--brand-primary);">Admin Login</h2>
+                
+                <form action="{% url 'admin_login' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group mb-4">
+                        <label class="form-label small fw-bold text-muted">Username</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-0"><i class="fas fa-user text-success"></i></span>
+                            <input type="text" class="form-control form-control-lg border-0 bg-light" id="text" 
+                            placeholder="Enter management ID" name="name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label class="form-label small fw-bold text-muted">Password</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-0"><i class="fas fa-lock text-success"></i></span>
+                            <input type="password" class="form-control form-control-lg border-0 bg-light" id="password" 
+                            placeholder="••••••••" name="password" required>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="customCheck2">
+                            <label class="form-check-label small text-muted" for="customCheck2">Keep me logged in</label>
+                        </div>
+                        <a class="small text-decoration-none fw-bold" href="#" style="color: var(--brand-primary);">Forgot Access?</a>
+                    </div>
+
+                    <button type="submit" class="btn btn-login btn-primary w-100 text-white text-uppercase">
+                        Authenticate Access <i class="fas fa-arrow-right ms-2"></i>
+                    </button>
+
+                    <div class="text-center mt-4">
+                        <a href="{% url 'index' %}" class="text-muted small text-decoration-none">
+                            <i class="fas fa-chevron-left me-1"></i> Return to Homepage
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

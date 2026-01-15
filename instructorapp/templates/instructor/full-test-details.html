@@ -1,0 +1,206 @@
+{% extends 'instructor/base_ins.html' %}
+{% load static %}
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+    .results-wrapper {
+        padding: 20px;
+        background: #f8faf9;
+    }
+
+    .performance-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(27, 94, 32, 0.05);
+        border: none;
+        height: 100%;
+    }
+
+    .table-premium {
+        border-collapse: separate;
+        border-spacing: 0 10px;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .table-premium thead th {
+        background-color: var(--brand-primary);
+        color: white;
+        border: none;
+        padding: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+
+    .table-premium thead th:first-child { border-radius: 12px 0 0 12px; }
+    .table-premium thead th:last-child { border-radius: 0 12px 12px 0; }
+
+    .table-premium tbody tr {
+        background-color: #ffffff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        transition: 0.3s;
+    }
+
+    .table-premium td {
+        padding: 18px 15px;
+        border: none;
+        vertical-align: middle;
+        font-size: 0.9rem;
+    }
+
+    .badge-premium {
+        padding: 8px 15px;
+        font-weight: 800;
+        border-radius: 50px;
+    }
+
+    .marks-pill {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-weight: 800;
+        margin: 0 auto;
+    }
+
+    .pagetitle h1 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 900;
+        color: var(--brand-primary);
+    }
+</style>
+
+
+    <div class="pagetitle wow fadeInDown">
+        <h1>Detailed Scholastic Analysis</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="">Faculty Hub</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'ins_test_result' %}">Test Management</a></li>
+                <li class="breadcrumb-item active">Evaluation Details</li>
+            </ol>
+        </nav>
+    </div>
+
+    <section class="section">
+        <div class="row g-4 mb-5">
+            <div class="col-md-7">
+                <div class="performance-card p-4 wow fadeInLeft">
+                    <h4 class="fw-bold mb-4" style="color: var(--brand-primary);">Assessment Metrics</h4>
+                    <div class="list-group list-group-flush">
+                        <div class="list-group-item d-flex justify-content-between align-items-center bg-transparent py-3">
+                            <span class="text-muted fw-bold">Correct Proficiencies</span>
+                            <span class="badge bg-success badge-premium shadow-sm">{{correct_Answers}} Items</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center bg-transparent py-3">
+                            <span class="text-muted fw-bold">Incorrect Responses</span>
+                            <span class="badge bg-danger badge-premium shadow-sm">{{wrong_Answers}} Items</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center bg-transparent py-3">
+                            <span class="text-muted fw-bold">Maximum Attainable Marks</span>
+                            <span class="badge bg-primary badge-premium shadow-sm">10.0</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center bg-transparent py-3 border-bottom-0">
+                            <span class="text-dark fw-bolder fs-5">Overall Accuracy</span>
+                            <span class="badge bg-warning text-dark badge-premium shadow-sm">{{percantage}}%</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <button class="btn btn-outline-success rounded-pill w-100 fw-bold">
+                            <i class="fas fa-file-export me-2"></i> Export Academic Report
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="performance-card p-4 text-center wow fadeInRight">
+                    <h5 class="fw-bold text-muted mb-3 uppercase small letter-spacing-1">Distribution Analysis</h5>
+                    <div style="height: 280px; width: 280px; margin: 0 auto;">
+                        <canvas id="pieChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="performance-card p-4 wow fadeInUp">
+            <h4 class="fw-bold mb-4" style="color: var(--brand-primary);"><i class="fas fa-list-check me-2"></i> Itemized Breakdown</h4>
+            
+            <div class="table-responsive">
+                <table class="table table-premium">
+                    <thead>
+                        <tr>
+                            <th scope="col" width="35%">Question Prompt</th>
+                            <th scope="col" width="25%">Scholar's Input</th>
+                            <th scope="col" width="25%">Master Key</th>
+                            <th scope="col" width="15%" class="text-center">Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for result in results_details %}
+                        <tr>
+                            <td class="fw-bold text-dark">{{ result.question }}</td>
+                            <td>
+                                {% if result.user_answer %}
+                                    <span class="text-muted">{{ result.user_answer }}</span>
+                                {% else %}
+                                    <span class="badge bg-info text-white">Timed Out</span>
+                                {% endif %}
+                            </td>
+                            <td class="italic text-primary small">{{ result.correct_answer }}</td>
+                            <td>
+                                <div class="marks-pill shadow-sm" 
+                                     style="{% if result.marks == 1 %}background-color: var(--brand-light); color: var(--brand-primary);{% else %}background-color: #fff5f5; color: #d32f2f;{% endif %}">
+                                    {{ result.marks }}
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+
+                        <tr style="background: var(--brand-light);">
+                            <td colspan="3" class="text-end fw-900 fs-5 py-3" style="color: var(--brand-primary);">Total Marks Evaluated:</td>
+                            <td class="text-center">
+                                <div class="bg-white border border-2 border-success rounded-3 py-2 fw-800 text-success fs-4">
+                                    {{ total_marks_final }}
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const data = {
+            labels: ['Correct', 'Incorrect'],
+            datasets: [{
+                data: [{{ correct_Answers }}, {{ wrong_Answers }}],
+                backgroundColor: ['#1B5E20', '#d32f2f'],
+                borderColor: ['#ffffff', '#ffffff'],
+                borderWidth: 3
+            }]
+        };
+
+        const config = {
+            type: 'pie',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom' }
+                }
+            }
+        };
+
+        const ctx = document.getElementById('pieChart').getContext('2d');
+        new Chart(ctx, config);
+    </script>
+
+{% endblock content %}
