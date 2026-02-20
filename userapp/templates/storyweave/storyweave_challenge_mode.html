@@ -1,5 +1,6 @@
 {% extends 'base_dashboard.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 <style>
@@ -113,7 +114,7 @@
     <div class="container d-flex justify-content-center">
         <div class="challenge-card wow zoomIn" data-wow-delay="0.1s">
             
-            <span class="challenge-badge">Advanced Level</span>
+            <span class="challenge-badge">{% trans "Advanced Level" %}</span>
             
             <div class="video-circle-large">
                 <video loop autoplay muted class="mode-video-large">
@@ -124,23 +125,23 @@
                 </div>
             </div>
 
-            <h2 class="challenge-title">Challenge Mode</h2>
+            <h2 class="challenge-title">{% trans "Challenge Mode" %}</h2>
             <p class="challenge-desc">
-                Think you can write under pressure? Test your storytelling skills by facing unexpected twists and plot challenges while you craft your tale.
+                {% trans "Think you can write under pressure? Test your storytelling skills by facing unexpected twists and plot challenges while you craft your tale." %}
             </p>
 
             <a href="{% url 'storyweave:start_challenge_story' %}" class="btn-start-challenge">
-                Enter the Arena <i class="fas fa-fire-alt ms-2"></i>
+                {% trans "Enter the Arena" %} <i class="fas fa-fire-alt ms-2"></i>
             </a>
 
             <div class="warning-box">
                 <i class="fas fa-exclamation-triangle me-2"></i>
-                Warning: This mode includes time limits and random story events!
+                {% trans "Warning: This mode includes time limits and random story events!" %}
             </div>
 
             <div class="mt-4">
                 <a href="{% url 'user_dashboard' %}" class="text-muted small text-decoration-none">
-                    <i class="fas fa-chevron-left me-1"></i> Back to Dashboard
+                    <i class="fas fa-chevron-left me-1"></i> {% trans "Back to Dashboard" %}
                 </a>
             </div>
         </div>

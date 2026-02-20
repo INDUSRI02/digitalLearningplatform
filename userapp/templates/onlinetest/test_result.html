@@ -1,5 +1,6 @@
 {% extends 'base_dashboard.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 
@@ -115,8 +116,8 @@
             <div class="brand-icon-box mx-auto mb-3" style="width: 60px; height: 60px;">
                 <i class="fas fa-history text-white fa-2x"></i>
             </div>
-            <h2 class="results-title">Assessment History</h2>
-            <p class="text-muted">Review your past performances and track your bilingual growth.</p>
+            <h2 class="results-title">{% trans "Assessment History" %}</h2>
+            <p class="text-muted">{% trans "Review your past performances and track your bilingual growth." %}</p>
         </div>
 
         {% if page_obj %}
@@ -124,10 +125,10 @@
             <table class="table table-premium">
                 <thead>
                     <tr>
-                        <th scope="col">Test Module</th>
-                        <th scope="col">Attempt Date</th>
-                        <th scope="col">Score</th>
-                        <th scope="col" class="text-center">Action</th>
+                        <th scope="col">{% trans "Test Module" %}</th>
+                        <th scope="col">{% trans "Attempt Date" %}</th>
+                        <th scope="col">{% trans "Score" %}</th>
+                        <th scope="col" class="text-center">{% trans "Action" %}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -147,7 +148,7 @@
                         </td>
                         <td class="text-center">
                             <a href="{% url 'view_details' test_id=test.pk %}" class="btn btn-view-details shadow-sm">
-                                <i class="fas fa-search-plus me-1"></i> Full Analysis
+                                <i class="fas fa-search-plus me-1"></i> {% trans "Full Analysis" %}
                             </a>
                         </td>
                     </tr>
@@ -160,25 +161,25 @@
             <ul class="pagination justify-content-center">
                 {% if page_obj.has_previous %}
                 <li class="page-item">
-                    <a class="page-link shadow-sm" href="?page=1"><i class="fas fa-angle-double-left"></i> First</a>
+                    <a class="page-link shadow-sm" href="?page=1"><i class="fas fa-angle-double-left"></i> {% trans "First" %}</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link shadow-sm" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                    <a class="page-link shadow-sm" href="?page={{ page_obj.previous_page_number }}">{% trans "Previous" %}</a>
                 </li>
                 {% endif %}
                 
                 <li class="page-item disabled">
                     <span class="page-link text-dark fw-bold">
-                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                        {% blocktrans %}Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}{% endblocktrans %}
                     </span>
                 </li>
                 
                 {% if page_obj.has_next %}
                 <li class="page-item">
-                    <a class="page-link shadow-sm" href="?page={{ page_obj.next_page_number }}">Next</a>
+                    <a class="page-link shadow-sm" href="?page={{ page_obj.next_page_number }}">{% trans "Next" %}</a>
                 </li>
                 <li class="page-item">
-                    <a class="page-link shadow-sm" href="?page={{ page_obj.paginator.num_pages }}">Last <i class="fas fa-angle-double-right"></i></a>
+                    <a class="page-link shadow-sm" href="?page={{ page_obj.paginator.num_pages }}">{% trans "Last" %} <i class="fas fa-angle-double-right"></i></a>
                 </li>
                 {% endif %}
             </ul>
@@ -187,10 +188,10 @@
         {% else %}
         <div class="empty-state-card text-center p-5 mx-auto col-md-8">
             <i class="fas fa-pen-nib fa-4x text-light mb-3"></i>
-            <h4 class="text-muted fw-bold">No Records Found</h4>
-            <p class="text-muted-50 mb-4">You haven't attempted any tests yet. Head over to the arena to start your learning journey!</p>
+            <h4 class="text-muted fw-bold">{% trans "No Records Found" %}</h4>
+            <p class="text-muted-50 mb-4">{% trans "You haven't attempted any tests yet. Head over to the arena to start your learning journey!" %}</p>
             <a href="{% url 'user_dashboard' %}" class="btn btn-success rounded-pill px-5 py-2 fw-bold">
-                Go to Learning Arena
+                {% trans "Go to Learning Arena" %}
             </a>
         </div>
         {% endif %}

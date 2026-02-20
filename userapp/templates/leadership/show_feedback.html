@@ -1,5 +1,6 @@
 {% extends 'base_dashboard.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 
@@ -83,7 +84,6 @@
         transform: scale(1.05);
     }
 
-    /* Modal Styling */
     .modal-content {
         border-radius: 20px;
         border: none;
@@ -123,8 +123,8 @@
             <div class="brand-icon-box mx-auto mb-3" style="width: 60px; height: 60px; background: var(--brand-accent);">
                 <i class="fas fa-comment-check text-white fa-2x"></i>
             </div>
-            <h2 class="section-title-premium">Leadership Feedback</h2>
-            <p class="text-muted">Review teacher evaluations and performance metrics for your leadership challenges.</p>
+            <h2 class="section-title-premium">{% trans "Leadership Feedback" %}</h2>
+            <p class="text-muted">{% trans "Review teacher evaluations and performance metrics for your leadership challenges." %}</p>
         </div>
 
         {% if user_answers %}
@@ -132,11 +132,11 @@
             <table class="table table-premium">
                 <thead>
                     <tr>
-                        <th scope="col">Challenge</th>
-                        <th scope="col">Response Preview</th>
-                        <th scope="col">Rating</th>
-                        <th scope="col">Submission Date</th>
-                        <th scope="col" class="text-center">Action</th>
+                        <th scope="col">{% trans "Challenge" %}</th>
+                        <th scope="col">{% trans "Response Preview" %}</th>
+                        <th scope="col">{% trans "Rating" %}</th>
+                        <th scope="col">{% trans "Submission Date" %}</th>
+                        <th scope="col" class="text-center">{% trans "Action" %}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -152,35 +152,60 @@
                             <span class="rating-badge"><i class="fas fa-star me-1"></i> {{ answer.rating }}</span>
                         </td>
                         <td>
-                            <span class="text-muted small"><i class="far fa-calendar-alt me-1"></i> {{ answer.submission_date|date:"Y-m-d H:i" }}</span>
+                            <span class="text-muted small">
+                                <i class="far fa-calendar-alt me-1"></i>
+                                {{ answer.submission_date|date:"Y-m-d H:i" }}
+                            </span>
                         </td>
                         <td class="text-center">
-                            <button class="btn btn-show-feedback shadow-sm" data-toggle="modal" data-target="#feedbackModal{{ answer.id }}">
-                                <i class="fas fa-eye me-1"></i> View Feedback
+                            <button class="btn btn-show-feedback shadow-sm"
+                                    data-toggle="modal"
+                                    data-target="#feedbackModal{{ answer.id }}">
+                                <i class="fas fa-eye me-1"></i> {% trans "View Feedback" %}
                             </button>
                         </td>
                     </tr>
 
-                    <div class="modal fade" id="feedbackModal{{ answer.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal fade"
+                         id="feedbackModal{{ answer.id }}"
+                         tabindex="-1"
+                         role="dialog"
+                         aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                             <div class="modal-content shadow-lg">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">Evaluation: {{ answer.challenge.name }}</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <h5 class="modal-title">
+                                        {% trans "Evaluation:" %} {{ answer.challenge.name }}
+                                    </h5>
+                                    <button type="button"
+                                            class="close"
+                                            data-dismiss="modal"
+                                            aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <h6 class="fw-bold text-dark mb-2">Your Submitted Response:</h6>
+                                    <h6 class="fw-bold text-dark mb-2">
+                                        {% trans "Your Submitted Response:" %}
+                                    </h6>
                                     <div class="answer-preview mb-4">
                                         {{ answer.answer_text }}
                                     </div>
+
                                     <hr class="my-4">
-                                    <h6 class="fw-bold text-success mb-2"><i class="fas fa-lightbulb me-2"></i> Teacher Feedback:</h6>
+
+                                    <h6 class="fw-bold text-success mb-2">
+                                        <i class="fas fa-lightbulb me-2"></i>
+                                        {% trans "Teacher Feedback:" %}
+                                    </h6>
                                     <p class="text-muted mb-0">{{ answer.feedback }}</p>
                                 </div>
                                 <div class="modal-footer bg-light border-0">
-                                    <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill px-4" data-dismiss="modal">Close Review</button>
+                                    <button type="button"
+                                            class="btn btn-outline-secondary btn-sm rounded-pill px-4"
+                                            data-dismiss="modal">
+                                        {% trans "Close Review" %}
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -192,9 +217,14 @@
         {% else %}
         <div class="text-center py-5">
             <i class="fas fa-clipboard-list fa-4x text-light mb-3"></i>
-            <h4 class="text-muted">No Feedback Available</h4>
-            <p class="text-muted-50 small">You haven't participated in any leadership challenges yet.</p>
-            <a href="{% url 'user_dashboard' %}" class="btn btn-success rounded-pill px-5 mt-3">Enter the Arena</a>
+            <h4 class="text-muted">{% trans "No Feedback Available" %}</h4>
+            <p class="text-muted-50 small">
+                {% trans "You haven't participated in any leadership challenges yet." %}
+            </p>
+            <a href="{% url 'user_dashboard' %}"
+               class="btn btn-success rounded-pill px-5 mt-3">
+                {% trans "Enter the Arena" %}
+            </a>
         </div>
         {% endif %}
     </div>

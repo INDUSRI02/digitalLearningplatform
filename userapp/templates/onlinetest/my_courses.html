@@ -1,5 +1,6 @@
 {% extends 'base_dashboard.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 <style>
@@ -116,8 +117,8 @@
             <div class="brand-icon-box mx-auto mb-3" style="width: 60px; height: 60px;">
                 <i class="fas fa-book-open text-white fa-2x"></i>
             </div>
-            <h2 class="courses-title">My Digital Classroom</h2>
-            <p class="text-muted">Manage your enrolled courses and attempt assessments to track your progress.</p>
+            <h2 class="courses-title">{% trans "My Digital Classroom" %}</h2>
+            <p class="text-muted">{% trans "Manage your enrolled courses and attempt assessments to track your progress." %}</p>
         </div>
 
         {% if student_courses %}
@@ -125,11 +126,11 @@
             <table class="table table-premium">
                 <thead>
                     <tr>
-                        <th scope="col">Course Details</th>
-                        <th scope="col">Instructor</th>
-                        <th scope="col">Learning Material</th>
-                        <th scope="col" class="text-center">Quest Count</th>
-                        <th scope="col" class="text-center">Status</th>
+                        <th scope="col">{% trans "Course Details" %}</th>
+                        <th scope="col">{% trans "Instructor" %}</th>
+                        <th scope="col">{% trans "Learning Material" %}</th>
+                        <th scope="col" class="text-center">{% trans "Quest Count" %}</th>
+                        <th scope="col" class="text-center">{% trans "Status" %}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -149,7 +150,7 @@
                         </td>
                         <td>
                             <a href="{{ student_course.course.video_url }}" target="_blank" class="video-link-btn small">
-                                <i class="fas fa-play-circle me-1"></i> Watch Lessons
+                                <i class="fas fa-play-circle me-1"></i> {% trans "Watch Lessons" %}
                             </a>
                         </td>
                         <td class="text-center">
@@ -158,12 +159,12 @@
                         <td class="text-center">
                             {% if student_course.total_question_count > 9 %}
                             <a href="{% url 'test' course_id=student_course.course.course_id %}" class="btn-attempt shadow-sm">
-                                Attempt Test <i class="fas fa-arrow-right ms-1"></i>
+                                {% trans "Attempt Test" %} <i class="fas fa-arrow-right ms-1"></i>
                             </a>
                             {% else %}
                             <div class="locked-text">
-                                <i class="fas fa-lock me-1"></i> Locked<br>
-                                <span class="fw-normal text-muted" style="font-size: 0.7rem;">Needs 10+ questions</span>
+                                <i class="fas fa-lock me-1"></i> {% trans "Locked" %}<br>
+                                <span class="fw-normal text-muted" style="font-size: 0.7rem;">{% trans "Needs 10+ questions" %}</span>
                             </div>
                             {% endif %}
                         </td>
@@ -175,10 +176,10 @@
         {% else %}
         <div class="empty-courses text-center mx-auto col-md-8">
             <i class="fas fa-graduation-cap fa-4x text-light mb-4"></i>
-            <h4 class="text-muted fw-bold">No Enrolled Courses</h4>
-            <p class="text-muted-50 mb-4">You haven't joined any classrooms yet. Start your journey by enrolling in a curriculum aligned course.</p>
+            <h4 class="text-muted fw-bold">{% trans "No Enrolled Courses" %}</h4>
+            <p class="text-muted-50 mb-4">{% trans "You haven't joined any classrooms yet. Start your journey by enrolling in a curriculum aligned course." %}</p>
             <a href="{% url 'user_dashboard' %}" class="btn btn-success rounded-pill px-5">
-                Browse Learning Arena
+                {% trans "Browse Learning Arena" %}
             </a>
         </div>
         {% endif %}

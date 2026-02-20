@@ -1,5 +1,6 @@
 {% extends 'base_admin.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
 <style>
@@ -121,11 +122,11 @@
 
 <div class="admin-content-wrapper">
     <div class="page-header-premium wow fadeInDown">
-        <h1>Student Directory</h1>
+        <h1>{% trans "Student Directory" %}</h1>
         <nav>
             <ol class="breadcrumb mb-0">
-                <li class="breadcrumb-item"><a href="">Home</a></li>
-                <li class="breadcrumb-item active">View All Students</li>
+                <li class="breadcrumb-item"><a href="{% url 'admin_dashboard_latest' %}">{% trans "Home" %}</a></li>
+                <li class="breadcrumb-item active">{% trans "View All Students" %}</li>
             </ol>
         </nav>
     </div>
@@ -136,7 +137,7 @@
                 <div class="bg-success text-white rounded-circle p-2 me-3 shadow-sm" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
                     <i class="fas fa-user-graduate"></i>
                 </div>
-                <h5 class="m-0 fw-bold" style="color: var(--brand-primary);">Registered Scholars</h5>
+                <h5 class="m-0 fw-bold" style="color: var(--brand-primary);">{% trans "Registered Scholars" %}</h5>
             </div>
 
             {% if students %}
@@ -144,12 +145,12 @@
                 <table class="table table-premium">
                     <thead>
                         <tr class="text-center">
-                            <th scope="col" width="10%">S.No</th>
-                            <th scope="col" width="15%">Profile</th>
-                            <th scope="col" width="25%">Full Name</th>
-                            <th scope="col" width="20%">Contact</th>
-                            <th scope="col" width="20%">Email Address</th>
-                            <th scope="col" width="10%">Action</th>
+                            <th scope="col" width="10%">{% trans "S.No" %}</th>
+                            <th scope="col" width="15%">{% trans "Profile" %}</th>
+                            <th scope="col" width="25%">{% trans "Full Name" %}</th>
+                            <th scope="col" width="20%">{% trans "Contact" %}</th>
+                            <th scope="col" width="20%">{% trans "Email Address" %}</th>
+                            <th scope="col" width="10%">{% trans "Action" %}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -165,8 +166,8 @@
                             <td>
                                 <a href="{% url 'remove_student' id=student.pk %}" 
                                    class="btn-remove-student"
-                                   onclick="return confirm('Are you sure you want to remove this student? This action cannot be undone.');">
-                                    <i class="fas fa-user-minus me-1"></i> Remove
+                                   onclick="return confirm('{% trans "Are you sure you want to remove this student? This action cannot be undone." %}');">
+                                     <i class="fas fa-user-minus me-1"></i> {% trans "Remove" %}
                                 </a>
                             </td>
                         </tr>
@@ -179,7 +180,7 @@
                 <ul class="pagination justify-content-center">
                     {% if students.has_previous %}
                     <li class="page-item">
-                        <a class="page-link shadow-sm" href="?page=1">First</a>
+                        <a class="page-link shadow-sm" href="?page=1">{% trans "First" %}</a>
                     </li>
                     <li class="page-item">
                         <a class="page-link shadow-sm" href="?page={{ students.previous_page_number }}"><i class="fas fa-chevron-left"></i></a>
@@ -197,7 +198,7 @@
                         <a class="page-link shadow-sm" href="?page={{ students.next_page_number }}"><i class="fas fa-chevron-right"></i></a>
                     </li>
                     <li class="page-item">
-                        <a class="page-link shadow-sm" href="?page={{ students.paginator.num_pages }}">Last</a>
+                        <a class="page-link shadow-sm" href="?page={{ students.paginator.num_pages }}">{% trans "Last" %}</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -207,8 +208,8 @@
             <div class="text-center py-5">
                 <div class="alert alert-info border-0 shadow-sm rounded-4 p-5 d-inline-block col-md-8">
                     <i class="fas fa-users-slash fa-3x mb-3 text-info"></i>
-                    <h5 class="fw-bold">No Students Registered</h5>
-                    <p class="mb-0 text-muted">The student directory is currently empty. New registrations will appear here.</p>
+                    <h5 class="fw-bold">{% trans "No Students Registered" %}</h5>
+                    <p class="mb-0 text-muted">{% trans "The student directory is currently empty. New registrations will appear here." %}</p>
                 </div>
             </div>
             {% endif %}

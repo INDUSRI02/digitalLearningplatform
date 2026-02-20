@@ -1,8 +1,10 @@
 {% extends 'instructor/base_ins.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
 <style>
+    /* ... existing styles preserved ... */
     .instructor-edit-container {
         padding: 20px;
     }
@@ -53,15 +55,6 @@
         outline: none;
     }
 
-    .current-data-badge {
-        background-color: var(--brand-primary);
-        color: white;
-        font-size: 0.75rem;
-        padding: 2px 8px;
-        border-radius: 4px;
-        margin-left: 10px;
-    }
-
     .btn-update-topic {
         background: var(--brand-primary);
         color: white !important;
@@ -93,24 +86,24 @@
 
 
     <div class="pagetitle wow fadeInDown">
-        <h1>Course Revision</h1>
+        <h1>{% trans "Course Revision" %}</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="">Faculty Hub</a></li>
-                <li class="breadcrumb-item"><a href="{% url 'view_courses' %}">Subjects</a></li>
-                <li class="breadcrumb-item active">Modify Topic</li>
+                <li class="breadcrumb-item"><a href="">{% trans "Faculty Hub" %}</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'view_courses' %}">{% trans "Subjects" %}</a></li>
+                <li class="breadcrumb-item active">{% trans "Modify Topic" %}</li>
             </ol>
         </nav>
     </div>
 
     <section class="section">
         <div class="form-card-premium wow fadeInUp">
-            <h2 class="form-title-scholarly">Curriculum Editor</h2>
+            <h2 class="form-title-scholarly">{% trans "Curriculum Editor" %}</h2>
             
             <div class="instructor-helper-box">
                 <p class="small mb-0 text-dark fw-bold">
                     <i class="fas fa-edit me-2 text-warning"></i> 
-                    Updating these details will immediately reflect in the student dashboard and assessment modules.
+                    {% trans "Updating these details will immediately reflect in the student dashboard and assessment modules." %}
                 </p>
             </div>
 
@@ -119,82 +112,85 @@
                 
                 <div class="row g-4">
                     <div class="col-md-6">
-                        <label for="courseName" class="form-label-premium">Course / Topic Name</label>
+                        <label for="courseName" class="form-label-premium">{% trans "Course / Topic Name" %}</label>
                         <input type="text" class="input-premium shadow-sm" id="courseName" name="courseName" 
                                value="{{course_details.course_name}}" required>
                     </div>
 
                     <div class="col-md-6">
-                        <label for="courseImage" class="form-label-premium">Update Cover Illustration <span class="text-muted fw-normal lowercase">(Leave empty to keep current)</span></label>
+                        <label for="courseImage" class="form-label-premium">
+                            {% trans "Update Cover Illustration" %} 
+                            <span class="text-muted fw-normal lowercase">({% trans "Leave empty to keep current" %})</span>
+                        </label>
                         <input type="file" class="input-premium shadow-sm" id="courseImage" name="courseImage">
                     </div>
 
                     <div class="col-md-6">
-                        <label for="courseCategory" class="form-label-premium">Academic Category</label>
+                        <label for="courseCategory" class="form-label-premium">{% trans "Academic Category" %}</label>
                         <select class="form-select input-premium shadow-sm" id="courseCategory" name="courseCategory">
-                            <option value="{{course_details.course_category}}" selected hidden>{{course_details.course_category}} (Current)</option>
-                            <option value="">Select Category</option>
-                            <option value="Mathematics">Mathematics</option>
-                            <option value="Science">Science</option>
-                            <option value="English">English</option>
-                            <option value="Social Science">Social Science</option>
-                            <option value="History">History</option>
-                            <option value="Geography">Geography</option>
-                            <option value="Physics">Physics</option>
-                            <option value="Chemistry">Chemistry</option>
-                            <option value="Biology">Biology</option>
-                            <option value="Computer Science">Computer Science</option>
-                            <option value="Hindi">Hindi</option>
-                            <option value="Sanskrit">Sanskrit</option>
-                            <option value="Physical Education">Physical Education</option>
-                            <option value="Art">Art</option>
+                            <option value="{{course_details.course_category}}" selected hidden>{{course_details.course_category}} ({% trans "Current" %})</option>
+                            <option value="">{% trans "Select Category" %}</option>
+                            <option value="Mathematics">{% trans "Mathematics" %}</option>
+                            <option value="Science">{% trans "Science" %}</option>
+                            <option value="English">{% trans "English" %}</option>
+                            <option value="Social Science">{% trans "Social Science" %}</option>
+                            <option value="History">{% trans "History" %}</option>
+                            <option value="Geography">{% trans "Geography" %}</option>
+                            <option value="Physics">{% trans "Physics" %}</option>
+                            <option value="Chemistry">{% trans "Chemistry" %}</option>
+                            <option value="Biology">{% trans "Biology" %}</option>
+                            <option value="Computer Science">{% trans "Computer Science" %}</option>
+                            <option value="Hindi">{% trans "Hindi" %}</option>
+                            <option value="Sanskrit">{% trans "Sanskrit" %}</option>
+                            <option value="Physical Education">{% trans "Physical Education" %}</option>
+                            <option value="Art">{% trans "Art" %}</option>
                         </select>
                     </div>
 
                     <div class="col-md-6">
-                        <label for="courseLanguage" class="form-label-premium">Medium of Instruction</label>
+                        <label for="courseLanguage" class="form-label-premium">{% trans "Medium of Instruction" %}</label>
                         <select class="form-select input-premium shadow-sm" id="courseLanguage" name="courseLanguage">
-                            <option value="{{course_details.course_language}}" selected hidden>{{course_details.course_language}} (Current)</option>
-                            <option value="">Select Language</option>
-                            <option value="English">English</option>
-                            <option value="Hindi">Hindi</option>
-                            <option value="Telugu">Telugu</option>
-                            <option value="Tamil">Tamil</option>
-                            <option value="Malayalam">Malayalam</option>
-                            <option value="Kannada">Kannada</option>
-                            <option value="Gujarati">Gujarati</option>
-                            <option value="Urdu">Urdu</option>
-                            <option value="Marathi">Marathi</option>
-                            <option value="Bengali">Bengali</option>
-                            <option value="Odia">Odia</option>
+                            <option value="{{course_details.course_language}}" selected hidden>{{course_details.course_language}} ({% trans "Current" %})</option>
+                            <option value="">{% trans "Select Language" %}</option>
+                            <option value="English">{% trans "English" %}</option>
+                            <option value="Hindi">{% trans "Hindi" %}</option>
+                            <option value="Punjabi">{% trans "Punjabi" %}</option>
+                            <option value="Telugu">{% trans "Telugu" %}</option>
+                            <option value="Tamil">{% trans "Tamil" %}</option>
+                            <option value="Malayalam">{% trans "Malayalam" %}</option>
+                            <option value="Kannada">{% trans "Kannada" %}</option>
+                            <option value="Gujarati">{% trans "Gujarati" %}</option>
+                            <option value="Urdu">{% trans "Urdu" %}</option>
+                            <option value="Marathi">{% trans "Marathi" %}</option>
+                            <option value="Bengali">{% trans "Bengali" %}</option>
+                            <option value="Odia">{% trans "Odia" %}</option>
                         </select>
                     </div>
 
                     <div class="col-md-12">
-                        <label for="videourl" class="form-label-premium">Lecture Video Link</label>
+                        <label for="videourl" class="form-label-premium">{% trans "Lecture Video Link" %}</label>
                         <input type="url" class="input-premium shadow-sm" id="videourl" name="videourl" 
                                value="{{course_details.video_url}}" placeholder="https://youtube.com/...">
                     </div>
 
                     <div class="col-md-12">
-                        <label for="courseDescription" class="form-label-premium">Topic Abstract / Description</label>
+                        <label for="courseDescription" class="form-label-premium">{% trans "Topic Abstract / Description" %}</label>
                         <textarea class="input-premium shadow-sm" id="courseDescription" name="courseDescription" rows="4" required>{{ course_details.course_description }}</textarea>
                     </div>
                 </div>
 
                 <div class="text-center mt-5">
                     <button type="submit" class="btn btn-update-topic">
-                        Sync Changes <i class="fas fa-sync-alt ms-2"></i>
+                        {% trans "Sync Changes" %} <i class="fas fa-sync-alt ms-2"></i>
                     </button>
                     <div class="mt-3">
                         <a href="{% url 'view_courses' %}" class="text-muted small text-decoration-none">
-                            <i class="fas fa-times me-1"></i> Discard Changes
+                            <i class="fas fa-times me-1"></i> {% trans "Discard Changes" %}
                         </a>
                     </div>
                 </div>
             </form>
         </div>
     </section>
-
 
 {% endblock content %}

@@ -1,5 +1,6 @@
 {% extends 'base_dashboard.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 <style>
@@ -97,8 +98,8 @@
 <div class="container-fluid mode-selection-section">
     <div class="container">
         <div class="text-center mb-5 wow fadeInDown">
-            <h2 class="selection-title">Choose Your Story Weave</h2>
-            <p class="text-muted lead">Select your preferred creative path to begin your literary journey.</p>
+            <h2 class="selection-title">{% trans "Choose Your Story Weave" %}</h2>
+            <p class="text-muted lead">{% trans "Select your preferred creative path to begin your literary journey." %}</p>
         </div>
 
         <div class="row justify-content-center g-4">
@@ -110,11 +111,11 @@
                         </video>
                     </div>
                     <div class="card-body">
-                        <span class="badge-premium">Individual</span>
-                        <h4 class="mode-name">Solo Story Mode</h4>
-                        <p class="text-muted small mb-4">Write your own masterpiece without interruptions. Pure imagination, pure creativity!</p>
+                        <span class="badge-premium">{% trans "Individual" %}</span>
+                        <h4 class="mode-name">{% trans "Solo Story Mode" %}</h4>
+                        <p class="text-muted small mb-4">{% trans "Write your own masterpiece without interruptions. Pure imagination, pure creativity!" %}</p>
                         <a href="{% url 'solo_story_mode' %}" class="btn btn-choose">
-                            Start Solo Story <i class="fas fa-feather-alt ms-2"></i>
+                            {% trans "Start Solo Story" %} <i class="fas fa-feather-alt ms-2"></i>
                         </a>
                     </div>
                 </div>
@@ -128,11 +129,11 @@
                         </video>
                     </div>
                     <div class="card-body">
-                        <span class="badge-premium" style="background: var(--brand-primary);">Team Work</span>
-                        <h4 class="mode-name">Collaborative Mode</h4>
-                        <p class="text-muted small mb-4">Join forces with other scholars! Build on each other's ideas to create epic team tales.</p>
+                        <span class="badge-premium" style="background: var(--brand-primary);">{% trans "Team Work" %}</span>
+                        <h4 class="mode-name">{% trans "Collaborative Mode" %}</h4>
+                        <p class="text-muted small mb-4">{% trans "Join forces with other scholars! Build on each other's ideas to create epic team tales." %}</p>
                         <a href="{% url 'collaborative_story_mode' %}" class="btn btn-choose">
-                            Join Team Weave <i class="fas fa-users ms-2"></i>
+                            {% trans "Join Team Weave" %} <i class="fas fa-users ms-2"></i>
                         </a>
                     </div>
                 </div>
@@ -141,7 +142,7 @@
 
         <div class="text-center mt-5">
             <a href="{% url 'user_dashboard' %}" class="text-muted text-decoration-none small">
-                <i class="fas fa-chevron-left me-1"></i> Back to Dashboard
+                <i class="fas fa-chevron-left me-1"></i> {% trans "Back to Dashboard" %}
             </a>
         </div>
     </div>

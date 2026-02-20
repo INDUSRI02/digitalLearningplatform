@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="container py-5" style="max-width:600px;">
+    <div class="card shadow-lg border-0">
+        <div class="card-body p-5 text-center">
+
+            <h2 class="mb-4">{% trans "Create Your Account" %}</h2>
+            <p class="text-muted mb-4">
+                {% trans "Choose how you want to register" %}
+            </p>
+
+            <form method="post">
+                {% csrf_token %}
+
+                <div class="d-grid gap-3">
+
+                    <button type="submit"
+                            name="role"
+                            value="student"
+                            class="btn btn-success btn-lg">
+                        {% trans "I am a Student" %}
+                    </button>
+
+                    <button type="submit"
+                            name="role"
+                            value="instructor"
+                            class="btn btn-outline-success btn-lg">
+                        {% trans "I am an Instructor" %}
+                    </button>
+
+                </div>
+            </form>
+
+            <div class="mt-4">
+                <small>
+                    {% trans "Already have an account?" %}
+                    <a href="{% url 'login' %}">
+                        {% trans "Login here" %}
+                    </a>
+                </small>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

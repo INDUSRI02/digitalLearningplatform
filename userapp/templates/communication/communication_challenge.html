@@ -1,5 +1,6 @@
 {% extends 'base_dashboard.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 <style>
@@ -126,21 +127,21 @@
     <div class="spell-card wow fadeInUp" data-wow-delay="0.1s">
         
         <div class="text-center mb-4">
-            <h2 style="font-family: 'Playfair Display', serif; font-weight: 900; color: var(--brand-primary);">Listen & Spell Game</h2>
-            <p class="text-muted small">Enhance your bilingual vocabulary through auditory challenges.</p>
+            <h2 style="font-family: 'Playfair Display', serif; font-weight: 900; color: var(--brand-primary);">{% trans 'Listen & Spell Game' %}</h2>
+            <p class="text-muted small">{% trans 'Enhance your bilingual vocabulary through auditory challenges.' %}</p>
         </div>
 
         <div class="stats-container">
             <div class="stat-item">
-                <span class="stat-label">Level</span>
+                <span class="stat-label">{% trans 'Level' %}</span>
                 <span class="stat-value text-primary">{{ current_level }}</span>
             </div>
             <div class="stat-item">
-                <span class="stat-label">Score</span>
+                <span class="stat-label">{% trans 'Score' %}</span>
                 <span class="stat-value text-success">{{ points }}</span>
             </div>
             <div class="stat-item">
-                <span class="stat-label">Progress</span>
+                <span class="stat-label">{% trans 'Progress' %}</span>
                 <span class="stat-value" style="color: var(--brand-accent);">{{ correct_answers }}/{{ total_questions }}</span>
             </div>
         </div>
@@ -148,15 +149,15 @@
         {% if word %}
         <div class="d-flex justify-content-between mb-4">
             <button id="showWordBtn" class="btn btn-outline-info btn-utility shadow-sm">
-                <i class="fas fa-eye me-2"></i> Peek Word
+                <i class="fas fa-eye me-2"></i> {% trans 'Peek Word' %}
             </button>
             <button id="restartGameBtn" class="btn btn-outline-warning btn-utility shadow-sm" data-bs-toggle="modal" data-bs-target="#restartGameModal">
-                <i class="fas fa-redo me-2"></i> Reset Lab
+                <i class="fas fa-redo me-2"></i> {% trans 'Reset Lab' %}
             </button>
         </div>
 
         <div class="audio-hub text-center">
-            <p class="small fw-bold text-muted mb-3 uppercase">Click to listen to the word</p>
+            <p class="small fw-bold text-muted mb-3 uppercase">{% trans 'Click to listen to the word' %}</p>
             <audio id="audio-player" style="display: none;">
                 <source src="{{ word.audio.url }}" type="audio/mpeg">
             </audio>
@@ -169,22 +170,22 @@
             <form method="post" class="col-md-10 mx-auto">
                 {% csrf_token %}
                 <div class="form-group mb-4">
-                    <label for="id_user_answer" class="small fw-bold text-muted mb-2 uppercase d-block text-center">Your Transcript:</label>
-                    <input type="text" name="user_answer" id="id_user_answer" class="form-control input-premium shadow-sm" placeholder="Type what you hear..." required autocomplete="off">
+                    <label for="id_user_answer" class="small fw-bold text-muted mb-2 uppercase d-block text-center">{% trans 'Your Transcript:' %}</label>
+                    <input type="text" name="user_answer" id="id_user_answer" class="form-control input-premium shadow-sm" placeholder="{% trans 'Type what you hear...' %}" required autocomplete="off">
                 </div>
                 <button type="submit" class="btn btn-submit-game shadow">
-                    Submit Answer <i class="fas fa-paper-plane ms-2"></i>
+                    {% trans 'Submit Answer' %} <i class="fas fa-paper-plane ms-2"></i>
                 </button>
             </form>
         </div>
 
         {% else %}
-            <div class="alert alert-warning text-center">No vocabulary module loaded. Please contact support.</div>
+            <div class="alert alert-warning text-center">{% trans 'No vocabulary module loaded. Please contact support.' %}</div>
         {% endif %}
 
         {% if incorrect_answer_count >= 3 %}
         <div class="alert alert-danger text-center mt-4 border-0 shadow-sm" role="alert" style="border-radius: 15px;">
-            <i class="fas fa-exclamation-triangle me-2"></i> <strong>Game Over!</strong> Maximum attempts reached. Please reset the lab to continue.
+            <i class="fas fa-exclamation-triangle me-2"></i> <strong>{% trans 'Game Over!' %}</strong> {% trans 'Maximum attempts reached. Please reset the lab to continue.' %}
         </div>
         {% endif %}
     </div>
@@ -194,16 +195,16 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content" style="border-radius: 20px; border: none;">
       <div class="modal-header border-0 bg-light rounded-top-20">
-        <h5 class="modal-title fw-bold">Restart Lab Session?</h5>
+        <h5 class="modal-title fw-bold">{% trans 'Restart Lab Session?' %}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body text-center p-4">
         <i class="fas fa-undo fa-3x text-warning mb-3"></i>
-        <p class="text-muted">Restarting will clear your current level progress and points. This action cannot be undone.</p>
+        <p class="text-muted">{% trans 'Restarting will clear your current level progress and points. This action cannot be undone.' %}</p>
       </div>
       <div class="modal-footer border-0 bg-light rounded-bottom-20">
-        <button type="button" id="confirmRestartBtn" class="btn btn-danger btn-sm rounded-pill px-4">Confirm Reset</button>
-        <button type="button" class="btn btn-secondary btn-sm rounded-pill px-4" data-bs-dismiss="modal">Keep Progress</button>
+        <button type="button" id="confirmRestartBtn" class="btn btn-danger btn-sm rounded-pill px-4">{% trans 'Confirm Reset' %}</button>
+        <button type="button" class="btn btn-secondary btn-sm rounded-pill px-4" data-bs-dismiss="modal">{% trans 'Keep Progress' %}</button>
       </div>
     </div>
   </div>
@@ -213,14 +214,14 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content shadow-lg" style="border-radius: 20px; border: none;">
       <div class="modal-header border-0" style="background: var(--brand-accent);">
-        <h5 class="modal-title text-white fw-bold">Correct Spelling</h5>
+        <h5 class="modal-title text-white fw-bold">{% trans 'Correct Spelling' %}</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body text-center p-5">
         <h3 id="modalWordDisplay" style="color: var(--brand-primary); font-weight: 800; letter-spacing: 2px;"></h3>
       </div>
       <div class="modal-footer border-0">
-        <button type="button" id="nextQuestionBtn" class="btn btn-success w-100 rounded-pill py-2 fw-bold" data-bs-dismiss="modal">Next Word <i class="fas fa-chevron-right ms-2"></i></button>
+        <button type="button" id="nextQuestionBtn" class="btn btn-success w-100 rounded-pill py-2 fw-bold" data-bs-dismiss="modal">{% trans 'Next Word' %} <i class="fas fa-chevron-right ms-2"></i></button>
       </div>
     </div>
   </div>

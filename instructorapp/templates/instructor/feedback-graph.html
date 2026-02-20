@@ -1,13 +1,14 @@
 {% extends 'instructor/base_ins.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
 <style>
+    /* ... existing styles preserved ... */
     .analytics-wrapper {
         padding: 20px;
     }
 
-    /* Premium Analytics Card */
     .analytics-card-premium {
         background: white;
         border-radius: 25px;
@@ -50,29 +51,29 @@
 
 
     <div class="pagetitle wow fadeInDown">
-        <h1>Sentiment Analytics</h1>
+        <h1>{% trans "Sentiment Analytics" %}</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="">Faculty Hub</a></li>
-                <li class="breadcrumb-item active">Feedback Insights</li>
+                <li class="breadcrumb-item"><a href="">{% trans "Faculty Hub" %}</a></li>
+                <li class="breadcrumb-item active">{% trans "Feedback Insights" %}</li>
             </ol>
         </nav>
-    </div><section class="section analytics-wrapper">
+    </div>
+
+    <section class="section analytics-wrapper">
         <div class="analytics-card-premium wow fadeInUp">
             <div class="text-center">
                 <div class="insight-header shadow-sm">
                     <span class="insight-text">
                         <i class="fas fa-chart-pie me-2 text-warning"></i> 
-                        Scholar Satisfaction Distribution
+                        {% trans "Scholar Satisfaction Distribution" %}
                     </span>
                 </div>
                 <p class="text-muted small mx-auto" style="max-width: 600px;">
-                    This visualization represents the aggregate sentiment of scholars enrolled in your topics. 
-                    Use these insights to refine your curriculum and delivery methods.
+                    {% trans "This visualization represents the aggregate sentiment of scholars enrolled in your topics. Use these insights to refine your curriculum and delivery methods." %}
                 </p>
             </div>
 
-            
             <div class="chart-container">
                 <canvas id="sentimentsChart"></canvas>
             </div>
@@ -90,11 +91,17 @@
     const rating5Count = {{ rating_counts.rating5 }};
 
     const sentimentsData = {
-        labels: ['😢 Very Dissatisfied', '😐 Neutral', '😊 Satisfied', '😄 Very Happy', '🌟 Exceptional'],
+        // Labels are wrapped for translation while keeping the emojis
+        labels: [
+            "{% trans '😢 Very Dissatisfied' %}", 
+            "{% trans '😐 Neutral' %}", 
+            "{% trans '😊 Satisfied' %}", 
+            "{% trans '😄 Very Happy' %}", 
+            "{% trans '🌟 Exceptional' %}"
+        ],
         datasets: [{
-            label: 'Total Feedback Count',
+            label: "{% trans 'Total Feedback Count' %}",
             data: [rating1Count, rating2Count, rating3Count, rating4Count, rating5Count],
-            // NabhaLearn Brand Palette
             backgroundColor: [
                 'rgba(211, 47, 47, 0.7)',  // Red
                 'rgba(158, 158, 158, 0.7)', // Gray

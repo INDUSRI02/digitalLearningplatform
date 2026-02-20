@@ -1,5 +1,6 @@
 {% extends 'base_dashboard.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 <style>
@@ -132,11 +133,11 @@
 <div class="container-fluid leadership-arena">
     <div class="container">
         <div class="section-header-scholarly wow fadeInDown">
-            <h2>Leadership Arena</h2>
-            <p class="text-muted">Analyze the scenarios below and demonstrate your decision-making excellence.</p>
+            <h2>{% trans "Leadership Arena" %}</h2>
+            <p class="text-muted">{% trans "Analyze the scenarios below and demonstrate your decision-making excellence." %}</p>
             <div class="mt-4">
                 <a href="{% url 'show_feedback' %}" class="btn-feedback-history shadow-sm">
-                    <i class="fas fa-comment-dots me-2"></i> Review All Evaluations
+                    <i class="fas fa-comment-dots me-2"></i> {% trans "Review All Evaluations" %}
                 </a>
             </div>
         </div>
@@ -149,7 +150,7 @@
                         <div class="bg-success text-white rounded-circle p-2 me-3 shadow-sm">
                             <i class="fas fa-gavel small"></i>
                         </div>
-                        <h5>Scenario #{{ forloop.counter }}: {{ challenge.name }}</h5>
+                        <h5>{% trans "Scenario" %} #{{ forloop.counter }}: {{ challenge.name }}</h5>
                     </div>
                     <div class="card-body-scholarly">
                         <p class="challenge-description text-muted">
@@ -162,18 +163,18 @@
                             <input type="hidden" name="challenge_id" value="{{ challenge.id }}">
                             
                             <div class="mb-4">
-                                <label for="answer_text" class="form-label-premium">How would you lead this situation?</label>
+                                <label for="answer_text" class="form-label-premium">{% trans "How would you lead this situation?" %}</label>
                                 <textarea class="form-control textarea-premium shadow-sm" 
                                           id="answer_text" 
                                           name="answer_text" 
                                           rows="5" 
-                                          placeholder="Type your strategic response here..." 
+                                          placeholder="{% trans 'Type your strategic response here...' %}" 
                                           required></textarea>
                             </div>
                             
                             <div class="text-end">
                                 <button type="submit" class="btn btn-submit-leadership shadow">
-                                    Finalize Decision <i class="fas fa-check-double ms-2"></i>
+                                    {% trans "Finalize Decision" %} <i class="fas fa-check-double ms-2"></i>
                                 </button>
                             </div>
                         </form>
@@ -183,14 +184,14 @@
             {% empty %}
             <div class="col-12 text-center py-5">
                 <i class="fas fa-medal fa-4x text-light mb-3"></i>
-                <p class="text-muted">No leadership challenges are active at this moment. Please check back later!</p>
+                <p class="text-muted">{% trans "No leadership challenges are active at this moment. Please check back later!" %}</p>
             </div>
             {% endfor %}
         </div>
 
         <div class="text-center mt-5">
             <a href="{% url 'user_dashboard' %}" class="text-muted small text-decoration-none">
-                <i class="fas fa-chevron-left me-1"></i> Return to Learning Hub
+                <i class="fas fa-chevron-left me-1"></i> {% trans "Return to Learning Hub" %}
             </a>
         </div>
     </div>

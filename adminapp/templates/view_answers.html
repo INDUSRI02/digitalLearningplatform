@@ -1,5 +1,6 @@
 {% extends 'base_admin.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 <style>
@@ -103,19 +104,19 @@
             <div class="brand-icon-box mx-auto mb-3" style="width: 60px; height: 60px;">
                 <i class="fas fa-user-check text-white fa-2x"></i>
             </div>
-            <h2 class="admin-title">Student Response Management</h2>
-            <p class="text-muted">Review, evaluate, and provide feedback on student challenge submissions.</p>
+            <h2 class="admin-title">{% trans "Student Response Management" %}</h2>
+            <p class="text-muted">{% trans "Review, evaluate, and provide feedback on student challenge submissions." %}</p>
         </div>
 
         <div class="table-responsive">
             <table class="table table-premium">
                 <thead>
                     <tr>
-                        <th>Student Name</th>
-                        <th>Challenge Module</th>
-                        <th>Score/Rating</th>
-                        <th>Submission Date</th>
-                        <th class="text-center">Administration</th>
+                        <th>{% trans "Student Name" %}</th>
+                        <th>{% trans "Challenge Module" %}</th>
+                        <th>{% trans "Score/Rating" %}</th>
+                        <th>{% trans "Submission Date" %}</th>
+                        <th class="text-center">{% trans "Administration" %}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -127,16 +128,16 @@
                             {% if answer.rating %}
                                 <span class="rating-badge-premium">{{ answer.rating }} / 10</span>
                             {% else %}
-                                <span class="rating-none">Pending Rating</span>
+                                <span class="rating-none">{% trans "Pending Rating" %}</span>
                             {% endif %}
                         </td>
                         <td class="small">{{ answer.submission_date|date:"Y-m-d H:i" }}</td>
                         <td class="text-center">
                             <button class="btn btn-info btn-admin-action text-white" data-toggle="modal" data-target="#feedbackModal{{ answer.id }}">
-                                <i class="fas fa-comment-dots me-1"></i> Feedback
+                                <i class="fas fa-comment-dots me-1"></i> {% trans "Feedback" %}
                             </button>
                             <button class="btn btn-warning btn-admin-action text-dark" data-toggle="modal" data-target="#answerModal{{ answer.id }}">
-                                <i class="fas fa-eye me-1"></i> Answer
+                                <i class="fas fa-eye me-1"></i> {% trans "Answer" %}
                             </button>
                         </td>
                     </tr>
@@ -145,18 +146,18 @@
                         <div class="modal-dialog modal-dialog-centered modal-lg">
                             <div class="modal-content modal-content-premium shadow-lg">
                                 <div class="modal-header modal-header-premium">
-                                    <h5 class="modal-title">Submission Review: {{ answer.challenge.name }}</h5>
+                                    <h5 class="modal-title">{% trans "Submission Review" %}: {{ answer.challenge.name }}</h5>
                                     <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body p-4">
-                                    <h6 class="fw-bold text-muted mb-2 uppercase small">Student's Work:</h6>
+                                    <h6 class="fw-bold text-muted mb-2 uppercase small">{% trans "Student's Work" %}:</h6>
                                     <div class="p-3 bg-light rounded-3 mb-4 border italic">
                                         "{{ answer.answer_text }}"
                                     </div>
                                     <hr>
-                                    <h6 class="fw-bold text-success mb-2 uppercase small">Assigned Feedback:</h6>
+                                    <h6 class="fw-bold text-success mb-2 uppercase small">{% trans "Assigned Feedback" %}:</h6>
                                     <p class="text-dark">{{ answer.feedback }}</p>
                                 </div>
                             </div>
@@ -167,7 +168,7 @@
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content modal-content-premium shadow-lg">
                                 <div class="modal-header bg-warning">
-                                    <h5 class="modal-title text-dark">Full Answer Preview</h5>
+                                    <h5 class="modal-title text-dark">{% trans "Full Answer Preview" %}</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>

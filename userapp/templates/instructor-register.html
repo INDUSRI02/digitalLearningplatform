@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
 <style>
@@ -139,50 +140,50 @@
                 <div class="animated-icon text-center">
                     <i class="fas fa-chalkboard-teacher"></i>
                 </div>
-                <h3>Welcome, Educators</h3>
-                <p>Join Nabha's premier digital learning mission. As an instructor, you empower rural scholars by crafting bilingual content and monitoring student growth through our advanced analytics dashboard.</p>
+                <h3>{% trans "Welcome, Educators" %}</h3>
+                <p>{% trans "Join Nabha's premier digital learning mission. As an instructor, you empower rural scholars by crafting bilingual content and monitoring student growth through our advanced analytics dashboard." %}</p>
                 
                 <div class="mt-5 border-top pt-4 border-white border-opacity-25">
-                    <small class="d-block mb-2"><i class="fas fa-check-circle me-2 text-warning"></i> Curriculum Management</small>
-                    <small class="d-block mb-2"><i class="fas fa-check-circle me-2 text-warning"></i> Student Progress Tracking</small>
-                    <small class="d-block"><i class="fas fa-check-circle me-2 text-warning"></i> Bilingual Support Tools</small>
+                    <small class="d-block mb-2"><i class="fas fa-check-circle me-2 text-warning"></i>{% trans "Curriculum Management" %}</small>
+                    <small class="d-block mb-2"><i class="fas fa-check-circle me-2 text-warning"></i>{% trans "Student Progress Tracking" %}</small>
+                    <small class="d-block"><i class="fas fa-check-circle me-2 text-warning"></i>{% trans "Bilingual Support Tools" %}</small>
                 </div>
             </div>
 
             <div class="col-lg-8 reg-form-panel">
                 <div class="form-tab-header">
-                    <span class="tab-label"><i class="fas fa-id-card me-2"></i> Teacher Portal</span>
-                    <span class="badge bg-light text-success rounded-pill px-3 py-2 border">Registration</span>
+                    <span class="tab-label"><i class="fas fa-id-card me-2"></i>{% trans "Teacher Portal" %}</span>
+                    <span class="badge bg-light text-success rounded-pill px-3 py-2 border">{% trans "Registration" %}</span>
                 </div>
 
-                <h2 class="reg-heading text-center text-lg-start">Create Your Instructor Profile</h2>
+                <h2 class="reg-heading text-center text-lg-start">{% trans "Create Your Instructor Profile" %}</h2>
                 
                 <form action="" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row g-4">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label class="small fw-bold text-muted mb-2">Full Name</label>
-                                <input type="text" class="form-control" placeholder="Enter full name" name="name" required />
+                                <label class="small fw-bold text-muted mb-2">{% trans "Full Name" %}</label>
+                                <input type="text" class="form-control" placeholder="{% trans 'Enter full name' %}" name="name" required />
                             </div>
                             <div class="mb-3">
-                                <label class="small fw-bold text-muted mb-2">Office Address</label>
-                                <input type="text" class="form-control" placeholder="School or Home address" name="address" required />
+                                <label class="small fw-bold text-muted mb-2">{% trans "Office Address" %}</label>
+                                <input type="text" class="form-control" placeholder="{% trans 'School or Home address' %}" name="address" required />
                             </div>
                             <div class="mb-3">
-                                <label class="small fw-bold text-muted mb-2">Account Password</label>
-                                <input type="password" class="form-control" placeholder="Create password" name="password" required />
+                                <label class="small fw-bold text-muted mb-2">{% trans "Account Password" %}</label>
+                                <input type="password" class="form-control" placeholder="{% trans 'Create password' %}" name="password" required />
                             </div>
                             <div class="mb-3">
-                                <label class="small fw-bold text-muted mb-2">Gender</label>
+                                <label class="small fw-bold text-muted mb-2">{% trans "Gender" %}</label>
                                 <div class="gender-selection">
                                     <div class="form-check m-0">
                                         <input class="form-check-input" type="radio" name="gender" value="male" checked>
-                                        <span class="small">Male</span>
+                                        <span class="small">{% trans "Male" %}</span>
                                     </div>
                                     <div class="form-check m-0">
                                         <input class="form-check-input" type="radio" name="gender" value="female">
-                                        <span class="small">Female</span>
+                                        <span class="small">{% trans "Female" %}</span>
                                     </div>
                                 </div>
                             </div>
@@ -190,25 +191,25 @@
 
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label class="small fw-bold text-muted mb-2">Email Address</label>
-                                <input type="email" class="form-control" placeholder="email@school.edu" name="email" required>
+                                <label class="small fw-bold text-muted mb-2">{% trans "Email Address" %}</label>
+                                <input type="email" class="form-control" placeholder="{% trans 'email@school.edu' %}" name="email" required>
                             </div>
                             <div class="mb-3">
-                                <label class="small fw-bold text-muted mb-2">Phone Number</label>
-                                <input type="text" minlength="10" maxlength="10" name="phone" class="form-control" placeholder="10-digit mobile" required />
+                                <label class="small fw-bold text-muted mb-2">{% trans "Phone Number" %}</label>
+                                <input type="text" minlength="10" maxlength="10" name="phone" class="form-control" placeholder="{% trans '10-digit mobile' %}" required />
                             </div>
                             <div class="mb-3">
-                                <label class="small fw-bold text-muted mb-2">Profile Credentials (Photo)</label>
+                                <label class="small fw-bold text-muted mb-2">{% trans "Profile Credentials (Photo)" %}</label>
                                 <input type="file" class="form-control" name="profile" required>
                             </div>
                         </div>
 
                         <div class="col-12 mt-4">
                             <button class="btn btn-instructor-reg shadow" type="submit">
-                                Register as Instructor <i class="fas fa-arrow-right ms-2"></i>
+                                {% trans "Register as Instructor" %} <i class="fas fa-arrow-right ms-2"></i>
                             </button>
                             <p class="text-center mt-4 small text-muted">
-                                Already registered? <a href="{% url 'instructor_login' %}" class="fw-bold text-decoration-none" style="color: var(--brand-primary);">Login here</a>
+                                {% trans "Already registered?" %} <a href="{% url 'instructor_login' %}" class="fw-bold text-decoration-none" style="color: var(--brand-primary);">{% trans "Login here" %}</a>
                             </p>
                         </div>
                     </div>

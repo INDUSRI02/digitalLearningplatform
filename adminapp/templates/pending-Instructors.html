@@ -1,5 +1,6 @@
 {% extends 'base_admin.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
 <style>
@@ -121,11 +122,11 @@
 
 <div class="admin-content-wrapper">
     <div class="page-header-premium wow fadeInDown">
-        <h1>Instructor Verification</h1>
+        <h1>{% trans "Instructor Verification" %}</h1>
         <nav>
             <ol class="breadcrumb mb-0">
-                <li class="breadcrumb-item"><a href="">Management</a></li>
-                <li class="breadcrumb-item active">Pending Approvals</li>
+                <li class="breadcrumb-item"><a href="">{% trans "Management" %}</a></li>
+                <li class="breadcrumb-item active">{% trans "Pending Approvals" %}</li>
             </ol>
         </nav>
     </div>
@@ -136,7 +137,7 @@
                 <div class="bg-warning text-white rounded-circle p-2 me-3 shadow-sm">
                     <i class="fas fa-user-clock"></i>
                 </div>
-                <h5 class="m-0 fw-bold" style="color: var(--brand-primary);">Pending Applications</h5>
+                <h5 class="m-0 fw-bold" style="color: var(--brand-primary);">{% trans "Pending Applications" %}</h5>
             </div>
 
             {% if page_obj %}
@@ -144,11 +145,11 @@
                 <table class="table table-premium">
                     <thead>
                         <tr class="text-center">
-                            <th scope="col">Instructor Name</th>
-                            <th scope="col">Contact Details</th>
-                            <th scope="col">Location/Address</th>
-                            <th scope="col">Current Status</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">{% trans "Instructor Name" %}</th>
+                            <th scope="col">{% trans "Contact Details" %}</th>
+                            <th scope="col">{% trans "Location/Address" %}</th>
+                            <th scope="col">{% trans "Current Status" %}</th>
+                            <th scope="col">{% trans "Action" %}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -165,7 +166,7 @@
                             </td>
                             <td>
                                 <a href="{% url 'accept_instructor' instructor.instructor_id %}" class="btn-accept-instructor">
-                                    <i class="fas fa-user-check me-1"></i> Approve
+                                    <i class="fas fa-user-check me-1"></i> {% trans "Approve" %}
                                 </a>
                             </td>
                         </tr>
@@ -178,7 +179,7 @@
                 <ul class="pagination justify-content-center">
                     {% if page_obj.has_previous %}
                     <li class="page-item">
-                        <a class="page-link" href="?page=1">First</a>
+                        <a class="page-link" href="?page=1">{% trans "First" %}</a>
                     </li>
                     <li class="page-item">
                         <a class="page-link" href="?page={{ page_obj.previous_page_number }}"><i class="fas fa-chevron-left"></i></a>
@@ -196,7 +197,7 @@
                         <a class="page-link" href="?page={{ page_obj.next_page_number }}"><i class="fas fa-chevron-right"></i></a>
                     </li>
                     <li class="page-item">
-                        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">{% trans "Last" %}</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -205,8 +206,8 @@
             <div class="text-center py-5">
                 <div class="alert alert-info border-0 shadow-sm rounded-4 p-5 d-inline-block col-md-8">
                     <i class="fas fa-check-double fa-3x mb-3 text-info"></i>
-                    <h5 class="fw-bold">All caught up!</h5>
-                    <p class="mb-0 text-muted">There are no pending instructor applications to review at this time.</p>
+                    <h5 class="fw-bold">{% trans "All caught up!" %}</h5>
+                    <p class="mb-0 text-muted">{% trans "There are no pending instructor applications to review at this time." %}</p>
                 </div>
             </div>
             {% endif %}

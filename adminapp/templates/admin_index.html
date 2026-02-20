@@ -1,5 +1,6 @@
 {% extends 'base_admin.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
 <style>
@@ -104,11 +105,11 @@
 
 <div class="admin-dashboard-wrapper">
     <div class="pagetitle wow fadeInDown">
-        <h1>Executive Dashboard</h1>
+        <h1>{% trans "Executive Dashboard" %}</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="">Platform Home</a></li>
-                <li class="breadcrumb-item active">Analytics</li>
+                <li class="breadcrumb-item"><a href="{% url 'admin_dashboard_latest' %}">{% trans "Platform Home" %}</a></li>
+                <li class="breadcrumb-item active">{% trans "Analytics" %}</li>
             </ol>
         </nav>
     </div>
@@ -121,14 +122,14 @@
                     <div class="col-md-6 col-xl-3">
                         <div class="card metric-card-premium wow fadeInUp" data-wow-delay="0.1s">
                             <div class="card-body-content">
-                                <span class="metric-title">Enrollment</span>
+                                <span class="metric-title">{% trans "Enrollment" %}</span>
                                 <div class="metric-value-box">
                                     <div class="metric-icon-box icon-students shadow-sm">
                                         <i class="fas fa-user-graduate"></i>
                                     </div>
                                     <div>
                                         <span class="metric-number">{{ total_students }}</span>
-                                        <span class="metric-label">Total Scholars</span>
+                                        <span class="metric-label">{% trans "Total Scholars" %}</span>
                                     </div>
                                 </div>
                             </div>
@@ -138,14 +139,14 @@
                     <div class="col-md-6 col-xl-3">
                         <div class="card metric-card-premium wow fadeInUp" data-wow-delay="0.2s">
                             <div class="card-body-content">
-                                <span class="metric-title">Faculty</span>
+                                <span class="metric-title">{% trans "Faculty" %}</span>
                                 <div class="metric-value-box">
                                     <div class="metric-icon-box icon-instructors shadow-sm">
                                         <i class="fas fa-chalkboard-teacher"></i>
                                     </div>
                                     <div>
                                         <span class="metric-number">{{ total_instructors }}</span>
-                                        <span class="metric-label">Active Teachers</span>
+                                        <span class="metric-label">{% trans "Active Teachers" %}</span>
                                     </div>
                                 </div>
                             </div>
@@ -155,14 +156,14 @@
                     <div class="col-md-6 col-xl-3">
                         <div class="card metric-card-premium wow fadeInUp" data-wow-delay="0.3s">
                             <div class="card-body-content">
-                                <span class="metric-title">Verification</span>
+                                <span class="metric-title">{% trans "Verification" %}</span>
                                 <div class="metric-value-box">
                                     <div class="metric-icon-box icon-pending shadow-sm">
                                         <i class="fas fa-user-clock"></i>
                                     </div>
                                     <div>
                                         <span class="metric-number">{{ pending_instructors }}</span>
-                                        <span class="metric-label">Pending Approval</span>
+                                        <span class="metric-label">{% trans "Pending Approval" %}</span>
                                     </div>
                                 </div>
                             </div>
@@ -172,28 +173,30 @@
                     <div class="col-md-6 col-xl-3">
                         <div class="card metric-card-premium wow fadeInUp" data-wow-delay="0.4s">
                             <div class="card-body-content">
-                                <span class="metric-title">Community</span>
+                                <span class="metric-title">{% trans "Community" %}</span>
                                 <div class="metric-value-box">
                                     <div class="metric-icon-box icon-feedback shadow-sm">
                                         <i class="fas fa-comments"></i>
                                     </div>
                                     <div>
                                         <span class="metric-number">{{ total_feedbacks }}</span>
-                                        <span class="metric-label">User Feedbacks</span>
+                                        <span class="metric-label">{% trans "User Feedbacks" %}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                </div><div class="row mt-4">
+                </div>
+                
+                <div class="row mt-4">
                     <div class="col-12">
                         <div class="card border-0 rounded-4 shadow-sm p-5 text-center bg-white">
-                            <h4 class="fw-bold" style="color: var(--brand-primary); font-family: 'Playfair Display';">Platform Integrity Overview</h4>
-                            <p class="text-muted">Welcome to the NabhaLearn Command Center. Use the sidebar to manage curriculum, faculty approvals, and review student progress.</p>
+                            <h4 class="fw-bold" style="color: var(--brand-primary); font-family: 'Playfair Display';">{% trans "Platform Integrity Overview" %}</h4>
+                            <p class="text-muted">{% trans "Welcome to the NabhaLearn Command Center. Use the sidebar to manage curriculum, faculty approvals, and review student progress." %}</p>
                             <div class="d-flex justify-content-center gap-3 mt-3">
-                                <a href="{% url 'pending_ins' %}" class="btn btn-primary rounded-pill px-4">Review Teachers</a>
-                                <a href="{% url 'view_feedbacks' %}" class="btn btn-outline-success rounded-pill px-4">Read Insights</a>
+                                <a href="{% url 'pending_ins' %}" class="btn btn-primary rounded-pill px-4">{% trans "Review Teachers" %}</a>
+                                <a href="{% url 'view_feedbacks' %}" class="btn btn-outline-success rounded-pill px-4">{% trans "Read Insights" %}</a>
                             </div>
                         </div>
                     </div>

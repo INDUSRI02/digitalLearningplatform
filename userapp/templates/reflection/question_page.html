@@ -1,5 +1,6 @@
 {% extends 'base_dashboard.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
 <style>
@@ -110,24 +111,27 @@
             <input type="hidden" name="question" value="{{ question }}">
 
             <div class="form-group text-start position-relative">
-                <label class="small fw-bold text-muted mb-2 uppercase d-block text-center">Your Thoughts & Reflections:</label>
+                <label class="small fw-bold text-muted mb-2 uppercase d-block text-center">
+                    {% trans "Your Thoughts & Reflections:" %}
+                </label>
                 <textarea class="form-control journal-textarea shadow-sm" 
                           name="answer" 
-                          placeholder="Take a moment to breathe and write honestly..." 
+                          placeholder="{% trans 'Take a moment to breathe and write honestly...' %}" 
                           required></textarea>
                 <p class="helper-text text-center">
-                    <i class="fas fa-feather-alt me-1"></i> There are no wrong answers, only your unique perspective.
+                    <i class="fas fa-feather-alt me-1"></i>
+                    {% trans "There are no wrong answers, only your unique perspective." %}
                 </p>
             </div>
             
             <button type="submit" class="btn btn-submit-reflection">
-                Submit My Reflection <i class="fas fa-check-circle ms-2"></i>
+                {% trans "Submit My Reflection" %} <i class="fas fa-check-circle ms-2"></i>
             </button>
         </form>
 
         <div class="mt-4">
             <a href="{% url 'start_reflection' %}" class="text-muted small text-decoration-none hover-link">
-                <i class="fas fa-redo me-1"></i> Choose a different category
+                <i class="fas fa-redo me-1"></i> {% trans "Choose a different category" %}
             </a>
         </div>
     </div>

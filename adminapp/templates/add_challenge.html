@@ -1,5 +1,6 @@
 {% extends 'base_admin.html' %} 
 {% load static %} 
+{% load i18n %}
 {% block content %}
 
 <style>
@@ -87,14 +88,14 @@
 <div class="form-wrapper">
     <div class="curriculum-card wow fadeInUp">
         <div class="text-center mb-4">
-            <h2 class="curriculum-title">Challenge Architect</h2>
-            <p class="text-muted small">Design a new critical thinking scenario for the leadership curriculum.</p>
+            <h2 class="curriculum-title">{% trans "Challenge Architect" %}</h2>
+            <p class="text-muted small">{% trans "Design a new critical thinking scenario for the leadership curriculum." %}</p>
         </div>
 
         <div class="module-info-box">
             <p class="small mb-0 text-dark fw-bold">
                 <i class="fas fa-lightbulb me-2 text-warning"></i> 
-                Challenges created here will be assigned to the "Leadership Arena" module for all active scholars.
+                {% trans "Challenges created here will be assigned to the \"Leadership Arena\" module for all active scholars." %}
             </p>
         </div>
 
@@ -103,41 +104,41 @@
             
             <div class="row">
                 <div class="col-md-7 mb-4">
-                    <label for="challenge_name" class="form-label-premium">Challenge Designation (Title)</label>
-                    <input type="text" class="form-control input-premium shadow-sm" id="challenge_name" name="challenge_name" placeholder="e.g. Crisis in the Boardroom" required>
+                    <label for="challenge_name" class="form-label-premium">{% trans "Challenge Designation (Title)" %}</label>
+                    <input type="text" class="form-control input-premium shadow-sm" id="challenge_name" name="challenge_name" placeholder="{% trans "e.g. Crisis in the Boardroom" %}" required>
                 </div>
 
                 <div class="col-md-5 mb-4">
-                    <label for="challenge_type" class="form-label-premium">Focus Competency</label>
+                    <label for="challenge_type" class="form-label-premium">{% trans "Focus Competency" %}</label>
                     <select class="form-select input-premium shadow-sm" id="challenge_type" name="challenge_type" required>
-                        <option value="" disabled selected>Select Skillset</option>
-                        <option value="Visionary">Visionary</option>
-                        <option value="Technical">Technical</option>
-                        <option value="Creative">Creative</option>
-                        <option value="Leadership">Leadership</option>
-                        <option value="Strategic Thinking">Strategic Thinking</option>
-                        <option value="Team Building">Team Building</option>
-                        <option value="Innovation">Innovation</option>
-                        <option value="Decision Making">Decision Making</option>
-                        <option value="Conflict Resolution">Conflict Resolution</option>
+                        <option value="" disabled selected>{% trans "Select Skillset" %}</option>
+                        <option value="Visionary">{% trans "Visionary" %}</option>
+                        <option value="Technical">{% trans "Technical" %}</option>
+                        <option value="Creative">{% trans "Creative" %}</option>
+                        <option value="Leadership">{% trans "Leadership" %}</option>
+                        <option value="Strategic Thinking">{% trans "Strategic Thinking" %}</option>
+                        <option value="Team Building">{% trans "Team Building" %}</option>
+                        <option value="Innovation">{% trans "Innovation" %}</option>
+                        <option value="Decision Making">{% trans "Decision Making" %}</option>
+                        <option value="Conflict Resolution">{% trans "Conflict Resolution" %}</option>
                     </select>
                 </div>
             </div>
 
             <div class="mb-5">
-                <label for="challenge_description" class="form-label-premium">Curriculum Prompt / Scenario Text</label>
-                <textarea class="form-control input-premium textarea-premium shadow-sm" id="challenge_description" name="challenge_description" placeholder="Describe the complex situation the student must analyze..." required></textarea>
-                <div class="form-text small text-muted mt-2 italic">Provide clear details to ensure a comprehensive student response.</div>
+                <label for="challenge_description" class="form-label-premium">{% trans "Curriculum Prompt / Scenario Text" %}</label>
+                <textarea class="form-control input-premium textarea-premium shadow-sm" id="challenge_description" name="challenge_description" placeholder="{% trans "Describe the complex situation the student must analyze..." %}" required></textarea>
+                <div class="form-text small text-muted mt-2 italic">{% trans "Provide clear details to ensure a comprehensive student response." %}</div>
             </div>
 
             <button type="submit" class="btn btn-create-challenge">
-                Publish to Curriculum <i class="fas fa-cloud-upload-alt ms-2"></i>
+                {% trans "Publish to Curriculum" %} <i class="fas fa-cloud-upload-alt ms-2"></i>
             </button>
         </form>
 
         <div class="text-center mt-4">
             <a href="{% url 'manage_challenges' %}" class="text-muted small text-decoration-none">
-                <i class="fas fa-list me-1"></i> Manage Existing Challenges
+                <i class="fas fa-list me-1"></i> {% trans "Manage Existing Challenges" %}
             </a>
         </div>
     </div>

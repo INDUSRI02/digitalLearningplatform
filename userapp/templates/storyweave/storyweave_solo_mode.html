@@ -1,5 +1,6 @@
 {% extends 'base_dashboard.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 <style>
@@ -98,9 +99,9 @@
 
 <div class="container story-weave-container">
     <div class="text-center mb-5 wow fadeIn">
-        <span class="mode-badge shadow-sm">Solo Mode</span>
-        <h2 class="display-5 fw-bold" style="font-family: 'Playfair Display', serif; color: var(--brand-primary);">Story Weave Sanctuary</h2>
-        <p class="text-muted">Unleash your imagination and let your creativity flow through words.</p>
+        <span class="mode-badge shadow-sm">{% trans "Solo Mode" %}</span>
+        <h2 class="display-5 fw-bold" style="font-family: 'Playfair Display', serif; color: var(--brand-primary);">{% trans "Story Weave Sanctuary" %}</h2>
+        <p class="text-muted">{% trans "Unleash your imagination and let your creativity flow through words." %}</p>
     </div>
 
     <div class="row justify-content-center">
@@ -108,11 +109,11 @@
         <div class="col-md-12" id="prompt-container">
             <div class="writing-card wow fadeInUp" data-wow-delay="0.1s">
                 <h4 class="fw-bold mb-3" style="font-family: 'Playfair Display', serif; color: var(--brand-primary);">
-                    <i class="fas fa-lightbulb text-warning me-2"></i> Your Inspiration
+                    <i class="fas fa-lightbulb text-warning me-2"></i> {% trans "Your Inspiration" %}
                 </h4>
                 <div class="prompt-box">
                     <p class="m-0 lead fw-bold text-dark">
-                        {% if prompt %}{{ prompt }}{% else %}Ready to write? We're generating a magical prompt for you...{% endif %}
+                        {% if prompt %}{{ prompt }}{% else %}{% trans "Ready to write? We're generating a magical prompt for you..." %}{% endif %}
                     </p>
                 </div>
 
@@ -124,12 +125,12 @@
 
                 <form method="POST">
                     {% csrf_token %}
-                    <label class="small fw-bold text-muted mb-2 uppercase">Begin your tale here:</label>
-                    <textarea id="story-text" name="story" class="form-control story-textarea" rows="10" placeholder="Once upon a time in Nabha..." required></textarea>
+                    <label class="small fw-bold text-muted mb-2 uppercase">{% trans "Begin your tale here:" %}</label>
+                    <textarea id="story-text" name="story" class="form-control story-textarea" rows="10" placeholder="{% trans 'Once upon a time in Nabha...' %}" required></textarea>
 
                     <div class="mt-5 text-center">
                         <button type="submit" class="btn btn-story shadow">
-                            Complete Story <i class="fas fa-feather-alt ms-2"></i>
+                            {% trans "Complete Story" %} <i class="fas fa-feather-alt ms-2"></i>
                         </button>
                     </div>
                 </form>
@@ -144,11 +145,11 @@
                     <div class="brand-icon-box mx-auto mb-3" style="width: 60px; height: 60px; background: var(--brand-primary);">
                         <i class="fas fa-star text-white fa-2x"></i>
                     </div>
-                    <h3 class="fw-bold text-success" style="font-family: 'Playfair Display', serif;">Your Story is Preserved!</h3>
+                    <h3 class="fw-bold text-success" style="font-family: 'Playfair Display', serif;">{% trans "Your Story is Preserved!" %}</h3>
                 </div>
                 
                 <div class="feedback-box mb-4">
-                    <h5 class="fw-bold text-dark mb-3"><i class="fas fa-comment-alt text-success me-2"></i> Teacher's Insight / AI Analysis:</h5>
+                    <h5 class="fw-bold text-dark mb-3"><i class="fas fa-comment-alt text-success me-2"></i> {% trans "Teacher's Insight / AI Analysis:" %}</h5>
                     <p class="text-muted lh-lg" style="font-size: 1.1rem; font-style: italic;">
                         "{{ feedback }}"
                     </p>
@@ -156,7 +157,7 @@
 
                 <div class="text-center">
                     <a href="{% url 'solo_story_mode' %}" class="btn btn-story">
-                        <i class="fas fa-plus-circle me-2"></i> Start a New Journey
+                        <i class="fas fa-plus-circle me-2"></i> {% trans "Start a New Journey" %}
                     </a>
                 </div>
             </div>
@@ -171,7 +172,6 @@
     let storySubmitted = false;
 
     function startTimer() {
-        // Ensure element exists (not hidden by feedback)
         const timerElement = document.getElementById('timer');
         if(!timerElement) return;
 
@@ -179,7 +179,6 @@
             timer--;
             timerElement.innerHTML = `<i class="fas fa-clock me-2"></i> ${timer}s`;
 
-            // Visual warning when time is low
             if (timer <= 30) {
                 timerElement.style.background = "#ffdcdc";
             }

@@ -1,5 +1,6 @@
 {% extends 'base_admin.html' %} 
 {% load static %} 
+{% load i18n %}
 
 {% block content %}
 <style>
@@ -102,8 +103,8 @@
 
 <div class="admin-dashboard-hero">
     <div class="wow fadeInDown">
-        <h1 class="hero-title">Administrative Command Center</h1>
-        <p class="text-muted lead">Monitor platform growth, faculty status, and academic integrity.</p>
+        <h1 class="hero-title">{% trans "Administrative Command Center" %}</h1>
+        <p class="text-muted lead">{% trans "Monitor platform growth, faculty status, and academic integrity." %}</p>
     </div>
 
     <div class="row g-4 mt-4">
@@ -112,11 +113,11 @@
                 <div class="card-accent-bar"></div>
                 <div class="stat-body">
                     <div class="d-flex justify-content-between align-items-start mb-3">
-                        <span class="stat-label">Total Scholars</span>
+                        <span class="stat-label">{% trans "Total Scholars" %}</span>
                         <div class="stat-icon-circle"><i class="fas fa-user-graduate"></i></div>
                     </div>
                     <div class="stat-value">{{ total_students }}</div>
-                    <p class="text-muted small mt-2 mb-0">Registered Learners</p>
+                    <p class="text-muted small mt-2 mb-0">{% trans "Registered Learners" %}</p>
                 </div>
             </div>
         </div>
@@ -126,11 +127,11 @@
                 <div class="card-accent-bar" style="background: var(--brand-accent);"></div>
                 <div class="stat-body">
                     <div class="d-flex justify-content-between align-items-start mb-3">
-                        <span class="stat-label">Faculty Members</span>
+                        <span class="stat-label">{% trans "Faculty Members" %}</span>
                         <div class="stat-icon-circle" style="background: #fff8e1; color: var(--brand-accent);"><i class="fas fa-chalkboard-teacher"></i></div>
                     </div>
                     <div class="stat-value">{{ total_instructors }}</div>
-                    <p class="text-muted small mt-2 mb-0">Active Educators</p>
+                    <p class="text-muted small mt-2 mb-0">{% trans "Active Educators" %}</p>
                 </div>
             </div>
         </div>
@@ -140,11 +141,11 @@
                 <div class="card-accent-bar" style="background: #d32f2f;"></div>
                 <div class="stat-body">
                     <div class="d-flex justify-content-between align-items-start mb-3">
-                        <span class="stat-label">Waitlist</span>
+                        <span class="stat-label">{% trans "Waitlist" %}</span>
                         <div class="stat-icon-circle" style="background: #fff5f5; color: #d32f2f;"><i class="fas fa-user-clock"></i></div>
                     </div>
                     <div class="stat-value">{{ pending_instructors }}</div>
-                    <p class="text-muted small mt-2 mb-0">Pending Verification</p>
+                    <p class="text-muted small mt-2 mb-0">{% trans "Pending Verification" %}</p>
                 </div>
             </div>
         </div>
@@ -154,11 +155,11 @@
                 <div class="card-accent-bar" style="background: #1976d2;"></div>
                 <div class="stat-body">
                     <div class="d-flex justify-content-between align-items-start mb-3">
-                        <span class="stat-label">Insights</span>
+                        <span class="stat-label">{% trans "Insights" %}</span>
                         <div class="stat-icon-circle" style="background: #e3f2fd; color: #1976d2;"><i class="fas fa-comments"></i></div>
                     </div>
                     <div class="stat-value">{{ total_feedbacks }}</div>
-                    <p class="text-muted small mt-2 mb-0">User Submissions</p>
+                    <p class="text-muted small mt-2 mb-0">{% trans "User Submissions" %}</p>
                 </div>
             </div>
         </div>
@@ -167,19 +168,19 @@
     <div class="command-hub wow fadeInUp" data-wow-delay="0.5s">
         <div class="row align-items-center">
             <div class="col-lg-7">
-                <h3 class="fw-bold mb-3" style="font-family: 'Playfair Display'; color: var(--brand-primary);">Platform Management</h3>
-                <p class="text-muted">Directly manage the core pillars of the NabhaLearn ecosystem. Review new instructor applications, manage curriculum challenges, or analyze platform sentiment through user feedback.</p>
+                <h3 class="fw-bold mb-3" style="font-family: 'Playfair Display'; color: var(--brand-primary);">{% trans "Platform Management" %}</h3>
+                <p class="text-muted">{% trans "Directly manage the core pillars of the NabhaLearn ecosystem. Review new instructor applications, manage curriculum challenges, or analyze platform sentiment through user feedback." %}</p>
                 <div class="mt-4 d-flex flex-wrap gap-3">
                     <a href="{% url 'pending_ins' %}" class="action-btn-premium shadow">
-                        <i class="fas fa-user-check me-2"></i> Approve Faculty
+                        <i class="fas fa-user-check me-2"></i> {% trans "Approve Faculty" %}
                     </a>
                     <a href="{% url 'manage_challenges' %}" class="action-btn-premium shadow" style="background: var(--brand-accent);">
-                        <i class="fas fa-tasks me-2"></i> Manage Challenges
+                        <i class="fas fa-tasks me-2"></i> {% trans "Manage Challenges" %}
                     </a>
                 </div>
             </div>
             <div class="col-lg-5 text-center d-none d-lg-block">
-                <img src="{% static 'adminfiles/img/cb.png' %}" alt="Admin Control" class="img-fluid opacity-75" style="max-height: 200px;">
+                <img src="{% static 'adminfiles/img/cb.png' %}" alt="{% trans "Admin Control" %}" class="img-fluid opacity-75" style="max-height: 200px;">
             </div>
         </div>
     </div>

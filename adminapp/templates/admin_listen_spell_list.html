@@ -1,5 +1,6 @@
 {% extends 'base_admin.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
 <style>
@@ -100,18 +101,18 @@
             <div class="brand-icon-box mx-auto mb-3" style="width: 60px; height: 60px; background: var(--brand-accent);">
                 <i class="fas fa-spell-check text-white fa-2x"></i>
             </div>
-            <h2 class="admin-title-scholarly">Vocabulary Management</h2>
-            <p class="text-muted">Review and manage word assets for the Listen & Spell module.</p>
+            <h2 class="admin-title-scholarly">{% trans "Vocabulary Management" %}</h2>
+            <p class="text-muted">{% trans "Review and manage word assets for the Listen & Spell module." %}</p>
         </div>
 
         <div class="table-responsive">
             <table class="table table-premium">
                 <thead>
                     <tr>
-                        <th scope="col" width="10%">Ref ID</th>
-                        <th scope="col" width="25%">Vocabulary Word</th>
-                        <th scope="col" width="40%">Audio Asset</th>
-                        <th scope="col" width="25%" class="text-center">Administration</th>
+                        <th scope="col" width="10%">{% trans "Ref ID" %}</th>
+                        <th scope="col" width="25%">{% trans "Vocabulary Word" %}</th>
+                        <th scope="col" width="40%">{% trans "Audio Asset" %}</th>
+                        <th scope="col" width="25%" class="text-center">{% trans "Administration" %}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -124,21 +125,23 @@
                             <div class="d-flex align-items-center">
                                 <audio controls class="w-100">
                                     <source src="{{ word.audio.url }}" type="audio/mpeg">
-                                    Your browser does not support the audio element.
+                                    {% trans "Your browser does not support the audio element." %}
                                 </audio>
                             </div>
                             {% else %}
-                            <span class="badge bg-light text-muted fw-normal"><i class="fas fa-microphone-slash me-1"></i> Missing Audio</span>
+                            <span class="badge bg-light text-muted fw-normal">
+                                <i class="fas fa-microphone-slash me-1"></i> {% trans "Missing Audio" %}
+                            </span>
                             {% endif %}
                         </td>
                         <td class="text-center">
                             <a href="{% url 'admin_listen_spell_details' word.id %}" class="btn btn-admin-view me-2 shadow-sm">
-                                <i class="fas fa-info-circle me-1"></i> Details
+                                <i class="fas fa-info-circle me-1"></i> {% trans "Details" %}
                             </a>
                             <a href="{% url 'admin_listen_spell_delete' word.id %}" 
                                class="btn btn-admin-delete shadow-sm" 
-                               onclick="return confirm('Permanent Action: Are you sure you want to delete this word from the curriculum?');">
-                                <i class="fas fa-trash me-1"></i> Remove
+                               onclick="return confirm('{% trans "Permanent Action: Are you sure you want to delete this word from the curriculum?" %}');">
+                                <i class="fas fa-trash me-1"></i> {% trans "Remove" %}
                             </a>
                         </td>
                     </tr>
@@ -146,8 +149,10 @@
                     <tr>
                         <td colspan="4" class="text-center py-5">
                             <i class="fas fa-folder-open fa-3x text-light mb-3"></i>
-                            <p class="text-muted">No words found in the database. Please add new curriculum assets.</p>
-                            <a href="{% url 'admin_listen_spell_add' %}" class="btn btn-primary rounded-pill px-4 mt-2">Add First Word</a>
+                            <p class="text-muted">{% trans "No words found in the database. Please add new curriculum assets." %}</p>
+                            <a href="{% url 'admin_listen_spell_add' %}" class="btn btn-primary rounded-pill px-4 mt-2">
+                                {% trans "Add First Word" %}
+                            </a>
                         </td>
                     </tr>
                     {% endfor %}

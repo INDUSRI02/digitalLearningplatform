@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 {% load static %}
+{% load i18n %}
 
 <style>
     .login-wrapper {
@@ -119,7 +120,7 @@
         <div class="row gx-lg-5 align-items-center">
             <div class="col-lg-5 d-none d-lg-block wow fadeInLeft" data-wow-delay="0.2s">
                 <div class="login-image-box">
-                    <img src="{% static 'img/img8.avif' %}" alt="Student Learning" class="img-fluid">
+                    <img src="{% static 'img/img8.avif' %}" alt="{% trans 'Student Learning' %}" class="img-fluid">
                 </div>
             </div>
             
@@ -130,42 +131,42 @@
                             <div class="brand-icon-box mx-auto mb-3" style="width: 50px; height: 50px;">
                                 <i class="fas fa-user-graduate text-white"></i>
                             </div>
-                            <h2 style="font-family: 'Playfair Display', serif; font-weight: 900; color: var(--brand-primary);">Student Login</h2>
-                            <p class="text-muted small">Welcome back! Please enter your details to continue learning.</p>
+                            <h2 style="font-family: 'Playfair Display', serif; font-weight: 900; color: var(--brand-primary);">{% trans "Student Login" %}</h2>
+                            <p class="text-muted small">{% trans "Welcome back! Please enter your details to continue learning." %}</p>
                         </div>
 
                         <form method="POST" enctype="multipart/form-data">
                             {% csrf_token %}
                             
                             <div class="form-outline mb-4">
-                                <label class="form-label" for="email">Email address</label>
-                                <input type="email" id="email" class="form-control form-control-lg" placeholder="yourname@email.com" name="email" required />
+                                <label class="form-label" for="email">{% trans "Email address" %}</label>
+                                <input type="email" id="email" class="form-control form-control-lg" placeholder="{% trans 'yourname@email.com' %}" name="email" required />
                             </div>
 
                             <div class="form-outline mb-4">
-                                <label class="form-label" for="password">Password</label>
+                                <label class="form-label" for="password">{% trans "Password" %}</label>
                                 <input type="password" id="password" class="form-control form-control-lg" name="password" placeholder="••••••••" required />
                             </div>
 
                             <div class="d-flex justify-content-between align-items-center mb-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="remember" checked />
-                                    <label class="form-check-label small text-muted" for="remember">Remember me</label>
+                                    <label class="form-check-label small text-muted" for="remember">{% trans "Remember me" %}</label>
                                 </div>
-                                <a href="#" class="small fw-bold text-decoration-none" style="color: var(--brand-primary);">Forgot Password?</a>
+                                <a href="#" class="small fw-bold text-decoration-none" style="color: var(--brand-primary);">{% trans "Forgot Password?" %}</a>
                             </div>
 
                             <button type="submit" class="btn btn-signin w-100 mb-4">
-                                Sign In <i class="fas fa-sign-in-alt ms-2"></i>
+                                {% trans "Sign In" %} <i class="fas fa-sign-in-alt ms-2"></i>
                             </button>
 
                             <div class="text-center">
-                                <p class="text-muted small">Don't have an account yet? 
-                                    <a href="{% url 'user_register' %}" class="fw-bold text-decoration-none" style="color: var(--brand-accent);">Sign Up</a>
+                                <p class="text-muted small">{% trans "Don't have an account yet?" %} 
+                                    <a href="{% url 'user_register' %}" class="fw-bold text-decoration-none" style="color: var(--brand-accent);">{% trans "Sign Up" %}</a>
                                 </p>
                                 
                                 <div class="mt-4">
-                                    <span class="text-muted small d-block mb-3">Or continue with</span>
+                                    <span class="text-muted small d-block mb-3">{% trans "Or continue with" %}</span>
                                     <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
                                     <a href="#" class="social-btn"><i class="fab fa-google"></i></a>
                                     <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>

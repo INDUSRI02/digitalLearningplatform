@@ -1,0 +1,4112 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-20 22:52+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\adminapp\templates\add_challenge.html:91
+msgid "Challenge Architect"
+msgstr "चुनौती वास्तुकार"
+
+#: .\adminapp\templates\add_challenge.html:92
+msgid "Design a new critical thinking scenario for the leadership curriculum."
+msgstr "नेतृत्व पाठ्यक्रम के लिए एक नया आलोचनात्मक सोच परिदृश्य डिज़ाइन करें।"
+
+#: .\adminapp\templates\add_challenge.html:98
+msgid "Challenges created here will be assigned to the \\"
+msgstr "यहां बनाई गई चुनौतियों को \\ को सौंपा जाएगा"
+
+#: .\adminapp\templates\add_challenge.html:107
+msgid "Challenge Designation (Title)"
+msgstr "चुनौती पदनाम (शीर्षक)"
+
+#: .\adminapp\templates\add_challenge.html:108
+msgid "e.g. Crisis in the Boardroom"
+msgstr "जैसेबोर्डरूम में संकट"
+
+#: .\adminapp\templates\add_challenge.html:112
+msgid "Focus Competency"
+msgstr "फोकस योग्यता"
+
+#: .\adminapp\templates\add_challenge.html:114
+msgid "Select Skillset"
+msgstr "कौशल सेट का चयन करें"
+
+#: .\adminapp\templates\add_challenge.html:115
+msgid "Visionary"
+msgstr "काल्पनिक"
+
+#: .\adminapp\templates\add_challenge.html:116
+msgid "Technical"
+msgstr "तकनीकी"
+
+#: .\adminapp\templates\add_challenge.html:117
+msgid "Creative"
+msgstr "रचनात्मक"
+
+#: .\adminapp\templates\add_challenge.html:118
+#: .\userapp\templates\index.html:136
+#: .\userapp\templates\user_dashboard.html:170
+msgid "Leadership"
+msgstr "नेतृत्व"
+
+#: .\adminapp\templates\add_challenge.html:119
+msgid "Strategic Thinking"
+msgstr "रणनीतिक सोच"
+
+#: .\adminapp\templates\add_challenge.html:120
+msgid "Team Building"
+msgstr "टीम के निर्माण"
+
+#: .\adminapp\templates\add_challenge.html:121
+msgid "Innovation"
+msgstr "नवाचार"
+
+#: .\adminapp\templates\add_challenge.html:122
+msgid "Decision Making"
+msgstr "निर्णय लेना"
+
+#: .\adminapp\templates\add_challenge.html:123
+msgid "Conflict Resolution"
+msgstr "युद्ध वियोजन"
+
+#: .\adminapp\templates\add_challenge.html:129
+msgid "Curriculum Prompt / Scenario Text"
+msgstr "पाठ्यचर्या संकेत/परिदृश्य पाठ"
+
+#: .\adminapp\templates\add_challenge.html:130
+msgid "Describe the complex situation the student must analyze..."
+msgstr "उस जटिल स्थिति का वर्णन करें जिसका छात्र को विश्लेषण करना चाहिए..."
+
+#: .\adminapp\templates\add_challenge.html:131
+msgid "Provide clear details to ensure a comprehensive student response."
+msgstr ""
+"व्यापक छात्र प्रतिक्रिया सुनिश्चित करने के लिए स्पष्ट विवरण प्रदान करें।"
+
+#: .\adminapp\templates\add_challenge.html:135
+msgid "Publish to Curriculum"
+msgstr "पाठ्यचर्या में प्रकाशित करें"
+
+#: .\adminapp\templates\add_challenge.html:141
+msgid "Manage Existing Challenges"
+msgstr "मौजूदा चुनौतियों का प्रबंधन करें"
+
+#: .\adminapp\templates\admin-view-feedbacks.html:132
+msgid "Feedback Management"
+msgstr "फीडबैक प्रबंधन"
+
+#: .\adminapp\templates\admin-view-feedbacks.html:135
+#: .\adminapp\templates\all-Instructors.html:138
+#: .\adminapp\templates\all-students.html:128
+#: .\instructorapp\templates\instructor\all-questions.html:143
+#: .\instructorapp\templates\instructor\view-feedbacks.html:138
+#: .\userapp\templates\base.html:102
+msgid "Home"
+msgstr "घर"
+
+#: .\adminapp\templates\admin-view-feedbacks.html:136
+#: .\adminapp\templates\admin_index.html:183
+msgid "User Feedbacks"
+msgstr "उपयोगकर्ता प्रतिसाद"
+
+#: .\adminapp\templates\admin-view-feedbacks.html:147
+msgid "Platform Insights"
+msgstr "प्लेटफार्म अंतर्दृष्टि"
+
+#: .\adminapp\templates\admin-view-feedbacks.html:155
+#: .\adminapp\templates\all-students.html:148
+#: .\instructorapp\templates\instructor\all-questions.html:163
+#: .\instructorapp\templates\instructor\view-feedbacks.html:158
+msgid "S.No"
+msgstr ""
+
+#: .\adminapp\templates\admin-view-feedbacks.html:156
+msgid "User Name"
+msgstr "उपयोगकर्ता नाम"
+
+#: .\adminapp\templates\admin-view-feedbacks.html:157
+#: .\adminapp\templates\all-Instructors.html:161
+#: .\adminapp\templates\all-students.html:152
+#: .\instructorapp\templates\instructor\view-feedbacks.html:160
+#: .\userapp\templates\instructor-register.html:194
+#: .\userapp\templates\user-feedback.html:156
+#: .\userapp\templates\user-register.html:107
+msgid "Email Address"
+msgstr "मेल पता"
+
+#: .\adminapp\templates\admin-view-feedbacks.html:158
+#: .\instructorapp\templates\instructor\view-feedbacks.html:161
+msgid "Sentiment"
+msgstr "भाव"
+
+#: .\adminapp\templates\admin-view-feedbacks.html:159
+#: .\instructorapp\templates\instructor\view-feedbacks.html:162
+msgid "Comments"
+msgstr "टिप्पणियाँ"
+
+#: .\adminapp\templates\admin-view-feedbacks.html:160
+#: .\adminapp\templates\all-students.html:153
+#: .\adminapp\templates\pending-Instructors.html:152
+#: .\instructorapp\templates\instructor\all-questions.html:167
+#: .\instructorapp\templates\instructor\view-feedbacks.html:163
+#: .\instructorapp\templates\time\task_list.html:28
+#: .\userapp\templates\leadership\show_feedback.html:139
+#: .\userapp\templates\onlinetest\test_result.html:131
+#: .\userapp\templates\time_game_success.html:132
+msgid "Action"
+msgstr "कार्रवाई"
+
+#: .\adminapp\templates\admin-view-feedbacks.html:184
+msgid "No comments provided."
+msgstr "कोई टिप्पणी नहीं दी गई."
+
+#: .\adminapp\templates\admin-view-feedbacks.html:191
+msgid "Are you sure you want to delete this feedback?"
+msgstr "क्या आप वाकई इस फीडबैक को हटाना चाहते हैं?"
+
+#: .\adminapp\templates\admin-view-feedbacks.html:192
+#: .\adminapp\templates\admin_listen_spell_list.html:144
+#: .\adminapp\templates\all-Instructors.html:181
+#: .\adminapp\templates\all-students.html:170
+#: .\instructorapp\templates\instructor\all-questions.html:191
+#: .\instructorapp\templates\instructor\view-courses.html:208
+msgid "Remove"
+msgstr "निकालना"
+
+#: .\adminapp\templates\admin-view-feedbacks.html:205
+#: .\adminapp\templates\all-Instructors.html:194
+#: .\adminapp\templates\all-students.html:183
+#: .\adminapp\templates\pagination.html:56
+#: .\adminapp\templates\pending-Instructors.html:182
+#: .\instructorapp\templates\instructor\all-questions.html:204
+#: .\instructorapp\templates\instructor\view-courses.html:222
+#: .\instructorapp\templates\instructor\view-feedbacks.html:209
+#: .\userapp\templates\onlinetest\test_result.html:164
+msgid "First"
+msgstr "पहला"
+
+#: .\adminapp\templates\admin-view-feedbacks.html:223
+#: .\adminapp\templates\all-Instructors.html:212
+#: .\adminapp\templates\all-students.html:201
+#: .\adminapp\templates\pagination.html:93
+#: .\adminapp\templates\pending-Instructors.html:200
+#: .\instructorapp\templates\instructor\all-questions.html:222
+#: .\instructorapp\templates\instructor\view-courses.html:240
+#: .\instructorapp\templates\instructor\view-feedbacks.html:221
+#: .\userapp\templates\onlinetest\test_result.html:182
+msgid "Last"
+msgstr "अंतिम"
+
+#: .\adminapp\templates\admin-view-feedbacks.html:233
+msgid "No Feedbacks Recorded"
+msgstr "कोई फीडबैक रिकॉर्ड नहीं किया गया"
+
+#: .\adminapp\templates\admin-view-feedbacks.html:234
+msgid ""
+"User feedback submissions will appear here once scholars share their "
+"platform experience."
+msgstr ""
+"एक बार जब विद्वान अपने प्लेटफ़ॉर्म अनुभव साझा करेंगे तो उपयोगकर्ता फ़ीडबैक "
+"सबमिशन यहां दिखाई देंगे।"
+
+#: .\adminapp\templates\admin_dashboard.html:106
+msgid "Administrative Command Center"
+msgstr "प्रशासनिक कमान केंद्र"
+
+#: .\adminapp\templates\admin_dashboard.html:107
+msgid "Monitor platform growth, faculty status, and academic integrity."
+msgstr "प्लेटफ़ॉर्म विकास, संकाय स्थिति और शैक्षणिक अखंडता की निगरानी करें।"
+
+#: .\adminapp\templates\admin_dashboard.html:116
+#: .\adminapp\templates\admin_index.html:132
+msgid "Total Scholars"
+msgstr "कुल विद्वान"
+
+#: .\adminapp\templates\admin_dashboard.html:120
+msgid "Registered Learners"
+msgstr "पंजीकृत शिक्षार्थी"
+
+#: .\adminapp\templates\admin_dashboard.html:130
+msgid "Faculty Members"
+msgstr "संकाय सदस्य"
+
+#: .\adminapp\templates\admin_dashboard.html:134
+msgid "Active Educators"
+msgstr "सक्रिय शिक्षक"
+
+#: .\adminapp\templates\admin_dashboard.html:144
+msgid "Waitlist"
+msgstr "प्रतीक्षा सूची"
+
+#: .\adminapp\templates\admin_dashboard.html:148
+msgid "Pending Verification"
+msgstr "सत्यापन लंबित है"
+
+#: .\adminapp\templates\admin_dashboard.html:158
+msgid "Insights"
+msgstr "इनसाइट्स"
+
+#: .\adminapp\templates\admin_dashboard.html:162
+msgid "User Submissions"
+msgstr "उपयोगकर्ता प्रस्तुतियाँ"
+
+#: .\adminapp\templates\admin_dashboard.html:171
+msgid "Platform Management"
+msgstr "प्लेटफार्म प्रबंधन"
+
+#: .\adminapp\templates\admin_dashboard.html:172
+msgid ""
+"Directly manage the core pillars of the NabhaLearn ecosystem. Review new "
+"instructor applications, manage curriculum challenges, or analyze platform "
+"sentiment through user feedback."
+msgstr ""
+"NabhaLearn पारिस्थितिकी तंत्र के मुख्य स्तंभों को सीधे प्रबंधित करें।नए "
+"प्रशिक्षक अनुप्रयोगों की समीक्षा करें, पाठ्यक्रम चुनौतियों का प्रबंधन करें, "
+"या उपयोगकर्ता प्रतिक्रिया के माध्यम से प्लेटफ़ॉर्म भावना का विश्लेषण करें।"
+
+#: .\adminapp\templates\admin_dashboard.html:175
+msgid "Approve Faculty"
+msgstr "संकाय स्वीकृत करें"
+
+#: .\adminapp\templates\admin_dashboard.html:178
+msgid "Manage Challenges"
+msgstr "चुनौतियाँ प्रबंधित करें"
+
+#: .\adminapp\templates\admin_dashboard.html:183
+msgid "Admin Control"
+msgstr "व्यवस्थापक नियंत्रण"
+
+#: .\adminapp\templates\admin_index.html:108
+msgid "Executive Dashboard"
+msgstr "कार्यकारी डैशबोर्ड"
+
+#: .\adminapp\templates\admin_index.html:111
+msgid "Platform Home"
+msgstr "प्लेटफार्म होम"
+
+#: .\adminapp\templates\admin_index.html:112
+msgid "Analytics"
+msgstr "एनालिटिक्स"
+
+#: .\adminapp\templates\admin_index.html:125
+msgid "Enrollment"
+msgstr "उपस्थिति पंजी"
+
+#: .\adminapp\templates\admin_index.html:142
+msgid "Faculty"
+msgstr "संकाय"
+
+#: .\adminapp\templates\admin_index.html:149
+msgid "Active Teachers"
+msgstr "सक्रिय शिक्षक"
+
+#: .\adminapp\templates\admin_index.html:159
+msgid "Verification"
+msgstr "सत्यापन"
+
+#: .\adminapp\templates\admin_index.html:166
+msgid "Pending Approval"
+msgstr "लंबित अनुमोदन"
+
+#: .\adminapp\templates\admin_index.html:176
+msgid "Community"
+msgstr "समुदाय"
+
+#: .\adminapp\templates\admin_index.html:195
+msgid "Platform Integrity Overview"
+msgstr "प्लेटफ़ॉर्म इंटीग्रिटी अवलोकन"
+
+#: .\adminapp\templates\admin_index.html:196
+msgid ""
+"Welcome to the NabhaLearn Command Center. Use the sidebar to manage "
+"curriculum, faculty approvals, and review student progress."
+msgstr ""
+"नाभालर्न कमांड सेंटर में आपका स्वागत है।पाठ्यक्रम, संकाय अनुमोदन प्रबंधित "
+"करने और छात्र प्रगति की समीक्षा करने के लिए साइडबार का उपयोग करें।"
+
+#: .\adminapp\templates\admin_index.html:198
+msgid "Review Teachers"
+msgstr "शिक्षकों की समीक्षा करें"
+
+#: .\adminapp\templates\admin_index.html:199
+msgid "Read Insights"
+msgstr "अंतर्दृष्टि पढ़ें"
+
+#: .\adminapp\templates\admin_listen_spell_add.html:86
+msgid "New Vocabulary Entry"
+msgstr "नई शब्दावली प्रविष्टि"
+
+#: .\adminapp\templates\admin_listen_spell_add.html:87
+msgid "Expand the bilingual curriculum by adding new auditory challenges."
+msgstr "नई श्रवण चुनौतियाँ जोड़कर द्विभाषी पाठ्यक्रम का विस्तार करें।"
+
+#: .\adminapp\templates\admin_listen_spell_add.html:93
+msgid ""
+"Words added here will be immediately available in the student gaming arena."
+msgstr "यहां जोड़े गए शब्द छात्र गेमिंग क्षेत्र में तुरंत उपलब्ध होंगे।"
+
+#: .\adminapp\templates\admin_listen_spell_add.html:101
+msgid "Curriculum Text / Word"
+msgstr "पाठ्यचर्या पाठ/शब्द"
+
+#: .\adminapp\templates\admin_listen_spell_add.html:103
+msgid "e.g. Resilience"
+msgstr "जैसेलचीलापन"
+
+#: .\adminapp\templates\admin_listen_spell_add.html:107
+msgid "Difficulty Level & Module"
+msgstr "कठिनाई स्तर एवं मॉड्यूल"
+
+#: .\adminapp\templates\admin_listen_spell_add.html:109
+msgid "Listen & Spell - Single Word"
+msgstr "सुनें और उच्चारण करें - एकल शब्द"
+
+#: .\adminapp\templates\admin_listen_spell_add.html:110
+msgid "Sentence Challenge"
+msgstr "वाक्य चुनौती"
+
+#: .\adminapp\templates\admin_listen_spell_add.html:111
+msgid "Paragraph Perfection"
+msgstr "अनुच्छेद पूर्णता"
+
+#: .\adminapp\templates\admin_listen_spell_add.html:116
+msgid "Register Word to Database"
+msgstr "वर्ड को डेटाबेस में पंजीकृत करें"
+
+#: .\adminapp\templates\admin_listen_spell_add.html:122
+msgid "Return to Word Database"
+msgstr "वर्ड डेटाबेस पर लौटें"
+
+#: .\adminapp\templates\admin_listen_spell_details.html:92
+msgid "Asset Inspection"
+msgstr "संपत्ति निरीक्षण"
+
+#: .\adminapp\templates\admin_listen_spell_details.html:93
+msgid "ID"
+msgstr "पहचान"
+
+#: .\adminapp\templates\admin_listen_spell_details.html:99
+msgid "Curriculum Term"
+msgstr "पाठ्यचर्या अवधि"
+
+#: .\adminapp\templates\admin_listen_spell_details.html:104
+msgid "Audio Verification Preview"
+msgstr "ऑडियो सत्यापन पूर्वावलोकन"
+
+#: .\adminapp\templates\admin_listen_spell_details.html:109
+#: .\adminapp\templates\admin_listen_spell_list.html:128
+msgid "Your browser does not support the audio element."
+msgstr "आपका ब्राउजर में ऑडियो तत्व समर्थित नहीं है।"
+
+#: .\adminapp\templates\admin_listen_spell_details.html:112
+msgid "File verified and active on CDN."
+msgstr "सीडीएन पर फ़ाइल सत्यापित और सक्रिय है।"
+
+#: .\adminapp\templates\admin_listen_spell_details.html:117
+msgid "No audio asset has been uploaded for this term."
+msgstr "इस शब्द के लिए कोई ऑडियो एसेट अपलोड नहीं किया गया है."
+
+#: .\adminapp\templates\admin_listen_spell_details.html:128
+msgid "Back to Word Database"
+msgstr "वर्ड डेटाबेस पर वापस जाएँ"
+
+#: .\adminapp\templates\admin_listen_spell_list.html:104
+msgid "Vocabulary Management"
+msgstr "शब्दावली प्रबंधन"
+
+#: .\adminapp\templates\admin_listen_spell_list.html:105
+msgid "Review and manage word assets for the Listen & Spell module."
+msgstr ""
+"सुनो और वर्तनी मॉड्यूल के लिए शब्द संपत्तियों की समीक्षा और प्रबंधन करें।"
+
+#: .\adminapp\templates\admin_listen_spell_list.html:112
+msgid "Ref ID"
+msgstr "रेफरी आईडी"
+
+#: .\adminapp\templates\admin_listen_spell_list.html:113
+msgid "Vocabulary Word"
+msgstr "शब्दावली शब्द"
+
+#: .\adminapp\templates\admin_listen_spell_list.html:114
+msgid "Audio Asset"
+msgstr "ऑडियो संपत्ति"
+
+#: .\adminapp\templates\admin_listen_spell_list.html:115
+#: .\adminapp\templates\view_answers.html:119
+msgid "Administration"
+msgstr "प्रशासन"
+
+#: .\adminapp\templates\admin_listen_spell_list.html:133
+msgid "Missing Audio"
+msgstr "ऑडियो गायब है"
+
+#: .\adminapp\templates\admin_listen_spell_list.html:139
+msgid "Details"
+msgstr "विवरण"
+
+#: .\adminapp\templates\admin_listen_spell_list.html:143
+msgid ""
+"Permanent Action: Are you sure you want to delete this word from the "
+"curriculum?"
+msgstr ""
+"स्थायी कार्रवाई: क्या आप वाकई इस शब्द को पाठ्यक्रम से हटाना चाहते हैं?"
+
+#: .\adminapp\templates\admin_listen_spell_list.html:152
+msgid "No words found in the database. Please add new curriculum assets."
+msgstr ""
+"डेटाबेस में कोई शब्द नहीं मिला.कृपया नई पाठ्यक्रम परिसंपत्तियाँ जोड़ें।"
+
+#: .\adminapp\templates\admin_listen_spell_list.html:154
+msgid "Add First Word"
+msgstr "पहला शब्द जोड़ें"
+
+#: .\adminapp\templates\all-Instructors.html:135
+msgid "Faculty Directory"
+msgstr "संकाय निर्देशिका"
+
+#: .\adminapp\templates\all-Instructors.html:139
+msgid "All Instructors"
+msgstr "सभी प्रशिक्षक"
+
+#: .\adminapp\templates\all-Instructors.html:150
+msgid "Active Instructors"
+msgstr "सक्रिय प्रशिक्षक"
+
+#: .\adminapp\templates\all-Instructors.html:159
+#: .\adminapp\templates\all-students.html:149
+#: .\userapp\templates\user-profile.html:97
+msgid "Profile"
+msgstr "प्रोफ़ाइल"
+
+#: .\adminapp\templates\all-Instructors.html:160
+#: .\adminapp\templates\all-students.html:150
+#: .\userapp\templates\instructor-register.html:166
+#: .\userapp\templates\user-feedback.html:151
+#: .\userapp\templates\user-register.html:103
+msgid "Full Name"
+msgstr "पूरा नाम"
+
+#: .\adminapp\templates\all-Instructors.html:162
+msgid "Account Status"
+msgstr "खाता स्थिति"
+
+#: .\adminapp\templates\all-Instructors.html:163
+#: .\adminapp\templates\manage_challenges.html:127
+msgid "Actions"
+msgstr "कार्रवाई"
+
+#: .\adminapp\templates\all-Instructors.html:180
+msgid ""
+"Are you sure you want to remove this instructor? All associated courses may "
+"be affected."
+msgstr ""
+"क्या आप वाकई इस प्रशिक्षक को हटाना चाहते हैं?इससे जुड़े सभी पाठ्यक्रम "
+"प्रभावित हो सकते हैं।"
+
+#: .\adminapp\templates\all-Instructors.html:222
+msgid "No Verified Faculty"
+msgstr "कोई सत्यापित संकाय नहीं"
+
+#: .\adminapp\templates\all-Instructors.html:223
+msgid ""
+"There are currently no instructors with an 'Accepted' status in the "
+"directory."
+msgstr ""
+"वर्तमान में निर्देशिका में 'स्वीकृत' स्थिति वाला कोई प्रशिक्षक नहीं है।"
+
+#: .\adminapp\templates\all-students.html:125
+msgid "Student Directory"
+msgstr "छात्र निर्देशिका"
+
+#: .\adminapp\templates\all-students.html:129
+msgid "View All Students"
+msgstr "सभी छात्र देखें"
+
+#: .\adminapp\templates\all-students.html:140
+msgid "Registered Scholars"
+msgstr "पंजीकृत विद्वान"
+
+#: .\adminapp\templates\all-students.html:151
+msgid "Contact"
+msgstr "संपर्क"
+
+#: .\adminapp\templates\all-students.html:169
+msgid ""
+"Are you sure you want to remove this student? This action cannot be undone."
+msgstr ""
+"क्या आप वाकई इस छात्र को हटाना चाहते हैं?इस एक्शन को वापस नहीं किया जा सकता।"
+
+#: .\adminapp\templates\all-students.html:211
+msgid "No Students Registered"
+msgstr "कोई भी छात्र पंजीकृत नहीं है"
+
+#: .\adminapp\templates\all-students.html:212
+msgid ""
+"The student directory is currently empty. New registrations will appear "
+"here."
+msgstr "छात्र निर्देशिका वर्तमान में खाली है.नए पंजीकरण यहां दिखाई देंगे."
+
+#: ⁨.\adminapp\templates\base(admin) backup.html⁩:12
+msgid "Skill7 | Admin"
+msgstr "कौशल7 |व्यवस्थापक"
+
+#: ⁨.\adminapp\templates\base(admin) backup.html⁩:74
+#: .\adminapp\templates\base_admin.html:194
+#: .\instructorapp\templates\instructor\descriptive-questions.html:138
+#: .\instructorapp\templates\instructor\ins_index.html:101
+#: .\userapp\templates\base_dashboard.html:183
+msgid "Dashboard"
+msgstr "डैशबोर्ड"
+
+#: ⁨.\adminapp\templates\base(admin) backup.html⁩:84
+msgid "Listen & Spell Management"
+msgstr "सुनो और वर्तनी प्रबंधन"
+
+#: ⁨.\adminapp\templates\base(admin) backup.html⁩:90
+#: .\adminapp\templates\base(admin).html:106
+msgid "Add New Word"
+msgstr "नया शब्द जोड़ें"
+
+#: ⁨.\adminapp\templates\base(admin) backup.html⁩:96
+msgid "Manage Word Assets"
+msgstr "वर्ड एसेट प्रबंधित करें"
+
+#: ⁨.\adminapp\templates\base(admin) backup.html⁩:108
+msgid "Reflection Management"
+msgstr "प्रतिबिंब प्रबंधन"
+
+#: ⁨.\adminapp\templates\base(admin) backup.html⁩:114
+msgid "Add New Question"
+msgstr "नया प्रश्न जोड़ें"
+
+#: ⁨.\adminapp\templates\base(admin) backup.html⁩:120
+msgid "Manage Questions"
+msgstr "प्रश्न प्रबंधित करें"
+
+#: ⁨.\adminapp\templates\base(admin) backup.html⁩:126
+msgid "Student Progress Overview"
+msgstr "विद्यार्थी प्रगति अवलोकन"
+
+#: ⁨.\adminapp\templates\base(admin) backup.html⁩:164
+msgid "Log Out"
+msgstr "लॉग आउट"
+
+#: ⁨.\adminapp\templates\base(admin) backup.html⁩:203
+#: .\instructorapp\templates\instructor\descriptive-questions.html:267
+msgid "Success!"
+msgstr "सफलता!"
+
+#: ⁨.\adminapp\templates\base(admin) backup.html⁩:203
+#: .\instructorapp\templates\instructor\descriptive-questions.html:267
+msgid "Error!"
+msgstr "गलती!"
+
+#: ⁨.\adminapp\templates\base(admin) backup.html⁩:203
+msgid "Warning!"
+msgstr "चेतावनी!"
+
+#: ⁨.\adminapp\templates\base(admin) backup.html⁩:203
+msgid "Info"
+msgstr "जानकारी"
+
+#: ⁨.\adminapp\templates\base(admin) backup.html⁩:206
+#: .\adminapp\templates\base_admin.html:293
+msgid "OK"
+msgstr "ठीक है"
+
+#: .\adminapp\templates\base(admin).html:10
+msgid "NabhaLearn | Admin Management"
+msgstr "नाभालर्न |प्रशासन प्रबंधन"
+
+#: .\adminapp\templates\base(admin).html:81
+#: .\adminapp\templates\base_admin.html:143
+msgid "NabhaAdmin"
+msgstr "NabhaAdmin"
+
+#: .\adminapp\templates\base(admin).html:90
+msgid "Analytics Overview"
+msgstr "विश्लेषिकी अवलोकन"
+
+#: .\adminapp\templates\base(admin).html:95
+msgid "Curriculum Control"
+msgstr "पाठ्यचर्या नियंत्रण"
+
+#: .\adminapp\templates\base(admin).html:101
+#: .\adminapp\templates\base_admin.html:242
+msgid "Listen & Spell"
+msgstr "सुनो और मंत्रोच्चार करो"
+
+#: .\adminapp\templates\base(admin).html:111
+msgid "Manage Database"
+msgstr "डेटाबेस प्रबंधित करें"
+
+#: .\adminapp\templates\base(admin).html:120
+msgid "Self Reflection"
+msgstr "आत्मचिंतन"
+
+#: .\adminapp\templates\base(admin).html:125
+#: .\instructorapp\templates\instructor\base_ins.html:207
+#: .\instructorapp\templates\instructor\descriptive-questions.html:157
+msgid "Add Questions"
+msgstr "प्रश्न जोड़ें"
+
+#: .\adminapp\templates\base(admin).html:130
+msgid "Manage Prompts"
+msgstr "संकेत प्रबंधित करें"
+
+#: .\adminapp\templates\base(admin).html:139
+msgid "Scholar Progress"
+msgstr "विद्वान प्रगति"
+
+#: .\adminapp\templates\base(admin).html:180
+msgid "Secure Logout"
+msgstr "सुरक्षित लॉगआउट"
+
+#: .\adminapp\templates\base_admin.html:10
+msgid "NabhaLearn | Admin Dashboard"
+msgstr "नाभालर्न |व्यवस्थापक डैशबोर्ड"
+
+#: .\adminapp\templates\base_admin.html:171
+msgid "Administrator"
+msgstr "प्रशासक"
+
+#: .\adminapp\templates\base_admin.html:178
+#: .\instructorapp\templates\instructor\descriptive-questions.html:124
+msgid "Sign Out"
+msgstr "साइन आउट"
+
+#: .\adminapp\templates\base_admin.html:200
+msgid "Teachers Management"
+msgstr "शिक्षक प्रबंधन"
+
+#: .\adminapp\templates\base_admin.html:205
+#: .\adminapp\templates\pending-Instructors.html:129
+msgid "Pending Approvals"
+msgstr "लंबित स्वीकृतियाँ"
+
+#: .\adminapp\templates\base_admin.html:210
+msgid "All Faculty"
+msgstr "सभी संकाय"
+
+#: .\adminapp\templates\base_admin.html:218
+msgid "Students Management"
+msgstr "छात्र प्रबंधन"
+
+#: .\adminapp\templates\base_admin.html:223
+msgid "View All Scholars"
+msgstr "सभी विद्वानों को देखें"
+
+#: .\adminapp\templates\base_admin.html:231
+#: .\userapp\templates\leadership\leadership_page.html:136
+msgid "Leadership Arena"
+msgstr "नेतृत्व क्षेत्र"
+
+#: .\adminapp\templates\base_admin.html:234
+msgid "Create Challenge"
+msgstr "चुनौती बनाएँ"
+
+#: .\adminapp\templates\base_admin.html:235
+msgid "Challenge Database"
+msgstr "चुनौती डेटाबेस"
+
+#: .\adminapp\templates\base_admin.html:236
+msgid "Student Submissions"
+msgstr "छात्र प्रस्तुतियाँ"
+
+#: .\adminapp\templates\base_admin.html:245
+msgid "Add New Vocab"
+msgstr "नई शब्दावली जोड़ें"
+
+#: .\adminapp\templates\base_admin.html:246
+msgid "Manage Words"
+msgstr "शब्द प्रबंधित करें"
+
+#: .\adminapp\templates\base_admin.html:252
+msgid "Insights & Feedback"
+msgstr "अंतर्दृष्टि एवं प्रतिक्रिया"
+
+#: .\adminapp\templates\base_admin.html:255
+msgid "Raw Feedbacks"
+msgstr "कच्ची प्रतिक्रिया"
+
+#: .\adminapp\templates\base_admin.html:256
+#: .\adminapp\templates\graph-feedback.html:61
+#: .\instructorapp\templates\instructor\feedback-graph.html:54
+msgid "Sentiment Analytics"
+msgstr "सेंटीमेंट एनालिटिक्स"
+
+#: .\adminapp\templates\base_admin.html:270
+msgid "NabhaLearn"
+msgstr "नाबालर्न"
+
+#: .\adminapp\templates\base_admin.html:270
+msgid "Scholarly Administration Portal"
+msgstr "विद्वान प्रशासन पोर्टल"
+
+#: .\adminapp\templates\base_admin.html:290
+msgid "Error"
+msgstr "गलती"
+
+#: .\adminapp\templates\base_admin.html:290
+msgid "Success"
+msgstr "सफलता"
+
+#: .\adminapp\templates\base_admin.html:290
+msgid "Note"
+msgstr "टिप्पणी"
+
+#: .\adminapp\templates\graph-feedback.html:64
+#: .\adminapp\templates\pending-Instructors.html:128
+#: .\instructorapp\templates\instructor\view-courses.html:183
+msgid "Management"
+msgstr "प्रबंध"
+
+#: .\adminapp\templates\graph-feedback.html:65
+msgid "Feedback Graph"
+msgstr "प्रतिक्रिया ग्राफ़"
+
+#: .\adminapp\templates\graph-feedback.html:74
+msgid "User Sentiment Distribution"
+msgstr "उपयोगकर्ता भावना वितरण"
+
+#: .\adminapp\templates\graph-feedback.html:76
+msgid ""
+"Real-time visualization of student and instructor feedback across the "
+"platform."
+msgstr ""
+"पूरे मंच पर छात्र और प्रशिक्षक की प्रतिक्रिया का वास्तविक समय पर दृश्य।"
+
+#: .\adminapp\templates\graph-feedback.html:97
+msgid "😢 Very Sad"
+msgstr "😢 बहुत दुखद"
+
+#: .\adminapp\templates\graph-feedback.html:98
+#: .\instructorapp\templates\instructor\feedback-graph.html:97
+msgid "😐 Neutral"
+msgstr "😐 तटस्थ"
+
+#: .\adminapp\templates\graph-feedback.html:99
+msgid "😊 Happy"
+msgstr "😊खुश"
+
+#: .\adminapp\templates\graph-feedback.html:100
+msgid "😄 Excited"
+msgstr "😄उत्साहित"
+
+#: .\adminapp\templates\graph-feedback.html:101
+#: .\instructorapp\templates\instructor\feedback-graph.html:100
+msgid "🌟 Exceptional"
+msgstr "🌟असाधारण"
+
+#: .\adminapp\templates\graph-feedback.html:102
+msgid "Total Responses"
+msgstr "कुल प्रतिक्रियाएँ"
+
+#: .\adminapp\templates\graph-feedback.html:103
+msgid "Responses"
+msgstr "जवाब"
+
+#: .\adminapp\templates\manage_challenges.html:110
+#: .\userapp\templates\instructor-register.html:147
+msgid "Curriculum Management"
+msgstr "पाठ्यचर्या प्रबंधन"
+
+#: .\adminapp\templates\manage_challenges.html:111
+msgid "Overview and control of all active learning challenges."
+msgstr "सभी सक्रिय शिक्षण चुनौतियों का अवलोकन और नियंत्रण।"
+
+#: .\adminapp\templates\manage_challenges.html:124
+msgid "Challenge Name"
+msgstr "चुनौती का नाम"
+
+#: .\adminapp\templates\manage_challenges.html:125
+msgid "Type"
+msgstr "प्रकार"
+
+#: .\adminapp\templates\manage_challenges.html:126
+msgid "Description Preview"
+msgstr "विवरण पूर्वावलोकन"
+
+#: .\adminapp\templates\manage_challenges.html:147
+msgid ""
+"Are you sure you want to delete this challenge? This action cannot be "
+"undone."
+msgstr ""
+"क्या आप वाकई इस चुनौती को हटाना चाहते हैं?इस एक्शन को वापस नहीं किया जा "
+"सकता।"
+
+#: .\adminapp\templates\manage_challenges.html:148
+#: .\instructorapp\templates\time\task_list.html:43
+msgid "Delete"
+msgstr "मिटाना"
+
+#: .\adminapp\templates\manage_challenges.html:159
+msgid "No Challenges Created"
+msgstr "कोई चुनौती निर्मित नहीं हुई"
+
+#: .\adminapp\templates\manage_challenges.html:160
+msgid "You haven't added any challenges to the curriculum yet."
+msgstr "आपने अभी तक पाठ्यक्रम में कोई चुनौती नहीं जोड़ी है।"
+
+#: .\adminapp\templates\pagination.html:51
+#: .\instructorapp\templates\instructor\test-results.html:176
+#: .\instructorapp\templates\instructor\view-courses.html:218
+msgid "Page navigation"
+msgstr "पेज नेविगेशन"
+
+#: .\adminapp\templates\pagination.html:61
+#: .\instructorapp\templates\instructor\view-feedbacks.html:210
+#: .\userapp\templates\onlinetest\test_result.html:167
+msgid "Previous"
+msgstr "पहले का"
+
+#: .\adminapp\templates\pagination.html:88
+#: .\instructorapp\templates\instructor\view-feedbacks.html:220
+#: .\userapp\templates\onlinetest\test_result.html:179
+msgid "Next"
+msgstr "अगला"
+
+#: .\adminapp\templates\pagination.html:110
+#, python-format
+msgid ""
+"\n"
+"                Page %(current)s of %(total)s\n"
+"            "
+msgstr ""
+"\n"
+"%(total)s में से पेज %(current)s"
+
+#: .\adminapp\templates\pending-Instructors.html:125
+msgid "Instructor Verification"
+msgstr "प्रशिक्षक सत्यापन"
+
+#: .\adminapp\templates\pending-Instructors.html:140
+msgid "Pending Applications"
+msgstr "लंबित आवेदन"
+
+#: .\adminapp\templates\pending-Instructors.html:148
+msgid "Instructor Name"
+msgstr "प्रशिक्षक का नाम"
+
+#: .\adminapp\templates\pending-Instructors.html:149
+msgid "Contact Details"
+msgstr "सम्पर्क करने का विवरण"
+
+#: .\adminapp\templates\pending-Instructors.html:150
+msgid "Location/Address"
+msgstr "स्थान का पता"
+
+#: .\adminapp\templates\pending-Instructors.html:151
+msgid "Current Status"
+msgstr "वर्तमान स्थिति"
+
+#: .\adminapp\templates\pending-Instructors.html:169
+msgid "Approve"
+msgstr "मंज़ूरी देना"
+
+#: .\adminapp\templates\pending-Instructors.html:209
+msgid "All caught up!"
+msgstr "सारी जानकारी प्राप्त!"
+
+#: .\adminapp\templates\pending-Instructors.html:210
+msgid "There are no pending instructor applications to review at this time."
+msgstr "इस समय समीक्षा के लिए कोई भी प्रशिक्षक आवेदन लंबित नहीं है।"
+
+#: .\adminapp\templates\view_answers.html:107
+msgid "Student Response Management"
+msgstr "छात्र प्रतिक्रिया प्रबंधन"
+
+#: .\adminapp\templates\view_answers.html:108
+msgid ""
+"Review, evaluate, and provide feedback on student challenge submissions."
+msgstr ""
+"छात्र चुनौती प्रस्तुतियों की समीक्षा करें, मूल्यांकन करें और प्रतिक्रिया "
+"प्रदान करें।"
+
+#: .\adminapp\templates\view_answers.html:115
+msgid "Student Name"
+msgstr "छात्र का नाम"
+
+#: .\adminapp\templates\view_answers.html:116
+msgid "Challenge Module"
+msgstr "चुनौती मॉड्यूल"
+
+#: .\adminapp\templates\view_answers.html:117
+msgid "Score/Rating"
+msgstr "स्कोर/रेटिंग"
+
+#: .\adminapp\templates\view_answers.html:118
+#: .\instructorapp\templates\instructor\test-results.html:152
+#: .\userapp\templates\leadership\show_feedback.html:138
+msgid "Submission Date"
+msgstr "स करने की तारीख"
+
+#: .\adminapp\templates\view_answers.html:131
+msgid "Pending Rating"
+msgstr "लंबित रेटिंग"
+
+#: .\adminapp\templates\view_answers.html:137
+#: .\userapp\templates\base_dashboard.html:187
+#: .\userapp\templates\reflection\view_feedback.html:145
+msgid "Feedback"
+msgstr "प्रतिक्रिया"
+
+#: .\adminapp\templates\view_answers.html:140
+msgid "Answer"
+msgstr "उत्तर"
+
+#: .\adminapp\templates\view_answers.html:149
+msgid "Submission Review"
+msgstr "सबमिशन समीक्षा"
+
+#: .\adminapp\templates\view_answers.html:155
+msgid "Student's Work"
+msgstr "विद्यार्थी का कार्य"
+
+#: .\adminapp\templates\view_answers.html:160
+msgid "Assigned Feedback"
+msgstr "असाइन किया गया फीडबैक"
+
+#: .\adminapp\templates\view_answers.html:171
+msgid "Full Answer Preview"
+msgstr "पूर्ण उत्तर पूर्वावलोकन"
+
+#: .\gameProject\settings.py:123
+#: .\instructorapp\templates\instructor\add-courses.html:132
+#: .\instructorapp\templates\instructor\add-courses.html:151
+#: .\instructorapp\templates\instructor\edit-courses.html:135
+#: .\instructorapp\templates\instructor\edit-courses.html:155
+msgid "English"
+msgstr "अंग्रेज़ी"
+
+#: .\gameProject\settings.py:124
+#: .\instructorapp\templates\instructor\add-courses.html:140
+#: .\instructorapp\templates\instructor\add-courses.html:152
+#: .\instructorapp\templates\instructor\edit-courses.html:143
+#: .\instructorapp\templates\instructor\edit-courses.html:156
+msgid "Hindi"
+msgstr "हिंदी"
+
+#: .\gameProject\settings.py:125
+#: .\instructorapp\templates\instructor\add-courses.html:153
+#: .\instructorapp\templates\instructor\edit-courses.html:158
+msgid "Telugu"
+msgstr "तेलुगू"
+
+#: .\instructorapp\templates\instructor\add-courses.html:92
+msgid "Topic Creation"
+msgstr "विषय निर्माण"
+
+#: .\instructorapp\templates\instructor\add-courses.html:95
+#: .\instructorapp\templates\instructor\add-questions.html:96
+#: .\instructorapp\templates\instructor\base_ins.html:117
+#: .\instructorapp\templates\instructor\descriptive-questions.html:178
+#: .\instructorapp\templates\instructor\edit-courses.html:92
+#: .\instructorapp\templates\instructor\feedback-graph.html:57
+#: .\instructorapp\templates\instructor\full-test-details.html:85
+#: .\instructorapp\templates\instructor\image-questions.html:89
+#: .\instructorapp\templates\instructor\mcqs-question.html:97
+#: .\instructorapp\templates\instructor\test-results.html:131
+#: .\instructorapp\templates\instructor\view-courses.html:155
+#: .\instructorapp\templates\instructor\view-students.html:103
+#: .\instructorapp\templates\time\task_add.html:99
+#: .\instructorapp\templates\time\view_students.html:106
+msgid "Faculty Hub"
+msgstr "फैकल्टी हब"
+
+#: .\instructorapp\templates\instructor\add-courses.html:96
+msgid "Add New Subject"
+msgstr "नया विषय जोड़ें"
+
+#: .\instructorapp\templates\instructor\add-courses.html:103
+msgid "Curriculum Architect"
+msgstr "पाठ्यचर्या वास्तुकार"
+
+#: .\instructorapp\templates\instructor\add-courses.html:108
+msgid ""
+"Define a new subject area. Once added, you can populate it with assessment "
+"questions."
+msgstr ""
+"एक नये विषय क्षेत्र को परिभाषित करें।एक बार जोड़ने के बाद, आप इसे मूल्यांकन "
+"प्रश्नों से भर सकते हैं।"
+
+#: .\instructorapp\templates\instructor\add-courses.html:117
+msgid "Subject / Topic Name"
+msgstr "विषय/विषय का नाम"
+
+#: .\instructorapp\templates\instructor\add-courses.html:118
+msgid "e.g. Advanced Thermodynamics"
+msgstr "जैसेउन्नत थर्मोडायनामिक्स"
+
+#: .\instructorapp\templates\instructor\add-courses.html:122
+msgid "Cover Illustration"
+msgstr "कवर चित्रण"
+
+#: .\instructorapp\templates\instructor\add-courses.html:127
+#: .\instructorapp\templates\instructor\edit-courses.html:129
+msgid "Academic Category"
+msgstr "शैक्षणिक श्रेणी"
+
+#: .\instructorapp\templates\instructor\add-courses.html:129
+msgid "Select Discipline"
+msgstr "अनुशासन का चयन करें"
+
+#: .\instructorapp\templates\instructor\add-courses.html:130
+#: .\instructorapp\templates\instructor\edit-courses.html:133
+msgid "Mathematics"
+msgstr "अंक शास्त्र"
+
+#: .\instructorapp\templates\instructor\add-courses.html:131
+#: .\instructorapp\templates\instructor\edit-courses.html:134
+msgid "Science"
+msgstr "विज्ञान"
+
+#: .\instructorapp\templates\instructor\add-courses.html:133
+#: .\instructorapp\templates\instructor\edit-courses.html:136
+msgid "Social Science"
+msgstr "सामाजिक विज्ञान"
+
+#: .\instructorapp\templates\instructor\add-courses.html:134
+#: .\instructorapp\templates\instructor\edit-courses.html:137
+msgid "History"
+msgstr "इतिहास"
+
+#: .\instructorapp\templates\instructor\add-courses.html:135
+#: .\instructorapp\templates\instructor\edit-courses.html:138
+msgid "Geography"
+msgstr "भूगोल"
+
+#: .\instructorapp\templates\instructor\add-courses.html:136
+#: .\instructorapp\templates\instructor\edit-courses.html:139
+msgid "Physics"
+msgstr "भौतिक विज्ञान"
+
+#: .\instructorapp\templates\instructor\add-courses.html:137
+#: .\instructorapp\templates\instructor\edit-courses.html:140
+msgid "Chemistry"
+msgstr "रसायन विज्ञान"
+
+#: .\instructorapp\templates\instructor\add-courses.html:138
+#: .\instructorapp\templates\instructor\edit-courses.html:141
+msgid "Biology"
+msgstr "जीवविज्ञान"
+
+#: .\instructorapp\templates\instructor\add-courses.html:139
+#: .\instructorapp\templates\instructor\edit-courses.html:142
+msgid "Computer Science"
+msgstr "कंप्यूटर विज्ञान"
+
+#: .\instructorapp\templates\instructor\add-courses.html:141
+#: .\instructorapp\templates\instructor\edit-courses.html:144
+msgid "Sanskrit"
+msgstr "संस्कृत"
+
+#: .\instructorapp\templates\instructor\add-courses.html:142
+#: .\instructorapp\templates\instructor\edit-courses.html:145
+msgid "Physical Education"
+msgstr "व्यायाम शिक्षा"
+
+#: .\instructorapp\templates\instructor\add-courses.html:143
+#: .\instructorapp\templates\instructor\edit-courses.html:146
+msgid "Art"
+msgstr "कला"
+
+#: .\instructorapp\templates\instructor\add-courses.html:148
+#: .\instructorapp\templates\instructor\edit-courses.html:151
+msgid "Medium of Instruction"
+msgstr "अनुदेश का माध्यम"
+
+#: .\instructorapp\templates\instructor\add-courses.html:150
+#: .\instructorapp\templates\instructor\edit-courses.html:154
+msgid "Select Language"
+msgstr "भाषा चुने"
+
+#: .\instructorapp\templates\instructor\add-courses.html:154
+#: .\instructorapp\templates\instructor\edit-courses.html:159
+msgid "Tamil"
+msgstr "तामिल"
+
+#: .\instructorapp\templates\instructor\add-courses.html:155
+#: .\instructorapp\templates\instructor\edit-courses.html:160
+msgid "Malayalam"
+msgstr "मलयालम"
+
+#: .\instructorapp\templates\instructor\add-courses.html:156
+#: .\instructorapp\templates\instructor\edit-courses.html:161
+msgid "Kannada"
+msgstr "कन्नडा"
+
+#: .\instructorapp\templates\instructor\add-courses.html:157
+#: .\instructorapp\templates\instructor\edit-courses.html:162
+msgid "Gujarati"
+msgstr "गुजराती"
+
+#: .\instructorapp\templates\instructor\add-courses.html:158
+#: .\instructorapp\templates\instructor\edit-courses.html:163
+msgid "Urdu"
+msgstr "उर्दू"
+
+#: .\instructorapp\templates\instructor\add-courses.html:159
+#: .\instructorapp\templates\instructor\edit-courses.html:164
+msgid "Marathi"
+msgstr "मराठी"
+
+#: .\instructorapp\templates\instructor\add-courses.html:160
+#: .\instructorapp\templates\instructor\edit-courses.html:165
+msgid "Bengali"
+msgstr "बंगाली"
+
+#: .\instructorapp\templates\instructor\add-courses.html:161
+#: .\instructorapp\templates\instructor\edit-courses.html:166
+msgid "Odia"
+msgstr "उड़िया"
+
+#: .\instructorapp\templates\instructor\add-courses.html:166
+msgid "Lecture Video Link (Optional)"
+msgstr "व्याख्यान वीडियो लिंक (वैकल्पिक)"
+
+#: .\instructorapp\templates\instructor\add-courses.html:171
+#: .\instructorapp\templates\instructor\edit-courses.html:177
+msgid "Topic Abstract / Description"
+msgstr "विषय सार/विवरण"
+
+#: .\instructorapp\templates\instructor\add-courses.html:172
+msgid "Provide a brief overview of the learning outcomes..."
+msgstr "सीखने के परिणामों का एक संक्षिप्त अवलोकन प्रदान करें..."
+
+#: .\instructorapp\templates\instructor\add-courses.html:178
+msgid "Publish Subject"
+msgstr "विषय प्रकाशित करें"
+
+#: .\instructorapp\templates\instructor\add-questions.html:93
+msgid "Assessment Builder"
+msgstr "मूल्यांकन निर्माता"
+
+#: .\instructorapp\templates\instructor\add-questions.html:97
+msgid "Select Question Type"
+msgstr "प्रश्न प्रकार चुनें"
+
+#: .\instructorapp\templates\instructor\add-questions.html:108
+msgid "Multiple Choice Questions"
+msgstr "बहु विकल्पीय प्रश्न"
+
+#: .\instructorapp\templates\instructor\add-questions.html:111
+msgid "Objective MCQs"
+msgstr "वस्तुनिष्ठ एमसीक्यू"
+
+#: .\instructorapp\templates\instructor\add-questions.html:112
+msgid ""
+"Create automated-grading questions with single or multiple correct options."
+msgstr "एकल या एकाधिक सही विकल्पों के साथ स्वचालित-ग्रेडिंग प्रश्न बनाएं।"
+
+#: .\instructorapp\templates\instructor\add-questions.html:114
+msgid "Launch MCQ Editor"
+msgstr "एमसीक्यू संपादक लॉन्च करें"
+
+#: .\instructorapp\templates\instructor\add-questions.html:123
+msgid "Descriptive Questions"
+msgstr "वर्णनात्मक प्रश्न"
+
+#: .\instructorapp\templates\instructor\add-questions.html:126
+msgid "Analytic Prose"
+msgstr "विश्लेषणात्मक गद्य"
+
+#: .\instructorapp\templates\instructor\add-questions.html:127
+msgid ""
+"Design open-ended questions that require detailed scholar analysis and "
+"writing."
+msgstr ""
+"ओपन-एंडेड प्रश्न डिज़ाइन करें जिनके लिए विस्तृत विद्वान विश्लेषण और लेखन की "
+"आवश्यकता होती है।"
+
+#: .\instructorapp\templates\instructor\add-questions.html:129
+msgid "Launch Prose Editor"
+msgstr "गद्य संपादक लॉन्च करें"
+
+#: .\instructorapp\templates\instructor\add-questions.html:138
+msgid "Visual Assessment"
+msgstr "दृश्य मूल्यांकन"
+
+#: .\instructorapp\templates\instructor\add-questions.html:141
+msgid "Visual Analysis"
+msgstr "दृश्य विश्लेषण"
+
+#: .\instructorapp\templates\instructor\add-questions.html:142
+msgid ""
+"Upload images to test visual recognition, diagram interpretation, or context"
+" identification."
+msgstr ""
+"दृश्य पहचान, आरेख व्याख्या, या संदर्भ पहचान का परीक्षण करने के लिए छवियां "
+"अपलोड करें।"
+
+#: .\instructorapp\templates\instructor\add-questions.html:144
+msgid "Launch Visual Editor"
+msgstr "विज़ुअल एडिटर लॉन्च करें"
+
+#: .\instructorapp\templates\instructor\add-questions.html:156
+msgid ""
+"All questions added will be linked to your currently selected active "
+"curriculum topic."
+msgstr ""
+"जोड़े गए सभी प्रश्न आपके वर्तमान में चयनित सक्रिय पाठ्यक्रम विषय से जुड़े "
+"होंगे।"
+
+#: .\instructorapp\templates\instructor\all-questions.html:140
+#: .\instructorapp\templates\instructor\base_ins.html:198
+#: .\instructorapp\templates\instructor\descriptive-questions.html:154
+msgid "Assessment Bank"
+msgstr "मूल्यांकन बैंक"
+
+#: .\instructorapp\templates\instructor\all-questions.html:144
+msgid "All Questions"
+msgstr "सभी प्रश्न"
+
+#: .\instructorapp\templates\instructor\all-questions.html:155
+msgid "Active Question Database"
+msgstr "सक्रिय प्रश्न डेटाबेस"
+
+#: .\instructorapp\templates\instructor\all-questions.html:164
+msgid "Topic / Course"
+msgstr "विषय/पाठ्यक्रम"
+
+#: .\instructorapp\templates\instructor\all-questions.html:165
+#: .\instructorapp\templates\instructor\descriptive-questions.html:222
+#: .\instructorapp\templates\instructor\full-test-details.html:140
+msgid "Question Prompt"
+msgstr "प्रश्न संकेत"
+
+#: .\instructorapp\templates\instructor\all-questions.html:166
+msgid "Key / Answer"
+msgstr "कुंजी / उत्तर"
+
+#: .\instructorapp\templates\instructor\all-questions.html:190
+msgid "Confirm removal of this question from the bank?"
+msgstr "बैंक से इस प्रश्न को हटाने की पुष्टि करें?"
+
+#: .\instructorapp\templates\instructor\all-questions.html:232
+msgid "Database Empty"
+msgstr "डेटाबेस खाली"
+
+#: .\instructorapp\templates\instructor\all-questions.html:233
+msgid ""
+"No assessment questions have been added yet. New entries will appear here."
+msgstr ""
+"अभी तक कोई मूल्यांकन प्रश्न नहीं जोड़ा गया है.नई प्रविष्टियाँ यहां दिखाई "
+"देंगी."
+
+#: .\instructorapp\templates\instructor\base_ins.html:10
+msgid "NabhaLearn | Faculty Portal"
+msgstr "नाभालर्न |संकाय पोर्टल"
+
+#: .\instructorapp\templates\instructor\base_ins.html:141
+#: .\userapp\templates\onlinetest\my_courses.html:130
+msgid "Instructor"
+msgstr "प्रशिक्षक"
+
+#: .\instructorapp\templates\instructor\base_ins.html:148
+msgid "Secure Sign Out"
+msgstr "सुरक्षित साइन आउट"
+
+#: .\instructorapp\templates\instructor\base_ins.html:165
+msgid "Control Panel"
+msgstr "कंट्रोल पैनल"
+
+#: .\instructorapp\templates\instructor\base_ins.html:173
+msgid "Curriculum Design"
+msgstr "पाठ्यचर्या डिजाइन"
+
+#: .\instructorapp\templates\instructor\base_ins.html:182
+msgid "New Subject Entry"
+msgstr "नवीन विषय प्रवेश"
+
+#: .\instructorapp\templates\instructor\base_ins.html:188
+#: .\instructorapp\templates\instructor\view-courses.html:152
+msgid "Topic Repository"
+msgstr "विषय भंडार"
+
+#: .\instructorapp\templates\instructor\base_ins.html:213
+msgid "Manage Items"
+msgstr "आइटम प्रबंधित करें"
+
+#: .\instructorapp\templates\instructor\base_ins.html:223
+msgid "Analytics & Results"
+msgstr "विश्लेषण एवं परिणाम"
+
+#: .\instructorapp\templates\instructor\base_ins.html:232
+msgid "Scholar Performance"
+msgstr "विद्वान प्रदर्शन"
+
+#: .\instructorapp\templates\instructor\base_ins.html:248
+msgid "Faculty Administration Portal"
+msgstr "संकाय प्रशासन पोर्टल"
+
+#: .\instructorapp\templates\instructor\base_ins.html:267
+#: .\instructorapp\templates\instructor\descriptive-questions.html:270
+msgid "Acknowledge"
+msgstr "स्वीकार करना"
+
+#: .\instructorapp\templates\instructor\descriptive-questions.html:10
+msgid "Descriptive Question Editor"
+msgstr "वर्णनात्मक प्रश्न संपादक"
+
+#: .\instructorapp\templates\instructor\descriptive-questions.html:118
+msgid "Assessment Lead"
+msgstr "मूल्यांकन नेतृत्व"
+
+#: .\instructorapp\templates\instructor\descriptive-questions.html:144
+msgid "Subjects Management"
+msgstr "विषय प्रबंधन"
+
+#: .\instructorapp\templates\instructor\descriptive-questions.html:147
+msgid "Add Subjects"
+msgstr "विषय जोड़ें"
+
+#: .\instructorapp\templates\instructor\descriptive-questions.html:148
+msgid "View Repository"
+msgstr "रिपोजिटरी देखें"
+
+#: .\instructorapp\templates\instructor\descriptive-questions.html:158
+msgid "Database Management"
+msgstr "डेटाबेस प्रबंधन"
+
+#: .\instructorapp\templates\instructor\descriptive-questions.html:164
+msgid "Results Lab"
+msgstr "परिणाम लैब"
+
+#: .\instructorapp\templates\instructor\descriptive-questions.html:167
+msgid "Scholar Metrics"
+msgstr "विद्वान मेट्रिक्स"
+
+#: .\instructorapp\templates\instructor\descriptive-questions.html:175
+msgid "Analytic Prose Editor"
+msgstr "विश्लेषणात्मक गद्य संपादक"
+
+#: .\instructorapp\templates\instructor\descriptive-questions.html:179
+msgid "Add Descriptive Item"
+msgstr "वर्णनात्मक आइटम जोड़ें"
+
+#: .\instructorapp\templates\instructor\descriptive-questions.html:192
+msgid ""
+"Create open-ended questions that require scholars to demonstrate depth of "
+"understanding through written analysis."
+msgstr ""
+"ओपन-एंडेड प्रश्न बनाएं जिनके लिए विद्वानों को लिखित विश्लेषण के माध्यम से "
+"समझ की गहराई प्रदर्शित करने की आवश्यकता होती है।"
+
+#: .\instructorapp\templates\instructor\descriptive-questions.html:198
+msgid "New Assessment Item"
+msgstr "नई मूल्यांकन मद"
+
+#: .\instructorapp\templates\instructor\descriptive-questions.html:202
+msgid "Target Curriculum Topic"
+msgstr "लक्ष्य पाठ्यचर्या विषय"
+
+#: .\instructorapp\templates\instructor\descriptive-questions.html:204
+#: .\instructorapp\templates\instructor\mcqs-question.html:115
+msgid "Select Subject Area"
+msgstr "विषय क्षेत्र का चयन करें"
+
+#: .\instructorapp\templates\instructor\descriptive-questions.html:212
+msgid "Complexity Level"
+msgstr "जटिलता स्तर"
+
+#: .\instructorapp\templates\instructor\descriptive-questions.html:214
+#: .\instructorapp\templates\instructor\image-questions.html:122
+#: .\instructorapp\templates\instructor\mcqs-question.html:125
+msgid "Select Difficulty"
+msgstr "कठिनाई का चयन करें"
+
+#: .\instructorapp\templates\instructor\descriptive-questions.html:215
+msgid "Beginner (Concept Recall)"
+msgstr "शुरुआती (अवधारणा स्मरण)"
+
+#: .\instructorapp\templates\instructor\descriptive-questions.html:216
+msgid "Intermediate (Application)"
+msgstr "इंटरमीडिएट (आवेदन)"
+
+#: .\instructorapp\templates\instructor\descriptive-questions.html:217
+msgid "Advanced (Synthesis & Evaluation)"
+msgstr "उन्नत (संश्लेषण एवं मूल्यांकन)"
+
+#: .\instructorapp\templates\instructor\descriptive-questions.html:223
+msgid "Formulate a clear, challenging question..."
+msgstr "एक स्पष्ट, चुनौतीपूर्ण प्रश्न तैयार करें..."
+
+#: .\instructorapp\templates\instructor\descriptive-questions.html:227
+msgid "Standard Exemplar / Ideal Answer"
+msgstr "मानक उदाहरण/आदर्श उत्तर"
+
+#: .\instructorapp\templates\instructor\descriptive-questions.html:228
+msgid "Provide the model answer for evaluation comparison..."
+msgstr "मूल्यांकन तुलना के लिए मॉडल उत्तर प्रदान करें..."
+
+#: .\instructorapp\templates\instructor\descriptive-questions.html:229
+msgid "This answer serves as a reference for grading scholars' responses."
+msgstr ""
+"यह उत्तर विद्वानों की प्रतिक्रियाओं की ग्रेडिंग के लिए एक संदर्भ के रूप में "
+"कार्य करता है।"
+
+#: .\instructorapp\templates\instructor\descriptive-questions.html:235
+msgid "Publish to Assessment Bank"
+msgstr "मूल्यांकन बैंक में प्रकाशित करें"
+
+#: .\instructorapp\templates\instructor\descriptive-questions.html:267
+msgid "Notification"
+msgstr "अधिसूचना"
+
+#: .\instructorapp\templates\instructor\descriptive-questions.html:278
+msgid "Scholarly Faculty Resources"
+msgstr "विद्वतापूर्ण संकाय संसाधन"
+
+#: .\instructorapp\templates\instructor\edit-courses.html:89
+msgid "Course Revision"
+msgstr "पाठ्यक्रम संशोधन"
+
+#: .\instructorapp\templates\instructor\edit-courses.html:93
+msgid "Subjects"
+msgstr "विषयों"
+
+#: .\instructorapp\templates\instructor\edit-courses.html:94
+msgid "Modify Topic"
+msgstr "विषय संशोधित करें"
+
+#: .\instructorapp\templates\instructor\edit-courses.html:101
+msgid "Curriculum Editor"
+msgstr "पाठ्यचर्या संपादक"
+
+#: .\instructorapp\templates\instructor\edit-courses.html:106
+msgid ""
+"Updating these details will immediately reflect in the student dashboard and"
+" assessment modules."
+msgstr ""
+"इन विवरणों को अपडेट करने से यह तुरंत छात्र डैशबोर्ड और मूल्यांकन मॉड्यूल में"
+" दिखाई देगा।"
+
+#: .\instructorapp\templates\instructor\edit-courses.html:115
+msgid "Course / Topic Name"
+msgstr "पाठ्यक्रम/विषय का नाम"
+
+#: .\instructorapp\templates\instructor\edit-courses.html:122
+msgid "Update Cover Illustration"
+msgstr "कवर चित्रण अद्यतन करें"
+
+#: .\instructorapp\templates\instructor\edit-courses.html:123
+msgid "Leave empty to keep current"
+msgstr "चालू रखने के लिए खाली छोड़ें"
+
+#: .\instructorapp\templates\instructor\edit-courses.html:131
+#: .\instructorapp\templates\instructor\edit-courses.html:153
+msgid "Current"
+msgstr "मौजूदा"
+
+#: .\instructorapp\templates\instructor\edit-courses.html:132
+msgid "Select Category"
+msgstr "श्रेणी चुनना"
+
+#: .\instructorapp\templates\instructor\edit-courses.html:157
+msgid "Punjabi"
+msgstr "पंजाबी"
+
+#: .\instructorapp\templates\instructor\edit-courses.html:171
+msgid "Lecture Video Link"
+msgstr "व्याख्यान वीडियो लिंक"
+
+#: .\instructorapp\templates\instructor\edit-courses.html:184
+msgid "Sync Changes"
+msgstr "सिंक परिवर्तन"
+
+#: .\instructorapp\templates\instructor\edit-courses.html:188
+msgid "Discard Changes"
+msgstr "परिवर्तनों को निरस्त करें"
+
+#: .\instructorapp\templates\instructor\feedback-graph.html:58
+msgid "Feedback Insights"
+msgstr "प्रतिक्रिया अंतर्दृष्टि"
+
+#: .\instructorapp\templates\instructor\feedback-graph.html:69
+msgid "Scholar Satisfaction Distribution"
+msgstr "विद्वान संतुष्टि वितरण"
+
+#: .\instructorapp\templates\instructor\feedback-graph.html:73
+msgid ""
+"This visualization represents the aggregate sentiment of scholars enrolled "
+"in your topics. Use these insights to refine your curriculum and delivery "
+"methods."
+msgstr ""
+"यह विज़ुअलाइज़ेशन आपके विषयों में नामांकित विद्वानों की समग्र भावना का "
+"प्रतिनिधित्व करता है।अपने पाठ्यक्रम और वितरण विधियों को परिष्कृत करने के लिए"
+" इन जानकारियों का उपयोग करें।"
+
+#: .\instructorapp\templates\instructor\feedback-graph.html:96
+msgid "😢 Very Dissatisfied"
+msgstr "😢 बहुत असंतुष्ट"
+
+#: .\instructorapp\templates\instructor\feedback-graph.html:98
+msgid "😊 Satisfied"
+msgstr "😊संतुष्ट"
+
+#: .\instructorapp\templates\instructor\feedback-graph.html:99
+msgid "😄 Very Happy"
+msgstr "😄बहुत खुश"
+
+#: .\instructorapp\templates\instructor\feedback-graph.html:103
+msgid "Total Feedback Count"
+msgstr "कुल फीडबैक संख्या"
+
+#: .\instructorapp\templates\instructor\full-test-details.html:82
+msgid "Detailed Scholastic Analysis"
+msgstr "विस्तृत शैक्षिक विश्लेषण"
+
+#: .\instructorapp\templates\instructor\full-test-details.html:86
+msgid "Test Management"
+msgstr "परीक्षण प्रबंधन"
+
+#: .\instructorapp\templates\instructor\full-test-details.html:87
+msgid "Evaluation Details"
+msgstr "मूल्यांकन विवरण"
+
+#: .\instructorapp\templates\instructor\full-test-details.html:96
+msgid "Assessment Metrics"
+msgstr "मूल्यांकन मेट्रिक्स"
+
+#: .\instructorapp\templates\instructor\full-test-details.html:99
+msgid "Correct Proficiencies"
+msgstr "सही दक्षताएँ"
+
+#: .\instructorapp\templates\instructor\full-test-details.html:100
+#: .\instructorapp\templates\instructor\full-test-details.html:104
+msgid "Items"
+msgstr "सामान"
+
+#: .\instructorapp\templates\instructor\full-test-details.html:103
+msgid "Incorrect Responses"
+msgstr "गलत प्रतिक्रियाएँ"
+
+#: .\instructorapp\templates\instructor\full-test-details.html:107
+msgid "Maximum Attainable Marks"
+msgstr "अधिकतम प्राप्य अंक"
+
+#: .\instructorapp\templates\instructor\full-test-details.html:111
+msgid "Overall Accuracy"
+msgstr "समग्र शुद्धता"
+
+#: .\instructorapp\templates\instructor\full-test-details.html:117
+msgid "Export Academic Report"
+msgstr "निर्यात शैक्षणिक रिपोर्ट"
+
+#: .\instructorapp\templates\instructor\full-test-details.html:125
+msgid "Distribution Analysis"
+msgstr "वितरण विश्लेषण"
+
+#: .\instructorapp\templates\instructor\full-test-details.html:134
+msgid "Itemized Breakdown"
+msgstr "आइटमयुक्त ब्रेकडाउन"
+
+#: .\instructorapp\templates\instructor\full-test-details.html:141
+msgid "Scholar's Input"
+msgstr "विद्वान का इनपुट"
+
+#: .\instructorapp\templates\instructor\full-test-details.html:142
+msgid "Master Key"
+msgstr "सर्व - कुंची"
+
+#: .\instructorapp\templates\instructor\full-test-details.html:143
+#: .\userapp\templates\communication\communication_challenge.html:140
+#: .\userapp\templates\onlinetest\test_result.html:130
+msgid "Score"
+msgstr "अंक"
+
+#: .\instructorapp\templates\instructor\full-test-details.html:154
+msgid "Timed Out"
+msgstr "समय समााप्त"
+
+#: .\instructorapp\templates\instructor\full-test-details.html:168
+msgid "Total Marks Evaluated:"
+msgstr "कुल अंक का मूल्यांकन:"
+
+#: .\instructorapp\templates\instructor\full-test-details.html:183
+msgid "Correct"
+msgstr "सही"
+
+#: .\instructorapp\templates\instructor\full-test-details.html:183
+msgid "Incorrect"
+msgstr "ग़लत"
+
+#: .\instructorapp\templates\instructor\image-questions.html:86
+msgid "Visual Analysis Editor"
+msgstr "दृश्य विश्लेषण संपादक"
+
+#: .\instructorapp\templates\instructor\image-questions.html:90
+msgid "Add Visual Question"
+msgstr "दृश्य प्रश्न जोड़ें"
+
+#: .\instructorapp\templates\instructor\image-questions.html:100
+msgid ""
+"Upload an image asset to create context-based visual assessments for your "
+"scholars."
+msgstr ""
+"अपने विद्वानों के लिए संदर्भ-आधारित दृश्य मूल्यांकन बनाने के लिए एक छवि "
+"संपत्ति अपलोड करें।"
+
+#: .\instructorapp\templates\instructor\image-questions.html:106
+msgid "New Visual Question"
+msgstr "नया दृश्य प्रश्न"
+
+#: .\instructorapp\templates\instructor\image-questions.html:110
+msgid "Curriculum Topic"
+msgstr "पाठ्यचर्या विषय"
+
+#: .\instructorapp\templates\instructor\image-questions.html:112
+msgid "Select Course"
+msgstr "पाठ्यक्रम का चयन करें"
+
+#: .\instructorapp\templates\instructor\image-questions.html:120
+msgid "Assessment Level"
+msgstr "मूल्यांकन स्तर"
+
+#: .\instructorapp\templates\instructor\image-questions.html:123
+msgid "Easy (Visual ID)"
+msgstr "आसान (विज़ुअल आईडी)"
+
+#: .\instructorapp\templates\instructor\image-questions.html:124
+msgid "Medium (Analysis)"
+msgstr "माध्यम (विश्लेषण)"
+
+#: .\instructorapp\templates\instructor\image-questions.html:125
+msgid "Hard (Critical Interpretation)"
+msgstr "कठिन (महत्वपूर्ण व्याख्या)"
+
+#: .\instructorapp\templates\instructor\image-questions.html:130
+msgid "Visual Asset (Image)"
+msgstr "विज़ुअल एसेट (छवि)"
+
+#: .\instructorapp\templates\instructor\image-questions.html:132
+msgid "Supported formats: JPG, PNG, WebP. Max size: 5MB."
+msgstr "समर्थित प्रारूप: JPG, PNG, WebP।अधिकतम आकार: 5एमबी."
+
+#: .\instructorapp\templates\instructor\image-questions.html:136
+msgid "Question / Instructions"
+msgstr "प्रश्न/निर्देश"
+
+#: .\instructorapp\templates\instructor\image-questions.html:137
+msgid ""
+"e.g. Identify the historical significance of the architecture shown above..."
+msgstr "जैसेऊपर दिखाए गए वास्तुकला के ऐतिहासिक महत्व को पहचानें..."
+
+#: .\instructorapp\templates\instructor\image-questions.html:141
+msgid "Evaluation Benchmark (Correct Answer)"
+msgstr "मूल्यांकन बेंचमार्क (सही उत्तर)"
+
+#: .\instructorapp\templates\instructor\image-questions.html:142
+msgid "Define the expected correct response..."
+msgstr "अपेक्षित सही प्रतिक्रिया परिभाषित करें..."
+
+#: .\instructorapp\templates\instructor\image-questions.html:149
+msgid "Save to Visual Bank"
+msgstr "विज़ुअल बैंक में सहेजें"
+
+#: .\instructorapp\templates\instructor\ins_index.html:97
+msgid "Faculty Command Center"
+msgstr "फैकल्टी कमांड सेंटर"
+
+#: .\instructorapp\templates\instructor\ins_index.html:100
+msgid "Platform"
+msgstr "प्लैटफ़ॉर्म"
+
+#: .\instructorapp\templates\instructor\ins_index.html:111
+msgid "Welcome to NabhaLearn Portal"
+msgstr "NabhaLearn पोर्टल में आपका स्वागत है"
+
+#: .\instructorapp\templates\instructor\ins_index.html:112
+msgid ""
+"Manage your curriculum, track scholar progress, and expand your assessment "
+"bank from this central hub."
+msgstr ""
+"इस केंद्रीय केंद्र से अपना पाठ्यक्रम प्रबंधित करें, विद्वानों की प्रगति पर "
+"नज़र रखें और अपने मूल्यांकन बैंक का विस्तार करें।"
+
+#: .\instructorapp\templates\instructor\ins_index.html:116
+#: .\instructorapp\templates\instructor\view-courses.html:171
+msgid "New Topic"
+msgstr "नया विषय"
+
+#: .\instructorapp\templates\instructor\ins_index.html:129
+msgid "Scholar Base"
+msgstr "विद्वान आधार"
+
+#: .\instructorapp\templates\instructor\ins_index.html:136
+msgid "Enrolled Students"
+msgstr "नामांकित छात्र"
+
+#: .\instructorapp\templates\instructor\ins_index.html:146
+msgid "Curriculum"
+msgstr "पाठ्यक्रम"
+
+#: .\instructorapp\templates\instructor\ins_index.html:153
+msgid "Active Topics"
+msgstr "सक्रिय विषय"
+
+#: .\instructorapp\templates\instructor\ins_index.html:163
+msgid "Assessments"
+msgstr "आकलन"
+
+#: .\instructorapp\templates\instructor\ins_index.html:170
+msgid "Items in Bank"
+msgstr "बैंक में आइटम"
+
+#: .\instructorapp\templates\instructor\ins_index.html:182
+msgid ""
+"Navigate via the sidebar to manage your academic profile and student "
+"feedback."
+msgstr ""
+"अपनी शैक्षणिक प्रोफ़ाइल और छात्र प्रतिक्रिया को प्रबंधित करने के लिए साइडबार"
+" के माध्यम से नेविगेट करें।"
+
+#: .\instructorapp\templates\instructor\mcqs-question.html:94
+msgid "MCQ Item Constructor"
+msgstr "एमसीक्यू आइटम कंस्ट्रक्टर"
+
+#: .\instructorapp\templates\instructor\mcqs-question.html:98
+msgid "Assessment Type"
+msgstr "मूल्यांकन प्रकार"
+
+#: .\instructorapp\templates\instructor\mcqs-question.html:99
+msgid "Add MCQs"
+msgstr "एमसीक्यू जोड़ें"
+
+#: .\instructorapp\templates\instructor\mcqs-question.html:106
+msgid "Multiple Choice Question Builder"
+msgstr "बहुविकल्पीय प्रश्न निर्माता"
+
+#: .\instructorapp\templates\instructor\mcqs-question.html:113
+msgid "Target Topic"
+msgstr "लक्ष्य विषय"
+
+#: .\instructorapp\templates\instructor\mcqs-question.html:123
+msgid "Cognitive Level"
+msgstr "संज्ञानात्मक स्तर"
+
+#: .\instructorapp\templates\instructor\mcqs-question.html:126
+msgid "Easy (Recall)"
+msgstr "आसान (याद रखें)"
+
+#: .\instructorapp\templates\instructor\mcqs-question.html:127
+msgid "Medium (Application)"
+msgstr "माध्यम (आवेदन)"
+
+#: .\instructorapp\templates\instructor\mcqs-question.html:128
+msgid "Hard (Analysis)"
+msgstr "कठिन (विश्लेषण)"
+
+#: .\instructorapp\templates\instructor\mcqs-question.html:133
+msgid "Question Prompt / Stem"
+msgstr "प्रश्न संकेत / मूल"
+
+#: .\instructorapp\templates\instructor\mcqs-question.html:134
+msgid "Formulate your question here..."
+msgstr "अपना प्रश्न यहां तैयार करें..."
+
+#: .\instructorapp\templates\instructor\mcqs-question.html:139
+msgid "Answer Distractors"
+msgstr "ध्यान भटकाने वाले उत्तर दें"
+
+#: .\instructorapp\templates\instructor\mcqs-question.html:142
+msgid "Option A"
+msgstr "विकल्प ए"
+
+#: .\instructorapp\templates\instructor\mcqs-question.html:143
+msgid "Enter option A"
+msgstr "विकल्प ए दर्ज करें"
+
+#: .\instructorapp\templates\instructor\mcqs-question.html:146
+msgid "Option B"
+msgstr "विकल्प बी"
+
+#: .\instructorapp\templates\instructor\mcqs-question.html:147
+msgid "Enter option B"
+msgstr "विकल्प बी दर्ज करें"
+
+#: .\instructorapp\templates\instructor\mcqs-question.html:150
+msgid "Option C"
+msgstr "विकल्प सी"
+
+#: .\instructorapp\templates\instructor\mcqs-question.html:151
+msgid "Enter option C"
+msgstr "विकल्प सी दर्ज करें"
+
+#: .\instructorapp\templates\instructor\mcqs-question.html:154
+msgid "Option D"
+msgstr "विकल्प डी"
+
+#: .\instructorapp\templates\instructor\mcqs-question.html:155
+msgid "Enter option D"
+msgstr "विकल्प डी दर्ज करें"
+
+#: .\instructorapp\templates\instructor\mcqs-question.html:161
+msgid "Answer Validation Key"
+msgstr "उत्तर सत्यापन कुंजी"
+
+#: .\instructorapp\templates\instructor\mcqs-question.html:162
+msgid "Type the exact correct text or option letter"
+msgstr "बिल्कुल सही टेक्स्ट या विकल्प पत्र टाइप करें"
+
+#: .\instructorapp\templates\instructor\mcqs-question.html:164
+msgid "Ensure this matches one of your distractors exactly."
+msgstr ""
+"सुनिश्चित करें कि यह आपके किसी ध्यान भटकाने वाले से बिल्कुल मेल खाता हो।"
+
+#: .\instructorapp\templates\instructor\mcqs-question.html:169
+msgid "Finalize & Publish"
+msgstr "अंतिम रूप दें और प्रकाशित करें"
+
+#: .\instructorapp\templates\instructor\test-results.html:128
+msgid "Examination Registry"
+msgstr "परीक्षा रजिस्ट्री"
+
+#: .\instructorapp\templates\instructor\test-results.html:132
+msgid "Test Logs"
+msgstr "परीक्षण लॉग"
+
+#: .\instructorapp\templates\instructor\test-results.html:143
+msgid "Scholar Performance Records"
+msgstr "विद्वान प्रदर्शन रिकॉर्ड"
+
+#: .\instructorapp\templates\instructor\test-results.html:151
+msgid "Assessment Name"
+msgstr "मूल्यांकन नाम"
+
+#: .\instructorapp\templates\instructor\test-results.html:153
+msgid "Final Score"
+msgstr "अंतिम स्कोर"
+
+#: .\instructorapp\templates\instructor\test-results.html:154
+#: .\userapp\templates\onlinetest\test_result.html:151
+msgid "Full Analysis"
+msgstr "पूर्ण विश्लेषण"
+
+#: .\instructorapp\templates\instructor\test-results.html:167
+msgid "View Details"
+msgstr "विवरण देखें"
+
+#: .\instructorapp\templates\instructor\test-results.html:189
+#, python-format
+msgid ""
+"\n"
+"                                Scholarly Page %(number)s of %(total)s\n"
+"                            "
+msgstr ""
+"\n"
+"%(total)s में से विद्वान पृष्ठ %(number)s"
+
+#: .\instructorapp\templates\instructor\test-results.html:209
+msgid "Registry Empty"
+msgstr "रजिस्ट्री खाली"
+
+#: .\instructorapp\templates\instructor\test-results.html:210
+msgid ""
+"Scholars have not yet attempted your published assessments. New submissions "
+"will appear here automatically."
+msgstr ""
+"विद्वानों ने अभी तक आपके प्रकाशित मूल्यांकन का प्रयास नहीं किया है।नए सबमिशन"
+" यहां स्वचालित रूप से दिखाई देंगे."
+
+#: .\instructorapp\templates\instructor\view-courses.html:156
+msgid "View Subjects"
+msgstr "विषय देखें"
+
+#: .\instructorapp\templates\instructor\view-courses.html:168
+msgid "Published Curriculum Topics"
+msgstr "प्रकाशित पाठ्यचर्या विषय"
+
+#: .\instructorapp\templates\instructor\view-courses.html:180
+msgid "Preview"
+msgstr "पूर्व दर्शन"
+
+#: .\instructorapp\templates\instructor\view-courses.html:181
+msgid "Topic Designation"
+msgstr "विषय पदनाम"
+
+#: .\instructorapp\templates\instructor\view-courses.html:182
+msgid "Enrolled Scholars"
+msgstr "नामांकित विद्वान"
+
+#: .\instructorapp\templates\instructor\view-courses.html:203
+msgid "Edit"
+msgstr "संपादन करना"
+
+#: .\instructorapp\templates\instructor\view-courses.html:207
+msgid ""
+"Attention: Deleting this topic will remove all associated student progress. "
+"Proceed?"
+msgstr ""
+"ध्यान दें: इस विषय को हटाने से सभी संबंधित छात्र प्रगति हटा दी जाएगी।आगे "
+"बढ़ना?"
+
+#: .\instructorapp\templates\instructor\view-courses.html:250
+msgid "No Topics Published"
+msgstr "कोई विषय प्रकाशित नहीं"
+
+#: .\instructorapp\templates\instructor\view-courses.html:251
+msgid ""
+"You haven't added any curriculum subjects yet. Start by clicking the 'New "
+"Topic' button."
+msgstr ""
+"आपने अभी तक कोई पाठ्यक्रम विषय नहीं जोड़ा है.'नया विषय' बटन पर क्लिक करके "
+"प्रारंभ करें।"
+
+#: .\instructorapp\templates\instructor\view-feedbacks.html:135
+msgid "Community Insights"
+msgstr "सामुदायिक अंतर्दृष्टि"
+
+#: .\instructorapp\templates\instructor\view-feedbacks.html:139
+msgid "View Feedbacks"
+msgstr "प्रतिक्रिया देखें"
+
+#: .\instructorapp\templates\instructor\view-feedbacks.html:150
+msgid "Scholar Experiences"
+msgstr "विद्वान अनुभव"
+
+#: .\instructorapp\templates\instructor\view-feedbacks.html:159
+msgid "Scholar Name"
+msgstr "विद्वान का नाम"
+
+#: .\instructorapp\templates\instructor\view-feedbacks.html:184
+msgid "No written feedback provided."
+msgstr "कोई लिखित प्रतिक्रिया नहीं दी गई."
+
+#: .\instructorapp\templates\instructor\view-feedbacks.html:191
+msgid "Reply"
+msgstr "जवाब"
+
+#: .\instructorapp\templates\instructor\view-feedbacks.html:195
+msgid "Archive this feedback permanently?"
+msgstr "इस फीडबैक को स्थायी रूप से संग्रहीत करें?"
+
+#: .\instructorapp\templates\instructor\view-feedbacks.html:214
+#, python-format
+msgid ""
+"\n"
+"                            Scholar Page %(current)s of %(total)s\n"
+"                        "
+msgstr ""
+"\n"
+"%(total)s में से विद्वान पृष्ठ %(current)s"
+
+#: .\instructorapp\templates\instructor\view-feedbacks.html:230
+msgid "Silence in the Hallways"
+msgstr "गलियारों में सन्नाटा"
+
+#: .\instructorapp\templates\instructor\view-feedbacks.html:231
+msgid "No scholar feedback has been recorded for your curriculum yet."
+msgstr ""
+"आपके पाठ्यक्रम के लिए अभी तक कोई विद्वान प्रतिक्रिया दर्ज नहीं की गई है।"
+
+#: .\instructorapp\templates\instructor\view-students.html:100
+msgid "Enrollment Lab"
+msgstr "नामांकन लैब"
+
+#: .\instructorapp\templates\instructor\view-students.html:104
+msgid "Scholar Directory"
+msgstr "विद्वान निर्देशिका"
+
+#: .\instructorapp\templates\instructor\view-students.html:116
+msgid "Scholar Distribution"
+msgstr "विद्वान वितरण"
+
+#: .\instructorapp\templates\instructor\view-students.html:117
+msgid "Overview of student counts per active curriculum topic."
+msgstr "प्रति सक्रिय पाठ्यक्रम विषय पर छात्र संख्या का अवलोकन।"
+
+#: .\instructorapp\templates\instructor\view-students.html:125
+msgid "Academic Course / Topic"
+msgstr "शैक्षणिक पाठ्यक्रम/विषय"
+
+#: .\instructorapp\templates\instructor\view-students.html:126
+msgid "Total Active Scholars"
+msgstr "कुल सक्रिय विद्वान"
+
+#: .\instructorapp\templates\instructor\view-students.html:139
+#, python-format
+msgid ""
+"\n"
+"%(count)s Scholars\n"
+"                                    "
+msgstr ""
+"\n"
+"%(count)s विद्वान"
+
+#: .\instructorapp\templates\instructor\view-students.html:151
+msgid "No Enrolled Scholars Found"
+msgstr "कोई नामांकित विद्वान नहीं मिला"
+
+#: .\instructorapp\templates\instructor\view-students.html:152
+msgid "Scholar counts will appear here once students join your courses."
+msgstr ""
+"एक बार जब छात्र आपके पाठ्यक्रम में शामिल हो जाएंगे तो विद्वानों की संख्या "
+"यहां दिखाई देगी।"
+
+#: .\instructorapp\templates\instructor\view-students.html:163
+msgid "Faculty Tip:"
+msgstr "संकाय टिप:"
+
+#: .\instructorapp\templates\instructor\view-students.html:163
+msgid ""
+"Click on 'Assessment Bank' in the sidebar to create new challenges for these"
+" scholars."
+msgstr ""
+"इन विद्वानों के लिए नई चुनौतियाँ पैदा करने के लिए साइडबार में 'असेसमेंट "
+"बैंक' पर क्लिक करें।"
+
+#: .\instructorapp\templates\time\task_add.html:96
+msgid "Task Orchestrator"
+msgstr "टास्क ऑर्केस्ट्रेटर"
+
+#: .\instructorapp\templates\time\task_add.html:100
+#: .\instructorapp\templates\time\view_students.html:107
+#: .\userapp\templates\time_game.html:114
+#: .\userapp\templates\user_dashboard.html:155
+msgid "Time Management"
+msgstr "समय प्रबंधन"
+
+#: .\instructorapp\templates\time\task_add.html:101
+msgid "Add New Task"
+msgstr "नया कार्य जोड़ें"
+
+#: .\instructorapp\templates\time\task_add.html:119
+msgid "Create Performance Milestone"
+msgstr "प्रदर्शन मील का पत्थर बनाएं"
+
+#: .\instructorapp\templates\time\task_add.html:124
+msgid ""
+"Assign specific time-bound tasks to scholars to measure and cultivate their "
+"time management proficiencies."
+msgstr ""
+"विद्वानों को उनकी समय प्रबंधन दक्षताओं को मापने और विकसित करने के लिए "
+"विशिष्ट समयबद्ध कार्य सौंपें।"
+
+#: .\instructorapp\templates\time\task_add.html:132
+msgid "Scholastic Task Title"
+msgstr "शैक्षिक कार्य शीर्षक"
+
+#: .\instructorapp\templates\time\task_add.html:133
+msgid "e.g., Weekly Ethics Analysis Report"
+msgstr "उदाहरण के लिए, साप्ताहिक नैतिकता विश्लेषण रिपोर्ट"
+
+#: .\instructorapp\templates\time\task_add.html:137
+msgid "Detailed Objective / Description"
+msgstr "विस्तृत उद्देश्य/विवरण"
+
+#: .\instructorapp\templates\time\task_add.html:138
+msgid "Clearly outline the task requirements..."
+msgstr "कार्य आवश्यकताओं को स्पष्ट रूप से रेखांकित करें..."
+
+#: .\instructorapp\templates\time\task_add.html:143
+msgid "Submission Deadline"
+msgstr "प्रस्तुत करने की समय सीमा"
+
+#: .\instructorapp\templates\time\task_add.html:148
+msgid "Evaluation Tier (Grade)"
+msgstr "मूल्यांकन स्तर (ग्रेड)"
+
+#: .\instructorapp\templates\time\task_add.html:150
+msgid "Select Tier"
+msgstr "टियर का चयन करें"
+
+#: .\instructorapp\templates\time\task_add.html:151
+msgid "Grade A (Elite Performance)"
+msgstr "ग्रेड ए (एलिट परफॉर्मेंस)"
+
+#: .\instructorapp\templates\time\task_add.html:152
+msgid "Grade B (High Proficiency)"
+msgstr "ग्रेड बी (उच्च दक्षता)"
+
+#: .\instructorapp\templates\time\task_add.html:153
+msgid "Grade C (Standard Level)"
+msgstr "ग्रेड सी (मानक स्तर)"
+
+#: .\instructorapp\templates\time\task_add.html:154
+msgid "Grade D (Foundational)"
+msgstr "ग्रेड डी (फाउंडेशनल)"
+
+#: .\instructorapp\templates\time\task_add.html:161
+msgid "Deploy Task to Scholars"
+msgstr "विद्वानों को कार्य सौंपें"
+
+#: .\instructorapp\templates\time\task_add.html:168
+msgid "Return to Task Manager"
+msgstr "कार्य प्रबंधक पर लौटें"
+
+#: .\instructorapp\templates\time\task_list.html:23
+#: .\userapp\templates\time_game_success.html:129
+#: .\userapp\templates\view_completed_tasks.html:109
+msgid "Title"
+msgstr "शीर्षक"
+
+#: .\instructorapp\templates\time\task_list.html:24
+#: .\userapp\templates\time_game_success.html:130
+#: .\userapp\templates\view_completed_tasks.html:110
+msgid "Description"
+msgstr "विवरण"
+
+#: .\instructorapp\templates\time\task_list.html:25
+#: .\userapp\templates\time_game_success.html:131
+msgid "Due Date"
+msgstr "दो तिथियाँ"
+
+#: .\instructorapp\templates\time\task_list.html:26
+msgid "Grade Level"
+msgstr "क्रम स्तर"
+
+#: .\instructorapp\templates\time\task_list.html:27
+#: .\userapp\templates\onlinetest\my_courses.html:133
+msgid "Status"
+msgstr "स्थिति"
+
+#: .\instructorapp\templates\time\task_list.html:41
+msgid "Are you sure you want to delete this task?"
+msgstr "क्या आप वाकई इस कार्य को हटाना चाहते हैं?"
+
+#: .\instructorapp\templates\time\task_list.html:49
+msgid "No tasks available."
+msgstr "कोई कार्य उपलब्ध नहीं."
+
+#: .\instructorapp\templates\time\view_students.html:103
+msgid "Completion Analytics"
+msgstr "समापन विश्लेषिकी"
+
+#: .\instructorapp\templates\time\view_students.html:108
+msgid "Task Logs"
+msgstr "कार्य लॉग"
+
+#: .\instructorapp\templates\time\view_students.html:120
+msgid "Scholar Milestone Logs"
+msgstr "विद्वान मील का पत्थर लॉग"
+
+#: .\instructorapp\templates\time\view_students.html:121
+msgid "Detailed chronological record of task completions across your courses."
+msgstr "आपके पाठ्यक्रमों में कार्य पूरा होने का विस्तृत कालानुक्रमिक रिकॉर्ड।"
+
+#: .\instructorapp\templates\time\view_students.html:131
+msgid "Enrolled Scholar"
+msgstr "नामांकित विद्वान"
+
+#: .\instructorapp\templates\time\view_students.html:132
+msgid "Task Title"
+msgstr "कार्य शीर्षक"
+
+#: .\instructorapp\templates\time\view_students.html:133
+msgid "Logged Completion"
+msgstr "पूर्णता लॉग की गई"
+
+#: .\instructorapp\templates\time\view_students.html:164
+msgid "No Completion Records"
+msgstr "कोई समापन रिकॉर्ड नहीं"
+
+#: .\instructorapp\templates\time\view_students.html:165
+msgid ""
+"When scholars mark their assigned time management tasks as complete, their "
+"progress data will populate this registry."
+msgstr ""
+"जब विद्वान अपने निर्धारित समय प्रबंधन कार्यों को पूर्ण के रूप में चिह्नित "
+"करते हैं, तो उनका प्रगति डेटा इस रजिस्ट्री में आ जाएगा।"
+
+#: .\instructorapp\templates\time\view_students.html:168
+msgid "Deploy New Task"
+msgstr "नया कार्य तैनात करें"
+
+#: .\userapp\templates\admin_login.html:80
+msgid "Nabha"
+msgstr "नाभि"
+
+#: .\userapp\templates\admin_login.html:80
+msgid "Learn"
+msgstr "सीखना"
+
+#: .\userapp\templates\admin_login.html:81
+msgid "Management Portal Access"
+msgstr "प्रबंधन पोर्टल पहुंच"
+
+#: .\userapp\templates\admin_login.html:85
+msgid "Admin Login"
+msgstr "व्यवस्थापक लॉगिन"
+
+#: .\userapp\templates\admin_login.html:90
+msgid "Username"
+msgstr "उपयोगकर्ता नाम"
+
+#: .\userapp\templates\admin_login.html:94
+msgid "Enter management ID"
+msgstr "प्रबंधन आईडी दर्ज करें"
+
+#: .\userapp\templates\admin_login.html:99
+#: .\userapp\templates\unified-login.html:30
+#: .\userapp\templates\user-login.html:147
+msgid "Password"
+msgstr "पासवर्ड"
+
+#: .\userapp\templates\admin_login.html:110
+msgid "Keep me logged in"
+msgstr "मुझे लॉग इन रखें"
+
+#: .\userapp\templates\admin_login.html:112
+msgid "Forgot Access?"
+msgstr "पहुंच भूल गए?"
+
+#: .\userapp\templates\admin_login.html:116
+msgid "Authenticate Access"
+msgstr "पहुंच प्रमाणित करें"
+
+#: .\userapp\templates\admin_login.html:121
+msgid "Return to Homepage"
+msgstr "मुखपृष्ठ पर लौटें"
+
+#: .\userapp\templates\base.html:8
+msgid "NabhaLearn | Empowering Rural Excellence"
+msgstr "नाभालर्न |ग्रामीण उत्कृष्टता को सशक्त बनाना"
+
+#: .\userapp\templates\base.html:106
+msgid "Help Desk"
+msgstr "सहायता केंद्र"
+
+#: .\userapp\templates\base.html:123 .\userapp\templates\user-login.html:165
+msgid "Sign Up"
+msgstr "साइन अप करें"
+
+#: .\userapp\templates\base.html:128 .\userapp\templates\unified-login.html:39
+msgid "Login"
+msgstr "लॉग इन करें"
+
+#: .\userapp\templates\base.html:147
+msgid ""
+"Empowering rural education in Nabha with bilingual tools, offline access, "
+"and expert curriculum design."
+msgstr ""
+"नाभा में ग्रामीण शिक्षा को द्विभाषी उपकरणों, ऑफ़लाइन पहुंच और विशेषज्ञ "
+"पाठ्यक्रम डिजाइन के साथ सशक्त बनाना।"
+
+#: .\userapp\templates\base.html:154
+msgid "© 2026 NabhaLearn Platform. All Rights Reserved."
+msgstr "© 2026 नाभालर्न प्लेटफार्म।सर्वाधिकार सुरक्षित।"
+
+#: .\userapp\templates\base_dashboard.html:8
+msgid "NabhaLearn | Student Dashboard"
+msgstr "नाभालर्न |छात्र डैशबोर्ड"
+
+#: .\userapp\templates\base_dashboard.html:163
+msgid "Loading..."
+msgstr "लोड हो रहा है..."
+
+#: .\userapp\templates\base_dashboard.html:191
+msgid "My Profile"
+msgstr "मेरी प्रोफाइल"
+
+#: .\userapp\templates\base_dashboard.html:206
+msgid "Logout"
+msgstr "लॉग आउट"
+
+#: .\userapp\templates\base_dashboard.html:222
+msgid ""
+"Your personal digital gateway to curriculum-aligned learning in Nabha. Track"
+" your progress and master new skills daily."
+msgstr ""
+"नाभा में पाठ्यक्रम-संरेखित शिक्षा के लिए आपका व्यक्तिगत डिजिटल प्रवेश "
+"द्वार।अपनी प्रगति पर नज़र रखें और प्रतिदिन नए कौशल में महारत हासिल करें।"
+
+#: .\userapp\templates\base_dashboard.html:226
+msgid "Learning Center"
+msgstr "प्रज्ञा केंद्र"
+
+#: .\userapp\templates\base_dashboard.html:227
+msgid "PDF Summaries"
+msgstr "पीडीएफ सारांश"
+
+#: .\userapp\templates\base_dashboard.html:228
+msgid "Text Extraction"
+msgstr "पाठ निष्कर्षण"
+
+#: .\userapp\templates\base_dashboard.html:229
+msgid "Practice Quizzes"
+msgstr "प्रश्नोत्तरी का अभ्यास करें"
+
+#: .\userapp\templates\base_dashboard.html:232
+msgid "Contact Helpdesk"
+msgstr "हेल्पडेस्क से संपर्क करें"
+
+#: .\userapp\templates\base_dashboard.html:234
+msgid "Nabha Regional Office"
+msgstr "नाभा क्षेत्रीय कार्यालय"
+
+#: .\userapp\templates\base_dashboard.html:240
+msgid "© 2026 NabhaLearn Student Portal."
+msgstr "© 2026 नाभालर्न स्टूडेंट पोर्टल।"
+
+#: .\userapp\templates\base_dashboard.html:243
+msgid "Designed for Rural Schools by"
+msgstr "द्वारा ग्रामीण स्कूलों के लिए डिज़ाइन किया गया"
+
+#: .\userapp\templates\base_dashboard.html:272
+msgid "Got it"
+msgstr "समझ गया"
+
+#: .\userapp\templates\communication\communication_challenge.html:130
+msgid "Listen & Spell Game"
+msgstr "सुनें और जादू का खेल"
+
+#: .\userapp\templates\communication\communication_challenge.html:131
+msgid "Enhance your bilingual vocabulary through auditory challenges."
+msgstr "श्रवण चुनौतियों के माध्यम से अपनी द्विभाषी शब्दावली बढ़ाएँ।"
+
+#: .\userapp\templates\communication\communication_challenge.html:136
+#: .\userapp\templates\onlinetest\process-question.html:197
+msgid "Level"
+msgstr "स्तर"
+
+#: .\userapp\templates\communication\communication_challenge.html:144
+msgid "Progress"
+msgstr "प्रगति"
+
+#: .\userapp\templates\communication\communication_challenge.html:152
+msgid "Peek Word"
+msgstr "पीक वर्ड"
+
+#: .\userapp\templates\communication\communication_challenge.html:155
+msgid "Reset Lab"
+msgstr "लैब रीसेट करें"
+
+#: .\userapp\templates\communication\communication_challenge.html:160
+msgid "Click to listen to the word"
+msgstr "शब्द सुनने के लिए क्लिक करें"
+
+#: .\userapp\templates\communication\communication_challenge.html:173
+msgid "Your Transcript:"
+msgstr "आपकी प्रतिलेख:"
+
+#: .\userapp\templates\communication\communication_challenge.html:174
+msgid "Type what you hear..."
+msgstr "जो सुनते हो उसे टाइप करो..."
+
+#: .\userapp\templates\communication\communication_challenge.html:177
+msgid "Submit Answer"
+msgstr "उत्तर सबमिट करें"
+
+#: .\userapp\templates\communication\communication_challenge.html:183
+msgid "No vocabulary module loaded. Please contact support."
+msgstr "कोई शब्दावली मॉड्यूल लोड नहीं किया गया.कृपया समर्थन से संपर्क करें."
+
+#: .\userapp\templates\communication\communication_challenge.html:188
+msgid "Game Over!"
+msgstr "खेल खत्म!"
+
+#: .\userapp\templates\communication\communication_challenge.html:188
+msgid "Maximum attempts reached. Please reset the lab to continue."
+msgstr "अधिकतम प्रयास पहुंच गए.कृपया जारी रखने के लिए लैब को रीसेट करें।"
+
+#: .\userapp\templates\communication\communication_challenge.html:198
+msgid "Restart Lab Session?"
+msgstr "लैब सत्र पुनः प्रारंभ करें?"
+
+#: .\userapp\templates\communication\communication_challenge.html:203
+msgid ""
+"Restarting will clear your current level progress and points. This action "
+"cannot be undone."
+msgstr ""
+"पुनः आरंभ करने से आपकी वर्तमान स्तर की प्रगति और अंक साफ़ हो जाएंगे।इस एक्शन"
+" को वापस नहीं किया जा सकता।"
+
+#: .\userapp\templates\communication\communication_challenge.html:206
+msgid "Confirm Reset"
+msgstr "रीसेट की पुष्टि करें"
+
+#: .\userapp\templates\communication\communication_challenge.html:207
+msgid "Keep Progress"
+msgstr "प्रगति बनाये रखें"
+
+#: .\userapp\templates\communication\communication_challenge.html:217
+msgid "Correct Spelling"
+msgstr "शुद्ध वर्तनी"
+
+#: .\userapp\templates\communication\communication_challenge.html:224
+msgid "Next Word"
+msgstr "अगला शब्द"
+
+#: .\userapp\templates\communication\game_completed.html:106
+msgid "Challenge Mastered"
+msgstr "चुनौती में महारत हासिल"
+
+#: .\userapp\templates\communication\game_completed.html:112
+msgid "Congratulations!"
+msgstr "बधाई हो!"
+
+#: .\userapp\templates\communication\game_completed.html:113
+msgid ""
+"You have demonstrated excellence and completed all the communication "
+"challenges successfully!"
+msgstr ""
+"आपने उत्कृष्टता का प्रदर्शन किया है और सभी संचार चुनौतियों को सफलतापूर्वक "
+"पूरा किया है!"
+
+#: .\userapp\templates\communication\game_completed.html:117
+msgid "Restart Game"
+msgstr "पुनः खेल प्रारंभ करें"
+
+#: .\userapp\templates\communication\game_completed.html:121
+#: .\userapp\templates\reflection\start_reflection.html:152
+msgid "Return to Arena"
+msgstr "अखाड़े को लौटें"
+
+#: .\userapp\templates\communication\game_completed.html:126
+msgid "Your progress has been recorded in your student profile achievements."
+msgstr "आपकी प्रगति आपके छात्र प्रोफ़ाइल उपलब्धियों में दर्ज की गई है।"
+
+#: .\userapp\templates\contact.html:50
+msgid "Contact NabhaLearn"
+msgstr "नाभालर्न से संपर्क करें"
+
+#: .\userapp\templates\contact.html:52
+msgid ""
+"Have questions about our digital curriculum or need help with the platform? "
+"Our team is here to support students, teachers, and parents in Nabha. Reach "
+"out to us anytime!"
+msgstr ""
+"क्या हमारे डिजिटल पाठ्यक्रम के बारे में कोई प्रश्न हैं या प्लेटफ़ॉर्म के "
+"बारे में सहायता चाहिए?हमारी टीम नाभा में छात्रों, शिक्षकों और अभिभावकों का "
+"समर्थन करने के लिए यहां है।किसी भी समय हमसे संपर्क करें!"
+
+#: .\userapp\templates\contact.html:56
+msgid "Get in Touch"
+msgstr "संपर्क में रहो"
+
+#: .\userapp\templates\contact.html:57
+msgid ""
+"Please fill out the form below and our regional coordinator will get back to"
+" you within 24 hours."
+msgstr ""
+"कृपया नीचे दिया गया फॉर्म भरें और हमारे क्षेत्रीय समन्वयक 24 घंटे के भीतर "
+"आपसे संपर्क करेंगे।"
+
+#: .\userapp\templates\contact.html:62 .\userapp\templates\contact.html:63
+msgid "Your Name"
+msgstr "आपका नाम"
+
+#: .\userapp\templates\contact.html:68 .\userapp\templates\contact.html:69
+msgid "Your Email"
+msgstr "आपका ईमेल"
+
+#: .\userapp\templates\contact.html:74
+msgid "Phone"
+msgstr "फ़ोन"
+
+#: .\userapp\templates\contact.html:75
+msgid "Your Phone"
+msgstr "अपने फोन को"
+
+#: .\userapp\templates\contact.html:80
+msgid "School Name"
+msgstr "स्कूल के नाम"
+
+#: .\userapp\templates\contact.html:81
+msgid "Your School"
+msgstr "आपका विद्यालय"
+
+#: .\userapp\templates\contact.html:86 .\userapp\templates\contact.html:87
+msgid "Subject"
+msgstr "विषय"
+
+#: .\userapp\templates\contact.html:92
+msgid "Leave a message here"
+msgstr "यहां एक संदेश छोड़ें"
+
+#: .\userapp\templates\contact.html:93
+msgid "Message"
+msgstr "संदेश"
+
+#: .\userapp\templates\contact.html:97
+msgid "Send Message"
+msgstr "मेसेज भेजें"
+
+#: .\userapp\templates\contact.html:108
+msgid "Location"
+msgstr "जगह"
+
+#: .\userapp\templates\contact.html:109
+msgid "Nabha, Dist. Patiala, Punjab"
+msgstr "नाभि, डिश.पटियाला, पंजाब"
+
+#: .\userapp\templates\contact.html:115
+msgid "Call Us"
+msgstr "हमें कॉल करें"
+
+#: .\userapp\templates\contact.html:122
+msgid "Email"
+msgstr "ईमेल"
+
+#: .\userapp\templates\index.html:11
+msgid "Nabha Digital Excellence"
+msgstr "नाभा डिजिटल उत्कृष्टता"
+
+#: .\userapp\templates\index.html:12
+msgid "Welcome to NabhaLearn Arena! 🌟"
+msgstr "नाभालर्न एरिना में आपका स्वागत है!🌟"
+
+#: .\userapp\templates\index.html:13
+msgid ""
+"A premium platform to explore and enhance your skills through interactive, "
+"bilingual, and fun learning modules."
+msgstr ""
+"इंटरैक्टिव, द्विभाषी और मजेदार शिक्षण मॉड्यूल के माध्यम से अपने कौशल का पता "
+"लगाने और बढ़ाने के लिए एक प्रीमियम मंच।"
+
+#: .\userapp\templates\index.html:14
+msgid "Try Now"
+msgstr "अब कोशिश करो"
+
+#: .\userapp\templates\index.html:22 .\userapp\templates\index.html:206
+#: .\userapp\templates\user_dashboard.html:95
+msgid "Communication"
+msgstr "संचार"
+
+#: .\userapp\templates\index.html:23
+msgid "Ask Questions, Get Smart Answers"
+msgstr "प्रश्न पूछें, स्मार्ट उत्तर प्राप्त करें"
+
+#: .\userapp\templates\index.html:24
+msgid ""
+"Test your spelling by listening to words, sentences, and paragraphs in both "
+"Punjabi and English."
+msgstr ""
+"पंजाबी और अंग्रेजी दोनों में शब्दों, वाक्यों और पैराग्राफों को सुनकर अपनी "
+"वर्तनी का परीक्षण करें।"
+
+#: .\userapp\templates\index.html:25
+msgid "Get Started"
+msgstr "शुरू हो जाओ"
+
+#: .\userapp\templates\index.html:34
+msgid "Voices of Nabha"
+msgstr "नाभा की आवाजें"
+
+#: .\userapp\templates\index.html:35
+msgid "Student Feedbacks"
+msgstr "छात्र प्रतिक्रिया"
+
+#: .\userapp\templates\index.html:47
+msgid "Email:"
+msgstr "ईमेल:"
+
+#: .\userapp\templates\index.html:65
+msgid "No feedback available yet."
+msgstr "अभी तक कोई प्रतिक्रिया उपलब्ध नहीं है."
+
+#: .\userapp\templates\index.html:76
+msgid "Our Modules"
+msgstr "हमारे मॉड्यूल"
+
+#: .\userapp\templates\index.html:78
+msgid "Interactive Skill-Building"
+msgstr "इंटरएक्टिव कौशल-निर्माण"
+
+#: .\userapp\templates\index.html:79
+msgid ""
+"Test your knowledge and see how well you perform! Answer questions and check"
+" your score instantly."
+msgstr ""
+"अपने ज्ञान का परीक्षण करें और देखें कि आप कितना अच्छा प्रदर्शन करते "
+"हैं!प्रश्नों के उत्तर दें और तुरंत अपना स्कोर जांचें।"
+
+#: .\userapp\templates\index.html:91 .\userapp\templates\index.html:228
+#: .\userapp\templates\user_dashboard.html:125
+msgid "Creativity"
+msgstr "रचनात्मकता"
+
+#: .\userapp\templates\index.html:92
+msgid "Write amazing stories alone or with others in creative modes."
+msgstr "अकेले या दूसरों के साथ रचनात्मक तरीके से अद्भुत कहानियाँ लिखें।"
+
+#: .\userapp\templates\index.html:93 .\userapp\templates\index.html:108
+#: .\userapp\templates\index.html:123 .\userapp\templates\index.html:138
+msgid "Read More"
+msgstr "और पढ़ें"
+
+#: .\userapp\templates\index.html:106 .\userapp\templates\index.html:239
+#: .\userapp\templates\user_dashboard.html:140
+msgid "Reflection"
+msgstr "प्रतिबिंब"
+
+#: .\userapp\templates\index.html:107
+msgid ""
+"Reflect on personal growth and emotional well-being through guided prompts."
+msgstr ""
+"निर्देशित संकेतों के माध्यम से व्यक्तिगत विकास और भावनात्मक कल्याण पर विचार "
+"करें।"
+
+#: .\userapp\templates\index.html:121
+msgid "Time Mastery"
+msgstr "समय की महारत"
+
+#: .\userapp\templates\index.html:122
+msgid "Balance your school tasks and extracurricular activities in this game."
+msgstr ""
+"इस गेम में अपने स्कूल के कार्यों और पाठ्येतर गतिविधियों को संतुलित करें।"
+
+#: .\userapp\templates\index.html:137
+msgid "Give answers and get feedback on your leadership skills."
+msgstr "उत्तर दें और अपने नेतृत्व कौशल पर प्रतिक्रिया प्राप्त करें।"
+
+#: .\userapp\templates\index.html:144
+msgid "Explore More Modules"
+msgstr "अधिक मॉड्यूल खोजें"
+
+#: .\userapp\templates\index.html:157
+msgid "NabhaLearn Excellence"
+msgstr "नाभा उत्कृष्टता सीखें"
+
+#: .\userapp\templates\index.html:163
+msgid "Our Mission"
+msgstr "हमारा विशेष कार्य"
+
+#: .\userapp\templates\index.html:164
+msgid "Empowering Students"
+msgstr "छात्रों को सशक्त बनाना"
+
+#: .\userapp\templates\index.html:166
+msgid ""
+"Our platform enhances essential life and academic skills in students using "
+"engaging and interactive tools designed specifically for Nabha's rural "
+"schools."
+msgstr ""
+"हमारा मंच विशेष रूप से नाभा के ग्रामीण स्कूलों के लिए डिज़ाइन किए गए आकर्षक "
+"और इंटरैक्टिव टूल का उपयोग करके छात्रों में आवश्यक जीवन और शैक्षणिक कौशल को "
+"बढ़ाता है।"
+
+#: .\userapp\templates\index.html:170
+msgid "Bilingual Audio Spelling"
+msgstr "द्विभाषी ऑडियो वर्तनी"
+
+#: .\userapp\templates\index.html:173
+msgid "Real-time Knowledge Quizzes"
+msgstr "वास्तविक समय ज्ञान प्रश्नोत्तरी"
+
+#: .\userapp\templates\index.html:176
+msgid "Collaborative Story Writing"
+msgstr "सहयोगात्मक कहानी लेखन"
+
+#: .\userapp\templates\index.html:179
+msgid "Emotional Reflective Prompts"
+msgstr "भावनात्मक चिंतनशील संकेत"
+
+#: .\userapp\templates\index.html:182
+msgid "Discover Our Story"
+msgstr "हमारी कहानी खोजें"
+
+#: .\userapp\templates\index.html:193
+msgid "Key Platform Features"
+msgstr "प्रमुख प्लेटफ़ॉर्म विशेषताएँ"
+
+#: .\userapp\templates\index.html:195
+msgid "Interactive Learning"
+msgstr "इंटरैक्टिव लर्निंग"
+
+#: .\userapp\templates\index.html:196
+msgid ""
+"Develop essential life skills through creative tasks, challenges, and "
+"collaborative activities."
+msgstr ""
+"रचनात्मक कार्यों, चुनौतियों और सहयोगात्मक गतिविधियों के माध्यम से आवश्यक "
+"जीवन कौशल विकसित करें।"
+
+#: .\userapp\templates\index.html:207
+msgid "Spelling tests using audio for listening and writing practice."
+msgstr "सुनने और लिखने के अभ्यास के लिए ऑडियो का उपयोग करके वर्तनी परीक्षण।"
+
+#: .\userapp\templates\index.html:217
+#: .\userapp\templates\user_dashboard.html:110
+msgid "Online Test"
+msgstr "ऑनलाइन टेस्ट"
+
+#: .\userapp\templates\index.html:218
+msgid "General knowledge quizzes with real-time feedback and scoring."
+msgstr ""
+"वास्तविक समय प्रतिक्रिया और स्कोरिंग के साथ सामान्य ज्ञान प्रश्नोत्तरी।"
+
+#: .\userapp\templates\index.html:229
+msgid "Story writing tools with solo and collaborative modes."
+msgstr "एकल और सहयोगी विधाओं के साथ कहानी लेखन उपकरण।"
+
+#: .\userapp\templates\index.html:240
+msgid "Guided prompts for emotional awareness and mental well-being."
+msgstr "भावनात्मक जागरूकता और मानसिक कल्याण के लिए निर्देशित संकेत।"
+
+#: .\userapp\templates\index.html:245
+msgid "See Full Feature List"
+msgstr "पूर्ण फ़ीचर सूची देखें"
+
+#: .\userapp\templates\ins-otp.html:99
+msgid "Verify Your Identity"
+msgstr "अपनी पहचान सत्यापित करो"
+
+#: .\userapp\templates\ins-otp.html:99
+msgid "Teacher Portal Registration"
+msgstr "शिक्षक पोर्टल पंजीकरण"
+
+#: .\userapp\templates\ins-otp.html:105
+msgid "A security code has been sent to your registered mobile:"
+msgstr "आपके पंजीकृत मोबाइल पर एक सुरक्षा कोड भेजा गया है:"
+
+#: .\userapp\templates\ins-otp.html:115
+msgid "000000"
+msgstr "000000"
+
+#: .\userapp\templates\ins-otp.html:120
+msgid "Verify & Register"
+msgstr "सत्यापित करें और पंजीकरण करें"
+
+#: .\userapp\templates\ins-otp.html:124 .\userapp\templates\user-otp.html:144
+msgid "Didn't receive the code?"
+msgstr "कोड प्राप्त नहीं हुआ?"
+
+#: .\userapp\templates\ins-otp.html:125
+msgid "Request New OTP"
+msgstr "नए ओटीपी का अनुरोध करें"
+
+#: .\userapp\templates\instructor-login.html:143
+msgid "Educator Access"
+msgstr "शिक्षक प्रवेश"
+
+#: .\userapp\templates\instructor-login.html:144
+msgid "Manage your curriculum and monitor student excellence in Nabha."
+msgstr ""
+"अपने पाठ्यक्रम का प्रबंधन करें और नाभा में छात्र उत्कृष्टता की निगरानी करें।"
+
+#: .\userapp\templates\instructor-login.html:148
+#: .\userapp\templates\instructor-register.html:155
+msgid "Teacher Portal"
+msgstr "शिक्षक पोर्टल"
+
+#: .\userapp\templates\instructor-login.html:149
+msgid "Welcome Back"
+msgstr "वापसी पर स्वागत है"
+
+#: .\userapp\templates\instructor-login.html:150
+msgid "Please authenticate to access your dashboard."
+msgstr "कृपया अपने डैशबोर्ड तक पहुंचने के लिए प्रमाणित करें।"
+
+#: .\userapp\templates\instructor-login.html:159
+msgid "Professional Email"
+msgstr "व्यावसायिक ईमेल"
+
+#: .\userapp\templates\instructor-login.html:166
+#: .\userapp\templates\user-register.html:112
+msgid "Secure Password"
+msgstr "सुरक्षित पासवर्ड"
+
+#: .\userapp\templates\instructor-login.html:170
+msgid "Forgot password?"
+msgstr "पासवर्ड भूल गए?"
+
+#: .\userapp\templates\instructor-login.html:175
+msgid "Log In to Dashboard"
+msgstr "डैशबोर्ड में लॉग इन करें"
+
+#: .\userapp\templates\instructor-login.html:180
+msgid "New to the faculty?"
+msgstr "संकाय में नये हैं?"
+
+#: .\userapp\templates\instructor-login.html:180
+msgid "Create an Instructor Account"
+msgstr "एक प्रशिक्षक खाता बनाएँ"
+
+#: .\userapp\templates\instructor-register.html:143
+msgid "Welcome, Educators"
+msgstr "आपका स्वागत है, शिक्षकों"
+
+#: .\userapp\templates\instructor-register.html:144
+msgid ""
+"Join Nabha's premier digital learning mission. As an instructor, you empower"
+" rural scholars by crafting bilingual content and monitoring student growth "
+"through our advanced analytics dashboard."
+msgstr ""
+"नाभा के प्रमुख डिजिटल लर्निंग मिशन से जुड़ें।एक प्रशिक्षक के रूप में, आप "
+"हमारे उन्नत एनालिटिक्स डैशबोर्ड के माध्यम से द्विभाषी सामग्री तैयार करके और "
+"छात्र विकास की निगरानी करके ग्रामीण विद्वानों को सशक्त बनाते हैं।"
+
+#: .\userapp\templates\instructor-register.html:148
+msgid "Student Progress Tracking"
+msgstr "छात्र प्रगति ट्रैकिंग"
+
+#: .\userapp\templates\instructor-register.html:149
+msgid "Bilingual Support Tools"
+msgstr "द्विभाषी सहायता उपकरण"
+
+#: .\userapp\templates\instructor-register.html:156
+msgid "Registration"
+msgstr "पंजीकरण"
+
+#: .\userapp\templates\instructor-register.html:159
+msgid "Create Your Instructor Profile"
+msgstr "अपना प्रशिक्षक प्रोफाइल बनाएं"
+
+#: .\userapp\templates\instructor-register.html:167
+msgid "Enter full name"
+msgstr "पूरा नाम दर्ज करें"
+
+#: .\userapp\templates\instructor-register.html:170
+msgid "Office Address"
+msgstr "कार्यालय का पता"
+
+#: .\userapp\templates\instructor-register.html:171
+msgid "School or Home address"
+msgstr "स्कूल या घर का पता"
+
+#: .\userapp\templates\instructor-register.html:174
+#: .\userapp\templates\user-profile.html:131
+msgid "Account Password"
+msgstr "खाते का पासवर्ड"
+
+#: .\userapp\templates\instructor-register.html:175
+msgid "Create password"
+msgstr "पासवर्ड बनाएं"
+
+#: .\userapp\templates\instructor-register.html:178
+msgid "Gender"
+msgstr "लिंग"
+
+#: .\userapp\templates\instructor-register.html:182
+msgid "Male"
+msgstr "पुरुष"
+
+#: .\userapp\templates\instructor-register.html:186
+msgid "Female"
+msgstr "महिला"
+
+#: .\userapp\templates\instructor-register.html:195
+msgid "email@school.edu"
+msgstr "email@school.edu"
+
+#: .\userapp\templates\instructor-register.html:198
+#: .\userapp\templates\user-register.html:116
+msgid "Phone Number"
+msgstr "फ़ोन नंबर"
+
+#: .\userapp\templates\instructor-register.html:199
+msgid "10-digit mobile"
+msgstr "10 अंकीय मोबाइल"
+
+#: .\userapp\templates\instructor-register.html:202
+msgid "Profile Credentials (Photo)"
+msgstr "प्रोफ़ाइल क्रेडेंशियल (फोटो)"
+
+#: .\userapp\templates\instructor-register.html:209
+msgid "Register as Instructor"
+msgstr "प्रशिक्षक के रूप में पंजीकरण करें"
+
+#: .\userapp\templates\instructor-register.html:212
+msgid "Already registered?"
+msgstr "पहले से ही पंजीकृत?"
+
+#: .\userapp\templates\instructor-register.html:212
+#: .\userapp\templates\signup-router.html:40
+msgid "Login here"
+msgstr "यहां लॉगिन करें"
+
+#: .\userapp\templates\leadership\leadership_page.html:137
+msgid ""
+"Analyze the scenarios below and demonstrate your decision-making excellence."
+msgstr ""
+"नीचे दिए गए परिदृश्यों का विश्लेषण करें और अपनी निर्णय लेने की उत्कृष्टता "
+"प्रदर्शित करें।"
+
+#: .\userapp\templates\leadership\leadership_page.html:140
+msgid "Review All Evaluations"
+msgstr "सभी मूल्यांकनों की समीक्षा करें"
+
+#: .\userapp\templates\leadership\leadership_page.html:153
+msgid "Scenario"
+msgstr "परिदृश्य"
+
+#: .\userapp\templates\leadership\leadership_page.html:166
+msgid "How would you lead this situation?"
+msgstr "आप इस स्थिति का नेतृत्व कैसे करेंगे?"
+
+#: .\userapp\templates\leadership\leadership_page.html:171
+msgid "Type your strategic response here..."
+msgstr "अपनी रणनीतिक प्रतिक्रिया यहां टाइप करें..."
+
+#: .\userapp\templates\leadership\leadership_page.html:177
+msgid "Finalize Decision"
+msgstr "निर्णय को अंतिम रूप दें"
+
+#: .\userapp\templates\leadership\leadership_page.html:187
+msgid ""
+"No leadership challenges are active at this moment. Please check back later!"
+msgstr ""
+"इस समय कोई भी नेतृत्व संबंधी चुनौतियाँ सक्रिय नहीं हैं।कृपया फिर से बाद में "
+"जाँच करें!"
+
+#: .\userapp\templates\leadership\leadership_page.html:194
+msgid "Return to Learning Hub"
+msgstr "लर्निंग हब पर लौटें"
+
+#: .\userapp\templates\leadership\show_feedback.html:126
+msgid "Leadership Feedback"
+msgstr "नेतृत्व प्रतिक्रिया"
+
+#: .\userapp\templates\leadership\show_feedback.html:127
+msgid ""
+"Review teacher evaluations and performance metrics for your leadership "
+"challenges."
+msgstr ""
+"अपनी नेतृत्व चुनौतियों के लिए शिक्षक मूल्यांकन और प्रदर्शन मेट्रिक्स की "
+"समीक्षा करें।"
+
+#: .\userapp\templates\leadership\show_feedback.html:135
+msgid "Challenge"
+msgstr "चुनौती"
+
+#: .\userapp\templates\leadership\show_feedback.html:136
+msgid "Response Preview"
+msgstr "प्रतिक्रिया पूर्वावलोकन"
+
+#: .\userapp\templates\leadership\show_feedback.html:137
+msgid "Rating"
+msgstr "रेटिंग"
+
+#: .\userapp\templates\leadership\show_feedback.html:164
+msgid "View Feedback"
+msgstr "प्रतिक्रिया देखें"
+
+#: .\userapp\templates\leadership\show_feedback.html:178
+msgid "Evaluation:"
+msgstr "मूल्यांकन:"
+
+#: .\userapp\templates\leadership\show_feedback.html:189
+msgid "Your Submitted Response:"
+msgstr "आपकी सबमिट की गई प्रतिक्रिया:"
+
+#: .\userapp\templates\leadership\show_feedback.html:199
+msgid "Teacher Feedback:"
+msgstr "शिक्षक प्रतिक्रिया:"
+
+#: .\userapp\templates\leadership\show_feedback.html:207
+msgid "Close Review"
+msgstr "समीक्षा बंद करें"
+
+#: .\userapp\templates\leadership\show_feedback.html:220
+msgid "No Feedback Available"
+msgstr "कोई प्रतिक्रिया उपलब्ध नहीं है"
+
+#: .\userapp\templates\leadership\show_feedback.html:222
+msgid "You haven't participated in any leadership challenges yet."
+msgstr "आपने अभी तक किसी भी नेतृत्व चुनौती में भाग नहीं लिया है।"
+
+#: .\userapp\templates\leadership\show_feedback.html:226
+#: .\userapp\templates\storyweave\storyweave_challenge_mode.html:134
+msgid "Enter the Arena"
+msgstr "अखाड़े में प्रवेश करें"
+
+#: .\userapp\templates\onlinetest\choose.html:153
+msgid "Available Test Topics"
+msgstr "उपलब्ध परीक्षण विषय"
+
+#: .\userapp\templates\onlinetest\choose.html:154
+msgid "Choose a subject to add to your dashboard and begin your assessment."
+msgstr ""
+"अपने डैशबोर्ड में जोड़ने के लिए एक विषय चुनें और अपना मूल्यांकन शुरू करें।"
+
+#: .\userapp\templates\onlinetest\choose.html:159
+msgid "My Enrolled Topics"
+msgstr "मेरे नामांकित विषय"
+
+#: .\userapp\templates\onlinetest\choose.html:162
+msgid "View Test Results"
+msgstr "परीक्षण परिणाम देखें"
+
+#: .\userapp\templates\onlinetest\choose.html:180
+msgid "Language:"
+msgstr "भाषा:"
+
+#: .\userapp\templates\onlinetest\choose.html:192
+msgid "Add to My Dashboard"
+msgstr "मेरे डैशबोर्ड में जोड़ें"
+
+#: .\userapp\templates\onlinetest\choose.html:201
+msgid "No topics are currently available for selection."
+msgstr "चयन के लिए फिलहाल कोई विषय उपलब्ध नहीं है."
+
+#: .\userapp\templates\onlinetest\choose.html:209
+msgid "Return to Student Arena"
+msgstr "छात्र क्षेत्र को लौटें"
+
+#: .\userapp\templates\onlinetest\my_courses.html:120
+msgid "My Digital Classroom"
+msgstr "मेरा डिजिटल क्लासरूम"
+
+#: .\userapp\templates\onlinetest\my_courses.html:121
+msgid ""
+"Manage your enrolled courses and attempt assessments to track your progress."
+msgstr ""
+"अपने नामांकित पाठ्यक्रम प्रबंधित करें और अपनी प्रगति को ट्रैक करने के लिए "
+"मूल्यांकन का प्रयास करें।"
+
+#: .\userapp\templates\onlinetest\my_courses.html:129
+msgid "Course Details"
+msgstr "पाठ्यक्रम विवरण"
+
+#: .\userapp\templates\onlinetest\my_courses.html:131
+msgid "Learning Material"
+msgstr "सीखने की सामग्री"
+
+#: .\userapp\templates\onlinetest\my_courses.html:132
+msgid "Quest Count"
+msgstr "क्वेस्ट गिनती"
+
+#: .\userapp\templates\onlinetest\my_courses.html:153
+msgid "Watch Lessons"
+msgstr "पाठ देखें"
+
+#: .\userapp\templates\onlinetest\my_courses.html:162
+msgid "Attempt Test"
+msgstr "परीक्षण का प्रयास करें"
+
+#: .\userapp\templates\onlinetest\my_courses.html:166
+msgid "Locked"
+msgstr "बंद"
+
+#: .\userapp\templates\onlinetest\my_courses.html:167
+msgid "Needs 10+ questions"
+msgstr "10+ प्रश्नों की आवश्यकता है"
+
+#: .\userapp\templates\onlinetest\my_courses.html:179
+msgid "No Enrolled Courses"
+msgstr "कोई नामांकित पाठ्यक्रम नहीं"
+
+#: .\userapp\templates\onlinetest\my_courses.html:180
+msgid ""
+"You haven't joined any classrooms yet. Start your journey by enrolling in a "
+"curriculum aligned course."
+msgstr ""
+"आप अभी तक किसी भी कक्षा में शामिल नहीं हुए हैं।पाठ्यक्रम अनुरूप पाठ्यक्रम "
+"में दाखिला लेकर अपनी यात्रा शुरू करें।"
+
+#: .\userapp\templates\onlinetest\my_courses.html:182
+msgid "Browse Learning Arena"
+msgstr "लर्निंग एरेना ब्राउज़ करें"
+
+#: .\userapp\templates\onlinetest\process-question.html:165
+msgid "Time Remaining"
+msgstr "शेष समय"
+
+#: .\userapp\templates\onlinetest\process-question.html:172
+msgid "Live Proctoring Monitor"
+msgstr "लाइव प्रॉक्टरिंग मॉनिटर"
+
+#: .\userapp\templates\onlinetest\process-question.html:179
+msgid "60s auto-submit per question."
+msgstr "60 के दशक प्रति प्रश्न स्वतः सबमिट।"
+
+#: .\userapp\templates\onlinetest\process-question.html:180
+msgid "1 mark per correct answer."
+msgstr "प्रति सही उत्तर 1 अंक।"
+
+#: .\userapp\templates\onlinetest\process-question.html:181
+msgid "Camera must remain active."
+msgstr "कैमरा सक्रिय रहना चाहिए."
+
+#: .\userapp\templates\onlinetest\process-question.html:191
+msgid "Active Assessment"
+msgstr "सक्रिय मूल्यांकन"
+
+#: .\userapp\templates\onlinetest\process-question.html:209
+msgid "Q."
+msgstr "क्यू।"
+
+#: .\userapp\templates\onlinetest\process-question.html:240
+msgid "Compose your descriptive answer:"
+msgstr "अपना वर्णनात्मक उत्तर लिखें:"
+
+#: .\userapp\templates\onlinetest\process-question.html:247
+msgid "Assessment Image"
+msgstr "मूल्यांकन छवि"
+
+#: .\userapp\templates\onlinetest\process-question.html:249
+msgid "Analyze the image and provide your findings..."
+msgstr "छवि का विश्लेषण करें और अपने निष्कर्ष प्रदान करें..."
+
+#: .\userapp\templates\onlinetest\process-question.html:256
+msgid "Next Question"
+msgstr "अगला सवाल"
+
+#: .\userapp\templates\onlinetest\process-question.html:264
+msgid ""
+"Integrity Monitor Active: Webcam is recording your session for verification."
+msgstr ""
+"इंटीग्रिटी मॉनिटर सक्रिय: वेबकैम सत्यापन के लिए आपके सत्र को रिकॉर्ड कर रहा "
+"है।"
+
+#: .\userapp\templates\onlinetest\test_result.html:119
+msgid "Assessment History"
+msgstr "मूल्यांकन इतिहास"
+
+#: .\userapp\templates\onlinetest\test_result.html:120
+msgid "Review your past performances and track your bilingual growth."
+msgstr ""
+"अपने पिछले प्रदर्शनों की समीक्षा करें और अपने द्विभाषी विकास पर नज़र रखें।"
+
+#: .\userapp\templates\onlinetest\test_result.html:128
+msgid "Test Module"
+msgstr "परीक्षण मॉड्यूल"
+
+#: .\userapp\templates\onlinetest\test_result.html:129
+msgid "Attempt Date"
+msgstr "प्रयास दिनांक"
+
+#: .\userapp\templates\onlinetest\test_result.html:173
+#, python-format
+msgid "Page %(page_obj.number)s of %(page_obj.paginator.num_pages)s"
+msgstr "पृष्ठ %(page_obj.number)s में से %(page_obj.paginator.num_pages)s"
+
+#: .\userapp\templates\onlinetest\test_result.html:191
+msgid "No Records Found"
+msgstr "कोई रिकॉर्ड नहीं मिला"
+
+#: .\userapp\templates\onlinetest\test_result.html:192
+msgid ""
+"You haven't attempted any tests yet. Head over to the arena to start your "
+"learning journey!"
+msgstr ""
+"आपने अभी तक किसी भी परीक्षण का प्रयास नहीं किया है.अपनी सीखने की यात्रा शुरू"
+" करने के लिए मैदान में जाएँ!"
+
+#: .\userapp\templates\onlinetest\test_result.html:194
+msgid "Go to Learning Arena"
+msgstr "लर्निंग एरीना पर जाएं"
+
+#: .\userapp\templates\onlinetest\view-fulltest-deatils.html:109
+msgid "Detailed Test Results"
+msgstr "विस्तृत परीक्षण परिणाम"
+
+#: .\userapp\templates\onlinetest\view-fulltest-deatils.html:112
+msgid "A comprehensive breakdown of your academic performance."
+msgstr "आपके शैक्षणिक प्रदर्शन का व्यापक विवरण।"
+
+#: .\userapp\templates\onlinetest\view-fulltest-deatils.html:120
+msgid "Performance Summary"
+msgstr "प्रदर्शन सारांश"
+
+#: .\userapp\templates\onlinetest\view-fulltest-deatils.html:124
+msgid "Correct Answers"
+msgstr "सही उत्तर"
+
+#: .\userapp\templates\onlinetest\view-fulltest-deatils.html:128
+msgid "Incorrect / Skipped"
+msgstr "ग़लत/छोड़ दिया गया"
+
+#: .\userapp\templates\onlinetest\view-fulltest-deatils.html:132
+msgid "Total Score Potential"
+msgstr "कुल स्कोर संभावित"
+
+#: .\userapp\templates\onlinetest\view-fulltest-deatils.html:136
+msgid "Success Rate"
+msgstr "सफलता दर"
+
+#: .\userapp\templates\onlinetest\view-fulltest-deatils.html:142
+msgid "Download Full Transcript"
+msgstr "पूर्ण प्रतिलेख डाउनलोड करें"
+
+#: .\userapp\templates\onlinetest\view-fulltest-deatils.html:159
+msgid "Question"
+msgstr "सवाल"
+
+#: .\userapp\templates\onlinetest\view-fulltest-deatils.html:160
+msgid "Your Response"
+msgstr "आपका जवाब"
+
+#: .\userapp\templates\onlinetest\view-fulltest-deatils.html:161
+msgid "Correct Answer"
+msgstr "सही जवाब"
+
+#: .\userapp\templates\onlinetest\view-fulltest-deatils.html:162
+msgid "Marks"
+msgstr "निशान"
+
+#: .\userapp\templates\onlinetest\view-fulltest-deatils.html:173
+msgid "Timed out!"
+msgstr "समय समााप्त!"
+
+#: .\userapp\templates\onlinetest\view-fulltest-deatils.html:187
+msgid "Final Marks Obtained:"
+msgstr "अंतिम प्राप्त अंक:"
+
+#: .\userapp\templates\onlinetest\view-fulltest-deatils.html:203
+msgid "Scholar Insight:"
+msgstr "विद्वान अंतर्दृष्टि:"
+
+#: .\userapp\templates\onlinetest\view-fulltest-deatils.html:205
+msgid ""
+"Your performance is below average. Keep practicing with our bilingual "
+"modules to improve."
+msgstr ""
+"आपका प्रदर्शन औसत से नीचे है.सुधार के लिए हमारे द्विभाषी मॉड्यूल के साथ "
+"अभ्यास करते रहें।"
+
+#: .\userapp\templates\onlinetest\view-fulltest-deatils.html:207
+msgid ""
+"Your performance is average. Aim for higher scores in your next challenge."
+msgstr ""
+"आपका प्रदर्शन औसत है.अपनी अगली चुनौती में उच्च अंक प्राप्त करने का लक्ष्य "
+"रखें।"
+
+#: .\userapp\templates\onlinetest\view-fulltest-deatils.html:209
+msgid ""
+"Your performance is good. You are demonstrating strong bilingual skills!"
+msgstr "आपका प्रदर्शन अच्छा है.आप मजबूत द्विभाषी कौशल का प्रदर्शन कर रहे हैं!"
+
+#: .\userapp\templates\onlinetest\view-fulltest-deatils.html:211
+msgid ""
+"Congratulations! You've performed exceptionally well. You're a top scholar!"
+msgstr ""
+"बधाई हो!आपने असाधारण रूप से अच्छा प्रदर्शन किया है.आप तो परम विद्वान हैं!"
+
+#: .\userapp\templates\onlinetest\view-fulltest-deatils.html:213
+msgid "Detailed analysis is being prepared for your profile."
+msgstr "आपकी प्रोफ़ाइल के लिए विस्तृत विश्लेषण तैयार किया जा रहा है."
+
+#: .\userapp\templates\onlinetest\view-fulltest-deatils.html:221
+msgid "Return to Learning Arena"
+msgstr "लर्निंग एरेना को लौटें"
+
+#: .\userapp\templates\reflection\question_page.html:115
+msgid "Your Thoughts & Reflections:"
+msgstr "आपके विचार एवं विचार:"
+
+#: .\userapp\templates\reflection\question_page.html:119
+msgid "Take a moment to breathe and write honestly..."
+msgstr "थोड़ी देर सांस लें और ईमानदारी से लिखें..."
+
+#: .\userapp\templates\reflection\question_page.html:123
+msgid "There are no wrong answers, only your unique perspective."
+msgstr "कोई गलत उत्तर नहीं हैं, केवल आपका अद्वितीय दृष्टिकोण है।"
+
+#: .\userapp\templates\reflection\question_page.html:128
+msgid "Submit My Reflection"
+msgstr "मेरा प्रतिबिंब सबमिट करें"
+
+#: .\userapp\templates\reflection\question_page.html:134
+msgid "Choose a different category"
+msgstr "कोई भिन्न श्रेणी चुनें"
+
+#: .\userapp\templates\reflection\start_reflection.html:118
+msgid "View Your Journey History"
+msgstr "अपनी यात्रा का इतिहास देखें"
+
+#: .\userapp\templates\reflection\start_reflection.html:125
+msgid "Begin Your Reflection"
+msgstr "अपना चिंतन शुरू करें"
+
+#: .\userapp\templates\reflection\start_reflection.html:127
+msgid ""
+"Select a focus area to generate a question that helps you explore your "
+"personal growth."
+msgstr ""
+"एक प्रश्न उत्पन्न करने के लिए एक फोकस क्षेत्र चुनें जो आपके व्यक्तिगत विकास "
+"का पता लगाने में आपकी सहायता करता है।"
+
+#: .\userapp\templates\reflection\start_reflection.html:135
+msgid "Choose an area of focus:"
+msgstr "फोकस का क्षेत्र चुनें:"
+
+#: .\userapp\templates\reflection\start_reflection.html:138
+msgid "🌱 Personal Growth"
+msgstr "🌱व्यक्तिगत विकास"
+
+#: .\userapp\templates\reflection\start_reflection.html:139
+msgid "🌈 Emotions & Well-being"
+msgstr "🌈 भावनाएँ और भलाई"
+
+#: .\userapp\templates\reflection\start_reflection.html:140
+msgid "🎯 Life Goals & Purpose"
+msgstr "🎯जीवन लक्ष्य और उद्देश्य"
+
+#: .\userapp\templates\reflection\start_reflection.html:141
+msgid "🤝 Relationships & Social Life"
+msgstr "🤝 रिश्ते और सामाजिक जीवन"
+
+#: .\userapp\templates\reflection\start_reflection.html:146
+msgid "Generate My Question"
+msgstr "मेरा प्रश्न उत्पन्न करें"
+
+#: .\userapp\templates\reflection\view_feedback.html:117
+msgid "Reflection History"
+msgstr "प्रतिबिंब इतिहास"
+
+#: .\userapp\templates\reflection\view_feedback.html:118
+msgid "Review your personal growth journey and teacher insights."
+msgstr "अपनी व्यक्तिगत विकास यात्रा और शिक्षक अंतर्दृष्टि की समीक्षा करें।"
+
+#: .\userapp\templates\reflection\view_feedback.html:126
+msgid "Category"
+msgstr "वर्ग"
+
+#: .\userapp\templates\reflection\view_feedback.html:127
+msgid "Question Preview"
+msgstr "प्रश्न पूर्वावलोकन"
+
+#: .\userapp\templates\reflection\view_feedback.html:128
+msgid "Your Answer"
+msgstr "आपका उत्तर"
+
+#: .\userapp\templates\reflection\view_feedback.html:129
+msgid "Insight"
+msgstr "अंतर्दृष्टि"
+
+#: .\userapp\templates\reflection\view_feedback.html:130
+msgid "Date"
+msgstr "तारीख"
+
+#: .\userapp\templates\reflection\view_feedback.html:140
+msgid "Read"
+msgstr "पढ़ना"
+
+#: .\userapp\templates\reflection\view_feedback.html:156
+#, python-format
+msgid "My Reflection: %(reflection.category)s"
+msgstr "मेरा प्रतिबिंब: %(reflection.category)s"
+
+#: .\userapp\templates\reflection\view_feedback.html:158
+#: .\userapp\templates\reflection\view_feedback.html:179
+msgid "Close"
+msgstr "बंद करना"
+
+#: .\userapp\templates\reflection\view_feedback.html:163
+msgid "Question:"
+msgstr "सवाल:"
+
+#: .\userapp\templates\reflection\view_feedback.html:165
+msgid "My Answer:"
+msgstr "मेरा उत्तर:"
+
+#: .\userapp\templates\reflection\view_feedback.html:177
+#, python-format
+msgid "Teacher Insight: %(reflection.category)s"
+msgstr "शिक्षक अंतर्दृष्टि: %(reflection.category)s"
+
+#: .\userapp\templates\reflection\view_feedback.html:196
+msgid "No reflections found for your profile yet. Start a new session!"
+msgstr ""
+"आपकी प्रोफ़ाइल के लिए अभी तक कोई प्रतिबिंब नहीं मिला.एक नया सत्र प्रारंभ "
+"करें!"
+
+#: .\userapp\templates\reflection\view_feedback.html:198
+msgid "Begin Reflection"
+msgstr "चिंतन प्रारंभ करें"
+
+#: .\userapp\templates\signup-router.html:9
+#: .\userapp\templates\user-register.html:94
+msgid "Create Your Account"
+msgstr "अपना खाता बनाएं"
+
+#: .\userapp\templates\signup-router.html:11
+msgid "Choose how you want to register"
+msgstr "चुनें कि आप कैसे पंजीकरण करना चाहते हैं"
+
+#: .\userapp\templates\signup-router.html:23
+msgid "I am a Student"
+msgstr "मैं पढ़ता हूं"
+
+#: .\userapp\templates\signup-router.html:30
+msgid "I am an Instructor"
+msgstr "मैं एक प्रशिक्षक हूँ"
+
+#: .\userapp\templates\signup-router.html:38
+#: .\userapp\templates\user-register.html:137
+msgid "Already have an account?"
+msgstr "क्या आपके पास पहले से एक खाता मौजूद है?"
+
+#: .\userapp\templates\storyweave\storyweave_challenge_mode.html:117
+msgid "Advanced Level"
+msgstr "अग्रवर्ती स्तर"
+
+#: .\userapp\templates\storyweave\storyweave_challenge_mode.html:128
+msgid "Challenge Mode"
+msgstr "चुनौती मोड"
+
+#: .\userapp\templates\storyweave\storyweave_challenge_mode.html:130
+msgid ""
+"Think you can write under pressure? Test your storytelling skills by facing "
+"unexpected twists and plot challenges while you craft your tale."
+msgstr ""
+"क्या आपको लगता है कि आप दबाव में लिख सकते हैं?अपनी कहानी गढ़ते समय "
+"अप्रत्याशित मोड़ और कथानक चुनौतियों का सामना करके अपने कहानी कहने के कौशल का"
+" परीक्षण करें।"
+
+#: .\userapp\templates\storyweave\storyweave_challenge_mode.html:139
+msgid "Warning: This mode includes time limits and random story events!"
+msgstr "चेतावनी: इस मोड में समय सीमा और यादृच्छिक कहानी घटनाएँ शामिल हैं!"
+
+#: .\userapp\templates\storyweave\storyweave_challenge_mode.html:144
+#: .\userapp\templates\storyweave\storyweave_choose_mode.html:145
+msgid "Back to Dashboard"
+msgstr "डैशबोर्ड पर वापस जाएँ"
+
+#: .\userapp\templates\storyweave\storyweave_choose_mode.html:101
+msgid "Choose Your Story Weave"
+msgstr "अपनी कहानी की बुनाई चुनें"
+
+#: .\userapp\templates\storyweave\storyweave_choose_mode.html:102
+msgid "Select your preferred creative path to begin your literary journey."
+msgstr ""
+"अपनी साहित्यिक यात्रा शुरू करने के लिए अपना पसंदीदा रचनात्मक मार्ग चुनें।"
+
+#: .\userapp\templates\storyweave\storyweave_choose_mode.html:114
+msgid "Individual"
+msgstr "व्यक्ति"
+
+#: .\userapp\templates\storyweave\storyweave_choose_mode.html:115
+msgid "Solo Story Mode"
+msgstr "सोलो स्टोरी मोड"
+
+#: .\userapp\templates\storyweave\storyweave_choose_mode.html:116
+msgid ""
+"Write your own masterpiece without interruptions. Pure imagination, pure "
+"creativity!"
+msgstr ""
+"बिना किसी रुकावट के अपनी उत्कृष्ट कृति लिखें।शुद्ध कल्पना, शुद्ध रचनात्मकता!"
+
+#: .\userapp\templates\storyweave\storyweave_choose_mode.html:118
+msgid "Start Solo Story"
+msgstr "सोलो स्टोरी शुरू करें"
+
+#: .\userapp\templates\storyweave\storyweave_choose_mode.html:132
+msgid "Team Work"
+msgstr "टीम वर्क"
+
+#: .\userapp\templates\storyweave\storyweave_choose_mode.html:133
+#: .\userapp\templates\storyweave\storyweave_collaborative_mode.html:112
+msgid "Collaborative Mode"
+msgstr "सहयोगात्मक मोड"
+
+#: .\userapp\templates\storyweave\storyweave_choose_mode.html:134
+msgid ""
+"Join forces with other scholars! Build on each other's ideas to create epic "
+"team tales."
+msgstr ""
+"अन्य विद्वानों के साथ जुड़ें!महाकाव्य टीम कहानियाँ बनाने के लिए एक-दूसरे के "
+"विचारों का निर्माण करें।"
+
+#: .\userapp\templates\storyweave\storyweave_choose_mode.html:136
+msgid "Join Team Weave"
+msgstr "टीम वीव में शामिल हों"
+
+#: .\userapp\templates\storyweave\storyweave_collaborative_mode.html:113
+msgid "The Team Tapestry"
+msgstr "टीम टेपेस्ट्री"
+
+#: .\userapp\templates\storyweave\storyweave_collaborative_mode.html:114
+msgid ""
+"Join forces with Nabha's brightest minds to create an epic story together!"
+msgstr "नाभा के प्रतिभाशाली दिमागों के साथ मिलकर एक महाकाव्य कहानी बनाएं!"
+
+#: .\userapp\templates\storyweave\storyweave_collaborative_mode.html:122
+msgid "Current Story Weave"
+msgstr "करंट स्टोरी बुनाई"
+
+#: .\userapp\templates\storyweave\storyweave_collaborative_mode.html:126
+msgid "Wait for the magic... generating a story starter for your team!"
+msgstr ""
+"जादू की प्रतीक्षा करें... अपनी टीम के लिए एक कहानी स्टार्टर तैयार करना!"
+
+#: .\userapp\templates\storyweave\storyweave_collaborative_mode.html:140
+msgid "Entry Successful!"
+msgstr "प्रवेश सफल!"
+
+#: .\userapp\templates\storyweave\storyweave_collaborative_mode.html:144
+msgid "Collaboration Status:"
+msgstr "सहयोग की स्थिति:"
+
+#: .\userapp\templates\storyweave\storyweave_collaborative_mode.html:154
+msgid "Your Contribution"
+msgstr "आपका योगदान"
+
+#: .\userapp\templates\storyweave\storyweave_collaborative_mode.html:160
+msgid "1. Choose your writing partner:"
+msgstr "1. अपना लेखन भागीदार चुनें:"
+
+#: .\userapp\templates\storyweave\storyweave_collaborative_mode.html:162
+msgid "-- Select a Collaborator --"
+msgstr "-- एक सहयोगी चुनें --"
+
+#: .\userapp\templates\storyweave\storyweave_collaborative_mode.html:170
+msgid "2. Write your segment of the tale:"
+msgstr "2. कहानी का अपना खंड लिखें:"
+
+#: .\userapp\templates\storyweave\storyweave_collaborative_mode.html:171
+msgid "Continue the journey from here..."
+msgstr "यहां से यात्रा जारी रखें..."
+
+#: .\userapp\templates\storyweave\storyweave_collaborative_mode.html:176
+msgid "Submit My Part"
+msgstr "मेरा भाग जमा करें"
+
+#: .\userapp\templates\storyweave\storyweave_collaborative_mode.html:187
+msgid "Start New Collaboration"
+msgstr "नया सहयोग प्रारंभ करें"
+
+#: .\userapp\templates\storyweave\storyweave_solo_mode.html:102
+msgid "Solo Mode"
+msgstr "सोलो मोड"
+
+#: .\userapp\templates\storyweave\storyweave_solo_mode.html:103
+msgid "Story Weave Sanctuary"
+msgstr "कहानी बुनाई अभयारण्य"
+
+#: .\userapp\templates\storyweave\storyweave_solo_mode.html:104
+msgid "Unleash your imagination and let your creativity flow through words."
+msgstr ""
+"अपनी कल्पना को उजागर करें और अपनी रचनात्मकता को शब्दों के माध्यम से बहने "
+"दें।"
+
+#: .\userapp\templates\storyweave\storyweave_solo_mode.html:112
+msgid "Your Inspiration"
+msgstr "आपकी प्रेरणा"
+
+#: .\userapp\templates\storyweave\storyweave_solo_mode.html:116
+msgid "Ready to write? We're generating a magical prompt for you..."
+msgstr "लिखने के लिए तैयार हैं?हम आपके लिए एक जादुई संकेत तैयार कर रहे हैं..."
+
+#: .\userapp\templates\storyweave\storyweave_solo_mode.html:128
+msgid "Begin your tale here:"
+msgstr "अपनी कहानी यहां से शुरू करें:"
+
+#: .\userapp\templates\storyweave\storyweave_solo_mode.html:129
+msgid "Once upon a time in Nabha..."
+msgstr "एक बार नाभा में..."
+
+#: .\userapp\templates\storyweave\storyweave_solo_mode.html:133
+msgid "Complete Story"
+msgstr "पूरी कहानी"
+
+#: .\userapp\templates\storyweave\storyweave_solo_mode.html:148
+msgid "Your Story is Preserved!"
+msgstr "आपकी कहानी सुरक्षित है!"
+
+#: .\userapp\templates\storyweave\storyweave_solo_mode.html:152
+msgid "Teacher's Insight / AI Analysis:"
+msgstr "शिक्षक की अंतर्दृष्टि/एआई विश्लेषण:"
+
+#: .\userapp\templates\storyweave\storyweave_solo_mode.html:160
+msgid "Start a New Journey"
+msgstr "एक नई यात्रा शुरू करें"
+
+#: .\userapp\templates\time_game.html:115
+msgid ""
+"Learn how to balance your school tasks and fun activities through this "
+"interactive challenge!"
+msgstr ""
+"इस इंटरैक्टिव चुनौती के माध्यम से जानें कि अपने स्कूल के कार्यों और मनोरंजक "
+"गतिविधियों को कैसे संतुलित किया जाए!"
+
+#: .\userapp\templates\time_game.html:121
+msgid "Which grade are you in?"
+msgstr "तुम कौनसी कक्षा मे हो?"
+
+#: .\userapp\templates\time_game.html:123
+msgid "Choose your Grade..."
+msgstr "अपना ग्रेड चुनें..."
+
+#: .\userapp\templates\time_game.html:124
+msgid "Grade A (Primary)"
+msgstr "ग्रेड ए (प्राथमिक)"
+
+#: .\userapp\templates\time_game.html:125
+msgid "Grade B (Middle)"
+msgstr "ग्रेड बी (मध्यम)"
+
+#: .\userapp\templates\time_game.html:126
+msgid "Grade C (Secondary)"
+msgstr "ग्रेड सी (माध्यमिक)"
+
+#: .\userapp\templates\time_game.html:127
+msgid "Grade D (Higher Secondary)"
+msgstr "ग्रेड डी (उच्च माध्यमिक)"
+
+#: .\userapp\templates\time_game.html:132
+msgid "Start Playing"
+msgstr "खेलना प्रारंभ करें"
+
+#: .\userapp\templates\time_game.html:137
+msgid "Quick Tip:"
+msgstr "तुरता सलाह:"
+
+#: .\userapp\templates\time_game.html:138
+msgid ""
+"Managing your time well helps you finish homework faster so you have more "
+"time to play with friends!"
+msgstr ""
+"अपने समय को अच्छी तरह से प्रबंधित करने से आपको होमवर्क तेजी से पूरा करने में"
+" मदद मिलती है जिससे आपके पास दोस्तों के साथ खेलने के लिए अधिक समय होता है!"
+
+#: .\userapp\templates\time_game_success.html:113
+msgid "Grade Updated Successfully!"
+msgstr "ग्रेड सफलतापूर्वक अपडेट किया गया!"
+
+#: .\userapp\templates\time_game_success.html:115
+msgid ""
+"Your game profile is ready. You can now manage and complete your pending "
+"tasks."
+msgstr ""
+"आपकी गेम प्रोफ़ाइल तैयार है.अब आप अपने लंबित कार्यों को प्रबंधित और पूरा कर "
+"सकते हैं।"
+
+#: .\userapp\templates\time_game_success.html:120
+msgid "Pending Tasks"
+msgstr "लंबित कार्य"
+
+#: .\userapp\templates\time_game_success.html:150
+msgid "Complete"
+msgstr "पूरा"
+
+#: .\userapp\templates\time_game_success.html:161
+msgid "No Tasks"
+msgstr "कोई कार्य नहीं"
+
+#: .\userapp\templates\time_game_success.html:162
+msgid "Great job! You have no pending tasks at the moment."
+msgstr "अच्छा काम!इस समय आपका कोई भी कार्य लंबित नहीं है."
+
+#: .\userapp\templates\time_game_success.html:170
+msgid "View Achievement History"
+msgstr "उपलब्धि इतिहास देखें"
+
+#: .\userapp\templates\unified-login.html:9
+msgid "Login to Your Account"
+msgstr "अपने अकाउंट में लॉग इन करें"
+
+#: .\userapp\templates\unified-login.html:22
+msgid "Email or Username"
+msgstr "ईमेल या उपयोगकर्ता का नाम"
+
+#: .\userapp\templates\unified-login.html:46
+msgid "Don't have an account?"
+msgstr "कोई खाता नहीं है?"
+
+#: .\userapp\templates\unified-login.html:48
+msgid "Sign up"
+msgstr "साइन अप करें"
+
+#: .\userapp\templates\user-feedback.html:143
+msgid "Share Your Thoughts"
+msgstr "अपने विचार साझा करें"
+
+#: .\userapp\templates\user-feedback.html:144
+msgid "Help us improve the NabhaLearn experience for everyone."
+msgstr "सभी के लिए NabhaLearn अनुभव को बेहतर बनाने में हमारी सहायता करें।"
+
+#: .\userapp\templates\user-feedback.html:152
+#: .\userapp\templates\user-register.html:104
+msgid "John Doe"
+msgstr "जॉन डो"
+
+#: .\userapp\templates\user-feedback.html:157
+msgid "john@example.com"
+msgstr "john@example.com"
+
+#: .\userapp\templates\user-feedback.html:161
+msgid "How was your experience?"
+msgstr "आपका अनुभव कैसा था?"
+
+#: .\userapp\templates\user-feedback.html:165
+msgid "Rating:"
+msgstr "रेटिंग:"
+
+#: .\userapp\templates\user-feedback.html:178
+msgid "Detailed Comments"
+msgstr "विस्तृत टिप्पणियाँ"
+
+#: .\userapp\templates\user-feedback.html:179
+msgid "Tell us more about what you liked or what we can improve..."
+msgstr ""
+"आपको क्या पसंद आया या हम क्या सुधार कर सकते हैं इसके बारे में हमें और "
+"बताएं..."
+
+#: .\userapp\templates\user-feedback.html:183
+msgid "Submit Feedback"
+msgstr "प्रतिक्रिया सबमिट करें"
+
+#: .\userapp\templates\user-feedback.html:188
+msgid "We value every opinion!"
+msgstr "हम हर राय को महत्व देते हैं!"
+
+#: .\userapp\templates\user-login.html:123
+msgid "Student Learning"
+msgstr "छात्र सीखना"
+
+#: .\userapp\templates\user-login.html:134
+msgid "Student Login"
+msgstr "छात्र लॉगिन"
+
+#: .\userapp\templates\user-login.html:135
+msgid "Welcome back! Please enter your details to continue learning."
+msgstr "वापसी पर स्वागत है!सीखना जारी रखने के लिए कृपया अपना विवरण दर्ज करें।"
+
+#: .\userapp\templates\user-login.html:142
+msgid "Email address"
+msgstr "मेल पता"
+
+#: .\userapp\templates\user-login.html:143
+msgid "yourname@email.com"
+msgstr "yourname@email.com"
+
+#: .\userapp\templates\user-login.html:154
+msgid "Remember me"
+msgstr "मुझे याद करो"
+
+#: .\userapp\templates\user-login.html:156
+msgid "Forgot Password?"
+msgstr "पासवर्ड भूल गए?"
+
+#: .\userapp\templates\user-login.html:160
+msgid "Sign In"
+msgstr "दाखिल करना"
+
+#: .\userapp\templates\user-login.html:164
+msgid "Don't have an account yet?"
+msgstr "अब तक कोई खाता नहीं है?"
+
+#: .\userapp\templates\user-login.html:169
+msgid "Or continue with"
+msgstr "या जारी रखें"
+
+#: .\userapp\templates\user-otp.html:125
+msgid "Verify Your Account"
+msgstr "अपने खाते को सत्यापित करें"
+
+#: .\userapp\templates\user-otp.html:126
+msgid "Check your registered email/phone for the OTP"
+msgstr "ओटीपी के लिए अपना पंजीकृत ईमेल/फोन जांचें"
+
+#: .\userapp\templates\user-otp.html:139
+msgid "Validate & Login"
+msgstr "सत्यापित करें और लॉगिन करें"
+
+#: .\userapp\templates\user-otp.html:145
+msgid "Resend OTP"
+msgstr "ओटीपी दोबारा भेजें"
+
+#: .\userapp\templates\user-profile.html:102
+msgid "Student Account"
+msgstr "छात्र खाता"
+
+#: .\userapp\templates\user-profile.html:110
+msgid "Profile Settings"
+msgstr "प्रोफ़ाइल सेटिंग्स"
+
+#: .\userapp\templates\user-profile.html:118
+msgid "Full Name (Locked)"
+msgstr "पूरा नाम (बंद)"
+
+#: .\userapp\templates\user-profile.html:122
+msgid "Email Address (Locked)"
+msgstr "ईमेल पता (लॉक)"
+
+#: .\userapp\templates\user-profile.html:127
+msgid "Mobile Number"
+msgstr "मोबाइल नंबर"
+
+#: .\userapp\templates\user-profile.html:128
+msgid "Enter phone number"
+msgstr "फ़ोन नंबर दर्ज करें"
+
+#: .\userapp\templates\user-profile.html:136
+msgid "Home Address"
+msgstr "घर का पता"
+
+#: .\userapp\templates\user-profile.html:137
+msgid "Village, Street, Nabha"
+msgstr "गांव, गली, नाभा"
+
+#: .\userapp\templates\user-profile.html:142
+msgid "Save Changes"
+msgstr "परिवर्तनों को सुरक्षित करें"
+
+#: .\userapp\templates\user-profile.html:150
+msgid ""
+"Security Notice: Full Name and Email are permanent and cannot be modified."
+msgstr ""
+"सुरक्षा सूचना: पूरा नाम और ईमेल स्थायी हैं और इन्हें संशोधित नहीं किया जा "
+"सकता।"
+
+#: .\userapp\templates\user-register.html:95
+msgid "Join the NabhaLearn student community today."
+msgstr "आज ही NabhaLearn छात्र समुदाय में शामिल हों।"
+
+#: .\userapp\templates\user-register.html:108
+msgid "example@mail.com"
+msgstr "example@mail.com"
+
+#: .\userapp\templates\user-register.html:117
+msgid "9876543210"
+msgstr "9876543210"
+
+#: .\userapp\templates\user-register.html:121
+msgid "Age"
+msgstr "आयु"
+
+#: .\userapp\templates\user-register.html:122
+msgid "e.g. 15"
+msgstr "जैसे 15"
+
+#: .\userapp\templates\user-register.html:125
+msgid "Profile Photo"
+msgstr "खाते की फोटो"
+
+#: .\userapp\templates\user-register.html:125
+msgid "Optional"
+msgstr "वैकल्पिक"
+
+#: .\userapp\templates\user-register.html:130
+msgid "Residential Address"
+msgstr "आवासीय पता"
+
+#: .\userapp\templates\user-register.html:131
+msgid "House no, Street, Village, Nabha"
+msgstr "मकान नंबर, गली, गांव, नाभा"
+
+#: .\userapp\templates\user-register.html:135
+msgid "Create Account"
+msgstr "खाता बनाएं"
+
+#: .\userapp\templates\user-register.html:137
+msgid "Login Here"
+msgstr "यहां लॉगिन करें"
+
+#: .\userapp\templates\user_dashboard.html:80
+msgid "Welcome to NabhaLearn Arena!"
+msgstr "नाभालर्न एरिना में आपका स्वागत है!"
+
+#: .\userapp\templates\user_dashboard.html:81
+msgid "Master your skills and track your progress in real-time."
+msgstr ""
+"अपने कौशल में महारत हासिल करें और वास्तविक समय में अपनी प्रगति को ट्रैक "
+"करें।"
+
+#: .\userapp\templates\user_dashboard.html:96
+msgid "Master spelling and grammar by listening to bilingual audio prompts."
+msgstr ""
+"द्विभाषी ऑडियो संकेतों को सुनकर वर्तनी और व्याकरण में महारत हासिल करें।"
+
+#: .\userapp\templates\user_dashboard.html:97
+#: .\userapp\templates\user_dashboard.html:127
+#: .\userapp\templates\user_dashboard.html:157
+msgid "Play Now"
+msgstr "अब खेलते हैं"
+
+#: .\userapp\templates\user_dashboard.html:111
+msgid ""
+"Assess your knowledge with curriculum-aligned quizzes and instant results."
+msgstr ""
+"पाठ्यक्रम-संरेखित क्विज़ और त्वरित परिणामों के साथ अपने ज्ञान का मूल्यांकन "
+"करें।"
+
+#: .\userapp\templates\user_dashboard.html:112
+msgid "Start Test"
+msgstr "परीक्षण प्रारंभ करें"
+
+#: .\userapp\templates\user_dashboard.html:126
+msgid "Express yourself! Write amazing stories alone or with your friends."
+msgstr ""
+"अपने आप को व्यक्त करें!अकेले या अपने दोस्तों के साथ अद्भुत कहानियाँ लिखें।"
+
+#: .\userapp\templates\user_dashboard.html:141
+msgid ""
+"Focus on personal growth and emotional well-being through guided prompts."
+msgstr ""
+"निर्देशित संकेतों के माध्यम से व्यक्तिगत विकास और भावनात्मक कल्याण पर ध्यान "
+"दें।"
+
+#: .\userapp\templates\user_dashboard.html:142
+msgid "Start Reflection"
+msgstr "प्रतिबिंब प्रारंभ करें"
+
+#: .\userapp\templates\user_dashboard.html:156
+msgid "Learn the art of balance between studies and play in this unique game."
+msgstr "इस अनोखे खेल में सीखें पढ़ाई और खेल के बीच संतुलन बनाने की कला।"
+
+#: .\userapp\templates\user_dashboard.html:171
+msgid "Step up and lead! Handle real-world scenarios and get expert feedback."
+msgstr ""
+"आगे बढ़ें और नेतृत्व करें!वास्तविक दुनिया के परिदृश्यों को संभालें और "
+"विशेषज्ञ प्रतिक्रिया प्राप्त करें।"
+
+#: .\userapp\templates\user_dashboard.html:172
+msgid "Lead Now"
+msgstr "अभी नेतृत्व करें"
+
+#: .\userapp\templates\user_dashboard.html:185
+msgid "Teamwork"
+msgstr "टीम वर्क"
+
+#: .\userapp\templates\user_dashboard.html:186
+msgid "Work together with your peers to solve collaborative challenges."
+msgstr ""
+"सहयोगी चुनौतियों को हल करने के लिए अपने साथियों के साथ मिलकर काम करें।"
+
+#: .\userapp\templates\user_dashboard.html:187
+msgid "Collaborate"
+msgstr "सहयोग"
+
+#: .\userapp\templates\view_completed_tasks.html:97
+msgid "Completed Tasks"
+msgstr "पूर्ण किये गये कार्य"
+
+#: .\userapp\templates\view_completed_tasks.html:100
+msgid ""
+"Congratulations! Here is a record of all your successful learning "
+"achievements."
+msgstr "बधाई हो!यहां आपकी सभी सफल शिक्षण उपलब्धियों का रिकॉर्ड है।"
+
+#: .\userapp\templates\view_completed_tasks.html:111
+msgid "Completion Date"
+msgstr "पूरा करने की तिथि"
+
+#: .\userapp\templates\view_completed_tasks.html:137
+msgid "No completed tasks yet"
+msgstr "अभी तक कोई कार्य पूरा नहीं हुआ"
+
+#: .\userapp\templates\view_completed_tasks.html:138
+msgid "Start exploring your learning modules to see your achievements here!"
+msgstr ""
+"अपनी उपलब्धियों को यहां देखने के लिए अपने शिक्षण मॉड्यूल की खोज शुरू करें!"
+
+#: .\userapp\templates\view_completed_tasks.html:140
+msgid "Go to Dashboard"
+msgstr "डैशबोर्ड पर जाएँ"
+
+#: .\userapp\views.py:26
+msgid "Logout successful."
+msgstr "लॉगआउट सफल."
+
+#: .\userapp\views.py:72
+msgid "An account with this email already exists."
+msgstr "इस ईमेल वाला एक खाता पहले से मौजूद है."
+
+#: .\userapp\views.py:91
+msgid "OTP Verification for Account Activation"
+msgstr "खाता सक्रियण के लिए ओटीपी सत्यापन"
+
+#: .\userapp\views.py:93
+#, python-format
+msgid ""
+"Hello %(name)s,\n"
+"\n"
+"Your OTP for account activation is: %(otp)s"
+msgstr ""
+"नमस्ते %(name)s,\n"
+"\n"
+"खाता सक्रियण के लिए आपका ओटीपी है: %(otp)s"
+
+#: .\userapp\views.py:105
+msgid "OTP sent to your email and phone number."
+msgstr "आपके ईमेल और फोन नंबर पर ओटीपी भेजा गया।"
+
+#: .\userapp\views.py:115
+msgid "No OTP session found. Please try again."
+msgstr "कोई ओटीपी सत्र नहीं मिला.कृपया पुन: प्रयास करें।"
+
+#: .\userapp\views.py:129
+msgid "User not found. Please try again."
+msgstr "उपयोगकर्ता नहीं मिला.कृपया पुन: प्रयास करें।"
+
+#: .\userapp\views.py:136
+msgid "OTP verification successful."
+msgstr "ओटीपी सत्यापन सफल."
+
+#: .\userapp\views.py:139
+msgid "Incorrect OTP. Please try again."
+msgstr "ग़लत ओटीपी.कृपया पुन: प्रयास करें।"
+
+#: .\userapp\views.py:153
+msgid "No user found."
+msgstr "कोई उपयोगकर्ता नहीं मिला."
+
+#: .\userapp\views.py:158 .\userapp\views.py:1021 .\userapp\views.py:1060
+msgid "Incorrect password."
+msgstr "गलत पासवर्ड।"
+
+#: .\userapp\views.py:163
+msgid "Your account is not accepted by admin yet."
+msgstr "आपका खाता अभी तक व्यवस्थापक द्वारा स्वीकार नहीं किया गया है."
+
+#: .\userapp\views.py:174 .\userapp\views.py:1035
+msgid "New OTP for Verification"
+msgstr "सत्यापन के लिए नया ओटीपी"
+
+#: .\userapp\views.py:175 .\userapp\views.py:1036
+#, python-format
+msgid "Your new OTP is: %(otp)s"
+msgstr "आपका नया ओटीपी है: %(otp)s"
+
+#: .\userapp\views.py:184
+msgid "OTP not verified. A new OTP has been sent."
+msgstr "ओटीपी सत्यापित नहीं है.एक नया ओटीपी भेजा गया है."
+
+#: .\userapp\views.py:192 .\userapp\views.py:1049
+msgid "Login successful."
+msgstr "लॉग इन सफल।"
+
+#: .\userapp\views.py:1002
+msgid "Please enter both email and password."
+msgstr "कृपया ईमेल और पासवर्ड दोनों दर्ज करें।"
+
+#: .\userapp\views.py:1013
+msgid "Admin login successful."
+msgstr "व्यवस्थापक लॉगिन सफल."
+
+#: .\userapp\views.py:1025
+msgid "Your account is not accepted yet."
+msgstr "आपका खाता अभी तक स्वीकार नहीं किया गया है."
+
+#: .\userapp\views.py:1043
+msgid "OTP not verified. New OTP sent."
+msgstr "ओटीपी सत्यापित नहीं है.नया ओटीपी भेजा गया."
+
+#: .\userapp\views.py:1064
+msgid "Instructor not approved yet."
+msgstr "प्रशिक्षक को अभी तक मंजूरी नहीं मिली है।"
+
+#: .\userapp\views.py:1073
+msgid "OTP Verification"
+msgstr "ओटीपी सत्यापन"
+
+#: .\userapp\views.py:1074
+#, python-format
+msgid "Your OTP is: %(otp)s"
+msgstr "आपका ओटीपी है: %(otp)s"
+
+#: .\userapp\views.py:1081
+msgid "OTP verification required."
+msgstr "ओटीपी सत्यापन आवश्यक है."
+
+#: .\userapp\views.py:1087
+msgid "Instructor login successful."
+msgstr "प्रशिक्षक लॉगिन सफल."
+
+#: .\userapp\views.py:1093
+msgid "No user found with these credentials."
+msgstr "इन क्रेडेंशियल्स वाला कोई उपयोगकर्ता नहीं मिला."
+
+#: .\userapp\views.py:1115
+msgid "Please select a valid role."
+msgstr "कृपया एक वैध भूमिका चुनें."

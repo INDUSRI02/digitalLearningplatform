@@ -1,5 +1,6 @@
 {% extends 'instructor/base_ins.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
 <style>
@@ -136,11 +137,11 @@
 
 
     <div class="page-header-premium wow fadeInDown">
-        <h1>Assessment Bank</h1>
+        <h1>{% trans "Assessment Bank" %}</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="">Home</a></li>
-                <li class="breadcrumb-item active">All Questions</li>
+                <li class="breadcrumb-item"><a href="">{% trans "Home" %}</a></li>
+                <li class="breadcrumb-item active">{% trans "All Questions" %}</li>
             </ol>
         </nav>
     </div>
@@ -151,7 +152,7 @@
                 <div class="bg-primary text-white rounded-circle p-2 me-3 shadow-sm" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
                     <i class="fas fa-database"></i>
                 </div>
-                <h5 class="m-0 fw-bold" style="color: var(--brand-primary);">Active Question Database</h5>
+                <h5 class="m-0 fw-bold" style="color: var(--brand-primary);">{% trans "Active Question Database" %}</h5>
             </div>
 
             {% if page_obj %}
@@ -159,11 +160,11 @@
                 <table class="table table-premium">
                     <thead>
                         <tr class="text-center">
-                            <th scope="col" width="5%">S.No</th>
-                            <th scope="col" width="20%">Topic / Course</th>
-                            <th scope="col" width="35%">Question Prompt</th>
-                            <th scope="col" width="25%">Key / Answer</th>
-                            <th scope="col" width="15%">Action</th>
+                            <th scope="col" width="5%">{% trans "S.No" %}</th>
+                            <th scope="col" width="20%">{% trans "Topic / Course" %}</th>
+                            <th scope="col" width="35%">{% trans "Question Prompt" %}</th>
+                            <th scope="col" width="25%">{% trans "Key / Answer" %}</th>
+                            <th scope="col" width="15%">{% trans "Action" %}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -186,8 +187,8 @@
                             <td>
                                 <a href="{% url 'remove_question' question_id=question.pk %}" 
                                    class="btn-remove-question"
-                                   onclick="return confirm('Confirm removal of this question from the bank?');">
-                                    <i class="fas fa-trash-alt me-1"></i> Remove
+                                   onclick="return confirm('{% trans "Confirm removal of this question from the bank?" %}');">
+                                    <i class="fas fa-trash-alt me-1"></i> {% trans "Remove" %}
                                 </a>
                             </td>
                         </tr>
@@ -200,7 +201,7 @@
                 <ul class="pagination justify-content-center">
                     {% if page_obj.has_previous %}
                     <li class="page-item">
-                        <a class="page-link shadow-sm" href="?page=1">First</a>
+                        <a class="page-link shadow-sm" href="?page=1">{% trans "First" %}</a>
                     </li>
                     <li class="page-item">
                         <a class="page-link shadow-sm" href="?page={{ page_obj.previous_page_number }}"><i class="fas fa-chevron-left"></i></a>
@@ -218,7 +219,7 @@
                         <a class="page-link shadow-sm" href="?page={{ page_obj.next_page_number }}"><i class="fas fa-chevron-right"></i></a>
                     </li>
                     <li class="page-item">
-                        <a class="page-link shadow-sm" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                        <a class="page-link shadow-sm" href="?page={{ page_obj.paginator.num_pages }}">{% trans "Last" %}</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -228,8 +229,8 @@
             <div class="text-center py-5">
                 <div class="alert alert-info border-0 shadow-sm rounded-4 p-5 d-inline-block col-md-8">
                     <i class="fas fa-folder-open fa-3x mb-3 text-info"></i>
-                    <h5 class="fw-bold">Database Empty</h5>
-                    <p class="mb-0 text-muted">No assessment questions have been added yet. New entries will appear here.</p>
+                    <h5 class="fw-bold">{% trans "Database Empty" %}</h5>
+                    <p class="mb-0 text-muted">{% trans "No assessment questions have been added yet. New entries will appear here." %}</p>
                 </div>
             </div>
             {% endif %}

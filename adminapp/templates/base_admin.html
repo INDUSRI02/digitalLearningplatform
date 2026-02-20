@@ -1,12 +1,13 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ LANGUAGE_CODE|default:'en' }}" dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   
-  <title>NabhaLearn | Admin Dashboard</title>
+  <title>{% trans "NabhaLearn | Admin Dashboard" %}</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
   
@@ -100,6 +101,17 @@
       font-weight: 700;
     }
 
+    /* Language Switcher */
+    .lang-select {
+      border: 1px solid var(--brand-light);
+      border-radius: 8px;
+      padding: 5px 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--brand-primary);
+      background-color: white;
+    }
+
     /* General UI Components */
     .card {
       border: none;
@@ -128,25 +140,45 @@
     <div class="d-flex align-items-center justify-content-between">
       <a href="" class="logo d-flex align-items-center">
         <img src="{% static 'admin/img/logo.png' %}" alt="">
-        <span class="d-none d-lg-block">NabhaAdmin</span>
+        <span class="d-none d-lg-block">{% trans "NabhaAdmin" %}</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div>
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
+
+        {% load i18n %}
+
+              <div class="nav-item px-lg-3">
+                    <form action="{% url 'set_language' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                        <select name="language" onchange="this.form.submit()" class="form-select form-select-sm">
+                            {% get_current_language as CURRENT_LANGUAGE %}
+                            {% get_available_languages as LANGUAGES %}
+                            {% for code, name in LANGUAGES %}
+                                <option value="{{ code }}" {% if code == CURRENT_LANGUAGE %}selected{% endif %}>
+                                    {{ name }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </form>
+                </div>
+            </div>
+
         <li class="nav-item dropdown pe-3">
           
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="{% static 'admin/img/logo.png' %}" alt="Profile" class="rounded-circle border border-success">
-            <span class="d-none d-md-block dropdown-toggle ps-2 fw-bold text-dark">Administrator</span>
+            <span class="d-none d-md-block dropdown-toggle ps-2 fw-bold text-dark">{% trans "Administrator" %}</span>
           </a>
           
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li>
               <a class="dropdown-item d-flex align-items-center" href="{% url 'admin_login' %}">
                 <i class="bi bi-box-arrow-right text-danger"></i>
-                <span>Sign Out</span>
+                <span>{% trans "Sign Out" %}</span>
               </a>
             </li>
           </ul>
@@ -162,23 +194,23 @@
           <li class="nav-item">
               <a class="nav-link {% if request.resolver_match.url_name == 'admin_dashboard_latest' %} active {% else %} collapsed {% endif %}" href="{% url 'admin_dashboard_latest' %}">
                 <i class="bi bi-grid"></i>
-                <span>Dashboard</span>
+                <span>{% trans "Dashboard" %}</span>
               </a>
           </li>
 
           <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#teachers-nav" data-bs-toggle="collapse" href="#">
-              <i class="bi bi-person-badge"></i><span>Teachers Management</span><i class="bi bi-chevron-down ms-auto"></i>
+              <i class="bi bi-person-badge"></i><span>{% trans "Teachers Management" %}</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="teachers-nav" class="nav-content collapse {% if request.resolver_match.url_name == 'pending_ins' or request.resolver_match.url_name == 'all_ins' %} show {% endif %}" data-bs-parent="#sidebar-nav">
+            <ul id="teachers-nav" class="nav-content collapse {% if 'ins' in request.path %} show {% endif %}" data-bs-parent="#sidebar-nav">
               <li>
                 <a href="{% url 'pending_ins' %}" class="{% if request.resolver_match.url_name == 'pending_ins' %} active {% endif %}">
-                  <i class="bi bi-circle"></i><span>Pending Approvals</span>
+                  <i class="bi bi-circle"></i><span>{% trans "Pending Approvals" %}</span>
                 </a>
               </li>
               <li>
                 <a href="{% url 'all_ins' %}" class="{% if request.resolver_match.url_name == 'all_ins' %} active {% endif %}">
-                  <i class="bi bi-circle"></i><span>All Faculty</span>
+                  <i class="bi bi-circle"></i><span>{% trans "All Faculty" %}</span>
                 </a>
               </li>
             </ul>
@@ -186,12 +218,12 @@
 
           <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#students-nav" data-bs-toggle="collapse" href="#">
-              <i class="bi bi-mortarboard"></i><span>Students Management</span><i class="bi bi-chevron-down ms-auto"></i>
+              <i class="bi bi-mortarboard"></i><span>{% trans "Students Management" %}</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="students-nav" class="nav-content collapse {% if request.resolver_match.url_name == 'all_students' %} show {% endif %}" data-bs-parent="#sidebar-nav">
+            <ul id="students-nav" class="nav-content collapse {% if 'students' in request.path %} show {% endif %}" data-bs-parent="#sidebar-nav">
               <li>
                 <a href="{% url 'all_students' %}" class="{% if request.resolver_match.url_name == 'all_students' %} active {% endif %}">
-                  <i class="bi bi-circle"></i><span>View All Scholars</span>
+                  <i class="bi bi-circle"></i><span>{% trans "View All Scholars" %}</span>
                 </a>
               </li>
             </ul>
@@ -199,32 +231,32 @@
 
           <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#leadership-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-award"></i><span>Leadership Arena</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-award"></i><span>{% trans "Leadership Arena" %}</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="leadership-nav" class="nav-content collapse {% if request.resolver_match.url_name == 'add_challenge' or request.resolver_match.url_name == 'manage_challenges' or request.resolver_match.url_name == 'view_answers' %} show {% endif %}" data-bs-parent="#sidebar-nav">
-                <li><a href="{% url 'add_challenge' %}" class="{% if request.resolver_match.url_name == 'add_challenge' %} active {% endif %}"><i class="bi bi-circle"></i><span>Create Challenge</span></a></li>
-                <li><a href="{% url 'manage_challenges' %}" class="{% if request.resolver_match.url_name == 'manage_challenges' %} active {% endif %}"><i class="bi bi-circle"></i><span>Challenge Database</span></a></li>
-                <li><a href="{% url 'view_answers' %}" class="{% if request.resolver_match.url_name == 'view_answers' %} active {% endif %}"><i class="bi bi-circle"></i><span>Student Submissions</span></a></li>
+            <ul id="leadership-nav" class="nav-content collapse {% if 'challenge' in request.path or 'answers' in request.path %} show {% endif %}" data-bs-parent="#sidebar-nav">
+                <li><a href="{% url 'add_challenge' %}" class="{% if request.resolver_match.url_name == 'add_challenge' %} active {% endif %}"><i class="bi bi-circle"></i><span>{% trans "Create Challenge" %}</span></a></li>
+                <li><a href="{% url 'manage_challenges' %}" class="{% if request.resolver_match.url_name == 'manage_challenges' %} active {% endif %}"><i class="bi bi-circle"></i><span>{% trans "Challenge Database" %}</span></a></li>
+                <li><a href="{% url 'view_answers' %}" class="{% if request.resolver_match.url_name == 'view_answers' %} active {% endif %}"><i class="bi bi-circle"></i><span>{% trans "Student Submissions" %}</span></a></li>
             </ul>
           </li>
 
           <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#listen-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-megaphone"></i><span>Listen & Spell</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-megaphone"></i><span>{% trans "Listen & Spell" %}</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="listen-nav" class="nav-content collapse {% if request.resolver_match.url_name == 'admin_listen_spell_add' or request.resolver_match.url_name == 'admin_listen_spell_list' %} show {% endif %}" data-bs-parent="#sidebar-nav">
-                <li><a href="{% url 'admin_listen_spell_add' %}" class="{% if request.resolver_match.url_name == 'admin_listen_spell_add' %} active {% endif %}"><i class="bi bi-circle"></i><span>Add New Vocab</span></a></li>
-                <li><a href="{% url 'admin_listen_spell_list' %}" class="{% if request.resolver_match.url_name == 'admin_listen_spell_list' %} active {% endif %}"><i class="bi bi-circle"></i><span>Manage Words</span></a></li>
+            <ul id="listen-nav" class="nav-content collapse {% if 'listen' in request.path %} show {% endif %}" data-bs-parent="#sidebar-nav">
+                <li><a href="{% url 'admin_listen_spell_add' %}" class="{% if request.resolver_match.url_name == 'admin_listen_spell_add' %} active {% endif %}"><i class="bi bi-circle"></i><span>{% trans "Add New Vocab" %}</span></a></li>
+                <li><a href="{% url 'admin_listen_spell_list' %}" class="{% if request.resolver_match.url_name == 'admin_listen_spell_list' %} active {% endif %}"><i class="bi bi-circle"></i><span>{% trans "Manage Words" %}</span></a></li>
             </ul>
           </li>
 
           <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#feedback-nav" data-bs-toggle="collapse" href="#">
-              <i class="bi bi-chat-square-quote"></i><span>Insights & Feedback</span><i class="bi bi-chevron-down ms-auto"></i>
+              <i class="bi bi-chat-square-quote"></i><span>{% trans "Insights & Feedback" %}</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="feedback-nav" class="nav-content collapse {% if request.resolver_match.url_name == 'view_feedbacks' or request.resolver_match.url_name == 'feedbacks_graph' %} show {% endif %}" data-bs-parent="#sidebar-nav">
-              <li><a href="{% url 'view_feedbacks' %}" class="{% if request.resolver_match.url_name == 'view_feedbacks' %} active {% endif %}"><i class="bi bi-circle"></i><span>Raw Feedbacks</span></a></li>
-              <li><a href="{% url 'feedbacks_graph' %}" class="{% if request.resolver_match.url_name == 'feedbacks_graph' %} active {% endif %}"><i class="bi bi-circle"></i><span>Sentiment Analytics</span></a></li>
+            <ul id="feedback-nav" class="nav-content collapse {% if 'feedback' in request.path or 'graph' in request.path %} show {% endif %}" data-bs-parent="#sidebar-nav">
+              <li><a href="{% url 'view_feedbacks' %}" class="{% if request.resolver_match.url_name == 'view_feedbacks' %} active {% endif %}"><i class="bi bi-circle"></i><span>{% trans "Raw Feedbacks" %}</span></a></li>
+              <li><a href="{% url 'feedbacks_graph' %}" class="{% if request.resolver_match.url_name == 'feedbacks_graph' %} active {% endif %}"><i class="bi bi-circle"></i><span>{% trans "Sentiment Analytics" %}</span></a></li>
             </ul>
           </li>
       
@@ -236,6 +268,14 @@
       {% endblock %}
   </main>
 
+  <footer id="footer" class="footer mt-auto py-3 text-center border-top bg-white">
+    <div class="copyright text-muted">
+      &copy; 2026 <strong><span>{% trans "NabhaLearn" %}</span></strong>. {% trans "Scholarly Administration Portal" %}
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
   <script src="{% static 'admin/vendor/apexcharts/apexcharts.min.js' %}"></script>
   <script src="{% static 'admin/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
   <script src="{% static 'admin/vendor/chart.js/chart.umd.js' %}"></script>
@@ -243,8 +283,6 @@
   <script src="{% static 'admin/vendor/quill/quill.min.js' %}"></script>
   <script src="{% static 'admin/vendor/simple-datatables/simple-datatables.js' %}"></script>
   <script src="{% static 'admin/vendor/tinymce/tinymce.min.js' %}"></script>
-  <script src="{% static 'admin/vendor/php-email-form/validate.js' %}"></script>
-
   <script src="{% static 'admin/js/main.js' %}"></script>
 
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -252,22 +290,14 @@
     {% for message in messages %}
       <script>
         swal({
-          title: "{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Error{% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}Success{% else %}Note{% endif %}",
+          title: "{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}{% trans 'Error' %}{% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}{% trans 'Success' %}{% else %}{% trans 'Note' %}{% endif %}",
           text: "{{message}}",
           icon: "{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}error{% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}success{% elif message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}warning{% else %}info{% endif %}",
-          button: "OK",
+          button: "{% trans 'OK' %}",
         });
       </script>
     {% endfor %} 
   {% endif %}
-
-  <footer id="footer" class="footer mt-auto py-3 text-center border-top bg-white">
-    <div class="copyright text-muted">
-      &copy; 2026 <strong><span>NabhaLearn</span></strong>. Scholarly Administration Portal
-    </div>
-  </footer>
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 </body>
 </html>

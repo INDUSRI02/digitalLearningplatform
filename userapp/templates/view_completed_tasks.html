@@ -1,5 +1,6 @@
 {% extends 'base_dashboard.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 <style>
@@ -93,10 +94,10 @@
         </div>
         
         <h2 class="text-center mb-2" style="font-family: 'Playfair Display', serif; font-weight: 800; color: var(--brand-primary);">
-            Completed Tasks
+            {% trans "Completed Tasks" %}
         </h2>
         <p class="text-center text-muted mb-5">
-            Congratulations! Here is a record of all your successful learning achievements.
+            {% trans "Congratulations! Here is a record of all your successful learning achievements." %}
         </p>
 
         {% if completed_tasks %}
@@ -105,9 +106,9 @@
                     <thead>
                         <tr>
                             <th width="5%">#</th>
-                            <th width="25%">Title</th>
-                            <th width="45%">Description</th>
-                            <th width="25%" class="text-end">Completion Date</th>
+                            <th width="25%">{% trans "Title" %}</th>
+                            <th width="45%">{% trans "Description" %}</th>
+                            <th width="25%" class="text-end">{% trans "Completion Date" %}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -133,10 +134,10 @@
         {% else %}
             <div class="empty-state">
                 <i class="fas fa-clipboard-list"></i>
-                <h4 class="text-muted">No completed tasks yet</h4>
-                <p class="text-muted-50">Start exploring your learning modules to see your achievements here!</p>
+                <h4 class="text-muted">{% trans "No completed tasks yet" %}</h4>
+                <p class="text-muted-50">{% trans "Start exploring your learning modules to see your achievements here!" %}</p>
                 <a href="{% url 'user_dashboard' %}" class="btn btn-primary rounded-pill px-4 mt-3">
-                    Go to Dashboard
+                    {% trans "Go to Dashboard" %}
                 </a>
             </div>
         {% endif %}

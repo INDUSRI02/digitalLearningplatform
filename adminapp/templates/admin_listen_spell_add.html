@@ -1,5 +1,6 @@
 {% extends 'base_admin.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
 <style>
@@ -82,14 +83,14 @@
 <div class="form-wrapper">
     <div class="entry-card wow fadeInUp">
         <div class="text-center mb-4">
-            <h2 class="entry-title">New Vocabulary Entry</h2>
-            <p class="text-muted small">Expand the bilingual curriculum by adding new auditory challenges.</p>
+            <h2 class="entry-title">{% trans "New Vocabulary Entry" %}</h2>
+            <p class="text-muted small">{% trans "Expand the bilingual curriculum by adding new auditory challenges." %}</p>
         </div>
 
         <div class="helper-box">
             <p class="small mb-0 text-dark fw-bold">
                 <i class="fas fa-info-circle me-2 text-success"></i> 
-                Words added here will be immediately available in the student gaming arena.
+                {% trans "Words added here will be immediately available in the student gaming arena." %}
             </p>
         </div>
 
@@ -97,28 +98,28 @@
             {% csrf_token %}
             
             <div class="mb-4">
-                <label for="id_text" class="form-label-premium">Curriculum Text / Word</label>
+                <label for="id_text" class="form-label-premium">{% trans "Curriculum Text / Word" %}</label>
                 <input type="text" name="text" id="id_text" class="form-control input-premium shadow-sm" 
-                       placeholder="e.g. Resilience" required>
+                       placeholder="{% trans 'e.g. Resilience' %}" required>
             </div>
 
             <div class="mb-5">
-                <label for="id_level" class="form-label-premium">Difficulty Level & Module</label>
+                <label for="id_level" class="form-label-premium">{% trans "Difficulty Level & Module" %}</label>
                 <select name="level" id="id_level" class="form-select input-premium shadow-sm">
-                    <option value="Level1">🌱 Listen & Spell - Single Word</option>
-                    <option value="Level2">📚 Sentence Challenge</option>
-                    <option value="Level3">🏆 Paragraph Perfection</option>
+                    <option value="Level1">🌱 {% trans "Listen & Spell - Single Word" %}</option>
+                    <option value="Level2">📚 {% trans "Sentence Challenge" %}</option>
+                    <option value="Level3">🏆 {% trans "Paragraph Perfection" %}</option>
                 </select>
             </div>
 
             <button type="submit" class="btn btn-submit-premium">
-                Register Word to Database <i class="fas fa-plus-circle ms-2"></i>
+                {% trans "Register Word to Database" %} <i class="fas fa-plus-circle ms-2"></i>
             </button>
         </form>
 
         <div class="text-center mt-4">
             <a href="{% url 'admin_listen_spell_list' %}" class="text-muted small text-decoration-none">
-                <i class="fas fa-arrow-left me-1"></i> Return to Word Database
+                <i class="fas fa-arrow-left me-1"></i> {% trans "Return to Word Database" %}
             </a>
         </div>
     </div>

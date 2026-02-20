@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
 {% load static %}
+{% load i18n %}
+<html lang="{{ LANGUAGE_CODE }}">
 
 <head>
     <meta charset="utf-8">
-    <title>NabhaLearn | Empowering Rural Excellence</title>
+    <title>{% trans "NabhaLearn | Empowering Rural Excellence" %}</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -125,6 +126,16 @@
             filter: brightness(1.1);
         }
 
+        /* Language Select Style */
+        .lang-select {
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 5px 15px;
+            font-size: 0.85rem;
+            outline: none;
+            cursor: pointer;
+        }
+
         /* --- PREMIUM FOOTER --- */
         .footer-premium {
             background: var(--footer-dark);
@@ -180,6 +191,7 @@
             align-items: center;
             justify-content: center;
             transition: 0.4s;
+            z-index: 999;
         }
 
         .back-to-top:hover {
@@ -192,41 +204,66 @@
 <body>
     <div id="spinner" class="bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-success" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
+            <span class="sr-only">{% trans "Loading..." %}</span>
         </div>
     </div>
 
     <div class="container-fluid sticky-top p-0">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a href="{% url 'index' %}" class="navbar-brand d-flex align-items-center">
-                <div class="brand-icon-box">
-                    <i class="fas fa-graduation-cap text-white"></i>
-                </div>
-                <span class="brand-text">Nabha<span>Learn</span></span>
-            </a>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="fa fa-bars text-primary"></span>
-            </button>
+    <nav class="navbar navbar-expand-lg navbar-light">
 
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav ms-auto">
-                    <a href="{% url 'index' %}" class="nav-item nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}">Home</a>
-                    <a href="{% url 'user_register' %}" class="nav-item nav-link {% if request.resolver_match.url_name == 'user_register' %}active{% endif %}">Student Join</a>
-                    <a href="{% url 'instructor_login' %}" class="nav-item nav-link {% if 'instructor' in request.resolver_match.url_name %}active{% endif %}">Teacher Portal</a>
-                    <a href="{% url 'admin_login' %}" class="nav-item nav-link {% if request.resolver_match.url_name == 'admin_login' %}active{% endif %}">Management</a>
-                    <a href="{% url 'contact' %}" class="nav-item nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Help Desk</a>
-                </div>
-                
-                <div class="ms-lg-4">
-                    <a href="{% url 'user_login' %}" class="btn-login-premium">
-                        <i class="fas fa-user-check"></i>
-                        <span>Student Login</span>
-                    </a>
+        <a href="{% url 'index' %}" class="navbar-brand d-flex align-items-center">
+            <div class="brand-icon-box">
+                <i class="fas fa-graduation-cap text-white"></i>
+            </div>
+            <span class="brand-text">Nabha<span>Learn</span></span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars text-primary"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+
+            <div class="navbar-nav ms-auto align-items-center">
+                <a href="{% url 'index' %}" class="nav-item nav-link">
+                    {% trans "Home" %}
+                </a>
+
+                <a href="{% url 'contact' %}" class="nav-item nav-link">
+                    {% trans "Help Desk" %}
+                </a>
+
+                <div class="nav-item px-lg-3">
+                    <form action="{% url 'set_language' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                        <select name="language" onchange="this.form.submit()" class="form-select form-select-sm">
+                            {% get_current_language as CURRENT_LANGUAGE %}
+                            {% get_available_languages as LANGUAGES %}
+                            {% for code, name in LANGUAGES %}
+                                <option value="{{ code }}" {% if code == CURRENT_LANGUAGE %}selected{% endif %}>
+                                    {{ name }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </form>
                 </div>
             </div>
-        </nav>
-    </div>
+
+            <div class="ms-lg-3 d-flex gap-2 align-items-center">
+                <a href="{% url 'signup' %}" class="btn btn-outline-success rounded-pill px-4">
+                    {% trans "Sign Up" %}
+                </a>
+
+                <a href="{% url 'login' %}" class="btn-login-premium">
+                    <i class="fas fa-user-check"></i>
+                    <span>{% trans "Login" %}</span>
+                </a>
+            </div>
+
+        </div>
+    </nav>
+</div>
 
     <main>
         {% block content %}{% endblock content %}
@@ -237,21 +274,21 @@
             <div class="row g-5">
                 <div class="col-lg-4 col-md-6">
                     <h2 class="brand-text text-white mb-4">Nabha<span>Learn</span></h2>
-                    <p class="lh-lg">Empowering rural education in Nabha with bilingual tools, offline access, and expert curriculum design.</p>
+                    <p class="lh-lg">{% trans "Empowering rural education in Nabha with bilingual tools, offline access, and expert curriculum design." %}</p>
                 </div>
                 <div class="col-lg-2 col-md-6">
-                    <h5 class="footer-title">Quick Links</h5>
-                    <a href="#" class="footer-link">About Project</a>
-                    <a href="#" class="footer-link">Our Vision</a>
+                    <h5 class="footer-title">{% trans "Quick Links" %}</h5>
+                    <a href="#" class="footer-link">{% trans "About Project" %}</a>
+                    <a href="#" class="footer-link">{% trans "Our Vision" %}</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h5 class="footer-title">Resources</h5>
-                    <a href="#" class="footer-link">Punjabi Learning</a>
-                    <a href="#" class="footer-link">English Modules</a>
+                    <h5 class="footer-title">{% trans "Resources" %}</h5>
+                    <a href="#" class="footer-link">{% trans "Punjabi Learning" %}</a>
+                    <a href="#" class="footer-link">{% trans "English Modules" %}</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h5 class="footer-title">Support</h5>
-                    <p class="mb-2"><i class="fas fa-map-marker-alt me-2 text-warning"></i> Nabha, Punjab</p>
+                    <h5 class="footer-title">{% trans "Support" %}</h5>
+                    <p class="mb-2"><i class="fas fa-map-marker-alt me-2 text-warning"></i> {% trans "Nabha, Punjab" %}</p>
                 </div>
             </div>
         </div>
@@ -259,7 +296,7 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-6 text-center text-md-start">
-                        <small>© 2026 NabhaLearn Platform. All Rights Reserved.</small>
+                        <small>© 2026 {% trans "NabhaLearn Platform. All Rights Reserved." %}</small>
                     </div>
                 </div>
             </div>
@@ -278,13 +315,12 @@
     <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
     
     <script src="{% static 'js/main.js' %}"></script>
-    <script src="{% static 'main/js/main.js' %}"></script>
 
     <script>
         $(document).ready(function() {
             setTimeout(function() {
                 $('#spinner').addClass('fade-out');
-            }, 3500); 
+            }, 1500); // Reduced delay for better UX
 
             $(window).on('load', function() {
                 $('#spinner').addClass('fade-out');
@@ -297,10 +333,10 @@
         {% for message in messages %}
             <script>
                 swal({
-                    title: "{% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}Success!{% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Error!{% else %}Notification{% endif %}",
+                    title: "{% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}{% trans 'Success!' %}{% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}{% trans 'Error!' %}{% else %}{% trans 'Notification' %}{% endif %}",
                     text: "{{ message|safe }}",
                     icon: "{{ message.tags }}",
-                    button: "Proceed",
+                    button: "{% trans 'Proceed' %}",
                 });
             </script>
         {% endfor %}

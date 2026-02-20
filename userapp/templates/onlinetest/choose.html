@@ -1,5 +1,6 @@
 {% extends 'base_dashboard.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 <style>
@@ -22,7 +23,6 @@
         font-size: 2.8rem;
     }
 
-    /* Action Bar Styling */
     .action-bar {
         display: flex;
         justify-content: center;
@@ -48,7 +48,6 @@
         box-shadow: 0 5px 15px rgba(27, 94, 32, 0.15);
     }
 
-    /* Course Card Styling */
     .course-card-premium {
         background: white;
         border: none;
@@ -151,16 +150,16 @@
 <div class="topic-selection-section">
     <div class="container">
         <div class="section-header wow fadeInDown">
-            <h2>Available Test Topics</h2>
-            <p class="text-muted lead">Choose a subject to add to your dashboard and begin your assessment.</p>
+            <h2>{% trans "Available Test Topics" %}</h2>
+            <p class="text-muted lead">{% trans "Choose a subject to add to your dashboard and begin your assessment." %}</p>
         </div>
 
         <div class="action-bar wow fadeInUp" data-wow-delay="0.1s">
             <a href="{% url 'my_courses' %}" class="btn-action-outline">
-                <i class="fas fa-book-reader me-2"></i> My Enrolled Topics
+                <i class="fas fa-book-reader me-2"></i> {% trans "My Enrolled Topics" %}
             </a>
             <a href="{% url 'test_result' %}" class="btn-action-outline">
-                <i class="fas fa-poll me-2"></i> View Test Results
+                <i class="fas fa-poll me-2"></i> {% trans "View Test Results" %}
             </a>
         </div>
 
@@ -178,7 +177,7 @@
                         
                         <div class="course-info-tag">
                             <i class="fas fa-language"></i> 
-                            <span>Language: <strong>{{ course.course_language }}</strong></span>
+                            <span>{% trans "Language:" %} <strong>{{ course.course_language }}</strong></span>
                         </div>
                         
                         <div class="mt-3">
@@ -190,7 +189,7 @@
 
                     <div class="course-footer">
                         <a href="{% url 'add_topic' course.pk %}" class="btn btn-add-topic shadow-sm">
-                            <i class="fas fa-plus-circle"></i> Add to My Dashboard
+                            <i class="fas fa-plus-circle"></i> {% trans "Add to My Dashboard" %}
                         </a>
                     </div>
                 </div>
@@ -199,7 +198,7 @@
             <div class="col-12 text-center py-5">
                 <div class="p-5 border-2 border-dashed rounded-4 bg-white opacity-75">
                     <i class="fas fa-folder-open fa-3x text-muted mb-3"></i>
-                    <p class="text-muted">No topics are currently available for selection.</p>
+                    <p class="text-muted">{% trans "No topics are currently available for selection." %}</p>
                 </div>
             </div>
             {% endfor %}
@@ -207,7 +206,7 @@
 
         <div class="text-center mt-5">
             <a href="{% url 'user_dashboard' %}" class="text-muted small text-decoration-none">
-                <i class="fas fa-chevron-left me-1"></i> Return to Student Arena
+                <i class="fas fa-chevron-left me-1"></i> {% trans "Return to Student Arena" %}
             </a>
         </div>
     </div>

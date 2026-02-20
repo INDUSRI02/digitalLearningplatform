@@ -1,8 +1,10 @@
 {% extends 'instructor/base_ins.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
 <style>
+    /* ... existing styles preserved ... */
     .admin-content-wrapper {
         padding: 30px;
         background: #f8faf9;
@@ -101,7 +103,6 @@
         box-shadow: 0 5px 15px rgba(27, 94, 32, 0.2);
     }
 
-    /* Pagination Styling */
     .pagination .page-link {
         color: var(--brand-primary);
         border: none;
@@ -124,11 +125,11 @@
 
 
     <div class="page-header-premium wow fadeInDown">
-        <h1>Examination Registry</h1>
+        <h1>{% trans "Examination Registry" %}</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="">Faculty Hub</a></li>
-                <li class="breadcrumb-item active">Test Logs</li>
+                <li class="breadcrumb-item"><a href="">{% trans "Faculty Hub" %}</a></li>
+                <li class="breadcrumb-item active">{% trans "Test Logs" %}</li>
             </ol>
         </nav>
     </div>
@@ -139,7 +140,7 @@
                 <div class="bg-success text-white rounded-circle p-2 me-3 shadow-sm" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
                     <i class="fas fa-file-invoice"></i>
                 </div>
-                <h5 class="m-0 fw-bold" style="color: var(--brand-primary);">Scholar Performance Records</h5>
+                <h5 class="m-0 fw-bold" style="color: var(--brand-primary);">{% trans "Scholar Performance Records" %}</h5>
             </div>
 
             {% if page_obj %}
@@ -147,10 +148,10 @@
                 <table class="table table-premium">
                     <thead>
                         <tr class="text-center">
-                            <th scope="col" width="30%">Assessment Name</th>
-                            <th scope="col" width="25%">Submission Date</th>
-                            <th scope="col" width="20%">Final Score</th>
-                            <th scope="col" width="25%">Full Analysis</th>
+                            <th scope="col" width="30%">{% trans "Assessment Name" %}</th>
+                            <th scope="col" width="25%">{% trans "Submission Date" %}</th>
+                            <th scope="col" width="20%">{% trans "Final Score" %}</th>
+                            <th scope="col" width="25%">{% trans "Full Analysis" %}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -163,7 +164,7 @@
                             </td>
                             <td>
                                 <a href="{% url 'ins_full_test_deatils' test_id=test.pk %}" class="btn-details-premium shadow-sm">
-                                    <i class="fas fa-chart-line me-1"></i> View Details
+                                    <i class="fas fa-chart-line me-1"></i> {% trans "View Details" %}
                                 </a>
                             </td>
                         </tr>
@@ -172,7 +173,7 @@
                 </table>
             </div>
 
-            <nav aria-label="Page navigation" class="mt-5">
+            <nav aria-label="{% trans 'Page navigation' %}" class="mt-5">
                 <ul class="pagination justify-content-center align-items-center">
                     {% if page_obj.has_previous %}
                     <li class="page-item">
@@ -185,7 +186,9 @@
 
                     <li class="page-item disabled">
                         <span class="page-link small fw-bold">
-                            Scholarly Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                            {% blocktrans with number=page_obj.number total=page_obj.paginator.num_pages %}
+                                Scholarly Page {{ number }} of {{ total }}
+                            {% endblocktrans %}
                         </span>
                     </li>
 
@@ -203,8 +206,8 @@
             <div class="text-center py-5">
                 <div class="alert alert-info border-0 shadow-sm rounded-4 p-5 d-inline-block col-md-8">
                     <i class="fas fa-user-edit fa-3x mb-3 text-info"></i>
-                    <h5 class="fw-bold">Registry Empty</h5>
-                    <p class="mb-0 text-muted">Scholars have not yet attempted your published assessments. New submissions will appear here automatically.</p>
+                    <h5 class="fw-bold">{% trans "Registry Empty" %}</h5>
+                    <p class="mb-0 text-muted">{% trans "Scholars have not yet attempted your published assessments. New submissions will appear here automatically." %}</p>
                 </div>
             </div>
             {% endif %}

@@ -1,5 +1,6 @@
 {% extends 'base_dashboard.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
 <style>
@@ -114,37 +115,41 @@
     <div class="selection-card wow zoomIn" data-wow-delay="0.1s">
         
         <a href="{% url 'view_feedback' %}" class="history-link shadow-sm">
-            <i class="fas fa-history me-2"></i> View Your Journey History
+            <i class="fas fa-history me-2"></i> {% trans "View Your Journey History" %}
         </a>
 
         <div class="selection-icon">
             <i class="fas fa-seedling"></i>
         </div>
 
-        <h2 class="selection-title">Begin Your Reflection</h2>
-        <p class="text-muted mb-5 lead">Select a focus area to generate a question that helps you explore your personal growth.</p>
+        <h2 class="selection-title">{% trans "Begin Your Reflection" %}</h2>
+        <p class="text-muted mb-5 lead">
+            {% trans "Select a focus area to generate a question that helps you explore your personal growth." %}
+        </p>
 
         <form method="POST" action="{% url 'generate_question' %}">
             {% csrf_token %}
             
             <div class="form-group text-start mb-5">
-                <label for="category" class="form-label-scholarly text-center">Choose an area of focus:</label>
+                <label for="category" class="form-label-scholarly text-center">
+                    {% trans "Choose an area of focus:" %}
+                </label>
                 <select id="category" name="category" class="form-select custom-select-premium" required>
-                    <option value="Personal Growth">🌱 Personal Growth</option>
-                    <option value="Emotions & Well-being">🌈 Emotions & Well-being</option>
-                    <option value="Life Goals & Purpose">🎯 Life Goals & Purpose</option>
-                    <option value="Relationships & Social Life">🤝 Relationships & Social Life</option>
+                    <option value="Personal Growth">{% trans "🌱 Personal Growth" %}</option>
+                    <option value="Emotions & Well-being">{% trans "🌈 Emotions & Well-being" %}</option>
+                    <option value="Life Goals & Purpose">{% trans "🎯 Life Goals & Purpose" %}</option>
+                    <option value="Relationships & Social Life">{% trans "🤝 Relationships & Social Life" %}</option>
                 </select>
             </div>
             
             <button type="submit" class="btn btn-generate">
-                Generate My Question <i class="fas fa-magic ms-2"></i>
+                {% trans "Generate My Question" %} <i class="fas fa-magic ms-2"></i>
             </button>
         </form>
 
         <div class="mt-5">
             <a href="{% url 'user_dashboard' %}" class="text-muted small text-decoration-none">
-                <i class="fas fa-chevron-left me-1"></i> Return to Arena
+                <i class="fas fa-chevron-left me-1"></i> {% trans "Return to Arena" %}
             </a>
         </div>
     </div>

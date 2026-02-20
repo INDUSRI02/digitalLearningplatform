@@ -1,5 +1,6 @@
 {% extends 'base_admin.html' %} 
 {% load static %} 
+{% load i18n %}
 {% block content %}
 
 <style>
@@ -106,8 +107,8 @@
         
         <div class="admin-header-flex">
             <div>
-                <h2 class="admin-title-scholarly">Curriculum Management</h2>
-                <p class="text-muted small mb-0">Overview and control of all active learning challenges.</p>
+                <h2 class="admin-title-scholarly">{% trans "Curriculum Management" %}</h2>
+                <p class="text-muted small mb-0">{% trans "Overview and control of all active learning challenges." %}</p>
             </div>
             <div class="brand-icon-box" style="width: 50px; height: 50px;">
                 <i class="fas fa-tasks text-white"></i>
@@ -120,10 +121,10 @@
             <table class="table table-premium">
                 <thead>
                     <tr>
-                        <th scope="col" width="25%">Challenge Name</th>
-                        <th scope="col" width="15%">Type</th>
-                        <th scope="col" width="45%">Description Preview</th>
-                        <th scope="col" width="15%" class="text-center">Actions</th>
+                        <th scope="col" width="25%">{% trans "Challenge Name" %}</th>
+                        <th scope="col" width="15%">{% trans "Type" %}</th>
+                        <th scope="col" width="45%">{% trans "Description Preview" %}</th>
+                        <th scope="col" width="15%" class="text-center">{% trans "Actions" %}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -143,8 +144,8 @@
                         <td class="text-center">
                             <a href="{% url 'delete_challenge' challenge.id %}" 
                                class="btn-delete-premium" 
-                               onclick="return confirm('Are you sure you want to delete this challenge? This action cannot be undone.');">
-                                <i class="fas fa-trash-alt me-1"></i> Delete
+                               onclick="return confirm('{% trans "Are you sure you want to delete this challenge? This action cannot be undone." %}');">
+                                 <i class="fas fa-trash-alt me-1"></i> {% trans "Delete" %}
                             </a>
                         </td>
                     </tr>
@@ -155,8 +156,8 @@
         {% else %}
         <div class="empty-state text-center">
             <i class="fas fa-clipboard-list fa-4x text-light mb-3"></i>
-            <h4 class="text-muted fw-bold">No Challenges Created</h4>
-            <p class="text-muted-50">You haven't added any challenges to the curriculum yet.</p>
+            <h4 class="text-muted fw-bold">{% trans "No Challenges Created" %}</h4>
+            <p class="text-muted-50">{% trans "You haven't added any challenges to the curriculum yet." %}</p>
         </div>
         {% endif %}
     </div>

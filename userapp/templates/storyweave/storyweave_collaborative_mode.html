@@ -1,5 +1,6 @@
 {% extends 'base_dashboard.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 <style>
@@ -108,9 +109,9 @@
 
 <div class="container story-weave-container">
     <div class="text-center mb-5 wow fadeIn">
-        <span class="mode-indicator shadow-sm"><i class="fas fa-users me-2"></i> Collaborative Mode</span>
-        <h2 class="display-5 fw-bold" style="font-family: 'Playfair Display', serif; color: var(--brand-primary);">The Team Tapestry</h2>
-        <p class="text-muted">Join forces with Nabha's brightest minds to create an epic story together!</p>
+        <span class="mode-indicator shadow-sm"><i class="fas fa-users me-2"></i> {% trans "Collaborative Mode" %}</span>
+        <h2 class="display-5 fw-bold" style="font-family: 'Playfair Display', serif; color: var(--brand-primary);">{% trans "The Team Tapestry" %}</h2>
+        <p class="text-muted">{% trans "Join forces with Nabha's brightest minds to create an epic story together!" %}</p>
     </div>
 
     <div class="row justify-content-center">
@@ -118,11 +119,11 @@
         <div class="col-md-12 mb-4">
             <div class="collab-card wow fadeInUp" data-wow-delay="0.1s">
                 <h4 class="fw-bold mb-3" style="font-family: 'Playfair Display', serif; color: var(--brand-primary);">
-                    <i class="fas fa-scroll text-warning me-2"></i> Current Story Weave
+                    <i class="fas fa-scroll text-warning me-2"></i> {% trans "Current Story Weave" %}
                 </h4>
                 <div class="prompt-accent-box">
                     <p class="m-0 lead fw-bold text-dark">
-                        {% if prompt %}{{ prompt }}{% else %}Wait for the magic... generating a story starter for your team!{% endif %}
+                        {% if prompt %}{{ prompt }}{% else %}{% trans "Wait for the magic... generating a story starter for your team!" %}{% endif %}
                     </p>
                 </div>
             </div>
@@ -136,11 +137,11 @@
                     <div class="brand-icon-box mx-auto mb-3" style="width: 60px; height: 60px; background: var(--brand-primary);">
                         <i class="fas fa-paper-plane text-white fa-2x"></i>
                     </div>
-                    <h3 class="fw-bold text-success" style="font-family: 'Playfair Display', serif;">Entry Successful!</h3>
+                    <h3 class="fw-bold text-success" style="font-family: 'Playfair Display', serif;">{% trans "Entry Successful!" %}</h3>
                 </div>
                 
                 <div class="status-alert mb-4 text-center">
-                    <h5 class="fw-bold text-dark mb-2">Collaboration Status:</h5>
+                    <h5 class="fw-bold text-dark mb-2">{% trans "Collaboration Status:" %}</h5>
                     <p class="text-muted lh-lg mb-0" style="font-size: 1.1rem;">
                         "{{ feedback }}"
                     </p>
@@ -150,15 +151,15 @@
         {% else %}
         <div class="col-md-10 mt-2">
             <div class="collab-card wow fadeInUp" data-wow-delay="0.2s">
-                <h4 class="fw-bold mb-4" style="font-family: 'Playfair Display', serif; color: var(--brand-primary);">Your Contribution</h4>
+                <h4 class="fw-bold mb-4" style="font-family: 'Playfair Display', serif; color: var(--brand-primary);">{% trans "Your Contribution" %}</h4>
 
                 <form method="POST">
                     {% csrf_token %}
                     
                     <div class="mb-4">
-                        <label for="selected_user" class="form-label-premium">1. Choose your writing partner:</label>
+                        <label for="selected_user" class="form-label-premium">{% trans "1. Choose your writing partner:" %}</label>
                         <select name="selected_user" id="selected_user" class="form-select custom-select-premium" onchange="toggleStoryInput()" required>
-                            <option value="">-- Select a Collaborator --</option>
+                            <option value="">{% trans "-- Select a Collaborator --" %}</option>
                             {% for user in users %}
                                 <option value="{{ user.id }}">{{ user.full_name }}</option>
                             {% endfor %}
@@ -166,13 +167,13 @@
                     </div>
 
                     <div id="story-part-container" style="display: none;" class="mb-4 animate__animated animate__fadeIn">
-                        <label for="story_part" class="form-label-premium">2. Write your segment of the tale:</label>
-                        <textarea name="story_part" id="story_part" class="form-control story-textarea-premium" rows="8" placeholder="Continue the journey from here..."></textarea>
+                        <label for="story_part" class="form-label-premium">{% trans "2. Write your segment of the tale:" %}</label>
+                        <textarea name="story_part" id="story_part" class="form-control story-textarea-premium" rows="8" placeholder="{% trans 'Continue the journey from here...' %}"></textarea>
                     </div>
 
                     <div class="text-center" id="submit-container" style="display: none;">
                         <button type="submit" class="btn btn-collab shadow">
-                            Submit My Part <i class="fas fa-check-circle ms-2"></i>
+                            {% trans "Submit My Part" %} <i class="fas fa-check-circle ms-2"></i>
                         </button>
                     </div>
                 </form>
@@ -183,13 +184,12 @@
 
     <div class="text-center mt-5">
         <a href="{% url 'collaborative_story_mode' %}" class="btn btn-outline-success rounded-pill px-4">
-            <i class="fas fa-sync-alt me-2"></i> Start New Collaboration
+            <i class="fas fa-sync-alt me-2"></i> {% trans "Start New Collaboration" %}
         </a>
     </div>
 </div>
 
 <script>
-    // Preserved functional logic for selection toggle
     function toggleStoryInput() {
         const selectedUser = document.getElementById("selected_user").value;
         const storyPartContainer = document.getElementById("story-part-container");

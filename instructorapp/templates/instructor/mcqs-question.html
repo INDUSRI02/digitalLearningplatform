@@ -1,8 +1,10 @@
 {% extends 'instructor/base_ins.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
 <style>
+    /* ... existing styles preserved ... */
     .mcq-editor-wrapper {
         padding: 20px;
     }
@@ -89,28 +91,28 @@
 
 
     <div class="pagetitle wow fadeInDown">
-        <h1>MCQ Item Constructor</h1>
+        <h1>{% trans "MCQ Item Constructor" %}</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="">Faculty Hub</a></li>
-                <li class="breadcrumb-item"><a href="{% url 'add_question' %}">Assessment Type</a></li>
-                <li class="breadcrumb-item active">Add MCQs</li>
+                <li class="breadcrumb-item"><a href="">{% trans "Faculty Hub" %}</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'add_question' %}">{% trans "Assessment Type" %}</a></li>
+                <li class="breadcrumb-item active">{% trans "Add MCQs" %}</li>
             </ol>
         </nav>
     </div>
 
     <section class="section">
         <div class="editor-card-premium wow fadeInUp">
-            <h2 class="form-title-scholarly">Multiple Choice Question Builder</h2>
+            <h2 class="form-title-scholarly">{% trans "Multiple Choice Question Builder" %}</h2>
             
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 
                 <div class="row g-4 mb-4">
                     <div class="col-md-6">
-                        <label for="courseSelect" class="form-label-premium">Target Topic</label>
+                        <label for="courseSelect" class="form-label-premium">{% trans "Target Topic" %}</label>
                         <select class="form-select input-premium shadow-sm" id="courseSelect" name="courseSelect" required>
-                            <option value="" disabled selected>Select Subject Area</option>
+                            <option value="" disabled selected>{% trans "Select Subject Area" %}</option>
                             {% for course in instructor_courses %}
                             <option value="{{ course.pk }}">{{ course.course_name }}</option>
                             {% endfor %}
@@ -118,58 +120,57 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label for="questionType" class="form-label-premium">Cognitive Level</label>
+                        <label for="questionType" class="form-label-premium">{% trans "Cognitive Level" %}</label>
                         <select class="form-select input-premium shadow-sm" id="questionType" name="questionType" required>
-                            <option value="" disabled selected>Select Difficulty</option>
-                            <option value="easy">Easy (Recall)</option>
-                            <option value="medium">Medium (Application)</option>
-                            <option value="hard">Hard (Analysis)</option>
+                            <option value="" disabled selected>{% trans "Select Difficulty" %}</option>
+                            <option value="easy">{% trans "Easy (Recall)" %}</option>
+                            <option value="medium">{% trans "Medium (Application)" %}</option>
+                            <option value="hard">{% trans "Hard (Analysis)" %}</option>
                         </select>
                     </div>
 
                     <div class="col-12">
-                        <label for="questionText" class="form-label-premium">Question Prompt / Stem</label>
-                        <textarea class="form-control input-premium shadow-sm" id="questionText" name="questionText" rows="2" placeholder="Formulate your question here..." required></textarea>
+                        <label for="questionText" class="form-label-premium">{% trans "Question Prompt / Stem" %}</label>
+                        <textarea class="form-control input-premium shadow-sm" id="questionText" name="questionText" rows="2" placeholder="{% trans 'Formulate your question here...' %}" required></textarea>
                     </div>
                 </div>
 
                 <div class="option-group shadow-sm">
-                    <h6 class="fw-bold mb-4 text-muted uppercase small letter-spacing-1">Answer Distractors</h6>
+                    <h6 class="fw-bold mb-4 text-muted uppercase small letter-spacing-1">{% trans "Answer Distractors" %}</h6>
                     <div class="row g-3">
                         <div class="col-md-6">
-                            <label for="optionA" class="form-label-premium">Option A</label>
-                            <input type="text" class="input-premium" id="optionA" name="optionA" placeholder="Enter option A" required>
+                            <label for="optionA" class="form-label-premium">{% trans "Option A" %}</label>
+                            <input type="text" class="input-premium" id="optionA" name="optionA" placeholder="{% trans 'Enter option A' %}" required>
                         </div>
                         <div class="col-md-6">
-                            <label for="optionB" class="form-label-premium">Option B</label>
-                            <input type="text" class="input-premium" id="optionB" name="optionB" placeholder="Enter option B" required>
+                            <label for="optionB" class="form-label-premium">{% trans "Option B" %}</label>
+                            <input type="text" class="input-premium" id="optionB" name="optionB" placeholder="{% trans 'Enter option B' %}" required>
                         </div>
                         <div class="col-md-6">
-                            <label for="optionC" class="form-label-premium">Option C</label>
-                            <input type="text" class="input-premium" id="optionC" name="optionC" placeholder="Enter option C" required>
+                            <label for="optionC" class="form-label-premium">{% trans "Option C" %}</label>
+                            <input type="text" class="input-premium" id="optionC" name="optionC" placeholder="{% trans 'Enter option C' %}" required>
                         </div>
                         <div class="col-md-6">
-                            <label for="optionD" class="form-label-premium">Option D</label>
-                            <input type="text" class="input-premium" id="optionD" name="optionD" placeholder="Enter option D" required>
+                            <label for="optionD" class="form-label-premium">{% trans "Option D" %}</label>
+                            <input type="text" class="input-premium" id="optionD" name="optionD" placeholder="{% trans 'Enter option D' %}" required>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-8 mx-auto mt-4 text-center">
-                    <label for="correctAnswer" class="form-label-premium">Answer Validation Key</label>
-                    <input type="text" class="input-premium text-center fw-bold" id="correctAnswer" name="correctAnswer" placeholder="Type the exact correct text or option letter" required 
+                    <label for="correctAnswer" class="form-label-premium">{% trans "Answer Validation Key" %}</label>
+                    <input type="text" class="input-premium text-center fw-bold" id="correctAnswer" name="correctAnswer" placeholder="{% trans 'Type the exact correct text or option letter' %}" required 
                            style="border-color: var(--brand-primary); background: #fdfdfd;">
-                    <div class="form-text small mt-2">Ensure this matches one of your distractors exactly.</div>
+                    <div class="form-text small mt-2">{% trans "Ensure this matches one of your distractors exactly." %}</div>
                 </div>
 
                 <div class="text-center mt-5">
                     <button type="submit" class="btn btn-publish-mcq">
-                        Finalize & Publish <i class="fas fa-check-double ms-2"></i>
+                        {% trans "Finalize & Publish" %} <i class="fas fa-check-double ms-2"></i>
                     </button>
                 </div>
             </form>
         </div>
     </section>
-
 
 {% endblock content %}

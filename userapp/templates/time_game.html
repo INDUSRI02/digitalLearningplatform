@@ -1,5 +1,6 @@
 {% extends 'base_dashboard.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 <style>
@@ -110,31 +111,31 @@
             <i class="fas fa-hourglass-start"></i>
         </div>
 
-        <h2>Time Management</h2>
-        <p class="text-muted small mb-4">Learn how to balance your school tasks and fun activities through this interactive challenge!</p>
+        <h2>{% trans "Time Management" %}</h2>
+        <p class="text-muted small mb-4">{% trans "Learn how to balance your school tasks and fun activities through this interactive challenge!" %}</p>
 
         <form method="POST" action="">
             {% csrf_token %}
             
             <div class="mb-4 text-start">
-                <label for="grade_level" class="form-label text-center w-100">Which grade are you in?</label>
+                <label for="grade_level" class="form-label text-center w-100">{% trans "Which grade are you in?" %}</label>
                 <select id="grade_level" name="grade_level" class="form-select custom-select-premium" required>
-                    <option value="" disabled selected>Choose your Grade...</option>
-                    <option value="A">Grade A (Primary)</option>
-                    <option value="B">Grade B (Middle)</option>
-                    <option value="C">Grade C (Secondary)</option>
-                    <option value="D">Grade D (Higher Secondary)</option>
+                    <option value="" disabled selected>{% trans "Choose your Grade..." %}</option>
+                    <option value="A">{% trans "Grade A (Primary)" %}</option>
+                    <option value="B">{% trans "Grade B (Middle)" %}</option>
+                    <option value="C">{% trans "Grade C (Secondary)" %}</option>
+                    <option value="D">{% trans "Grade D (Higher Secondary)" %}</option>
                 </select>
             </div>
 
             <button type="submit" class="btn btn-start-game w-100 shadow">
-                Start Playing <i class="fas fa-play-circle ms-2"></i>
+                {% trans "Start Playing" %} <i class="fas fa-play-circle ms-2"></i>
             </button>
         </form>
 
         <div class="game-tip text-start">
-            <strong><i class="fas fa-lightbulb text-warning me-2"></i>Quick Tip:</strong> 
-            Managing your time well helps you finish homework faster so you have more time to play with friends!
+            <strong><i class="fas fa-lightbulb text-warning me-2"></i>{% trans "Quick Tip:" %}</strong> 
+            {% trans "Managing your time well helps you finish homework faster so you have more time to play with friends!" %}
         </div>
     </div>
 </div>

@@ -1,5 +1,6 @@
 {% extends 'base_dashboard.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 
@@ -20,7 +21,6 @@
         padding-bottom: 50px;
     }
 
-    /* Info Panel Styling */
     .test-info-sidebar {
         background: white;
         border-radius: 20px;
@@ -60,7 +60,6 @@
         background: #000;
     }
 
-    /* Question Area Styling */
     .question-card {
         background: white;
         border-radius: 20px;
@@ -84,7 +83,6 @@
     .level-medium { background: #fef3c7; color: #d97706; }
     .level-easy { background: #dcfce7; color: #16a34a; }
 
-    /* Custom Radio Buttons */
     .option-container {
         display: block;
         position: relative;
@@ -164,23 +162,23 @@
         <div class="row g-4">
             <div class="col-lg-4">
                 <div class="test-info-sidebar wow fadeInLeft">
-                    <h5 class="fw-bold text-muted mb-3 uppercase small">Time Remaining</h5>
+                    <h5 class="fw-bold text-muted mb-3 uppercase small">{% trans "Time Remaining" %}</h5>
                     <div class="timer-display text-center">
                         <div id="countdown" class="timer">
                             <span id="minutes">01</span>:<span id="seconds">00</span>
                         </div>
                     </div>
 
-                    <h5 class="fw-bold text-muted mb-3 uppercase small">Live Proctoring Monitor</h5>
+                    <h5 class="fw-bold text-muted mb-3 uppercase small">{% trans "Live Proctoring Monitor" %}</h5>
                     <div class="webcam-monitor mb-4">
                         <video id="webcam" width="100%" height="auto" autoplay></video>
                     </div>
 
                     <div class="p-3 bg-light rounded-3">
                         <ul class="small fw-bold text-muted m-0 ps-3">
-                            <li class="mb-2">60s auto-submit per question.</li>
-                            <li class="mb-2">1 mark per correct answer.</li>
-                            <li>Camera must remain active.</li>
+                            <li class="mb-2">{% trans "60s auto-submit per question." %}</li>
+                            <li class="mb-2">{% trans "1 mark per correct answer." %}</li>
+                            <li>{% trans "Camera must remain active." %}</li>
                         </ul>
                     </div>
                 </div>
@@ -189,12 +187,14 @@
             <div class="col-lg-8">
                 <div class="question-card wow fadeInRight">
                     <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h4 class="m-0 fw-bold" style="font-family: 'Playfair Display', serif; color: var(--brand-primary);">Active Assessment</h4>
+                        <h4 class="m-0 fw-bold" style="font-family: 'Playfair Display', serif; color: var(--brand-primary);">
+                            {% trans "Active Assessment" %}
+                        </h4>
                         <span class="level-indicator 
                             {% if random_question.question_type == 'hard' %}level-hard
                             {% elif random_question.question_type == 'medium' %}level-medium
                             {% else %}level-easy{% endif %}">
-                            {{ random_question.question_type|title }} Level
+                            {{ random_question.question_type|title }} {% trans "Level" %}
                         </span>
                     </div>
 
@@ -205,10 +205,14 @@
                         <input type="hidden" name="question_type" value="{{ random_question.question_type }}">
 
                         <div class="py-3">
-                            <h3 class="fw-bold text-dark mb-4 lh-base">Q. {{ random_question.question_text }}</h3>
-                            
+                            <h3 class="fw-bold text-dark mb-4 lh-base">
+                                {% trans "Q." %} {{ random_question.question_text }}
+                            </h3>
+
                             {% if random_question.question_method == "mcqs" %}
                             <div class="options-list">
+                                {% for opt in "abcd" %}
+                                {% endfor %}
                                 <label class="option-container shadow-sm">
                                     <span class="option-text">{{ random_question.option_a }}</span>
                                     <input type="radio" name="question_{{ random_question.id }}_answer" value="{{ random_question.option_a }}" required>
@@ -233,30 +237,31 @@
 
                             {% elif random_question.question_method == "descriptive" %}
                             <div class="form-group">
-                                <label class="small fw-bold text-muted mb-2">Compose your descriptive answer:</label>
+                                <label class="small fw-bold text-muted mb-2">{% trans "Compose your descriptive answer:" %}</label>
                                 <textarea id="descriptive_answer" name="descriptive_answer" class="form-control" rows="8" style="border-radius:15px; padding:15px;" required></textarea>
                             </div>
 
                             {% elif random_question.question_method == "image" %}
                             <div class="form-group text-center">
                                 <div class="p-2 bg-light rounded-3 mb-3 d-inline-block shadow-sm">
-                                    <img src="{{random_question.image.url}}" class="img-fluid rounded" alt="Assessment Image" style="max-height: 250px;">
+                                    <img src="{{random_question.image.url}}" class="img-fluid rounded" alt="{% trans 'Assessment Image' %}" style="max-height: 250px;">
                                 </div>
-                                <textarea id="image_answer" name="image_answer" class="form-control text-start" rows="5" placeholder="Analyze the image and provide your findings..." style="border-radius:15px;" required></textarea>
+                                <textarea id="image_answer" name="image_answer" class="form-control text-start" rows="5" placeholder="{% trans 'Analyze the image and provide your findings...' %}" style="border-radius:15px;" required></textarea>
                             </div>
                             {% endif %}
                         </div>
 
                         <div class="d-flex justify-content-end mt-5 pt-3 border-top">
                             <button type="submit" class="btn btn-next-step shadow">
-                                Next Question <i class="fas fa-arrow-right ms-2"></i>
+                                {% trans "Next Question" %} <i class="fas fa-arrow-right ms-2"></i>
                             </button>
                         </div>
                     </form>
                 </div>
 
                 <div class="warning-strip p-3 mt-4 text-center wow shake" data-wow-delay="1s">
-                    <i class="fas fa-video me-2"></i> Integrity Monitor Active: Webcam is recording your session for verification.
+                    <i class="fas fa-video me-2"></i>
+                    {% trans "Integrity Monitor Active: Webcam is recording your session for verification." %}
                 </div>
             </div>
         </div>
@@ -265,7 +270,6 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Prevent cheating logic preserved
         const fields = ['image_answer', 'descriptive_answer'];
         fields.forEach(id => {
             const field = document.getElementById(id);
@@ -275,7 +279,6 @@
             }
         });
 
-        // Timer Logic Preserved
         var minutesSpan = document.getElementById('minutes');
         var secondsSpan = document.getElementById('seconds');
         var totalSeconds = 60;

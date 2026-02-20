@@ -1,8 +1,10 @@
 {% extends 'instructor/base_ins.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
 <style>
+    /* ... existing styles preserved ... */
     .instructor-form-wrapper {
         padding: 20px;
     }
@@ -81,11 +83,11 @@
 
 
     <div class="pagetitle wow fadeInDown">
-        <h1>Visual Analysis Editor</h1>
+        <h1>{% trans "Visual Analysis Editor" %}</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="">Faculty Hub</a></li>
-                <li class="breadcrumb-item active">Add Visual Question</li>
+                <li class="breadcrumb-item"><a href="">{% trans "Faculty Hub" %}</a></li>
+                <li class="breadcrumb-item active">{% trans "Add Visual Question" %}</li>
             </ol>
         </nav>
     </div>
@@ -95,19 +97,19 @@
             <div class="instructor-helper">
                 <p class="small mb-0 text-dark fw-bold">
                     <i class="fas fa-image me-2 text-success"></i> 
-                    Upload an image asset to create context-based visual assessments for your scholars.
+                    {% trans "Upload an image asset to create context-based visual assessments for your scholars." %}
                 </p>
             </div>
 
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
-                <h3 class="fw-bold mb-4" style="color: var(--brand-primary); font-family: 'Playfair Display';">New Visual Question</h3>
+                <h3 class="fw-bold mb-4" style="color: var(--brand-primary); font-family: 'Playfair Display';">{% trans "New Visual Question" %}</h3>
                 
                 <div class="row g-4">
                     <div class="col-md-6">
-                        <label for="courseSelect" class="form-label-premium">Curriculum Topic</label>
+                        <label for="courseSelect" class="form-label-premium">{% trans "Curriculum Topic" %}</label>
                         <select class="form-select input-premium shadow-sm" id="courseSelect" name="courseSelect" required>
-                            <option value="" disabled selected>Select Course</option>
+                            <option value="" disabled selected>{% trans "Select Course" %}</option>
                             {% for course in instructor_courses %}
                             <option value="{{ course.pk }}">{{ course.course_name }}</option>
                             {% endfor %}
@@ -115,42 +117,41 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label for="questionType" class="form-label-premium">Assessment Level</label>
+                        <label for="questionType" class="form-label-premium">{% trans "Assessment Level" %}</label>
                         <select class="form-select input-premium shadow-sm" id="questionType" name="questionType" required>
-                            <option value="" disabled selected>Select Difficulty</option>
-                            <option value="easy">Easy (Visual ID)</option>
-                            <option value="medium">Medium (Analysis)</option>
-                            <option value="hard">Hard (Critical Interpretation)</option>
+                            <option value="" disabled selected>{% trans "Select Difficulty" %}</option>
+                            <option value="easy">{% trans "Easy (Visual ID)" %}</option>
+                            <option value="medium">{% trans "Medium (Analysis)" %}</option>
+                            <option value="hard">{% trans "Hard (Critical Interpretation)" %}</option>
                         </select>
                     </div>
 
                     <div class="col-12">
-                        <label for="Image" class="form-label-premium">Visual Asset (Image)</label>
+                        <label for="Image" class="form-label-premium">{% trans "Visual Asset (Image)" %}</label>
                         <input type="file" class="form-control input-premium shadow-sm" name="Image" id="Image" required>
-                        <div class="form-text small text-muted">Supported formats: JPG, PNG, WebP. Max size: 5MB.</div>
+                        <div class="form-text small text-muted">{% trans "Supported formats: JPG, PNG, WebP. Max size: 5MB." %}</div>
                     </div>
 
                     <div class="col-12">
-                        <label for="questionText" class="form-label-premium">Question / Instructions</label>
-                        <textarea class="form-control input-premium shadow-sm" id="questionText" name="questionText" rows="2" placeholder="e.g. Identify the historical significance of the architecture shown above..." required></textarea>
+                        <label for="questionText" class="form-label-premium">{% trans "Question / Instructions" %}</label>
+                        <textarea class="form-control input-premium shadow-sm" id="questionText" name="questionText" rows="2" placeholder="{% trans 'e.g. Identify the historical significance of the architecture shown above...' %}" required></textarea>
                     </div>
 
                     <div class="col-12">
-                        <label for="image_answer" class="form-label-premium">Evaluation Benchmark (Correct Answer)</label>
-                        <textarea class="form-control input-premium shadow-sm" name="image_answer" id="image_answer" rows="3" placeholder="Define the expected correct response..." required></textarea>
+                        <label for="image_answer" class="form-label-premium">{% trans "Evaluation Benchmark (Correct Answer)" %}</label>
+                        <textarea class="form-control input-premium shadow-sm" name="image_answer" id="image_answer" rows="3" placeholder="{% trans 'Define the expected correct response...' %}" required></textarea>
                     </div>
                 </div>
 
                 <div class="row mt-5">
                     <div class="col-md-8 mx-auto">
                         <button type="submit" class="btn btn-publish-visual shadow">
-                            Save to Visual Bank <i class="fas fa-save ms-2"></i>
+                            {% trans "Save to Visual Bank" %} <i class="fas fa-save ms-2"></i>
                         </button>
                     </div>
                 </div>
             </form>
         </div>
     </section>
-
 
 {% endblock content %}

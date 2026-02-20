@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 {% load static %}
+{% load i18n %}
 
 <style>
     .reg-section {
@@ -90,8 +91,8 @@
                         <div class="brand-icon-box mx-auto mb-3" style="width: 50px; height: 50px;">
                             <i class="fas fa-user-plus text-white"></i>
                         </div>
-                        <h2 style="font-family: 'Playfair Display', serif; font-weight: 900; color: var(--brand-primary);">Create Your Account</h2>
-                        <p class="text-muted">Join the NabhaLearn student community today.</p>
+                        <h2 style="font-family: 'Playfair Display', serif; font-weight: 900; color: var(--brand-primary);">{% trans "Create Your Account" %}</h2>
+                        <p class="text-muted">{% trans "Join the NabhaLearn student community today." %}</p>
                     </div>
 
                     <form action="" method="POST" enctype="multipart/form-data">
@@ -99,41 +100,41 @@
                         
                         <div class="row g-4">
                             <div class="col-md-6">
-                                <label class="form-label">Full Name</label>
-                                <input type="text" class="form-control" name="full_name" placeholder="John Doe" required>
+                                <label class="form-label">{% trans "Full Name" %}</label>
+                                <input type="text" class="form-control" name="full_name" placeholder="{% trans "John Doe" %}" required>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label">Email Address</label>
-                                <input type="email" class="form-control" name="email" placeholder="example@mail.com" required>
+                                <label class="form-label">{% trans "Email Address" %}</label>
+                                <input type="email" class="form-control" name="email" placeholder="{% trans "example@mail.com" %}" required>
                             </div>
 
                             <div class="col-md-6">
-                                <label class="form-label">Secure Password</label>
+                                <label class="form-label">{% trans "Secure Password" %}</label>
                                 <input type="password" class="form-control" name="password" placeholder="••••••••" required>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label">Phone Number</label>
-                                <input type="number" class="form-control" name="phone_number" placeholder="9876543210" required>
+                                <label class="form-label">{% trans "Phone Number" %}</label>
+                                <input type="number" class="form-control" name="phone_number" placeholder="{% trans "9876543210" %}" required>
                             </div>
 
                             <div class="col-md-6">
-                                <label class="form-label">Age</label>
-                                <input type="number" class="form-control" name="age" max="100" placeholder="e.g. 15">
+                                <label class="form-label">{% trans "Age" %}</label>
+                                <input type="number" class="form-control" name="age" max="100" placeholder="{% trans "e.g. 15" %}">
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label">Profile Photo <span class="upload-label">(Optional)</span></label>
+                                <label class="form-label">{% trans "Profile Photo" %} <span class="upload-label">({% trans "Optional" %})</span></label>
                                 <input type="file" class="form-control" name="photo">
                             </div>
 
                             <div class="col-12">
-                                <label class="form-label">Residential Address</label>
-                                <input type="text" class="form-control" name="address" placeholder="House no, Street, Village, Nabha">
+                                <label class="form-label">{% trans "Residential Address" %}</label>
+                                <input type="text" class="form-control" name="address" placeholder="{% trans "House no, Street, Village, Nabha" %}">
                             </div>
 
                             <div class="col-12 text-center mt-5">
-                                <button class="btn btn-pill w-100 shadow-sm" type="submit">Create Account</button>
+                                <button class="btn btn-pill w-100 shadow-sm" type="submit">{% trans "Create Account" %}</button>
                                 <p class="mt-4 text-muted small">
-                                    Already have an account? <a href="{% url 'user_login' %}">Login Here</a>
+                                    {% trans "Already have an account?" %} <a href="{% url 'user_login' %}">{% trans "Login Here" %}</a>
                                 </p>
                             </div>
                         </div>

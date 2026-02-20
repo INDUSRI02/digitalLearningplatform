@@ -1,8 +1,11 @@
 {% extends 'instructor/base_ins.html' %}
 {% load static %}
+{% load i18n %}
+
 {% block content %}
 
 <style>
+    /* ... existing styles preserved ... */
     .curriculum-wrapper {
         padding: 30px;
         background: #f8faf9;
@@ -129,7 +132,6 @@
         color: white !important;
     }
 
-    /* Pagination Styling */
     .pagination .page-link {
         color: var(--brand-primary);
         border: none;
@@ -147,11 +149,11 @@
 
 
     <div class="page-header-premium wow fadeInDown">
-        <h1>Topic Repository</h1>
+        <h1>{% trans "Topic Repository" %}</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="">Faculty Hub</a></li>
-                <li class="breadcrumb-item active">View Subjects</li>
+                <li class="breadcrumb-item"><a href="">{% trans "Faculty Hub" %}</a></li>
+                <li class="breadcrumb-item active">{% trans "View Subjects" %}</li>
             </ol>
         </nav>
     </div>
@@ -163,10 +165,10 @@
                     <div class="bg-success text-white rounded-circle p-2 me-3 shadow-sm" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
                         <i class="fas fa-layer-group"></i>
                     </div>
-                    <h5 class="m-0 fw-bold" style="color: var(--brand-primary);">Published Curriculum Topics</h5>
+                    <h5 class="m-0 fw-bold" style="color: var(--brand-primary);">{% trans "Published Curriculum Topics" %}</h5>
                 </div>
                 <a href="{% url 'add_courses' %}" class="btn btn-primary rounded-pill px-4 shadow-sm">
-                    <i class="fas fa-plus me-2"></i>New Topic
+                    <i class="fas fa-plus me-2"></i>{% trans "New Topic" %}
                 </a>
             </div>
 
@@ -175,10 +177,10 @@
                 <table class="table table-premium">
                     <thead>
                         <tr class="text-center">
-                            <th scope="col" width="15%">Preview</th>
-                            <th scope="col" width="35%">Topic Designation</th>
-                            <th scope="col" width="20%">Enrolled Scholars</th>
-                            <th scope="col" width="30%">Management</th>
+                            <th scope="col" width="15%">{% trans "Preview" %}</th>
+                            <th scope="col" width="35%">{% trans "Topic Designation" %}</th>
+                            <th scope="col" width="20%">{% trans "Enrolled Scholars" %}</th>
+                            <th scope="col" width="30%">{% trans "Management" %}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -196,14 +198,16 @@
                                 </span>
                             </td>
                             <td>
-                                <a href="{% url 'edit_course' course_id=course.pk %}" class="btn-edit-premium shadow-sm">
-                                    <i class="fas fa-edit me-1"></i> Edit
-                                </a>
-                                <a href="{% url 'remove_course' course_id=course.pk %}" 
-                                   class="btn-remove-premium shadow-sm"
-                                   onclick="return confirm('Attention: Deleting this topic will remove all associated student progress. Proceed?');">
-                                    <i class="fas fa-trash-alt me-1"></i> Remove
-                                </a>
+                                <div class="d-flex justify-content-center">
+                                    <a href="{% url 'edit_course' course_id=course.pk %}" class="btn-edit-premium shadow-sm">
+                                        <i class="fas fa-edit me-1"></i> {% trans "Edit" %}
+                                    </a>
+                                    <a href="{% url 'remove_course' course_id=course.pk %}" 
+                                       class="btn-remove-premium shadow-sm"
+                                       onclick="return confirm('{% trans "Attention: Deleting this topic will remove all associated student progress. Proceed?" %}');">
+                                        <i class="fas fa-trash-alt me-1"></i> {% trans "Remove" %}
+                                    </a>
+                                </div>
                             </td>
                         </tr>
                         {% endfor %}
@@ -211,11 +215,11 @@
                 </table>
             </div>
 
-            <nav aria-label="Page navigation" class="mt-5">
+            <nav aria-label="{% trans 'Page navigation' %}" class="mt-5">
                 <ul class="pagination justify-content-center">
                     {% if page_obj.has_previous %}
                     <li class="page-item">
-                        <a class="page-link shadow-sm" href="?page=1">First</a>
+                        <a class="page-link shadow-sm" href="?page=1">{% trans "First" %}</a>
                     </li>
                     <li class="page-item">
                         <a class="page-link shadow-sm" href="?page={{ page_obj.previous_page_number }}"><i class="fas fa-chevron-left"></i></a>
@@ -233,7 +237,7 @@
                         <a class="page-link shadow-sm" href="?page={{ page_obj.next_page_number }}"><i class="fas fa-chevron-right"></i></a>
                     </li>
                     <li class="page-item">
-                        <a class="page-link shadow-sm" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                        <a class="page-link shadow-sm" href="?page={{ page_obj.paginator.num_pages }}">{% trans "Last" %}</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -243,8 +247,8 @@
             <div class="text-center py-5">
                 <div class="alert alert-info border-0 shadow-sm rounded-4 p-5 d-inline-block col-md-8">
                     <i class="fas fa-book-open fa-3x mb-3 text-info"></i>
-                    <h5 class="fw-bold">No Topics Published</h5>
-                    <p class="mb-0 text-muted">You haven't added any curriculum subjects yet. Start by clicking the 'New Topic' button.</p>
+                    <h5 class="fw-bold">{% trans "No Topics Published" %}</h5>
+                    <p class="mb-0 text-muted">{% trans "You haven't added any curriculum subjects yet. Start by clicking the 'New Topic' button." %}</p>
                 </div>
             </div>
             {% endif %}

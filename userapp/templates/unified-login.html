@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="container py-5" style="max-width:500px;">
+    <div class="card shadow-lg border-0">
+        <div class="card-body p-5">
+
+            <h2 class="text-center mb-3">{% trans "Login to Your Account" %}</h2>
+            {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} text-center">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            {% endif %}
+
+            <form method="post">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label class="form-label">{% trans "Email or Username" %}</label>
+                    <input type="text"
+                           name="email"
+                           class="form-control"
+                           required>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">{% trans "Password" %}</label>
+                    <input type="password"
+                           name="password"
+                           class="form-control"
+                           required>
+                </div>
+
+                <div class="d-grid">
+                    <button class="btn btn-success btn-lg">
+                        {% trans "Login" %}
+                    </button>
+                </div>
+            </form>
+
+            <div class="text-center mt-4">
+                <small>
+                    {% trans "Don't have an account?" %}
+                    <a href="{% url 'signup' %}">
+                        {% trans "Sign up" %}
+                    </a>
+                </small>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

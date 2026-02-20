@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 {% load static %}
+{% load i18n %}
 
 <style>
     .otp-section {
@@ -120,7 +121,10 @@
             <i class="fas fa-user-shield"></i>
         </div>
         
-        <h6>Verify Your Account <br> <span class="text-muted small fw-normal">Check your registered email/phone for the OTP</span></h6>
+        <h6>
+            {% trans "Verify Your Account" %} <br>
+            <span class="text-muted small fw-normal">{% trans "Check your registered email/phone for the OTP" %}</span>
+        </h6>
         
         <form method="POST" action="{% url 'user_otp' %}">
             {% csrf_token %}
@@ -132,13 +136,13 @@
             </div>
             
             <button class="btn btn-validate shadow" type="submit">
-                Validate & Login <i class="fas fa-sign-in-alt ms-2"></i>
+                {% trans "Validate & Login" %} <i class="fas fa-sign-in-alt ms-2"></i>
             </button>
         </form>
 
         <p class="resend-text">
-            Didn't receive the code? <br>
-            <a href="#" class="resend-link">Resend OTP</a>
+            {% trans "Didn't receive the code?" %} <br>
+            <a href="#" class="resend-link">{% trans "Resend OTP" %}</a>
         </p>
     </div>
 </div>

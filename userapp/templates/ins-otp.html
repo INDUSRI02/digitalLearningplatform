@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
 <style>
@@ -95,13 +96,13 @@
             <i class="fas fa-shield-alt text-white fa-2x"></i>
         </div>
 
-        <h6>Verify Your Identity <br> <span class="text-muted small fw-normal">Teacher Portal Registration</span></h6>
+        <h6>{% trans "Verify Your Identity" %} <br> <span class="text-muted small fw-normal">{% trans "Teacher Portal Registration" %}</span></h6>
         
         <form action="{% url 'instructorotp' %}" method="POST" enctype="multipart/form-data" class="mt-4">
             {% csrf_token %}
 
             <div class="mb-4"> 
-                <span class="text-muted small">A security code has been sent to your registered mobile:</span><br>
+                <span class="text-muted small">{% trans "A security code has been sent to your registered mobile:" %}</span><br>
                 <span class="phone-highlight">******{{user.user_phone|slice:"-4:"}}</span> 
             </div>
 
@@ -111,17 +112,17 @@
                        id="otp" 
                        name="ins_otp"
                        maxlength="6"
-                       placeholder="000000"
+                       placeholder="{% trans '000000' %}"
                        required>
             </div>
 
             <button class="btn btn-validate" type="submit">
-                Verify & Register <i class="fas fa-check-circle ms-2"></i>
+                {% trans "Verify & Register" %} <i class="fas fa-check-circle ms-2"></i>
             </button>
 
             <div class="mt-4">
-                <p class="small text-muted mb-0">Didn't receive the code?</p>
-                <a href="#" class="resend-link">Request New OTP</a>
+                <p class="small text-muted mb-0">{% trans "Didn't receive the code?" %}</p>
+                <a href="#" class="resend-link">{% trans "Request New OTP" %}</a>
             </div>
         </form>
     </div>

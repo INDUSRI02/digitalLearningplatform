@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-{% load static %}   
+{% load static %}
+{% load i18n %}
 {% block content %}
 
 <div class="header-carousel owl-carousel">
@@ -7,10 +8,10 @@
         <img src="{% static 'img/111.jpg' %}" class="img-fluid w-100" alt="Image" style="filter: brightness(0.7);">
         <div class="carousel-caption">
             <div class="carousel-caption-content p-3">
-                <h5 class="text-white text-uppercase fw-bold mb-4 animate__animated animate__fadeInDown" style="letter-spacing: 4px; color: var(--brand-accent) !important;">Nabha Digital Excellence</h5>
-                <h1 class="display-1 text-white mb-4 animate__animated animate__zoomIn" style="font-family: 'Playfair Display', serif;">Welcome to NabhaLearn Arena! 🌟</h1>
-                <p class="mb-5 fs-5 animate__animated animate__fadeInUp">A premium platform to explore and enhance your skills through interactive, bilingual, and fun learning modules.</p>
-                <a class="btn btn-primary rounded-pill py-3 px-5 shadow-lg" href="#">Try Now</a>
+                <h5 class="text-white text-uppercase fw-bold mb-4 animate__animated animate__fadeInDown" style="letter-spacing: 4px; color: var(--brand-accent) !important;">{% trans "Nabha Digital Excellence" %}</h5>
+                <h1 class="display-1 text-white mb-4 animate__animated animate__zoomIn" style="font-family: 'Playfair Display', serif;">{% trans "Welcome to NabhaLearn Arena! 🌟" %}</h1>
+                <p class="mb-5 fs-5 animate__animated animate__fadeInUp">{% trans "A premium platform to explore and enhance your skills through interactive, bilingual, and fun learning modules." %}</p>
+                <a class="btn btn-primary rounded-pill py-3 px-5 shadow-lg" href="#">{% trans "Try Now" %}</a>
             </div>
         </div>
     </div>
@@ -18,10 +19,10 @@
         <img src="{% static 'img/112.jpg' %}" class="img-fluid w-100" alt="Image" style="filter: brightness(0.7);">
         <div class="carousel-caption">
             <div class="carousel-caption-content p-3">
-                <h5 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 4px; color: var(--brand-accent) !important;">Communication</h5>
-                <h1 class="display-1 text-white mb-4" style="font-family: 'Playfair Display', serif;">Ask Questions, Get Smart Answers</h1>
-                <p class="mb-5 fs-5 animated slideInDown">Test your spelling by listening to words, sentences, and paragraphs in both Punjabi and English.</p>
-                <a class="btn btn-primary rounded-pill py-3 px-5 shadow-lg" href="#">Get Started</a>
+                <h5 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 4px; color: var(--brand-accent) !important;">{% trans "Communication" %}</h5>
+                <h1 class="display-1 text-white mb-4" style="font-family: 'Playfair Display', serif;">{% trans "Ask Questions, Get Smart Answers" %}</h1>
+                <p class="mb-5 fs-5 animated slideInDown">{% trans "Test your spelling by listening to words, sentences, and paragraphs in both Punjabi and English." %}</p>
+                <a class="btn btn-primary rounded-pill py-3 px-5 shadow-lg" href="#">{% trans "Get Started" %}</a>
             </div>
         </div>
     </div>
@@ -30,8 +31,8 @@
 <div class="py-5" style="background: var(--brand-light);">
     <div class="container py-5">
         <div class="section-title text-start mb-5">
-            <h4 class="sub-title pe-3 mb-2" style="color: var(--brand-primary); font-weight: 700;">Voices of Nabha</h4>
-            <h1 class="display-5 fw-bold" style="font-family: 'Playfair Display', serif;">Student Feedbacks</h1>
+            <h4 class="sub-title pe-3 mb-2" style="color: var(--brand-primary); font-weight: 700;">{% trans "Voices of Nabha" %}</h4>
+            <h1 class="display-5 fw-bold" style="font-family: 'Playfair Display', serif;">{% trans "Student Feedbacks" %}</h1>
         </div>
         <div class="row">
             {% for feedback in feedbacks %}
@@ -43,7 +44,7 @@
                         </div>
                         <h5 class="m-0 fw-bold">{{ feedback.user_name }}</h5>
                     </div>
-                    <p class="small text-muted mb-2"><strong>Email:</strong> {{ feedback.user_email }}</p>
+                    <p class="small text-muted mb-2"><strong>{% trans "Email" %}:</strong> {{ feedback.user_email }}</p>
                     <div class="mb-3">
                         {% for i in "12345" %}
                         <i class="fas fa-star {% if forloop.counter <= feedback.rating %}text-warning{% else %}text-light{% endif %}"></i>
@@ -61,7 +62,7 @@
             </div>
             {% empty %}
             <div class="col-12 text-center py-4">
-                <p class="text-muted">No feedback available yet.</p>
+                <p class="text-muted">{% trans "No feedback available yet." %}</p>
             </div>
             {% endfor %}
         </div>
@@ -72,10 +73,10 @@
     <div class="container py-5">
         <div class="section-title mb-5 wow fadeInUp" data-wow-delay="0.2s">
             <div class="sub-style mb-3">
-                <h4 class="sub-title px-3 mb-0" style="color: var(--brand-primary); font-weight: 800; border-left: 4px solid var(--brand-accent);">Our Modules</h4>
+                <h4 class="sub-title px-3 mb-0" style="color: var(--brand-primary); font-weight: 800; border-left: 4px solid var(--brand-accent);">{% trans "Our Modules" %}</h4>
             </div>
-            <h1 class="display-3 mb-4" style="font-family: 'Playfair Display', serif;">Interactive Skill-Building</h1>
-            <p class="mb-0 text-muted">Test your knowledge and see how well you perform! Answer questions and check your score instantly.</p>
+            <h1 class="display-3 mb-4" style="font-family: 'Playfair Display', serif;">{% trans "Interactive Skill-Building" %}</h1>
+            <p class="mb-0 text-muted">{% trans "Test your knowledge and see how well you perform! Answer questions and check your score instantly." %}</p>
         </div>
         <div class="row g-4 justify-content-center">
             <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
@@ -87,9 +88,9 @@
                         <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 50px; height: 50px;">
                             <i class="fas fa-file-alt"></i>
                         </div>
-                        <h5 class="fw-bold mb-3">Creativity</h5>
-                        <p class="small text-muted mb-4">Write amazing stories alone or with others in creative modes.</p>
-                        <a href="#" class="btn btn-outline-success rounded-pill px-4 btn-sm">Read More</a>
+                        <h5 class="fw-bold mb-3">{% trans "Creativity" %}</h5>
+                        <p class="small text-muted mb-4">{% trans "Write amazing stories alone or with others in creative modes." %}</p>
+                        <a href="#" class="btn btn-outline-success rounded-pill px-4 btn-sm">{% trans "Read More" %}</a>
                     </div>
                 </div>
             </div>
@@ -102,9 +103,9 @@
                         <div class="bg-warning text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 50px; height: 50px;">
                             <i class="fas fa-question-circle"></i>
                         </div>
-                        <h5 class="fw-bold mb-3">Reflection</h5>
-                        <p class="small text-muted mb-4">Reflect on personal growth and emotional well-being through guided prompts.</p>
-                        <a href="#" class="btn btn-outline-success rounded-pill px-4 btn-sm">Read More</a>
+                        <h5 class="fw-bold mb-3">{% trans "Reflection" %}</h5>
+                        <p class="small text-muted mb-4">{% trans "Reflect on personal growth and emotional well-being through guided prompts." %}</p>
+                        <a href="#" class="btn btn-outline-success rounded-pill px-4 btn-sm">{% trans "Read More" %}</a>
                     </div>
                 </div>
             </div>
@@ -117,9 +118,9 @@
                         <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 50px; height: 50px;">
                             <i class="fas fa-file-excel"></i>
                         </div>
-                        <h5 class="fw-bold mb-3">Time Mastery</h5>
-                        <p class="small text-muted mb-4">Balance your school tasks and extracurricular activities in this game.</p>
-                        <a href="#" class="btn btn-outline-success rounded-pill px-4 btn-sm">Read More</a>
+                        <h5 class="fw-bold mb-3">{% trans "Time Mastery" %}</h5>
+                        <p class="small text-muted mb-4">{% trans "Balance your school tasks and extracurricular activities in this game." %}</p>
+                        <a href="#" class="btn btn-outline-success rounded-pill px-4 btn-sm">{% trans "Read More" %}</a>
                     </div>
                 </div>
             </div>
@@ -132,15 +133,15 @@
                         <div class="bg-warning text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 50px; height: 50px;">
                             <i class="fas fa-lightbulb"></i>
                         </div>
-                        <h5 class="fw-bold mb-3">Leadership</h5>
-                        <p class="small text-muted mb-4">Give answers and get feedback on your leadership skills.</p>
-                        <a href="#" class="btn btn-outline-success rounded-pill px-4 btn-sm">Read More</a>
+                        <h5 class="fw-bold mb-3">{% trans "Leadership" %}</h5>
+                        <p class="small text-muted mb-4">{% trans "Give answers and get feedback on your leadership skills." %}</p>
+                        <a href="#" class="btn btn-outline-success rounded-pill px-4 btn-sm">{% trans "Read More" %}</a>
                     </div>
                 </div>
             </div>
-           
+            
             <div class="col-12 text-center mt-5 wow fadeInUp" data-wow-delay="0.2s">
-                <a class="btn btn-primary rounded-pill py-3 px-5 shadow" href="#">Explore More Modules</a>
+                <a class="btn btn-primary rounded-pill py-3 px-5 shadow" href="#">{% trans "Explore More Modules" %}</a>
             </div>
         </div>
     </div>
@@ -153,32 +154,32 @@
                 <div class="position-relative p-4 border-start border-5 border-success">
                     <img src="{% static 'img/img7.avif' %}" class="img-fluid rounded-4 shadow-lg w-100" style="object-fit: cover;" alt="About">
                     <div class="bg-success text-white p-3 rounded-3 shadow position-absolute bottom-0 start-0 m-4 fw-bold">
-                        NabhaLearn Excellence
+                        {% trans "NabhaLearn Excellence" %}
                     </div>
                 </div>
             </div>
             <div class="col-lg-7 wow fadeInRight" data-wow-delay="0.4s">
                 <div class="section-title text-start mb-5">
-                    <h4 class="sub-title pe-3 mb-2" style="color: var(--brand-primary); font-weight: 700;">Our Mission</h4>
-                    <h1 class="display-3 mb-4" style="font-family: 'Playfair Display', serif;">Empowering Students</h1>
+                    <h4 class="sub-title pe-3 mb-2" style="color: var(--brand-primary); font-weight: 700;">{% trans "Our Mission" %}</h4>
+                    <h1 class="display-3 mb-4" style="font-family: 'Playfair Display', serif;">{% trans "Empowering Students" %}</h1>
                     <p class="mb-4 text-muted">
-                        Our platform enhances essential life and academic skills in students using engaging and interactive tools designed specifically for Nabha's rural schools.
+                        {% trans "Our platform enhances essential life and academic skills in students using engaging and interactive tools designed specifically for Nabha's rural schools." %}
                     </p>
                     <div class="row g-3 mb-5">
                         <div class="col-sm-6">
-                            <p class="text-secondary mb-0"><i class="fa fa-check-circle text-success me-2"></i> Bilingual Audio Spelling</p>
+                            <p class="text-secondary mb-0"><i class="fa fa-check-circle text-success me-2"></i> {% trans "Bilingual Audio Spelling" %}</p>
                         </div>
                         <div class="col-sm-6">
-                            <p class="text-secondary mb-0"><i class="fa fa-check-circle text-success me-2"></i> Real-time Knowledge Quizzes</p>
+                            <p class="text-secondary mb-0"><i class="fa fa-check-circle text-success me-2"></i> {% trans "Real-time Knowledge Quizzes" %}</p>
                         </div>
                         <div class="col-sm-6">
-                            <p class="text-secondary mb-0"><i class="fa fa-check-circle text-success me-2"></i> Collaborative Story Writing</p>
+                            <p class="text-secondary mb-0"><i class="fa fa-check-circle text-success me-2"></i> {% trans "Collaborative Story Writing" %}</p>
                         </div>
                         <div class="col-sm-6">
-                            <p class="text-secondary mb-0"><i class="fa fa-check-circle text-success me-2"></i> Emotional Reflective Prompts</p>
+                            <p class="text-secondary mb-0"><i class="fa fa-check-circle text-success me-2"></i> {% trans "Emotional Reflective Prompts" %}</p>
                         </div>
                     </div>
-                    <a href="#" class="btn btn-primary rounded-pill py-3 px-5 shadow">Discover Our Story</a>
+                    <a href="#" class="btn btn-primary rounded-pill py-3 px-5 shadow">{% trans "Discover Our Story" %}</a>
                 </div>
             </div>
         </div>
@@ -189,10 +190,10 @@
     <div class="container py-5">
         <div class="section-title mb-5 wow fadeInUp" data-wow-delay="0.1s">
             <div class="sub-style mb-3">
-                <h4 class="sub-title px-3 mb-0" style="color: var(--brand-primary); font-weight: 800; border-left: 4px solid var(--brand-accent);">Key Platform Features</h4>
+                <h4 class="sub-title px-3 mb-0" style="color: var(--brand-primary); font-weight: 800; border-left: 4px solid var(--brand-accent);">{% trans "Key Platform Features" %}</h4>
             </div>
-            <h1 class="display-3 mb-4" style="font-family: 'Playfair Display', serif;">Interactive Learning</h1>
-            <p class="mb-0 text-muted">Develop essential life skills through creative tasks, challenges, and collaborative activities.</p>
+            <h1 class="display-3 mb-4" style="font-family: 'Playfair Display', serif;">{% trans "Interactive Learning" %}</h1>
+            <p class="mb-0 text-muted">{% trans "Develop essential life skills through creative tasks, challenges, and collaborative activities." %}</p>
         </div>
         <div class="row g-4 justify-content-center">
             <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
@@ -202,8 +203,8 @@
                             <i class="fas fa-file-alt fa-3x text-success"></i>
                         </div>
                     </div>
-                    <h5 class="mb-3 fw-bold">Communication</h5>
-                    <p class="small text-muted mb-0">Spelling tests using audio for listening and writing practice.</p>
+                    <h5 class="mb-3 fw-bold">{% trans "Communication" %}</h5>
+                    <p class="small text-muted mb-0">{% trans "Spelling tests using audio for listening and writing practice." %}</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
@@ -213,8 +214,8 @@
                             <i class="fas fa-question-circle fa-3x text-warning"></i>
                         </div>
                     </div>
-                    <h5 class="mb-3 fw-bold">Online Test</h5>
-                    <p class="small text-muted mb-0">General knowledge quizzes with real-time feedback and scoring.</p>
+                    <h5 class="mb-3 fw-bold">{% trans "Online Test" %}</h5>
+                    <p class="small text-muted mb-0">{% trans "General knowledge quizzes with real-time feedback and scoring." %}</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
@@ -224,8 +225,8 @@
                             <i class="fas fa-lightbulb fa-3x text-success"></i>
                         </div>
                     </div>
-                    <h5 class="mb-3 fw-bold">Creativity</h5>
-                    <p class="small text-muted mb-0">Story writing tools with solo and collaborative modes.</p>
+                    <h5 class="mb-3 fw-bold">{% trans "Creativity" %}</h5>
+                    <p class="small text-muted mb-0">{% trans "Story writing tools with solo and collaborative modes." %}</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
@@ -235,13 +236,13 @@
                             <i class="fas fa-user fa-3x text-warning"></i>
                         </div>
                     </div>
-                    <h5 class="mb-3 fw-bold">Reflection</h5>
-                    <p class="small text-muted mb-0">Guided prompts for emotional awareness and mental well-being.</p>
+                    <h5 class="mb-3 fw-bold">{% trans "Reflection" %}</h5>
+                    <p class="small text-muted mb-0">{% trans "Guided prompts for emotional awareness and mental well-being." %}</p>
                 </div>
             </div>
 
             <div class="col-12 text-center mt-5 wow fadeInUp" data-wow-delay="0.2s">
-                <a href="#" class="btn btn-primary rounded-pill py-3 px-5 shadow">See Full Feature List</a>
+                <a href="#" class="btn btn-primary rounded-pill py-3 px-5 shadow">{% trans "See Full Feature List" %}</a>
             </div>
         </div>
     </div>

@@ -1,5 +1,6 @@
 {% extends 'base_dashboard.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
 <style>
@@ -76,8 +77,8 @@
 
 <div class="dashboard-header">
     <div class="container">
-        <h2 class="arena-title wow zoomIn">Welcome to NabhaLearn Arena! 🌟</h2>
-        <p class="text-muted">Master your skills and track your progress in real-time.</p>
+        <h2 class="arena-title wow zoomIn">{% trans "Welcome to NabhaLearn Arena!" %} 🌟</h2>
+        <p class="text-muted">{% trans "Master your skills and track your progress in real-time." %}</p>
     </div>
 </div>
 
@@ -91,9 +92,9 @@
                             <source src="{% static 'img/v1.mp4' %}" type="video/mp4">
                         </video>
                     </div>
-                    <h4 class="module-title">Communication</h4>
-                    <p class="text-muted small mb-4">Master spelling and grammar by listening to bilingual audio prompts.</p>
-                    <a href="{% url 'communication_challenge' %}" class="btn btn-play">Play Now</a>
+                    <h4 class="module-title">{% trans "Communication" %}</h4>
+                    <p class="text-muted small mb-4">{% trans "Master spelling and grammar by listening to bilingual audio prompts." %}</p>
+                    <a href="{% url 'communication_challenge' %}" class="btn btn-play">{% trans "Play Now" %}</a>
                 </div>
             </div>
         </div>
@@ -106,9 +107,9 @@
                             <source src="{% static 'img/v11.mp4' %}" type="video/mp4">
                         </video>
                     </div>
-                    <h4 class="module-title">Online Test</h4>
-                    <p class="text-muted small mb-4">Assess your knowledge with curriculum-aligned quizzes and instant results.</p>
-                    <a href="{% url 'test_choose' %}" class="btn btn-play">Start Test</a>
+                    <h4 class="module-title">{% trans "Online Test" %}</h4>
+                    <p class="text-muted small mb-4">{% trans "Assess your knowledge with curriculum-aligned quizzes and instant results." %}</p>
+                    <a href="{% url 'test_choose' %}" class="btn btn-play">{% trans "Start Test" %}</a>
                 </div>
             </div>
         </div>
@@ -121,9 +122,9 @@
                             <source src="{% static 'img/v3.mp4' %}" type="video/mp4">
                         </video>
                     </div>
-                    <h4 class="module-title">Creativity</h4>
-                    <p class="text-muted small mb-4">Express yourself! Write amazing stories alone or with your friends.</p>
-                    <a href="{% url 'choose_story_mode' %}" class="btn btn-play">Play Now</a>
+                    <h4 class="module-title">{% trans "Creativity" %}</h4>
+                    <p class="text-muted small mb-4">{% trans "Express yourself! Write amazing stories alone or with your friends." %}</p>
+                    <a href="{% url 'choose_story_mode' %}" class="btn btn-play">{% trans "Play Now" %}</a>
                 </div>
             </div>
         </div>
@@ -136,9 +137,9 @@
                             <source src="{% static 'img/v4.mp4' %}" type="video/mp4">
                         </video>
                     </div>
-                    <h4 class="module-title">Reflection</h4>
-                    <p class="text-muted small mb-4">Focus on personal growth and emotional well-being through guided prompts.</p>
-                    <a href="{% url 'start_reflection' %}" class="btn btn-play">Start Reflection</a>
+                    <h4 class="module-title">{% trans "Reflection" %}</h4>
+                    <p class="text-muted small mb-4">{% trans "Focus on personal growth and emotional well-being through guided prompts." %}</p>
+                    <a href="{% url 'start_reflection' %}" class="btn btn-play">{% trans "Start Reflection" %}</a>
                 </div>
             </div>
         </div>
@@ -151,9 +152,9 @@
                             <source src="{% static 'img/v6.mp4' %}" type="video/mp4">
                         </video>
                     </div>
-                    <h4 class="module-title">Time Management</h4>
-                    <p class="text-muted small mb-4">Learn the art of balance between studies and play in this unique game.</p>
-                    <a href="{% url 'time_game' %}" class="btn btn-play">Play Now</a>
+                    <h4 class="module-title">{% trans "Time Management" %}</h4>
+                    <p class="text-muted small mb-4">{% trans "Learn the art of balance between studies and play in this unique game." %}</p>
+                    <a href="{% url 'time_game' %}" class="btn btn-play">{% trans "Play Now" %}</a>
                 </div>
             </div>
         </div>
@@ -166,9 +167,9 @@
                             <source src="{% static 'img/v7.mp4' %}" type="video/mp4">
                         </video>
                     </div>
-                    <h4 class="module-title">Leadership</h4>
-                    <p class="text-muted small mb-4">Step up and lead! Handle real-world scenarios and get expert feedback.</p>
-                    <a href="{% url 'leadership_page' %}" class="btn btn-play">Lead Now</a>
+                    <h4 class="module-title">{% trans "Leadership" %}</h4>
+                    <p class="text-muted small mb-4">{% trans "Step up and lead! Handle real-world scenarios and get expert feedback." %}</p>
+                    <a href="{% url 'leadership_page' %}" class="btn btn-play">{% trans "Lead Now" %}</a>
                 </div>
             </div>
         </div>
@@ -181,9 +182,9 @@
                             <source src="{% static 'img/v2.mp4' %}" type="video/mp4">
                         </video>
                     </div>
-                    <h4 class="module-title">Teamwork</h4>
-                    <p class="text-muted small mb-4">Work together with your peers to solve collaborative challenges.</p>
-                    <a href="#" class="btn btn-play">Collaborate</a>
+                    <h4 class="module-title">{% trans "Teamwork" %}</h4>
+                    <p class="text-muted small mb-4">{% trans "Work together with your peers to solve collaborative challenges." %}</p>
+                    <a href="#" class="btn btn-play">{% trans "Collaborate" %}</a>
                 </div>
             </div>
         </div>

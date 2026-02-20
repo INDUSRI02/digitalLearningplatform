@@ -1,18 +1,18 @@
-from django.shortcuts import render, redirect , get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib import messages
-import urllib.request
-import urllib.parse
 from django.contrib.auth import logout
-from django.core.mail import send_mail
-import os
-import random
-from django.core.files.storage import default_storage
-from userapp.models import *
-from adminapp.models import *
+from django.utils.translation import gettext as _
 from django.utils.datastructures import MultiValueDictKeyError
 from django.http import HttpResponse
+
+import os
+import random
+import requests
+
+from userapp.models import *
+from adminapp.models import *
 
 
 def generate_otp(length=4):
@@ -22,7 +22,8 @@ def generate_otp(length=4):
 
 def user_logout(request):
     logout(request)
-    messages.info(request, "Logout Successfully ")
+    request.session.flush()
+    messages.info(request, _("Logout successful."))
     return redirect("user_login")
 
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
@@ -58,112 +59,140 @@ def contact(request):
 
 def user_register(request):
     if request.method == "POST":
-        full_name = request.POST.get('full_name')
-        email = request.POST.get('email')
-        password = request.POST.get('password') 
-        phone_number = request.POST.get('phone_number')
-        age = request.POST.get('age')
-        address = request.POST.get('address')
-        photo = request.FILES.get('photo')
+        full_name = request.POST.get("full_name")
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+        phone_number = request.POST.get("phone_number")
+        age = request.POST.get("age")
+        address = request.POST.get("address")
+        photo = request.FILES.get("photo")
+
+        # email check
         if User.objects.filter(email=email).exists():
-            messages.error(request, "An account with this email already exists.")
-            return redirect('user_register') 
-        user = User(
+            messages.error(request, _("An account with this email already exists."))
+            return redirect("user_register")
+
+        # create user
+        otp = generate_otp()
+
+        user = User.objects.create(
             full_name=full_name,
             email=email,
-            password=password, 
+            password=password,
             phone_number=phone_number,
             age=age,
             address=address,
-            photo=photo
+            photo=photo,
+            otp=otp,
+            otp_status="Not Verified",
         )
-        otp = generate_otp()
-        user.otp = otp
-        user.save()
-        subject = "OTP Verification for Account Activation"
-        message = f"Hello {full_name},\n\nYour OTP for account activation is: {otp}\n\nIf you did not request this OTP, please ignore this email."
-        from_email = settings.EMAIL_HOST_USER
-        recipient_list = [email]
-        request.session["id_for_otp_verification_user"] = user.pk
-        send_mail(subject, message, from_email, recipient_list, fail_silently=False)
-        messages.success(request, "Otp is sent your mail and phonenumber !")
-        return redirect("user_otp")
-    return render(request,"user-register.html")
 
+        # send OTP
+        subject = _("OTP Verification for Account Activation")
+        message = _(
+            "Hello %(name)s,\n\nYour OTP for account activation is: %(otp)s"
+        ) % {"name": full_name, "otp": otp}
+
+        send_mail(
+            subject,
+            message,
+            settings.EMAIL_HOST_USER,
+            [email],
+            fail_silently=False,
+        )
+
+        request.session["id_for_otp_verification_user"] = user.pk
+        messages.success(request, _("OTP sent to your email and phone number."))
+        return redirect("user_otp")
+
+    return render(request, "user-register.html")
 
 
 def user_otp(request):
     otp_user_id = request.session.get("id_for_otp_verification_user")
+
     if not otp_user_id:
-        messages.error(request, "No OTP session found. Please try again.")
+        messages.error(request, _("No OTP session found. Please try again."))
         return redirect("user_register")
+
     if request.method == "POST":
-        entered_otp = "".join(
-            [
-                request.POST["first"],
-                request.POST["second"],
-                request.POST["third"],
-                request.POST["fourth"],
-            ]
+        entered_otp = (
+            request.POST.get("first", "")
+            + request.POST.get("second", "")
+            + request.POST.get("third", "")
+            + request.POST.get("fourth", "")
         )
+
         try:
             user = User.objects.get(id=otp_user_id)
         except User.DoesNotExist:
-            messages.error(request, "User not found. Please try again.")
+            messages.error(request, _("User not found. Please try again."))
             return redirect("user_register")
+
         if user.otp == entered_otp:
             user.otp_status = "Verified"
             user.save()
-            messages.success(request, "OTP verification successful!")
-            return redirect("user_login")
-        else:
-            messages.error(request, "Incorrect OTP. Please try again.")
-            return redirect("user_otp")
-    return render(request,"user-otp.html")
 
+            messages.success(request, _("OTP verification successful."))
+            return redirect("user_login")
+
+        messages.error(request, _("Incorrect OTP. Please try again."))
+        return redirect("user_otp")
+
+    return render(request, "user-otp.html")
 
 
 def user_login(request):
     if request.method == "POST":
-        email = request.POST["email"]
-        password = request.POST["password"]
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+
         try:
             user = User.objects.get(email=email)
-            if user.password != password:
-                messages.error(request, "Incorrect password.")
-                return redirect("user_login")
-            if user.status == "Accepted":
-                if user.otp_status == "Verified":
-                    request.session["user_id_after_login"] = user.pk
-                    messages.success(request, "Login successful!")
-                    return redirect("user_dashboard")
-                else:
-                    new_otp = generate_otp()
-                    user.otp = new_otp
-                    user.otp_status = "Not Verified"
-                    user.save()
-                    subject = "New OTP for Verification"
-                    message = f"Your new OTP for verification is: {new_otp}"
-                    from_email = settings.EMAIL_HOST_USER
-                    recipient_list = [user.email]
-                    send_mail(
-                        subject, message, from_email, recipient_list, fail_silently=False
-                    )
-                    messages.warning(
-                        request,
-                        "OTP not verified. A new OTP has been sent to your email and phone.",
-                    )
-                    request.session["id_for_otp_verification_user"] = user.pk
-                    return redirect("user_otp")
-            else:
-                messages.success(request, "Your Account is Not Accepted by Admin Yet")
-                return redirect("user_login")
         except User.DoesNotExist:
-            messages.error(request, "No User Found.")
+            messages.error(request, _("No user found."))
             return redirect("user_login")
-    return render(request,"user-login.html")
 
+        # password check
+        if user.password != password:
+            messages.error(request, _("Incorrect password."))
+            return redirect("user_login")
 
+        # admin approval check
+        if user.status != "Accepted":
+            messages.warning(request, _("Your account is not accepted by admin yet."))
+            return redirect("user_login")
+
+        # otp check
+        if user.otp_status != "Verified":
+            new_otp = generate_otp()
+            user.otp = new_otp
+            user.otp_status = "Not Verified"
+            user.save()
+
+            send_mail(
+                _("New OTP for Verification"),
+                _("Your new OTP is: %(otp)s") % {"otp": new_otp},
+                settings.EMAIL_HOST_USER,
+                [user.email],
+                fail_silently=False,
+            )
+
+            request.session["id_for_otp_verification_user"] = user.pk
+            messages.warning(
+                request,
+                _("OTP not verified. A new OTP has been sent."),
+            )
+            return redirect("user_otp")
+
+        # SUCCESS LOGIN
+        request.session.flush()
+        request.session["user_id_after_login"] = user.pk
+
+        messages.success(request, _("Login successful."))
+        return redirect("user_dashboard")
+
+    return render(request, "user-login.html")
 
 
 def user_dashboard(request):
@@ -963,11 +992,130 @@ def extract_rating(feedback):
 
 
 
+def unified_login(request):
+    
+    if request.method == "POST":
+        email = (request.POST.get("email") or "").strip()
+        password = (request.POST.get("password") or "").strip()
 
+        if not email or not password:
+            messages.error(request, _("Please enter both email and password."))
+            return redirect("login")
 
+        email = email.lower()
 
+        # ADMIN
+        admin_ids = ["admin", "admin@gmail.com"]
+        if email in admin_ids and password == "admin":
+            request.session.flush()
+            request.session["admin_logged_in"] = True
+            request.session["role"] = "admin"
+            messages.success(request, _("Admin login successful."))
+            return redirect("admin_dashboard_latest")
 
+        # STUDENT
+        try:
+            user = User.objects.get(email=email)
 
+            if user.password != password:
+                messages.error(request, _("Incorrect password."))
+                return redirect("login")
+
+            if user.status != "Accepted":
+                messages.warning(request, _("Your account is not accepted yet."))
+                return redirect("login")
+
+            if user.otp_status != "Verified":
+                new_otp = generate_otp()
+                user.otp = new_otp
+                user.otp_status = "Not Verified"
+                user.save()
+
+                send_mail(
+                    _("New OTP for Verification"),
+                    _("Your new OTP is: %(otp)s") % {"otp": new_otp},
+                    settings.EMAIL_HOST_USER,
+                    [user.email],
+                    fail_silently=False,
+                )
+
+                request.session["id_for_otp_verification_user"] = user.pk
+                messages.warning(request, _("OTP not verified. New OTP sent."))
+                return redirect("user_otp")
+
+            request.session.flush()
+            request.session["user_id_after_login"] = user.pk
+            request.session["role"] = "student"
+            messages.success(request, _("Login successful."))
+            return redirect("user_dashboard")
+
+        except User.DoesNotExist:
+            pass
+
+        # INSTRUCTOR
+        try:
+            ins = InstructorRegModel.objects.get(email=email)
+
+            if ins.password != password:
+                messages.error(request, _("Incorrect password."))
+                return redirect("login")
+
+            if ins.status != "Accepted":
+                messages.warning(request, _("Instructor not approved yet."))
+                return redirect("login")
+
+            if ins.otp_status != "Verified":
+                otp = generate_otp()
+                ins.otp = otp
+                ins.save()
+
+                send_mail(
+                    _("OTP Verification"),
+                    _("Your OTP is: %(otp)s") % {"otp": otp},
+                    settings.EMAIL_HOST_USER,
+                    [ins.email],
+                    fail_silently=False,
+                )
+
+                request.session["ins_id"] = ins.pk
+                messages.warning(request, _("OTP verification required."))
+                return redirect("instructorotp")
+
+            request.session.flush()
+            request.session["ins_id_after_login"] = ins.pk
+            request.session["role"] = "instructor"
+            messages.success(request, _("Instructor login successful."))
+            return redirect("ins_dashboard")
+
+        except InstructorRegModel.DoesNotExist:
+            pass
+
+        messages.error(request, _("No user found with these credentials."))
+        return redirect("login")
+
+    return render(request, "unified-login.html")
+    
+    
+def signup_router(request):
+    """
+    Simple router page where user chooses:
+    - Student
+    - Instructor
+    """
+
+    if request.method == "POST":
+        role = request.POST.get("role")
+
+        if role == "student":
+            return redirect("user_register")
+
+        if role == "instructor":
+            return redirect("instructor_register")
+
+        messages.error(request, _("Please select a valid role."))
+        return redirect("signup")
+
+    return render(request, "signup-router.html")
 
 def user_listen_spell(request):
     # Authentication check

@@ -1,5 +1,6 @@
 {% extends 'base_admin.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
 <style>
@@ -57,11 +58,11 @@
 
 <div class="admin-content-wrapper">
     <div class="page-header-premium wow fadeInDown">
-        <h1>Sentiment Analytics</h1>
+        <h1>{% trans "Sentiment Analytics" %}</h1>
         <nav>
             <ol class="breadcrumb mb-0">
-                <li class="breadcrumb-item"><a href="">Management</a></li>
-                <li class="breadcrumb-item active">Feedback Graph</li>
+                <li class="breadcrumb-item"><a href="">{% trans "Management" %}</a></li>
+                <li class="breadcrumb-item active">{% trans "Feedback Graph" %}</li>
             </ol>
         </nav>
     </div>
@@ -70,9 +71,9 @@
         <div class="analytics-card wow fadeInUp">
             <div class="text-center mb-5">
                 <span class="insight-badge shadow-sm">
-                    <i class="fas fa-chart-bar me-2 text-warning"></i> User Sentiment Distribution
+                    <i class="fas fa-chart-bar me-2 text-warning"></i> {% trans "User Sentiment Distribution" %}
                 </span>
-                <p class="text-muted small">Real-time visualization of student and instructor feedback across the platform.</p>
+                <p class="text-muted small">{% trans "Real-time visualization of student and instructor feedback across the platform." %}</p>
             </div>
 
             <div class="chart-container">
@@ -92,18 +93,26 @@
     const rating4Count = {{ rating_counts.rating4 }};
     const rating5Count = {{ rating_counts.rating5 }};
 
+    // Localized Labels for the Chart
+    const labelVerySad = "{% trans '😢 Very Sad' %}";
+    const labelNeutral = "{% trans '😐 Neutral' %}";
+    const labelHappy = "{% trans '😊 Happy' %}";
+    const labelExcited = "{% trans '😄 Excited' %}";
+    const labelExceptional = "{% trans '🌟 Exceptional' %}";
+    const labelDataset = "{% trans 'Total Responses' %}";
+    const labelTooltip = "{% trans 'Responses' %}";
+
     const sentimentsData = {
-        labels: ['😢 Very Sad', '😐 Neutral', '😊 Happy', '😄 Excited', '🌟 Exceptional'],
+        labels: [labelVerySad, labelNeutral, labelHappy, labelExcited, labelExceptional],
         datasets: [{
-            label: 'Total Responses',
+            label: labelDataset,
             data: [rating1Count, rating2Count, rating3Count, rating4Count, rating5Count],
-            // Using brand colors: Forest Green variations and Amber
             backgroundColor: [
-                'rgba(211, 47, 47, 0.7)',  // Red for sad
+                'rgba(211, 47, 47, 0.7)',   // Red for sad
                 'rgba(117, 117, 117, 0.7)', // Grey for neutral
-                'rgba(46, 125, 50, 0.6)',   // Light Forest
-                'rgba(27, 94, 32, 0.8)',    // Deep Forest
-                'rgba(255, 160, 0, 0.9)'    // Brand Amber
+                'rgba(46, 125, 50, 0.6)',    // Light Forest
+                'rgba(27, 94, 32, 0.8)',     // Deep Forest
+                'rgba(255, 160, 0, 0.9)'     // Brand Amber
             ],
             borderColor: [
                 '#d32f2f',
@@ -113,7 +122,7 @@
                 '#FFA000'
             ],
             borderWidth: 2,
-            borderRadius: 15, // Modern rounded bars
+            borderRadius: 15, 
             barThickness: 80,
             maxBarThickness: 100
         }]
@@ -138,7 +147,7 @@
                     displayColors: false,
                     callbacks: {
                         label: function(context) {
-                            return ' Responses: ' + context.raw;
+                            return ' ' + labelTooltip + ': ' + context.raw;
                         }
                     }
                 }

@@ -1,5 +1,6 @@
 {% extends 'instructor/base_ins.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 <style>
@@ -92,12 +93,12 @@
 
 
     <div class="pagetitle wow fadeInDown">
-        <h1>Task Orchestrator</h1>
+        <h1>{% trans "Task Orchestrator" %}</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="">Faculty Hub</a></li>
-                <li class="breadcrumb-item"><a href="">Time Management</a></li>
-                <li class="breadcrumb-item active">Add New Task</li>
+                <li class="breadcrumb-item"><a href="">{% trans "Faculty Hub" %}</a></li>
+                <li class="breadcrumb-item"><a href="">{% trans "Time Management" %}</a></li>
+                <li class="breadcrumb-item active">{% trans "Add New Task" %}</li>
             </ol>
         </nav>
     </div>
@@ -115,12 +116,12 @@
 
     <section class="section">
         <div class="form-card-premium wow fadeInUp">
-            <h2 class="form-title-scholarly">Create Performance Milestone</h2>
+            <h2 class="form-title-scholarly">{% trans "Create Performance Milestone" %}</h2>
             
             <div class="instructor-helper">
                 <p class="small mb-0 text-dark fw-bold">
                     <i class="fas fa-stopwatch me-2 text-success"></i> 
-                    Assign specific time-bound tasks to scholars to measure and cultivate their time management proficiencies.
+                    {% trans "Assign specific time-bound tasks to scholars to measure and cultivate their time management proficiencies." %}
                 </p>
             </div>
 
@@ -128,43 +129,43 @@
                 {% csrf_token %}
                 
                 <div class="mb-4">
-                    <label for="title" class="form-label-premium">Scholastic Task Title</label>
-                    <input type="text" id="title" name="title" class="input-premium shadow-sm" placeholder="e.g., Weekly Ethics Analysis Report" required>
+                    <label for="title" class="form-label-premium">{% trans "Scholastic Task Title" %}</label>
+                    <input type="text" id="title" name="title" class="input-premium shadow-sm" placeholder="{% trans 'e.g., Weekly Ethics Analysis Report' %}" required>
                 </div>
 
                 <div class="mb-4">
-                    <label for="description" class="form-label-premium">Detailed Objective / Description</label>
-                    <textarea id="description" name="description" class="input-premium shadow-sm" rows="4" placeholder="Clearly outline the task requirements..." required></textarea>
+                    <label for="description" class="form-label-premium">{% trans "Detailed Objective / Description" %}</label>
+                    <textarea id="description" name="description" class="input-premium shadow-sm" rows="4" placeholder="{% trans 'Clearly outline the task requirements...' %}" required></textarea>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6 mb-4">
-                        <label for="due_date" class="form-label-premium">Submission Deadline</label>
+                        <label for="due_date" class="form-label-premium">{% trans "Submission Deadline" %}</label>
                         <input type="datetime-local" id="due_date" name="due_date" class="input-premium shadow-sm" required>
                     </div>
 
                     <div class="col-md-6 mb-4">
-                        <label for="grade_level" class="form-label-premium">Evaluation Tier (Grade)</label>
+                        <label for="grade_level" class="form-label-premium">{% trans "Evaluation Tier (Grade)" %}</label>
                         <select id="grade_level" name="grade_level" class="form-select input-premium shadow-sm" required>
-                            <option value="" disabled selected>Select Tier</option>
-                            <option value="A">Grade A (Elite Performance)</option>
-                            <option value="B">Grade B (High Proficiency)</option>
-                            <option value="C">Grade C (Standard Level)</option>
-                            <option value="D">Grade D (Foundational)</option>
+                            <option value="" disabled selected>{% trans "Select Tier" %}</option>
+                            <option value="A">{% trans "Grade A (Elite Performance)" %}</option>
+                            <option value="B">{% trans "Grade B (High Proficiency)" %}</option>
+                            <option value="C">{% trans "Grade C (Standard Level)" %}</option>
+                            <option value="D">{% trans "Grade D (Foundational)" %}</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="mt-4">
                     <button type="submit" class="btn btn-create-task">
-                        Deploy Task to Scholars <i class="bi bi-send ms-2"></i>
+                        {% trans "Deploy Task to Scholars" %} <i class="bi bi-send ms-2"></i>
                     </button>
                 </div>
             </form>
 
             <div class="text-center mt-4">
                 <a href="{% url 'time_task_list' %}" class="text-muted small text-decoration-none">
-                    <i class="bi bi-arrow-left me-1"></i> Return to Task Manager
+                    <i class="bi bi-arrow-left me-1"></i> {% trans "Return to Task Manager" %}
                 </a>
             </div>
         </div>

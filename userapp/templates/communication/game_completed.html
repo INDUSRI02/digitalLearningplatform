@@ -1,5 +1,6 @@
 {% extends 'base_dashboard.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 <style>
@@ -102,27 +103,27 @@
 <div class="container-fluid completion-wrapper">
     <div class="achievement-card wow zoomIn" data-wow-delay="0.1s">
         
-        <div class="achievement-badge">Challenge Mastered</div>
+        <div class="achievement-badge">{% trans "Challenge Mastered" %}</div>
         
         <div class="confetti-icon">
             <i class="fas fa-trophy"></i>
         </div>
 
-        <h2>Congratulations!</h2>
-        <p>You have demonstrated excellence and completed all the communication challenges successfully!</p>
+        <h2>{% trans "Congratulations!" %}</h2>
+        <p>{% trans "You have demonstrated excellence and completed all the communication challenges successfully!" %}</p>
 
         <div class="d-flex flex-wrap justify-content-center mt-4">
             <a href="{% url 'communication_challenge' %}" class="btn-restart shadow">
-                <i class="fas fa-redo me-2"></i> Restart Game
+                <i class="fas fa-redo me-2"></i> {% trans "Restart Game" %}
             </a>
             
             <a href="{% url 'dashboard' %}" class="btn-dashboard-return">
-                <i class="fas fa-th-large me-2"></i> Return to Arena
+                <i class="fas fa-th-large me-2"></i> {% trans "Return to Arena" %}
             </a>
         </div>
 
         <div class="mt-5 pt-4 border-top">
-            <p class="small text-muted">Your progress has been recorded in your student profile achievements.</p>
+            <p class="small text-muted">{% trans "Your progress has been recorded in your student profile achievements." %}</p>
         </div>
     </div>
 </div>
