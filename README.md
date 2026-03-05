@@ -46,12 +46,16 @@ The system follows the **Django MVT (Model-View-Template) architecture**.
 
 Frontend (HTML + CSS + JavaScript)
 ↓
+
 Django Templates & Views
 ↓
+
 Business Logic Layer
 ↓
+
 Database (Users, Courses, Assessments, Tasks)
 ↓
+
 Analytics & Reporting Views
 
 This architecture ensures modular design, scalability, and maintainability.
