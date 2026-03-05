@@ -1,107 +1,212 @@
-# Digital Learning Platform for Rural School
+# Digital Learning Platform for Rural School Students in Nabha
 
 ## Project Overview
 
-The **Digital Learning Platform for Rural School** is a web-based learning management system designed to improve access to education in rural areas. The platform allows students to access study materials, instructors to upload courses and documents, and administrators to manage users and monitor system activities.
+The **Digital Learning Platform for Rural School Students in Nabha** is a full-stack web application developed to improve access to structured digital education for rural students.
 
-The system provides a centralized platform where learning resources can be easily shared and accessed, helping students continue their education through digital technology.
+Many rural schools face issues such as fragmented learning resources, language barriers, lack of structured assessments, and minimal digital monitoring by teachers. This platform provides a centralized system where administrators, instructors, and students interact through dedicated portals to manage learning resources, tasks, and academic performance.
 
----
-
-## Objectives
-
-* Provide easy access to educational resources for rural students.
-* Enable instructors to upload learning materials and manage courses.
-* Allow administrators to manage students, instructors, and system activities.
-* Improve digital learning accessibility through a simple web interface.
+The system is built using the **Django framework** and follows a **role-based architecture** to ensure proper access control and workflow management.
 
 ---
 
-## System Modules
+## Problem Statement
 
-### 1. Admin Module
+Rural school students often lack organized digital learning systems. Existing platforms are usually complex, urban-focused, or lack features such as bilingual support and performance tracking suitable for rural environments.
 
-The administrator manages the entire system.
+This project addresses these challenges by providing:
 
-Functions:
+* Structured learning modules
+* Teacher-driven curriculum design
+* Student performance tracking
+* Administrative monitoring and analytics
+* Lightweight user interface suitable for low-end devices
+
+---
+
+## Solution Provided
+
+The platform provides a **complete digital learning ecosystem** including:
+
+* Admin, Instructor, and Student portals
+* Curriculum and course management
+* Assessment bank for question management
+* Time management system for task assignments
+* Student performance tracking
+* Feedback system with sentiment analysis
+* Analytics dashboard for administrators
+
+The system is fully functional and designed as a **production-style academic system rather than a prototype**. 
+
+---
+
+# System Architecture
+
+The system follows the **Django MVT (Model-View-Template) architecture**.
+
+Frontend (HTML + CSS + JavaScript)
+↓
+Django Templates & Views
+↓
+Business Logic Layer
+↓
+Database (Users, Courses, Assessments, Tasks)
+↓
+Analytics & Reporting Views
+
+This architecture ensures modular design, scalability, and maintainability.
+
+---
+
+# Modules of the System
+
+## 1. Admin Module
+
+The administrator manages the entire platform.
+
+Features:
 
 * Manage students and instructors
-* Approve instructor registrations
-* View system dashboard
-* Monitor courses and uploaded materials
-* Remove users if required
+* Monitor system activities
+* View analytics and reports
+* Manage feedback and system performance
 
-### 2. Instructor Module
+---
 
-Instructors are responsible for teaching and uploading course content.
+## 2. Instructor Module
 
-Functions:
+Instructors are responsible for designing course content and evaluating students.
 
-* Upload study materials
-* Manage courses
-* View enrolled students
-* Track student progress
+Features:
 
-### 3. Student Module
+* Curriculum creation and topic management
+* Upload learning materials
+* Create assessments
+* Assign tasks and deadlines
+* Track student performance
 
-Students can access the learning platform and view course materials.
+---
 
-Functions:
+## 3. Student Module
 
-* Register and login
-* View available courses
-* Access study materials
+Students interact with the learning platform through the student portal.
+
+Features:
+
+* Student dashboard
+* View assigned tasks
+* Access learning materials
+* Submit feedback
 * Update profile information
 
 ---
 
-## Technologies Used
+## 4. Assessment Bank
 
-### Frontend
+The platform includes a centralized question management system.
 
-* HTML
+Features:
+
+* Add and manage questions
+* Create assessments
+* Maintain question database
+* Faculty-only access
+
+---
+
+## 5. Enrollment Lab
+
+This module tracks student enrollment across courses.
+
+Features:
+
+* Scholar directory
+* Course-wise student distribution
+* Enrollment monitoring
+
+---
+
+## 6. Time Management System
+
+This module helps students maintain discipline and track academic tasks.
+
+Features:
+
+* Create performance milestones
+* Assign tasks with deadlines
+* Task completion tracking
+* Completion analytics
+
+---
+
+## 7. Feedback and Sentiment Monitoring
+
+Students can submit feedback about courses and the platform.
+
+Features:
+
+* Feedback submission
+* Sentiment classification
+* Visualization of satisfaction trends
+
+---
+
+# Machine Learning Component
+
+The project integrates **Machine Learning for feedback sentiment analysis**.
+
+The ML component processes student feedback and automatically classifies it into:
+
+* Positive
+* Neutral
+* Negative
+
+This helps administrators understand student satisfaction and detect issues early. 
+
+### ML Workflow
+
+Student submits feedback
+↓
+Feedback stored in database
+↓
+Text preprocessing
+↓
+Feature extraction (Bag-of-Words / term frequency)
+↓
+Sentiment classification
+↓
+Results displayed in admin analytics dashboard
+
+This automation reduces the need for manual analysis of feedback.
+
+---
+
+# Technology Stack
+
+## Frontend
+
+* HTML5
 * CSS
-* Bootstrap
 * JavaScript
+* Django Templates
 
-### Backend
+## Backend
 
 * Python
 * Django Framework
 
-### Database
+## Database
 
-* SQLite3
+* SQLite (Django ORM managed)
 
-### Other Tools
+## Development Tools
 
 * Visual Studio Code
-* GitHub for version control
+* Git & GitHub
 
 ---
 
-## System Architecture
-
-The project follows the **Model-View-Template (MVT)** architecture used by Django.
-
-* **Model** – Handles database structure and data management.
-* **View** – Contains the business logic.
-* **Template** – Handles the user interface and presentation layer.
-
----
-
-## Features
-
-* User authentication (Login & Registration)
-* Role-based access (Admin, Instructor, Student)
-* Course and document management
-* Multilingual support (English, Hindi, Telugu)
-* Email notification system
-* Profile management
-
----
-
-## Installation and Setup
+# Installation and Setup
 
 ### Step 1: Clone the Repository
 
@@ -115,7 +220,7 @@ git clone https://github.com/yourusername/Digital-Learning-Platform-for-Rural-Sc
 cd Digital-Learning-Platform-for-Rural-School
 ```
 
-### Step 3: Install Required Packages
+### Step 3: Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -134,49 +239,42 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-### Step 6: Open in Browser
+### Step 6: Open the Application
 
 ```
-http://127.0.0.1:8000/
-```
-
----
-
-## Folder Structure
-
-```
-Digital-Learning-Platform-for-Rural-School
-│
-├── adminapp
-├── userapp
-├── instructorapp
-├── media
-├── static
-├── templates
-├── db.sqlite3
-├── manage.py
-└── gameProject
+http://127.0.0.1:8000
 ```
 
 ---
 
-## Future Enhancements
+# Project Workflow
+
+1. Admin initializes the platform
+2. Instructors create curriculum and assessments
+3. Students enroll in courses
+4. Tasks and assignments are assigned
+5. Students complete tasks and submit feedback
+6. System records performance and analytics
+7. Admin reviews results and platform insights
+
+---
+
+# Future Enhancements
 
 * Mobile application integration
 * Video lecture streaming
-* AI-based personalized learning recommendations
-* Online examinations and automatic grading
-* Advanced analytics dashboard
+* AI-based learning recommendations
+* Advanced student performance prediction
+* Adaptive learning modules
 
 ---
 
-## Conclusion
+# Conclusion
 
-The Digital Learning Platform for Rural School helps bridge the educational gap by providing a digital platform for learning. It enables students to access educational content easily while allowing instructors and administrators to efficiently manage courses and users.
+The **Digital Learning Platform for Rural School Students in Nabha** provides a structured and scalable solution for digital education in rural areas. By integrating course management, assessments, analytics, and machine learning-based feedback analysis, the platform enables better learning experiences and improved academic monitoring.
 
 ---
 
-## Author
+# Author
 
-Project developed as part of an academic project submission.
-
+Developed as part of an academic project submission
