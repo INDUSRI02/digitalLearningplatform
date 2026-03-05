@@ -1497,7 +1497,7 @@ def view_completed_tasks(request):
 from io import TextIOWrapper
 import pickle
 import joblib
-from transformers import AlbertTokenizer
+from transformers import AlbertTokenizerFast
 from tensorflow.keras.models import model_from_json
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from django.shortcuts import render, redirect, get_object_or_404
@@ -1506,7 +1506,9 @@ from .models import Feedback, User
 
 
 print("Loading tokenizer...")
-loaded_tokenizer = AlbertTokenizer.from_pretrained('amazone review/albert_tokenizer')
+loaded_tokenizer = AlbertTokenizerFast.from_pretrained(
+    "amazone review/albert_tokenizer"
+)
 
 
 print("Loading label encoder...")
